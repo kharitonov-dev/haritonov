@@ -1,0 +1,274 @@
+/* Базовые сбросы и шрифты */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
+    background-color: #f9f9f9;
+    color: #1e1e1e;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+/* Типографика и цвета */
+a {
+    color: #0066cc;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+a:hover {
+    border-bottom-color: #0066cc;
+}
+
+.accent {
+    color: #0066cc;
+    font-weight: 500;
+}
+
+.prompt {
+    color: #2e8b57; /* Зеленый, как в терминале */
+    font-weight: bold;
+    margin-right: 8px;
+}
+
+/* Шапка */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-bottom: 2px solid #e0e0e0;
+    margin-bottom: 3rem;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.nav {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    color: #333;
+    font-size: 1.1rem;
+    border-bottom: none;
+}
+
+.nav-link:hover {
+    color: #0066cc;
+    border-bottom: none;
+}
+
+/* Герой (приветствие) */
+.hero {
+    margin-bottom: 4rem;
+}
+
+.hero-title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    color: #444;
+    margin-bottom: 1rem;
+    max-width: 80%;
+}
+
+/* Секции */
+.section {
+    margin-bottom: 4rem;
+}
+
+.section-title {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    border-left: 4px solid #2e8b57;
+    padding-left: 1rem;
+}
+
+/* Опыт работы */
+.work-item {
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px dashed #ccc;
+}
+
+.work-item:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.work-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.work-company {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.work-date {
+    color: #666;
+    font-family: inherit;
+}
+
+.work-role {
+    font-size: 1.1rem;
+    color: #2e8b57;
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.work-desc {
+    list-style: none;
+}
+
+.work-desc li {
+    margin-bottom: 0.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.work-desc li::before {
+    content: "→";
+    color: #0066cc;
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+/* Контакты */
+.contact-lines {
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.contact-line {
+    display: flex;
+    align-items: baseline;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.contact-key {
+    min-width: 100px;
+    font-weight: 500;
+    color: #333;
+}
+
+.contact-sep {
+    margin: 0 1rem;
+    color: #999;
+}
+
+.contact-value {
+    word-break: break-all;
+}
+
+.resume-download {
+    margin-top: 2rem;
+}
+
+.resume-link {
+    display: inline-block;
+    background-color: #1e1e1e;
+    color: #f9f9f9;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    border-bottom: none;
+    transition: background-color 0.2s;
+}
+
+.resume-link:hover {
+    background-color: #0066cc;
+    color: white;
+    border-bottom: none;
+}
+
+.resume-link .prompt {
+    color: #f9f9f9;
+    margin-right: 10px;
+}
+
+/* Подвал */
+.footer {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 2px solid #e0e0e0;
+    text-align: center;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.footer-note {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+}
+
+/* Адаптивность */
+@media (max-width: 600px) {
+    body {
+        font-size: 15px;
+    }
+
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav {
+        gap: 1.5rem;
+    }
+
+    .hero-title {
+        font-size: 2rem;
+    }
+
+    .hero-subtitle {
+        max-width: 100%;
+        font-size: 1.1rem;
+    }
+
+    .contact-line {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+    }
+
+    .contact-key {
+        min-width: auto;
+    }
+
+    .contact-sep {
+        display: none;
+    }
+}
