@@ -216,6 +216,68 @@ a.work-link-app:hover span {
     border-bottom-color: #0066cc;
 }
 
+.extra-work-hidden {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s ease;
+}
+
+#extra-work {
+    overflow: hidden;
+    transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#showMoreBtn {
+    position: relative;
+    isolation: isolate;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+#showMoreBtn:active {
+    transform: translateY(0);
+}
+
+.profile-photo {
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.profile-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.button-style {
+    border-width: 0px;
+    cursor: pointer;
+    display: inline-block;
+    background-color: #1e1e1e;
+    color: #f9f9f9;
+    padding: 0.8rem 1.5rem;
+    border-radius: 6px;
+    font-weight: 500;
+    border-bottom: none;
+    text-decoration: none;
+    line-height: 1.6;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.button-style:hover {
+    background-color: #0066cc;
+    color: white;
+    border-bottom: none;
+}
+
+.button-style span {
+    color: #f9f9f9;
+    margin-right: 10px;
+}
+
+.block-show-more-button {
+    text-align: center;
+}
+
 /* Контакты */
 .contact-lines {
     margin-bottom: 2rem;
@@ -257,12 +319,6 @@ a.work-link-app:hover span {
     font-weight: 500;
     border-bottom: none;
     transition: background-color 0.2s;
-}
-
-.resume-link:hover {
-    background-color: #0066cc;
-    color: white;
-    border-bottom: none;
 }
 
 .resume-link .prompt {

@@ -42,7 +42,10 @@
                     </p>
                 </div>
                 <div class="hero-photo">
-                    <img src="/resources/my_photo.webp" alt="Тимофей Харитонов" class="profile-photo">
+                    <picture>
+                        <source srcset="/resources/my_photo.webp" type="image/webp">
+                        <img src="/resources/my_photo.webp" alt="Тимофей Харитонов" class="profile-photo" loading="lazy">
+                    </picture>
                 </div>
             </section>
 
@@ -50,7 +53,7 @@
                 <h2 class="section-title">
                     <span class="prompt">$</span> cd work_experience
                 </h2>
-                
+
                 <div class="work-item">
                     <div class="work-header">
                         <span class="work-company">MWS (ex. МТС Диджитал) - Приложение "Мой МТС"</span>
@@ -72,7 +75,7 @@
                         <span>Ссылка на приложение в AppStore</span>
                     </a>
                 </div>
-                
+
                 <div class="work-item">
                     <div class="work-header">
                         <span class="work-company">Декартус - Приложение "Провайдер App" (ex. "Мой Севстар", "Мой Цифровой Город")</span>
@@ -92,13 +95,47 @@
                         <span>Ссылка на приложение в AppStore</span>
                     </a>
                 </div>
+
+                <div id="extra-work">
+                    <div class="work-item">
+                        <div class="work-header">
+                            <span class="work-company">Itactis</span>
+                            <span class="work-date">09.2021 — 02.2022</span>
+                        </div>
+                        <div class="work-role">iOS Developer</div>
+                        <ul class="work-desc">
+                            <li>Работал над созданием и реализацией мобильного приложения с 0 для e-commerce проекта на котором работал ранее как frontend-разработчик.</li>
+                            <li>Реализовал экран логина, список товаров и оформление заказа.</li>
+                        </ul>
+                        <p class="footer-note">
+                            <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core Data
+                        </p>
+                    </div>
+
+                    <div class="work-item">
+                        <div class="work-header">
+                            <span class="work-company">Itactis, СД "ПРАКТИКА", Wizard promo</span>
+                            <span class="work-date">04.2019 — 09.2021</span>
+                        </div>
+                        <div class="work-role">Frontend Developer</div>
+                        <p class="footer-note">
+                            <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery, HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress, Joomla, Figma, AMO / Retail Rocket и др. внешние сервисы, Google / Яндекс аналитика
+                        </p>
+                    </div>
+                </div>
+
+                <div class="block-show-more-button">
+                    <button id="showMoreBtn" class="button-style">
+                        <span class="prompt">↓</span> Показать больше опыта
+                    </button>
+                </div>
             </section>
 
             <section id="contact" class="section">
                 <h2 class="section-title">
                     <span class="prompt">$</span> ./connect
                 </h2>
-                
+
                 <div class="contact-lines">
                     <div class="contact-line">
                         <span class="contact-key">Email</span>
@@ -122,7 +159,7 @@
                     </div>
                 </div>
                 <div class="resume-download">
-                    <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" download class="resume-link" target="_blank">
+                    <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" download class="button-style resume-link" target="_blank">
                         <span class="prompt">↓</span> Скачать резюме (PDF)
                     </a>
                 </div>
@@ -134,5 +171,7 @@
             <p class="footer-note">Swift / Objective-C, UIKit / SwiftUI, RxSwift / Combine, MVVM / VIPER / Clean Swift, GCD / OperationQueue / Swift Concurrency, REST API / GraphQL / WebSocket, Backend-Driven UI, UserDefaults / Keychain / Core Data, Unit Tests, Git / GitFlow, CI/CD (Fastlane), Flutter, Agile / Scrum, English Intermediate+</p>
         </footer>
     </div>
+
+    <script src="/scripts/script.js"></script>
 </body>
 </html>
