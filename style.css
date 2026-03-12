@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
     padding: 2rem 1.5rem;
 }
@@ -31,13 +31,8 @@ a:hover {
     border-bottom-color: #0066cc;
 }
 
-.accent {
-    color: #0066cc;
-    font-weight: 500;
-}
-
 .prompt {
-    color: #2e8b57; /* Зеленый, как в терминале */
+    color: #2e8b57;
     font-weight: bold;
     margin-right: 8px;
 }
@@ -52,6 +47,12 @@ a:hover {
     margin-bottom: 3rem;
     flex-wrap: wrap;
     gap: 1rem;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 
 .logo {
@@ -76,9 +77,16 @@ a:hover {
     border-bottom: none;
 }
 
-/* Герой (приветствие) */
+/* Hero секция с фото */
 .hero {
+    display: flex;
+    gap: 3rem;
     margin-bottom: 4rem;
+    align-items: flex-start;
+}
+
+.hero-content {
+    flex: 2;
 }
 
 .hero-title {
@@ -92,7 +100,24 @@ a:hover {
     font-size: 1.0rem;
     color: #444;
     margin-bottom: 1rem;
-    max-width: 80%;
+}
+
+/* Фото */
+.hero-photo {
+    flex: 1;
+    max-width: 300px;
+}
+
+.profile-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.2s ease;
+}
+
+.profile-photo:hover {
+    transform: scale(1.02);
 }
 
 /* Секции */
@@ -235,6 +260,21 @@ a:hover {
 }
 
 /* Адаптивность */
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+    }
+    
+    .hero-photo {
+        max-width: 250px;
+        margin: 0 auto;
+    }
+    
+    .hero-title {
+        font-size: 1.8rem;
+    }
+}
+
 @media (max-width: 600px) {
     body {
         font-size: 15px;
@@ -243,6 +283,11 @@ a:hover {
     .header {
         flex-direction: column;
         align-items: flex-start;
+    }
+    
+    .header-right {
+        width: 100%;
+        justify-content: space-between;
     }
 
     .nav {

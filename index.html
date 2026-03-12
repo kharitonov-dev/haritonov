@@ -5,10 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Тимофей Харитонов · iOS Developer</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
     <link rel="shortcut icon" href="favicon.ico">
-    <!-- Код Яндекс.Метрики -->
 </head>
 <body>
     <div class="container">
@@ -16,34 +15,42 @@
             <div class="logo">
                 <span class="prompt">$</span> Тимофей Харитонов
             </div>
-            <nav class="nav">
-                <a href="#about" class="nav-link">/about</a>
-                <a href="#work" class="nav-link">/work</a>
-                <a href="#contact" class="nav-link">/contact</a>
-            </nav>
+            <div class="header-right">
+                <nav class="nav">
+                    <a href="#about" class="nav-link">/about</a>
+                    <a href="#work" class="nav-link">/work</a>
+                    <a href="#contact" class="nav-link">/contact</a>
+                </nav>
+            </div>
         </header>
 
         <main>
+            <!-- Секция "О себе" с фотографией -->
             <section id="about" class="hero">
-                <h1 class="hero-title">
-                    <span class="prompt">></span> 
-                    iOS-разработчик с 6+ годами<br> коммерческого опыта,
-                </h1>
-                <p class="hero-subtitle">
-                    увлеченный созданием интуитивно понятных и быстрых приложений. Верю в чистый код, продуманную архитектуру и идеальный пользовательский опыт.<br>
-                </p>
-                <p class="hero-subtitle">
-                    Активно принимаю участие в it-сообществе, слежу за трендами через профильные конференции. Являюсь спикером <span class="accent">Mobius Conf 2025</span> и надеюсь в будущем, других крупных площадок. Номинант на "Сотрудник года 2025" в <span class="accent">MWS (ex. МТС)</span>.
-                </p>
-                <p class="hero-subtitle">                
-                    Вне кода увлекаюсь бегом и хоккеем. Играю за местную любительскую команду. Люблю путешествовать с семьей и друзьями. Ценю баланс между работой и активной жизнью.
-                </p>
+                <div class="hero-content">
+                    <h1 class="hero-title">
+                        <span class="prompt">></span> iOS-разработчик с 6+ годами<br>коммерческого опыта,
+                    </h1>
+                    <p class="hero-text">
+                        увлеченный созданием интуитивно понятных и быстрых приложений. Верю в чистый код, продуманную архитектуру и идеальный пользовательский опыт.
+                    </p>
+                    <p class="hero-text">
+                        Активно принимаю участие в it-сообществе, слежу за трендами через профильные конференции. Являюсь спикером Mobius Conf 2025 и надеюсь в будущем, других крупных площадок. Номинант на "Сотрудник года 2025" в MWS (ex. МТС).
+                    </p>
+                    <p class="hero-text">
+                        Вне кода увлекаюсь бегом и хоккеем. Играю за местную любительскую команду. Люблю путешествовать с семьей и друзьями. Ценю баланс между работой и активной жизнью.
+                    </p>
+                </div>
+                <div class="hero-photo">
+                    <img src="/resources/my_photo.webp" alt="Тимофей Харитонов" class="profile-photo">
+                </div>
             </section>
 
             <section id="work" class="section">
                 <h2 class="section-title">
                     <span class="prompt">$</span> cd work_experience
                 </h2>
+                
                 <div class="work-item">
                     <div class="work-header">
                         <span class="work-company">MWS (ex. МТС Диджитал), проект "Мой МТС"</span>
@@ -51,7 +58,7 @@
                     </div>
                     <div class="work-role">iOS Developer</div>
                     <ul class="work-desc">
-                        <li>Реализовал масштабируемые шрифты (Accessibility) для экосистемных проектов МТС через контрибьют в SDK Дизайн-системы и поделился жизненным циклом фичи на <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="contact-value">Mobius</a> [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value">GitHub Project</a>]. Влияние на пользователей приложения “Мой МТС” 26,7% (MAU 30млн).</li>
+                        <li>Реализовал масштабируемые шрифты (Accessibility) для экосистемных проектов МТС через контрибьют в SDK Дизайн-системы и поделился жизненным циклом фичи на <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="contact-value" target="_blank">Mobius</a> [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value" target="_blank">GitHub Project</a>]. Влияние на пользователей приложения “Мой МТС” 26,7% (MAU 30млн).</li>
                         <li>Внедряю и пропагандирую SwiftUI: разработал сплэш-экран с фоновой загрузкой данных, - пользователь бесшовно попадает на готовый главный экран.</li>
                         <li>В целом улучшаю пользовательский опыт, занимаюсь персонализацией и кастомизацией приложения.</li>
                         <li>Также из ключевых фич: аренда повербанка (Юрент), ребрендинг, онбординги, модуль авторизации, миграция на GraphQL (сетевой слой + логгер).</li>
@@ -61,9 +68,10 @@
                         <span class="accent">Stack:</span>
                         iOS 15+, Swift, MVP / MVVM, Swift Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket / GraphQL, Keychain / Core Data, Unit-тесты, Widgets, Accessibility
                     </p>
-                    <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="contact-value">Ссылка на приложение в AppStore</a>
+                    <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="contact-value" target="_blank">Ссылка на приложение в AppStore</a>
                 </div>
-                 <div class="work-item">
+                
+                <div class="work-item">
                     <div class="work-header">
                         <span class="work-company">Sevstar</span>
                         <span class="work-date">02.2022 — 04.2023</span>
@@ -78,7 +86,7 @@
                         <span class="accent">Stack:</span>
                         iOS 12+, Swift / Objective-C, MVVM + RxSwift / Combine, Async / Await, REST API, Firebase, GCD, UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
                     </p>
-                    <a href="https://apps.apple.com/ru/app/мой-цифровой-город/id1597274109" class="contact-value">Ссылка на приложение в AppStore</a>
+                    <a href="https://apps.apple.com/ru/app/мой-цифровой-город/id1597274109" class="contact-value" target="_blank">Ссылка на приложение в AppStore</a>
                 </div>
             </section>
 
@@ -86,30 +94,31 @@
                 <h2 class="section-title">
                     <span class="prompt">$</span> ./connect
                 </h2>
+                
                 <div class="contact-lines">
                     <div class="contact-line">
                         <span class="contact-key">Email</span>
                         <span class="contact-sep">:</span>
-                        <a href="mailto:dev.kharitonov@yandex.ru " class="contact-value">dev.kharitonov@yandex.ru </a>
+                        <a href="mailto:dev.kharitonov@yandex.ru " class="contact-value" target="_blank">dev.kharitonov@yandex.ru </a>
                     </div>
                     <div class="contact-line">
                         <span class="contact-key">Telegram</span>
                         <span class="contact-sep">:</span>
-                        <a href="https://t.me/bytim" target="_blank" class="contact-value">@bytim</a>
+                        <a href="https://t.me/bytim" target="_blank" class="contact-value" target="_blank">@bytim</a>
                     </div>
                     <div class="contact-line">
                         <span class="contact-key">GitHub</span>
                         <span class="contact-sep">:</span>
-                        <a href="https://github.com/kharitonov-dev" target="_blank" class="contact-value">/kharitonov-dev</a>
+                        <a href="https://github.com/kharitonov-dev" target="_blank" class="contact-value" target="_blank">/kharitonov-dev</a>
                     </div>
                     <div class="contact-line">
                         <span class="contact-key">LinkedIn</span>
                         <span class="contact-sep">:</span>
-                        <a href="https://linkedin.com/in/bytim" target="_blank" class="contact-value">/in/bytim</a>
+                        <a href="https://linkedin.com/in/bytim" target="_blank" class="contact-value" target="_blank">/in/bytim</a>
                     </div>
                 </div>
                 <div class="resume-download">
-                    <a href="/resume.pdf" download class="resume-link">
+                    <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" download class="resume-link" target="_blank">
                         <span class="prompt">↓</span> Скачать резюме (PDF)
                     </a>
                 </div>
