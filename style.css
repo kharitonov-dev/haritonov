@@ -32,7 +32,7 @@ a:hover {
 }
 
 .prompt {
-    color: #2e8b57;
+    color: #F05138;
     font-weight: bold;
     margin-right: 8px;
 }
@@ -129,7 +129,7 @@ a:hover {
     font-size: 1.8rem;
     font-weight: 600;
     margin-bottom: 2rem;
-    border-left: 4px solid #2e8b57;
+    border-left: 4px solid #F05138;
     padding-left: 1rem;
 }
 
@@ -167,7 +167,7 @@ a:hover {
 
 .work-role {
     font-size: 1.1rem;
-    color: #2e8b57;
+    color: #F05138;
     margin-bottom: 1rem;
     font-weight: 500;
 }
@@ -188,6 +188,32 @@ a:hover {
     position: absolute;
     left: 0;
     font-weight: bold;
+}
+
+.work-link-app {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.work-link-app img {
+    border-radius: 7px;
+    max-width: 30px;
+    max-height: 30px;
+}
+
+.work-link-app span {
+    border-bottom: 1px solid transparent;
+}
+
+a.work-link-app:hover {
+    border-bottom-color: transparent;
+}
+
+a.work-link-app:hover span {
+    border-bottom-color: #0066cc;
 }
 
 /* Контакты */
