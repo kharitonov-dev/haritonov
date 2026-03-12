@@ -184,7 +184,7 @@ a:hover {
 
 .work-desc li::before {
     content: "→";
-    color: #0066cc;
+    color: #F05138;
     position: absolute;
     left: 0;
     font-weight: bold;
