@@ -1,252 +1,381 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Тимофей Харитонов · iOS Developer</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png" />
+    <link rel="shortcut icon" href="favicon.ico" />
 
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "Person",
-      "name": "Тимофей Харитонов",
-      "alternateName": "Timofey Kharitonov",
-      "description": "iOS-разработчик с 7+ годами коммерческого опыта. Спикер Mobius Conf 2025, номинант 'Сотрудник года 2025' в MWS (ex. МТС). Увлекаюсь бегом и хоккеем.",
-      "image": "https://haritonov.me/resources/my_photo.webp",
-      "url": "https://haritonov.me/",
-      "sameAs": [
-        "https://t.me/bytim",
-        "https://linkedin.com/in/bytim",
-        "https://www.instagram.com/by.tim/",
-        "https://github.com/kharitonov-dev"
-      ],
-      "jobTitle": "iOS Developer",
-      "worksFor": {
-        "@type": "Organization",
-        "name": "MWS (ex. МТС Диджитал)",
-        "description": "Приложение 'Мой МТС'",
-        "sameAs": "https://apps.apple.com/ru/app/мой-мтс/id1069871095"
-      },
-      "hasCredential": [
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "experience",
-          "name": "7+ лет коммерческой разработки"
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Тимофей Харитонов",
+        "alternateName": "Timofey Kharitonov",
+        "description": "iOS-разработчик с 7+ годами коммерческого опыта. Спикер Mobius Conf 2025, номинант 'Сотрудник года 2025' в MWS (ex. МТС). Увлекаюсь бегом и хоккеем.",
+        "image": "https://haritonov.me/resources/my_photo.webp",
+        "url": "https://haritonov.me/",
+        "sameAs": [
+          "https://t.me/bytim",
+          "https://linkedin.com/in/bytim",
+          "https://www.instagram.com/by.tim/",
+          "https://github.com/kharitonov-dev"
+        ],
+        "jobTitle": "iOS Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "MWS (ex. МТС Диджитал)",
+          "description": "Приложение 'Мой МТС'",
+          "sameAs": "https://apps.apple.com/ru/app/мой-мтс/id1069871095"
         },
-        {
-          "@type": "EducationalOccupationalCredential",
-          "credentialCategory": "achievement",
-          "name": "Номинант на 'Сотрудник года 2025' в MWS"
-        }
-      ],
-      "knowsAbout": [
-        "iOS dev", "Swift", "Objective-C",
-        "SwiftUI", "UIKit", "RxSwift", "Combine",
-        "MVP", "MVVM", "VIPER", "Clean Swift",
-        "GCD", "OperationQueue", "Swift Concurrency",
-        "REST API", "GraphQL", "WebSocket",
-        "Backend-Driven UI", "UserDefaults", "Keychain", 
-        "Core Data", "Accessibility", "Unit Testing", 
-        "UI Testing"
-      ],
-      "workFeatured": {
-        "@type": "Event",
-        "name": "Mobius Conf 2025",
-        "startDate": "2025-04-10",
-        "location": {
-            "@type": "Place",
-            "name": "Москва, Россия",
-            "address": "Москва"
+        "hasCredential": [
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "experience",
+            "name": "7+ лет коммерческой разработки"
+          },
+          {
+            "@type": "EducationalOccupationalCredential",
+            "credentialCategory": "achievement",
+            "name": "Номинант на 'Сотрудник года 2025' в MWS"
+          }
+        ],
+        "knowsAbout": [
+          "iOS dev",
+          "Swift",
+          "Objective-C",
+          "SwiftUI",
+          "UIKit",
+          "RxSwift",
+          "Combine",
+          "MVP",
+          "MVVM",
+          "VIPER",
+          "Clean Swift",
+          "GCD",
+          "OperationQueue",
+          "Swift Concurrency",
+          "REST API",
+          "GraphQL",
+          "WebSocket",
+          "Backend-Driven UI",
+          "UserDefaults",
+          "Keychain",
+          "Core Data",
+          "Accessibility",
+          "Unit Testing",
+          "UI Testing"
+        ],
+        "performerIn": {
+          "@type": "Event",
+          "name": "Mobius Conf 2025",
+          "description": "Выступление с докладом о реализации масштабируемых шрифтов (Accessibility) для экосистемы МТС"
         },
-        "description": "Выступление с докладом о реализации масштабируемых шрифтов (Accessibility) для экосистемы МТС"
-      },
-      "alumniOf": {
-        "@type": "Organization",
-        "name": "Декартус (Приложение 'Провайдер App')",
-        "description": "iOS разработчик (02.2022 — 04.2023)"
-      },
-      "knowsLanguage": [
-        {
-          "@type": "Language",
-          "name": "Русский",
-          "alternateName": "ru"
+        "alumniOf": {
+          "@type": "Organization",
+          "name": "Декартус (Приложение 'Провайдер App')",
+          "description": "iOS разработчик (02.2022 — 04.2023)"
         },
-        {
-          "@type": "Language",
-          "name": "Английский",
-          "alternateName": "en"
-        }
-      ]
-    }
+        "knowsLanguage": [
+          {
+            "@type": "Language",
+            "name": "Русский",
+            "alternateName": "ru"
+          },
+          {
+            "@type": "Language",
+            "name": "Английский",
+            "alternateName": "en"
+          }
+        ]
+      }
     </script>
-</head>
-<body>
+  </head>
+  <body>
     <div class="container">
-        <header class="header">
-            <div class="logo">
-                <span class="prompt">$</span> Тимофей Харитонов
+      <header class="header">
+        <div class="logo"><span class="prompt">$</span> Тимофей Харитонов</div>
+        <div class="header-right">
+          <nav class="nav">
+            <a href="#about" class="nav-link">/about</a>
+            <a href="#work" class="nav-link">/work</a>
+            <a href="#contact" class="nav-link">/contact</a>
+          </nav>
+        </div>
+      </header>
+
+      <main>
+        <!-- Секция "О себе" с фотографией -->
+        <section id="about" class="hero">
+          <div class="hero-content">
+            <h1 class="hero-title">
+              <span class="prompt">></span> iOS-разработчик с 7+ годами<br />коммерческого
+              опыта,
+            </h1>
+            <p class="hero-text">
+              увлеченный созданием интуитивно понятных и быстрых приложений.
+              Верю в чистый код, продуманную архитектуру и идеальный
+              пользовательский опыт.
+            </p>
+            <p class="hero-text">
+              Активно принимаю участие в it-сообществе, слежу за трендами через
+              профильные конференции. Являюсь спикером Mobius Conf 2025 и
+              надеюсь в будущем, других крупных площадок. Номинант на "Сотрудник
+              года 2025" в MWS (ex. МТС).
+            </p>
+            <p class="hero-text">
+              Вне кода увлекаюсь бегом и хоккеем. Играю за местную любительскую
+              команду. Люблю путешествовать с семьей и друзьями. Ценю баланс
+              между работой и активной жизнью.
+            </p>
+          </div>
+          <div class="hero-photo">
+            <picture>
+              <source srcset="/resources/my_photo.webp" type="image/webp" />
+              <img
+                src="/resources/my_photo.webp"
+                alt="Тимофей Харитонов"
+                class="profile-photo"
+                loading="lazy"
+              />
+            </picture>
+          </div>
+        </section>
+
+        <section id="work" class="section">
+          <h2 class="section-title">
+            <span class="prompt">$</span> cd work_experience
+          </h2>
+
+          <div class="work-item">
+            <div class="work-header">
+              <span class="work-company"
+                >MWS (ex. МТС Диджитал) - Приложение "Мой МТС"</span
+              >
+              <span class="work-date">04.2023 — н.в.</span>
             </div>
-            <div class="header-right">
-                <nav class="nav">
-                    <a href="#about" class="nav-link">/about</a>
-                    <a href="#work" class="nav-link">/work</a>
-                    <a href="#contact" class="nav-link">/contact</a>
-                </nav>
+            <div class="work-role">iOS Developer</div>
+            <ul class="work-desc">
+              <li>
+                Реализовал масштабируемые шрифты (Accessibility) для
+                экосистемных проектов МТС через контрибьют в SDK Дизайн-системы
+                и поделился жизненным циклом фичи на
+                <a
+                  href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
+                  class="contact-value"
+                  target="_blank"
+                  >Mobius</a
+                >
+                [<a
+                  href="https://github.com/kharitonov-dev/a11y"
+                  class="contact-value"
+                  target="_blank"
+                  >GitHub Project</a
+                >]. Влияние на пользователей приложения “Мой МТС” 26,7% (MAU
+                30млн).
+              </li>
+              <li>
+                Внедряю и пропагандирую SwiftUI: разработал сплэш-экран с
+                фоновой загрузкой данных, - пользователь бесшовно попадает на
+                готовый главный экран.
+              </li>
+              <li>
+                В целом улучшаю пользовательский опыт, занимаюсь персонализацией
+                и кастомизацией приложения.
+              </li>
+              <li>
+                Также из ключевых фич: аренда повербанка (Юрент), ребрендинг,
+                онбординги, модуль авторизации, миграция на GraphQL (сетевой
+                слой + логгер).
+              </li>
+              <li>Code Review, проведение собеседований и менторство.</li>
+            </ul>
+            <p class="footer-note">
+              <strong>Stack:</strong> iOS 15+, Swift, MVP / MVVM, Swift
+              Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket /
+              GraphQL, Keychain / Core Data, Unit-тесты, Widgets, Accessibility
+            </p>
+            <a
+              href="https://apps.apple.com/ru/app/мой-мтс/id1069871095"
+              class="work-link-app contact-value"
+              target="_blank"
+            >
+              <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp"
+                alt="MWS"
+                width="30"
+              />
+              <span>Ссылка на приложение в AppStore</span>
+            </a>
+          </div>
+
+          <div class="work-item">
+            <div class="work-header">
+              <span class="work-company"
+                >Декартус - Приложение "Провайдер App" (ex. "Мой Севстар", "Мой
+                Цифровой Город")</span
+              >
+              <span class="work-date">02.2022 — 04.2023</span>
             </div>
-        </header>
+            <div class="work-role">iOS Developer</div>
+            <ul class="work-desc">
+              <li>
+                Реализовал модули видеодомофонии, авторизации (Touch/Face ID,
+                2FA).
+              </li>
+              <li>
+                Переписывал модули приложения с Objective-C на Swift, реализовал
+                новый сетевой слой (REST API, Alamofire), разработал и вынес в
+                dev SDK функционал по пуш-уведомлениям (Rich Push
+                Notifications).
+              </li>
+              <li>
+                После поднятия таргета до 13 iOS использовал Combine и Async /
+                Await.
+              </li>
+            </ul>
+            <p class="footer-note">
+              <strong>Stack:</strong> iOS 12+, Swift / Objective-C, MVVM +
+              RxSwift / Combine, Async / Await, REST API, Firebase, GCD,
+              UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
+            </p>
+            <a
+              href="https://apps.apple.com/ru/app/провайдер-app/id6742094590"
+              class="work-link-app contact-value"
+              target="_blank"
+            >
+              <img
+                src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp"
+                alt="Провайдер App"
+                width="30"
+              />
+              <span>Ссылка на приложение в AppStore</span>
+            </a>
+          </div>
 
-        <main>
-            <!-- Секция "О себе" с фотографией -->
-            <section id="about" class="hero">
-                <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span class="prompt">></span> iOS-разработчик с 7+ годами<br>коммерческого опыта,
-                    </h1>
-                    <p class="hero-text">
-                        увлеченный созданием интуитивно понятных и быстрых приложений. Верю в чистый код, продуманную архитектуру и идеальный пользовательский опыт.
-                    </p>
-                    <p class="hero-text">
-                        Активно принимаю участие в it-сообществе, слежу за трендами через профильные конференции. Являюсь спикером Mobius Conf 2025 и надеюсь в будущем, других крупных площадок. Номинант на "Сотрудник года 2025" в MWS (ex. МТС).
-                    </p>
-                    <p class="hero-text">
-                        Вне кода увлекаюсь бегом и хоккеем. Играю за местную любительскую команду. Люблю путешествовать с семьей и друзьями. Ценю баланс между работой и активной жизнью.
-                    </p>
-                </div>
-                <div class="hero-photo">
-                    <picture>
-                        <source srcset="/resources/my_photo.webp" type="image/webp">
-                        <img src="/resources/my_photo.webp" alt="Тимофей Харитонов" class="profile-photo" loading="lazy">
-                    </picture>
-                </div>
-            </section>
+          <div id="extra-work">
+            <div class="work-item">
+              <div class="work-header">
+                <span class="work-company">Itactis</span>
+                <span class="work-date">09.2021 — 02.2022</span>
+              </div>
+              <div class="work-role">iOS Developer</div>
+              <ul class="work-desc">
+                <li>
+                  Работал над созданием и реализацией мобильного приложения с 0
+                  для e-commerce проекта на котором работал ранее как
+                  frontend-разработчик.
+                </li>
+                <li>
+                  Реализовал экран логина, список товаров и оформление заказа.
+                </li>
+              </ul>
+              <p class="footer-note">
+                <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core
+                Data
+              </p>
+            </div>
 
-            <section id="work" class="section">
-                <h2 class="section-title">
-                    <span class="prompt">$</span> cd work_experience
-                </h2>
+            <div class="work-item">
+              <div class="work-header">
+                <span class="work-company"
+                  >Itactis, СД "ПРАКТИКА", Wizard promo</span
+                >
+                <span class="work-date">04.2019 — 09.2021</span>
+              </div>
+              <div class="work-role">Frontend Developer</div>
+              <p class="footer-note">
+                <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery,
+                HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress,
+                Joomla, Figma, AMO / Retail Rocket и др. внешние сервисы, Google
+                / Яндекс аналитика
+              </p>
+            </div>
+          </div>
 
-                <div class="work-item">
-                    <div class="work-header">
-                        <span class="work-company">MWS (ex. МТС Диджитал) - Приложение "Мой МТС"</span>
-                        <span class="work-date">04.2023 — н.в.</span>
-                    </div>
-                    <div class="work-role">iOS Developer</div>
-                    <ul class="work-desc">
-                        <li>Реализовал масштабируемые шрифты (Accessibility) для экосистемных проектов МТС через контрибьют в SDK Дизайн-системы и поделился жизненным циклом фичи на <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="contact-value" target="_blank">Mobius</a> [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value" target="_blank">GitHub Project</a>]. Влияние на пользователей приложения “Мой МТС” 26,7% (MAU 30млн).</li>
-                        <li>Внедряю и пропагандирую SwiftUI: разработал сплэш-экран с фоновой загрузкой данных, - пользователь бесшовно попадает на готовый главный экран.</li>
-                        <li>В целом улучшаю пользовательский опыт, занимаюсь персонализацией и кастомизацией приложения.</li>
-                        <li>Также из ключевых фич: аренда повербанка (Юрент), ребрендинг, онбординги, модуль авторизации, миграция на GraphQL (сетевой слой + логгер).</li>
-                        <li>Code Review, проведение собеседований и менторство.</li>
-                    </ul>
-                    <p class="footer-note">
-                        <strong>Stack:</strong> iOS 15+, Swift, MVP / MVVM, Swift Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket / GraphQL, Keychain / Core Data, Unit-тесты, Widgets, Accessibility
-                    </p>
-                    <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="work-link-app contact-value" target="_blank">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp" alt="MWS" width="30">
-                        <span>Ссылка на приложение в AppStore</span>
-                    </a>
-                </div>
+          <div class="block-show-more-button">
+            <button id="showMoreBtn" class="button-style">
+              <span class="prompt">↓</span> Показать больше опыта
+            </button>
+          </div>
+        </section>
 
-                <div class="work-item">
-                    <div class="work-header">
-                        <span class="work-company">Декартус - Приложение "Провайдер App" (ex. "Мой Севстар", "Мой Цифровой Город")</span>
-                        <span class="work-date">02.2022 — 04.2023</span>
-                    </div>
-                    <div class="work-role">iOS Developer</div>
-                    <ul class="work-desc">
-                        <li>Реализовал модули видеодомофонии, авторизации (Touch/Face ID, 2FA).</li>
-                        <li>Переписывал модули приложения с Objective-C на Swift, реализовал новый сетевой слой (REST API, Alamofire), разработал и вынес в dev SDK функционал по пуш-уведомлениям (Rich Push Notifications).</li>
-                        <li>После поднятия таргета до 13 iOS использовал Combine и Async / Await.</li>
-                    </ul>
-                    <p class="footer-note">
-                        <strong>Stack:</strong> iOS 12+, Swift / Objective-C, MVVM + RxSwift / Combine, Async / Await, REST API, Firebase, GCD, UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
-                    </p>
-                    <a href="https://apps.apple.com/ru/app/провайдер-app/id6742094590" class="work-link-app contact-value" target="_blank">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp" alt="Провайдер App" width="30">
-                        <span>Ссылка на приложение в AppStore</span>
-                    </a>
-                </div>
+        <section id="contact" class="section">
+          <h2 class="section-title"><span class="prompt">$</span> ./connect</h2>
 
-                <div id="extra-work">
-                    <div class="work-item">
-                        <div class="work-header">
-                            <span class="work-company">Itactis</span>
-                            <span class="work-date">09.2021 — 02.2022</span>
-                        </div>
-                        <div class="work-role">iOS Developer</div>
-                        <ul class="work-desc">
-                            <li>Работал над созданием и реализацией мобильного приложения с 0 для e-commerce проекта на котором работал ранее как frontend-разработчик.</li>
-                            <li>Реализовал экран логина, список товаров и оформление заказа.</li>
-                        </ul>
-                        <p class="footer-note">
-                            <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core Data
-                        </p>
-                    </div>
+          <div class="contact-lines">
+            <div class="contact-line">
+              <span class="contact-key">Email</span>
+              <span class="contact-sep">:</span>
+              <a
+                href="mailto:dev.kharitonov@yandex.ru "
+                class="contact-value"
+                target="_blank"
+                >dev.kharitonov@yandex.ru
+              </a>
+            </div>
+            <div class="contact-line">
+              <span class="contact-key">Telegram</span>
+              <span class="contact-sep">:</span>
+              <a
+                href="https://t.me/bytim"
+                target="_blank"
+                class="contact-value"
+                target="_blank"
+                >@bytim</a
+              >
+            </div>
+            <div class="contact-line">
+              <span class="contact-key">GitHub</span>
+              <span class="contact-sep">:</span>
+              <a
+                href="https://github.com/kharitonov-dev"
+                target="_blank"
+                class="contact-value"
+                target="_blank"
+                >/kharitonov-dev</a
+              >
+            </div>
+            <div class="contact-line">
+              <span class="contact-key">LinkedIn</span>
+              <span class="contact-sep">:</span>
+              <a
+                href="https://linkedin.com/in/bytim"
+                target="_blank"
+                class="contact-value"
+                target="_blank"
+                >/in/bytim</a
+              >
+            </div>
+          </div>
+          <div class="resume-download">
+            <a
+              href="/resources/resume_kharitonov_timofey_iOS_dev.pdf"
+              download
+              class="button-style resume-link"
+              target="_blank"
+            >
+              <span class="prompt">↓</span> Скачать резюме (PDF)
+            </a>
+          </div>
+        </section>
+      </main>
 
-                    <div class="work-item">
-                        <div class="work-header">
-                            <span class="work-company">Itactis, СД "ПРАКТИКА", Wizard promo</span>
-                            <span class="work-date">04.2019 — 09.2021</span>
-                        </div>
-                        <div class="work-role">Frontend Developer</div>
-                        <p class="footer-note">
-                            <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery, HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress, Joomla, Figma, AMO / Retail Rocket и др. внешние сервисы, Google / Яндекс аналитика
-                        </p>
-                    </div>
-                </div>
-
-                <div class="block-show-more-button">
-                    <button id="showMoreBtn" class="button-style">
-                        <span class="prompt">↓</span> Показать больше опыта
-                    </button>
-                </div>
-            </section>
-
-            <section id="contact" class="section">
-                <h2 class="section-title">
-                    <span class="prompt">$</span> ./connect
-                </h2>
-
-                <div class="contact-lines">
-                    <div class="contact-line">
-                        <span class="contact-key">Email</span>
-                        <span class="contact-sep">:</span>
-                        <a href="mailto:dev.kharitonov@yandex.ru " class="contact-value" target="_blank">dev.kharitonov@yandex.ru </a>
-                    </div>
-                    <div class="contact-line">
-                        <span class="contact-key">Telegram</span>
-                        <span class="contact-sep">:</span>
-                        <a href="https://t.me/bytim" target="_blank" class="contact-value" target="_blank">@bytim</a>
-                    </div>
-                    <div class="contact-line">
-                        <span class="contact-key">GitHub</span>
-                        <span class="contact-sep">:</span>
-                        <a href="https://github.com/kharitonov-dev" target="_blank" class="contact-value" target="_blank">/kharitonov-dev</a>
-                    </div>
-                    <div class="contact-line">
-                        <span class="contact-key">LinkedIn</span>
-                        <span class="contact-sep">:</span>
-                        <a href="https://linkedin.com/in/bytim" target="_blank" class="contact-value" target="_blank">/in/bytim</a>
-                    </div>
-                </div>
-                <div class="resume-download">
-                    <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" download class="button-style resume-link" target="_blank">
-                        <span class="prompt">↓</span> Скачать резюме (PDF)
-                    </a>
-                </div>
-            </section>
-        </main>
-
-        <footer class="footer">
-            <strong>© 2026 Тимофей Харитонов · iOS Developer</strong>
-            <p class="footer-note">Swift / Objective-C, UIKit / SwiftUI, RxSwift / Combine, MVVM / VIPER / Clean Swift, GCD / OperationQueue / Swift Concurrency, REST API / GraphQL / WebSocket, Backend-Driven UI, UserDefaults / Keychain / Core Data, Unit Tests, Git / GitFlow, CI/CD (Fastlane), Flutter, Agile / Scrum, English Intermediate+</p>
-        </footer>
+      <footer class="footer">
+        <strong>© 2026 Тимофей Харитонов · iOS Developer</strong>
+        <p class="footer-note">
+          Swift / Objective-C, UIKit / SwiftUI, RxSwift / Combine, MVVM / VIPER
+          / Clean Swift, GCD / OperationQueue / Swift Concurrency, REST API /
+          GraphQL / WebSocket, Backend-Driven UI, UserDefaults / Keychain / Core
+          Data, Unit Tests, Git / GitFlow, CI/CD (Fastlane), Flutter, Agile /
+          Scrum, English Intermediate+
+        </p>
+      </footer>
     </div>
 
     <script src="/scripts/script.js"></script>
-</body>
+  </body>
 </html>
