@@ -68,8 +68,15 @@ a:hover {
     flex-direction: column;
 }
 
+.logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 8px;
+}
+
 .header-info-title {
     font-size: 1.96rem;
+    line-height: 1.7rem;
 }
 
 .header-info-description {
