@@ -169,16 +169,24 @@ a:hover {
 .work-header {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: center;
     flex-wrap: wrap;
     gap: 0.5rem;
     margin-bottom: 0.5rem;
 }
 
 .work-company {
+    display: flex;
+    align-items: center;
     font-size: 1.4rem;
     font-weight: 600;
     color: #1e1e1e;
+    gap: 0.5rem;
+}
+
+.work-company img {
+    max-width: 30px;
+    max-height: 30px;
 }
 
 .work-date {
@@ -405,6 +413,7 @@ a.work-link-app:hover span {
     .hero {
         flex-direction: column-reverse;
         gap: 1rem;
+        margin-bottom: 2rem;
     }
 
     .hero-title {
@@ -417,13 +426,22 @@ a.work-link-app:hover span {
         display: none;
     }
 
-    .hero-text {
-        line-height: 1.3rem;
-    }
-
     .hero-subtitle {
         max-width: 100%;
         font-size: 1.1rem;
+    }
+
+    .section {
+        margin-bottom: 1rem;
+    }
+
+    .section-title {
+        margin-bottom: 1rem;
+    }
+
+    .work-item {
+        margin-bottom: 1rem;
+        padding-bottom: 1rem;
     }
 
     .contact-line {
@@ -439,12 +457,16 @@ a.work-link-app:hover span {
     .contact-sep {
         display: none;
     }
+
+    .footer {
+        margin-top: 2rem;
+    }
 }
 
 @media (max-width: 768px) {
     
     .hero-photo {
-        max-width: 250px;
+        max-width: 200px;
         margin: 0 auto;
     }
     
