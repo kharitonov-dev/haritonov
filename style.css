@@ -70,8 +70,7 @@ a:hover {
 
 .logo {
     display: flex;
-    width: 50px;
-    height: 50px;
+    max-width: 50px;
     border-radius: 8px;
 }
 
@@ -466,6 +465,10 @@ a.work-link-app:hover span {
         align-items: flex-start;
         padding: 0;
         margin-bottom: 1rem;
+    }
+
+    .logo {
+        max-width: 30px;
     }
 
     .header-info-description {
