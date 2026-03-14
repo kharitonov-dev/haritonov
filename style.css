@@ -445,6 +445,21 @@ a.work-link-app:hover span {
         padding-bottom: 1rem;
     }
 
+    .work-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 0;
+        gap: 0;
+    }
+
+    .work-company {
+        line-height: 1.7rem;
+    }
+
+    .work-date {
+        min-width: auto;
+    }
+
     .contact-line {
         flex-direction: column;
         align-items: flex-start;
