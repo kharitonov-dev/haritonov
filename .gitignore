@@ -1,0 +1,24 @@
+# Minified backups
+*.backup
+*.original.css
+*.original.html
+
+# IDE settings
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Dependencies
+node_modules/
+package-lock.json
+package.json
+
+# Local env
+.env
+.env.local
