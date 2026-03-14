@@ -4,12 +4,43 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Тимофей Харитонов · iOS Developer</title>
-    <link rel="stylesheet" href="/style.css" />
+
+    <!-- Title и Description -->
+    <title>Тимофей Харитонов · iOS разработчик, спикер Mobius Conf, ex. МТС</title>
+    <meta name="description"
+        content="iOS разработчик с 7+ годами опыта. Работаю над приложением «Мой МТС» (MAU 30 млн). Спикер Mobius Conf 2025. Swift, SwiftUI, UIKit, clean architecture." />
+
+    <meta name="keywords"
+        content="iOS разработчик, Swift, SwiftUI, UIKit, MWS, МТС, Мой МТС, Mobius Conf, вакансии iOS, разработка под iOS" />
+    <meta name="author" content="Тимофей Харитонов" />
+    <meta property="og:title" content="Тимофей Харитонов · iOS разработчик" />
+    <meta property="og:description"
+        content="iOS разработчик с 7+ годами опыта. Работаю над приложением «Мой МТС», спикер Mobius Conf 2025." />
+    <meta property="og:image" content="https://haritonov.me/resources/my_photo.webp" />
+    <meta property="og:url" content="https://haritonov.me/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="ru_RU" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Тимофей Харитонов · iOS разработчик" />
+    <meta name="twitter:description"
+        content="iOS разработчик с 7+ годами опыта. Работаю над приложением «Мой МТС», спикер Mobius Conf 2025." />
+    <meta name="twitter:image" content="https://haritonov.me/resources/my_photo.webp" />
+
+    <!-- Canonical and Hreflang -->
+    <link rel="canonical" href="https://haritonov.me/" />
+    <link rel="alternate" hreflang="ru" href="https://haritonov.me/" />
+    <link rel="alternate" hreflang="en" href="https://haritonov.me/en.html" />
+    <link rel="alternate" hreflang="x-default" href="https://haritonov.me/" />
+
+    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/style.css?v=1.0.1" />
 
     <script type="application/ld+json">
       {
@@ -117,6 +148,8 @@
 
 <body>
     <div class="container">
+
+        <!-- Header -->
         <header class="header">
             <div class="header-left">
                 <div class="header-logo">
@@ -131,9 +164,9 @@
                     <span class="header-info-description">
                         iOS Dev
                         <span class="prompt">•</span> tg:
-                        <a href="https://t.me/bytim" target="_blank" class="contact-value" target="_blank"> @bytim</a>
+                        <a href="https://t.me/bytim" class="contact-value" target="_blank"> @bytim</a>
                         <span class="prompt">•</span>
-                        <a href="mailto:dev.kharitonov@yandex.ru " class="contact-value"
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value"
                             target="_blank">dev.kharitonov@ya.ru
                         </a>
                     </span>
@@ -149,13 +182,16 @@
         </header>
 
         <main>
-            <!-- Секция "О себе" с фотографией -->
+            <!-- About me -->
             <section id="about" class="hero">
                 <div class="hero-content">
-                    <h1 class="hero-title">
-                        <span class="prompt">></span>iOS разработчик с 7+ годами <br />коммерческого
-                        опыта,
-                    </h1>
+
+                    <!-- Hidden H1 for SEO -->
+                    <h1 class="visually-hidden">Тимофей Харитонов · iOS разработчик с 7+ годами опыта</h1>
+
+                    <div class="hero-title" role="heading" aria-level="1">
+                        <span class="prompt">></span>iOS разработчик с 7+ годами <br />коммерческого опыта,
+                    </div>
                     <p class="hero-text">
                         увлеченный созданием интуитивно понятных и быстрых приложений.
                         Верю в чистый код, продуманную архитектуру и идеальный
@@ -178,28 +214,30 @@
                         <source srcset="/resources/my_photo.webp" type="image/webp" />
                         <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
                             data-full="/resources/my_photo_full.webp" id="profilePhoto" class="profile-photo"
-                            loading="lazy" />
+                            loading="lazy" width="300" height="300" />
                     </picture>
                     <div id="photoModal" class="modal" onclick="closeModal()">
                         <span class="modal-close">&times;</span>
-                        <img class="modal-content" id="modalImage" alt="Full size photo">
+                        <img class="modal-content" id="modalImage" alt="Тимофей Харитонов, полное фото">
                     </div>
                 </div>
             </section>
 
-            <section id="work" class="section">
-                <h2 class="section-title">
+            <!-- Work experience -->
+            <section id="work" class="section" aria-labelledby="work-heading">
+                <h2 id="work-heading" class="section-title">
                     <span class="prompt">$</span>cd work_experience
                 </h2>
 
-                <div class="work-item">
-                    <div class="work-header">
-                        <span class="work-company">
-                            <img src="/resources/mws_logo.png" alt="MWS" width="30" />
-                            MWS (ex. МТС Диджитал) - Приложение "Мой МТС"</span>
-                        <span class="work-date">04.2023 — н.в.</span>
-                    </div>
-                    <div class="work-role">iOS Developer</div>
+                <article class="work-item" aria-labelledby="mws-heading">
+                    <header class="work-header">
+                        <h3 id="mws-heading" class="work-company">
+                            <img src="/resources/mws_logo.png" alt="Логотип MWS" width="30" height="30" />
+                            MWS (ex. МТС Диджитал) - Приложение "Мой МТС"
+                        </h3>
+                        <time class="work-date" datetime="2023-04">04.2023 — н.в.</time>
+                    </header>
+                    <p class="work-role">iOS Developer</p>
                     <ul class="work-desc">
                         <li>
                             Реализовал масштабируемые шрифты (Accessibility) для
@@ -236,18 +274,18 @@
                     <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="work-link-app contact-value"
                         target="_blank">
                         <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp"
-                            alt="MWS" width="30" />
+                            alt="Логотип MWS" width="30" height="30" />
                         <span>Ссылка на приложение в AppStore</span>
                     </a>
-                </div>
+                </article>
 
-                <div class="work-item">
-                    <div class="work-header">
-                        <span class="work-company">Декартус - Приложение "Провайдер App" (ex. "Мой Севстар", "Мой
-                            Цифровой Город")</span>
-                        <span class="work-date">02.2022 — 04.2023</span>
-                    </div>
-                    <div class="work-role">iOS Developer</div>
+                <article class="work-item" aria-labelledby="decartus-heading">
+                    <header class="work-header">
+                        <h3 id="decartus-heading" class="work-company">Декартус - Приложение "Провайдер App" (ex. "Мой
+                            Севстар", "Мой Цифровой Город")</h3>
+                        <time class="work-date" datetime="2022-02">02.2022 — 04.2023</time>
+                    </header>
+                    <p class="work-role">iOS Developer</p>
                     <ul class="work-desc">
                         <li>
                             Реализовал модули видеодомофонии, авторизации (Touch/Face ID,
@@ -272,17 +310,17 @@
                     <a href="https://apps.apple.com/ru/app/провайдер-app/id6742094590"
                         class="work-link-app contact-value" target="_blank">
                         <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp"
-                            alt="Провайдер App" width="30" />
+                            alt="Мой Севстар / Провайдер App" width="30" height="30" />
                         <span>Ссылка на приложение в AppStore</span>
                     </a>
-                </div>
+                </article>
 
                 <div id="extra-work">
-                    <div class="work-item">
-                        <div class="work-header">
-                            <span class="work-company">Itactis</span>
-                            <span class="work-date">09.2021 — 02.2022</span>
-                        </div>
+                    <article class="work-item" aria-labelledby="itactis-heading">
+                        <header class="work-header">
+                            <h3 id="itactis-heading" class="work-company">Itactis</h3>
+                            <time class="work-date" datetime="2021-09">09.2021 — 02.2022</time>
+                        </header>
                         <div class="work-role">iOS Developer</div>
                         <ul class="work-desc">
                             <li>
@@ -298,13 +336,14 @@
                             <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core
                             Data
                         </p>
-                    </div>
+                    </article>
 
-                    <div class="work-item">
-                        <div class="work-header">
-                            <span class="work-company">Itactis, СД "ПРАКТИКА", Wizard promo</span>
-                            <span class="work-date">04.2019 — 09.2021</span>
-                        </div>
+                    <article class="work-item" aria-labelledby="frontend-work-heading">
+                        <header class="work-header">
+                            <h3 id="frontend-work-heading" class="work-company">Itactis, СД "ПРАКТИКА", Wizard promo
+                            </h3>
+                            <time class="work-date" datetime="2019-04">04.2019 — 09.2021</time>
+                        </header>
                         <div class="work-role">Frontend Developer</div>
                         <p class="footer-note">
                             <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery,
@@ -312,7 +351,7 @@
                             Joomla, Figma, AMO / Retail Rocket и др. внешние сервисы, Google
                             / Яндекс аналитика
                         </p>
-                    </div>
+                    </article>
                 </div>
 
                 <div class="block-show-more-button">
@@ -322,37 +361,39 @@
                 </div>
             </section>
 
-            <section id="contact" class="section">
-                <h2 class="section-title">
+            <!-- Contacts -->
+            <section id="contact" class="section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" class="section-title">
                     <span class="prompt">$</span>./connect
                 </h2>
 
-                <div class="contact-lines">
-                    <div class="contact-line">
+                <address class="contact-lines">
+                    <span class="contact-line">
                         <span class="contact-key">Email</span>
                         <span class="contact-sep">:</span>
-                        <a href="mailto:dev.kharitonov@yandex.ru " class="contact-value"
-                            target="_blank">dev.kharitonov@ya.ru
-                        </a>
-                    </div>
-                    <div class="contact-line">
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value">dev.kharitonov@ya.ru</a>
+                    </span>
+
+                    <span class="contact-line">
                         <span class="contact-key">Telegram</span>
                         <span class="contact-sep">:</span>
-                        <a href="https://t.me/bytim" target="_blank" class="contact-value" target="_blank">@bytim</a>
-                    </div>
-                    <div class="contact-line">
+                        <a href="https://t.me/bytim" class="contact-value" target="_blank">@bytim</a>
+                    </span>
+
+                    <span class="contact-line">
                         <span class="contact-key">GitHub</span>
                         <span class="contact-sep">:</span>
-                        <a href="https://github.com/kharitonov-dev" target="_blank" class="contact-value"
+                        <a href="https://github.com/kharitonov-dev" class="contact-value"
                             target="_blank">/kharitonov-dev</a>
-                    </div>
-                    <div class="contact-line">
+                    </span>
+
+                    <span class="contact-line">
                         <span class="contact-key">LinkedIn</span>
                         <span class="contact-sep">:</span>
-                        <a href="https://linkedin.com/in/bytim" target="_blank" class="contact-value"
-                            target="_blank">/in/bytim</a>
-                    </div>
-                </div>
+                        <a href="https://linkedin.com/in/bytim" class="contact-value" target="_blank">/in/bytim</a>
+                    </span>
+                </address>
+
                 <div class="resume-download">
                     <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" class="button-style resume-link"
                         target="_blank">
@@ -362,20 +403,31 @@
             </section>
         </main>
 
+        <!-- Footer -->
         <footer class="footer">
             <strong>© 2026 Тимофей Харитонов · iOS Developer</strong>
-            <p class="footer-note">
-                Swift / Objective-C, UIKit / SwiftUI, RxSwift / Combine, MVVM / VIPER
-                / Clean Swift, GCD / OperationQueue / Swift Concurrency, REST API /
-                GraphQL / WebSocket, Backend-Driven UI, UserDefaults / Keychain / Core
-                Data, Unit Tests, Git / GitFlow, CI/CD (Fastlane), Flutter, Agile /
-                Scrum, English Intermediate+
-            </p>
+            <ul class="footer-note">
+                <li>Swift / Objective-C</li>
+                <li>UIKit / SwiftUI</li>
+                <li>RxSwift / Combine</li>
+                <li>MVVM / VIPER / Clean Swift</li>
+                <li>GCD / OperationQueue / Swift Concurrency</li>
+                <li>REST API / GraphQL / WebSocket</li>
+                <li>Backend-Driven UI</li>
+                <li>UserDefaults / Keychain / Core Data</li>
+                <li>Unit Tests</li>
+                <li>Git / GitFlow</li>
+                <li>CI/CD (Fastlane)</li>
+                <li>Flutter</li>
+                <li>Agile / Scrum</li>
+                <li>English Intermediate+</li>
+            </ul>
         </footer>
     </div>
 
-    <script src="/scripts/script.js"></script>
-    <script src="/scripts/modal.js"></script>
+    <!-- Scripts -->
+    <script src="/scripts/script.js?v=1.0.1" defer></script>
+    <script src="/scripts/modal.js?v=1.0.1" defer></script>
 </body>
 
 </html>

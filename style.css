@@ -5,6 +5,28 @@
     box-sizing: border-box;
 }
 
+article, header, footer, section, address, time, nav {
+    display: block;
+    margin: 0;
+    padding: 0;
+}
+
+address {
+    font-style: normal;
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+}
+
 body {
     font-family: 'SF Mono', 'Menlo', 'Monaco', 'Cascadia Code', 'Consolas', 'Courier New', monospace;
     background-color: #f9f9f9;
@@ -124,12 +146,6 @@ a:hover {
     line-height: 1.2;
 }
 
-.hero-subtitle {
-    font-size: 1.0rem;
-    color: #444;
-    margin-bottom: 1rem;
-}
-
 /* Фото */
 .hero-photo {
     flex: 1;
@@ -141,8 +157,14 @@ a:hover {
     width: 100%;
     height: auto;
     border-radius: 12px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    transition: transform 0.2s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+    will-change: transform;
+}
+
+.profile-photo:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
 /* Секции */
@@ -250,15 +272,10 @@ a.work-link-app:hover span {
     border-bottom-color: #0066cc;
 }
 
-.extra-work-hidden {
-    overflow: hidden;
-    height: 0;
-    transition: height 0.3s ease;
-}
-
 #extra-work {
     overflow: hidden;
     transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    height: 0;
 }
 
 #showMoreBtn {
@@ -269,16 +286,6 @@ a.work-link-app:hover span {
 
 #showMoreBtn:active {
     transform: translateY(0);
-}
-
-.profile-photo {
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-    will-change: transform;
-}
-
-.profile-photo:hover {
-    transform: scale(1.02);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
 .button-style {
@@ -371,6 +378,16 @@ a.work-link-app:hover span {
     font-size: 0.9rem;
 }
 
+.footer ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+.footer ul li {
+    display: inline;
+}
+
 .footer-note {
     margin-top: 0.5rem;
     font-size: 0.85rem;
@@ -426,16 +443,22 @@ a.work-link-app:hover span {
 /* ===== АНИМАЦИИ ===== */
 
 @keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
 }
 
 @keyframes zoomIn {
-    from { 
+    from {
         opacity: 0;
         transform: translate(-50%, -50%) scale(0.9);
     }
-    to { 
+
+    to {
         opacity: 1;
         transform: translate(-50%, -50%) scale(1);
     }
@@ -474,7 +497,7 @@ a.work-link-app:hover span {
     .header-info-description {
         font-size: 0.85rem;
     }
-    
+
     .header-right {
         width: 100%;
         justify-content: center;
@@ -513,11 +536,6 @@ a.work-link-app:hover span {
         margin-bottom: 1rem;
     }
 
-    .work-item {
-        margin-bottom: 1rem;
-        padding-bottom: 1rem;
-    }
-
     .work-header {
         flex-direction: column;
         align-items: flex-start;
@@ -550,15 +568,20 @@ a.work-link-app:hover span {
     .footer {
         margin-top: 2rem;
     }
+
+    .footer ul li {
+        display: block;
+        margin-bottom: 0.25rem;
+    }
 }
 
 @media (max-width: 768px) {
-    
+
     .hero-photo {
         max-width: 200px;
         margin: 0 auto;
     }
-    
+
     .hero-title {
         font-size: 1.8rem;
     }

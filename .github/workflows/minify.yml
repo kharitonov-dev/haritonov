@@ -1,0 +1,66 @@
+name: Minify CSS and HTML
+
+on:
+  push:
+    branches: [main] # или master, если у вас основная ветка master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # 1. Клонируем репозиторий
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # 2. Устанавливаем Node.js (нужен для инструментов минификации)
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # 3. Устанавливаем инструменты минификации
+      - name: Install minification tools
+        run: |
+          npm install -g clean-css-cli html-minifier-terser
+
+      # 4. Минифицируем CSS
+      - name: Minify CSS
+        run: |
+          # Сохраняем оригинал (на случай, если нужен будет)
+          cp style.css style.original.css
+          # Минифицируем (перезаписываем оригинал)
+          npx clean-css-cli -o style.css style.css
+
+      # 5. Минифицируем HTML
+      - name: Minify HTML
+        run: |
+          for file in *.html; do
+            if [ -f "$file" ]; then
+              echo "Minifying $file"
+              # Сохраняем оригинал
+              cp "$file" "${file%.html}.original.html"
+              # Минифицируем
+              npx html-minifier-terser "$file" \
+                -o "$file" \
+                --collapse-whitespace \
+                --remove-comments \
+                --remove-optional-tags \
+                --remove-redundant-attributes \
+                --remove-script-type-attributes \
+                --remove-style-link-type-attributes \
+                --use-short-doctype \
+                --minify-css true \
+                --minify-js true
+            fi
+          done
+
+      # 6. Автоматически коммитим и пушим изменения
+      - name: Auto-commit minified files
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "🤖 Автоматическая минификация CSS и HTML"
+          commit_user_name: "Minify Bot"
+          commit_user_email: "[email protected]"
+          commit_author: "Minify Bot <[email protected]>"
+          file_pattern: "*.css *.html"

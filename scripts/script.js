@@ -7,7 +7,7 @@
     const extra = document.getElementById("extra-work");
 
     if (!btn || !extra) {
-      console.error("Элементы не найдены!");
+      console.error("Elements not found!");
       return;
     }
 
@@ -24,7 +24,7 @@
         const targetHeight = extra.scrollHeight;
 
         if (targetHeight === 0) {
-          console.error("scrollHeight = 0! В блоке нет контента");
+          console.error("scrollHeight = 0! No content in block");
           return;
         }
 
