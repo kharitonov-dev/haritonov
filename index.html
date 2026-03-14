@@ -171,9 +171,14 @@
                 <div class="hero-photo">
                     <picture>
                         <source srcset="/resources/my_photo.webp" type="image/webp" />
-                        <img src="/resources/my_photo.webp" alt="Тимофей Харитонов" class="profile-photo"
+                        <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
+                            data-full="/resources/my_photo_full.webp" id="profilePhoto" class="profile-photo"
                             loading="lazy" />
                     </picture>
+                    <div id="photoModal" class="modal" onclick="closeModal()">
+                        <span class="modal-close">&times;</span>
+                        <img class="modal-content" id="modalImage" alt="Full size photo">
+                    </div>
                 </div>
             </section>
 
@@ -365,6 +370,7 @@
     </div>
 
     <script src="/scripts/script.js"></script>
+    <script src="/scripts/modal.js"></script>
 </body>
 
 </html>
