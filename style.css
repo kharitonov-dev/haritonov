@@ -453,7 +453,7 @@ a.work-link-app:hover span {
     }
 
     .work-company {
-        line-height: 1.7rem;
+        gap: 1rem;
     }
 
     .work-date {
