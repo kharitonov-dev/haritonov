@@ -446,6 +446,10 @@ a.work-link-app:hover span {
 /* ===== АДАПТИВНОСТЬ ===== */
 
 @media (max-width: 375px) {
+    .logo {
+        max-width: 30px;
+    }
+
     .header-info-description {
         letter-spacing: -0.9px;
     }
@@ -465,10 +469,6 @@ a.work-link-app:hover span {
         align-items: flex-start;
         padding: 0;
         margin-bottom: 1rem;
-    }
-
-    .logo {
-        max-width: 30px;
     }
 
     .header-info-description {
