@@ -1,96 +1,4 @@
-/* Critical CSS in head - <style></style> */
-
-/* Опыт работы */
-.work-item {
-    margin-bottom: 2rem;
-    padding-bottom: 2rem;
-    border-bottom: 1px dashed #ccc;
-}
-
-.work-item:last-child {
-    border-bottom: none;
-    padding-bottom: 0;
-}
-
-.work-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.work-company {
-    display: flex;
-    align-items: center;
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #1e1e1e;
-    gap: 0.5rem;
-}
-
-.work-company img {
-    max-width: 30px;
-    max-height: 30px;
-}
-
-.work-date {
-    min-width: 200px;
-    text-align: right;
-    color: #666;
-    font-family: inherit;
-}
-
-.work-role {
-    font-size: 1.1rem;
-    color: #F05138;
-    margin-bottom: 1rem;
-    font-weight: 500;
-}
-
-.work-desc {
-    list-style: none;
-}
-
-.work-desc li {
-    margin-bottom: 0.5rem;
-    padding-left: 1.5rem;
-    position: relative;
-}
-
-.work-desc li::before {
-    content: "→";
-    color: #F05138;
-    position: absolute;
-    left: 0;
-    font-weight: bold;
-}
-
-.work-link-app {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 0.5rem;
-    margin-top: 0.5rem;
-}
-
-.work-link-app img {
-    border-radius: 7px;
-    max-width: 30px;
-    max-height: 30px;
-}
-
-.work-link-app span {
-    border-bottom: 1px solid transparent;
-}
-
-a.work-link-app:hover {
-    border-bottom-color: transparent;
-}
-
-a.work-link-app:hover span {
-    border-bottom-color: #0066cc;
-}
+/* Critical CSS in head index.html for SEO */
 
 #extra-work {
     overflow: hidden;
@@ -139,7 +47,6 @@ a.work-link-app:hover span {
     text-align: center;
 }
 
-/* Контакты */
 .contact-lines {
     margin-bottom: 2rem;
     font-size: 1.1rem;
@@ -188,7 +95,6 @@ a.work-link-app:hover span {
     margin-right: 10px;
 }
 
-/* Подвал */
 .footer {
     margin-top: 4rem;
     padding-top: 2rem;
@@ -213,7 +119,6 @@ a.work-link-app:hover span {
     font-size: 0.85rem;
 }
 
-/* Модальное окно (фон) */
 .modal {
     display: none;
     position: fixed;
@@ -227,7 +132,6 @@ a.work-link-app:hover span {
     animation: fadeIn 0.3s ease;
 }
 
-/* Контейнер для фото */
 .modal-content {
     margin: auto;
     display: block;
@@ -242,7 +146,6 @@ a.work-link-app:hover span {
     animation: zoomIn 0.3s ease;
 }
 
-/* Кнопка закрытия */
 .modal-close {
     position: absolute;
     top: 1rem;
