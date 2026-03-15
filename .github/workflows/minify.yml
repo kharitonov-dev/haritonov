@@ -5,7 +5,7 @@ env:
 
 on:
   push:
-    branches: [ master ]
+    branches: [master]
 
 jobs:
   build-and-deploy:
@@ -14,54 +14,73 @@ jobs:
       contents: write
       pages: write
       id-token: write
-    
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '24'
-      
+          node-version: "24"
+
       - name: Install tools
         run: |
-          npm install -g clean-css-cli html-minifier-terser critical
-      
+          npm install -g clean-css-cli html-minifier-terser critical http-server
+
       - name: Create build directory
         run: mkdir -p build
-      
+
       - name: Copy all files to build directory
         run: |
           cp -r * build/ 2>/dev/null || :
           cp .nojekyll build/ 2>/dev/null || :
           cp _headers build/ 2>/dev/null || :
-      
+
       - name: Generate critical CSS
         run: |
-          npx http-server build -p 8080 &
+          npx http-server build -p 8080 > /dev/null 2>&1 &
           SERVER_PID=$!
-          sleep 3
-          
-          npx critical http://localhost:8080/index.html \
-            --base build/ \
-            --inline > build/critical.css
-          
-          kill $SERVER_PID
-          
+          sleep 5
+          npx critical http://localhost:8080/index.html --base build/ --inline > build/critical.css
+          kill $SERVER_PID 2>/dev/null || true
+
+          if [ ! -f build/critical.css ]; then
+            echo "❌ Failed to generate critical CSS"
+            exit 1
+          fi
+
+          echo "✅ Critical CSS generated"
+
           for file in build/*.html; do
             if [ -f "$file" ]; then
               echo "Injecting critical CSS into $file"
-              sed -i '/<style>/,/<\/style>/c\<style>'"$(cat build/critical.css)"'</style>' "$file"
+              TMP_FILE="${file}.tmp"
+              CRITICAL_CSS=$(cat build/critical.css)
+              
+              node -e "
+                const fs = require('fs');
+                const html = fs.readFileSync('$file', 'utf8');
+                const css = fs.readFileSync('build/critical.css', 'utf8');
+                const result = html.replace(
+                  /<style>[\s\S]*?<\/style>/,
+                  '<style>' + css + '</style>'
+                );
+                fs.writeFileSync('$TMP_FILE', result);
+              "
+
+              mv "$TMP_FILE" "$file"
+              
+              echo "✅ Critical CSS injected into $file"
             fi
           done
-      
+
       - name: Minify CSS in build directory
         run: |
           if [ -f build/style.css ]; then
             npx clean-css-cli -o build/style.css build/style.css
           fi
-      
+
       - name: Minify HTML in build directory
         run: |
           for file in build/*.html; do
@@ -75,20 +94,22 @@ jobs:
                 --minify-js true
             fi
           done
-      
+
       - name: Add version hash to assets
         run: |
           COMMIT_HASH=$(git rev-parse --short HEAD)
           echo "Adding version hash: $COMMIT_HASH to assets"
-          
+
           for file in build/*.html; do
             if [ -f "$file" ]; then
-              sed -i "s/\(href=[\"']\/[^\"]*\.css\"\) media=\"print\"/\1?v=$COMMIT_HASH\" media=\"print\"/g" "$file"
+              sed -i "s/\(href=[\"']\/[^\"]*\.css\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
+              sed -i "s/\(href=[\"']\/[^\"]*\.css\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
+              
               sed -i "s/\(src=[\"']\/[^\"]*\.js\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
               sed -i "s/\(src=[\"']\/[^\"]*\.js\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
             fi
           done
-      
+
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
@@ -96,5 +117,5 @@ jobs:
           publish_dir: ./build
           publish_branch: gh-pages
           force_orphan: true
-          user_name: 'GitHub Actions Bot'
-          user_email: 'actions@github.com'
+          user_name: "GitHub Actions Bot"
+          user_email: "actions@github.com"
