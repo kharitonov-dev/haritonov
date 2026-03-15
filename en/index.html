@@ -4,12 +4,408 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Timofey Kharitonov · iOS Developer</title>
-  <link rel="stylesheet" href="/style.css" />
+
+  <!-- Title and Description -->
+  <title>Timofey Kharitonov · iOS Developer, Speaker at Mobius Conf, ex. MTS</title>
+  <meta name="description"
+    content="iOS Developer with 7+ years of experience. Working on the 'My MTS' app (MAU 30M). Speaker at Mobius Conf 2025. Swift, SwiftUI, UIKit, clean architecture." />
+
+  <meta name="keywords"
+    content="iOS Developer, Swift, SwiftUI, UIKit, MWS, MTS, My MTS, Mobius Conf, iOS jobs, iOS development" />
+  <meta name="author" content="Timofey Kharitonov" />
+  <meta property="og:title" content="Timofey Kharitonov · iOS Developer" />
+  <meta property="og:description"
+    content="iOS Developer with 7+ years of experience. Working on the 'My MTS' app, speaker at Mobius Conf 2025." />
+  <meta property="og:image" content="https://haritonov.me/resources/my_photo.webp" />
+  <meta property="og:url" content="https://haritonov.me/en.html" />
+  <meta property="og:type" content="profile" />
+  <meta property="og:locale" content="en_US" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Timofey Kharitonov · iOS Developer" />
+  <meta name="twitter:description"
+    content="iOS Developer with 7+ years of experience. Working on the 'My MTS' app, speaker at Mobius Conf 2025." />
+  <meta name="twitter:image" content="https://haritonov.me/resources/my_photo.webp" />
+
+  <!-- Canonical and Hreflang -->
+  <link rel="canonical" href="https://haritonov.me/en.html" />
+  <link rel="alternate" hreflang="ru" href="https://haritonov.me/" />
+  <link rel="alternate" hreflang="en" href="https://haritonov.me/en.html" />
+  <link rel="alternate" hreflang="x-default" href="https://haritonov.me/" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="/favicon.ico" type="image/x-icon">
+  <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png" />
   <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="shortcut icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
+  <!-- Critical CSS -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      border: 0;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+    }
+
+    body {
+      font-family: 'Cascadia Code', monospace;
+      background-color: #f9f9f9;
+      color: #1e1e1e;
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    img {
+      image-rendering: -webkit-optimize-contrast;
+      image-rendering: crisp-edges;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: translateZ(0);
+      transform: translateZ(0);
+    }
+
+    article,
+    header,
+    footer,
+    section,
+    address,
+    time,
+    nav {
+      display: block;
+      margin: 0;
+      padding: 0;
+    }
+
+    address {
+      font-style: normal;
+    }
+
+    .section {
+      margin-bottom: 4rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem;
+    }
+
+    a {
+      color: #0066cc;
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+      transition: border-color 0.2s ease;
+    }
+
+    a:hover {
+      border-bottom-color: #0066cc;
+    }
+
+    .prompt {
+      color: #F05138;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 0;
+      border-bottom: 2px solid #e0e0e0;
+      margin-bottom: 3rem;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+    }
+
+    .header-left {
+      display: flex;
+      align-items: center;
+      font-size: 1.5rem;
+      font-weight: 600;
+      letter-spacing: -0.5px;
+    }
+
+    .header-info {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .logo {
+      display: flex;
+      max-width: 50px;
+      border-radius: 8px;
+    }
+
+    .header-info-title {
+      font-size: 1.96rem;
+      letter-spacing: -1px;
+      line-height: 1.7rem;
+    }
+
+    .header-info-description {
+      font-size: 1rem;
+      color: #666;
+      font-family: inherit;
+    }
+
+    .header-info-description .prompt {
+      margin: 0rem;
+    }
+
+    .nav {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-link {
+      color: #333;
+      font-size: 1.1rem;
+      border-bottom: none;
+    }
+
+    .nav-link:hover {
+      color: #0066cc;
+      border-bottom: none;
+    }
+
+    .hero {
+      display: flex;
+      gap: 3rem;
+      margin-bottom: 4rem;
+      align-items: flex-start;
+    }
+
+    .hero-content {
+      flex: 2;
+    }
+
+    .hero-title {
+      font-size: 2.0rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .hero-photo {
+      flex: 1;
+      width: 100%;
+      max-width: 300px;
+      aspect-ratio: 1/1;
+    }
+
+    .profile-photo {
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+      will-change: transform;
+    }
+
+    .profile-photo:hover {
+      transform: scale(1.02) translateZ(0);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    .section-title {
+      font-size: 1.8rem;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      border-left: 4px solid #F05138;
+      padding-left: 1rem;
+    }
+
+    .work-item {
+      margin-bottom: 2rem;
+      padding-bottom: 2rem;
+      border-bottom: 1px dashed #ccc;
+    }
+
+    .work-item:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+    }
+
+    .work-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .work-company {
+      display: flex;
+      align-items: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #1e1e1e;
+      gap: 0.5rem;
+    }
+
+    .work-company img {
+      max-width: 30px;
+      max-height: 30px;
+    }
+
+    .work-date {
+      min-width: 200px;
+      text-align: right;
+      color: #666;
+      font-family: inherit;
+    }
+
+    .work-role {
+      font-size: 1.1rem;
+      color: #F05138;
+      margin-bottom: 1rem;
+      font-weight: 500;
+    }
+
+    .work-desc {
+      list-style: none;
+    }
+
+    .work-desc li {
+      margin-bottom: 0.5rem;
+      padding-left: 1.5rem;
+      position: relative;
+    }
+
+    .work-desc li::before {
+      content: "→";
+      color: #F05138;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+    }
+
+    .work-link-app {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .work-link-app img {
+      border-radius: 7px;
+      max-width: 30px;
+      max-height: 30px;
+    }
+
+    .work-link-app span {
+      border-bottom: 1px solid transparent;
+    }
+
+    a.work-link-app:hover {
+      border-bottom-color: transparent;
+    }
+
+    a.work-link-app:hover span {
+      border-bottom-color: #0066cc;
+    }
+
+    .work-stack {
+      margin-top: 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    @media (max-width: 600px) {
+      body {
+        font-size: 15px;
+      }
+
+      .container {
+        padding: 1rem;
+      }
+
+      .header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0;
+        margin-bottom: 1rem;
+      }
+
+      .header-info-description {
+        font-size: 0.85rem;
+      }
+
+      .header-right {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .nav {
+        gap: 1.5rem;
+      }
+
+      .hero {
+        flex-direction: column-reverse;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .hero-title {
+        font-size: 2rem;
+        letter-spacing: -0.5px;
+        margin-bottom: 0.5rem;
+      }
+
+      .hero-title br {
+        display: none;
+      }
+
+      .hero-photo {
+        max-width: 200px;
+        margin: 0 auto;
+      }
+
+      .section {
+        margin-bottom: 1rem;
+      }
+
+      .section-title {
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+  <noscript>
+    <link rel="stylesheet" href="/style.css">
+  </noscript>
+
+  <!-- Preload -->
+  <link rel="preload" as="image" href="/resources/logo.webp" imagesrcset="/resources/logo.webp" type="image/webp">
+  <link rel="preload" as="image" href="/resources/my_photo.webp" imagesrcset="/resources/my_photo.webp"
+    type="image/webp">
+  <link rel="preload" href="/style.css" as="style">
+
+  <!-- Preconnect -->
+  <link rel="preconnect" href="https://mc.yandex.ru">
+  <link rel="preconnect" href="https://mc.yandex.com">
+
+  <!-- JSON-LD -->
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -95,8 +491,282 @@
           }
         ]
       }
-  </script>
+    </script>
+</head>
 
+<body>
+  <div class="container">
+
+    <!-- Header -->
+    <header class="header">
+      <div class="header-left">
+        <div class="header-logo">
+          <picture>
+            <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
+            <img src="/resources/logo.webp" alt="Timofey Kharitonov logo" class="logo" width="50" height="50"
+              loading="lazy" />
+          </picture>
+        </div>
+        <div class="header-info">
+          <span class="header-info-title">Timofey Kharitonov</span>
+          <span class="header-info-description">
+            iOS Dev
+            <span class="prompt">•</span> tg:
+            <a href="https://t.me/bytim" class="contact-value" target="_blank"> @bytim</a>
+            <span class="prompt">•</span>
+            <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value" target="_blank">dev.kharitonov@ya.ru
+            </a>
+          </span>
+        </div>
+      </div>
+      <div class="header-right">
+        <nav class="nav">
+          <a href="#about" class="nav-link"><span class="prompt">/</span>about</a>
+          <a href="#work" class="nav-link"><span class="prompt">/</span>work</a>
+          <a href="#contact" class="nav-link"><span class="prompt">/</span>contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <main>
+      <!-- About me -->
+      <section id="about" class="hero">
+        <div class="hero-content">
+
+          <!-- Hidden H1 for SEO -->
+          <h1 class="visually-hidden">Timofey Kharitonov · iOS Developer with 7+ years of experience</h1>
+
+          <div class="hero-title" role="heading" aria-level="1">
+            <span class="prompt">></span>
+            <span>iOS Developer with 7+&nbsp;years of commercial experience,</span>
+          </div>
+          <p class="hero-text">
+            passionate about creating intuitive and fast applications.
+            I believe in clean code, thoughtful architecture, and the perfect
+            user experience.
+          </p>
+          <p class="hero-text">
+            I actively participate in the IT community and follow trends through
+            industry conferences. I was a speaker at Mobius Conf 2025 and
+            hope to be at other major venues in the future. Nominee for "Employee
+            of the Year 2025" at MWS (ex. MTS).
+          </p>
+          <p class="hero-text">
+            Outside of coding, I enjoy running and hockey. I play for a local amateur
+            team. I love traveling with my family and friends. I value a balance
+            between work and an active life.
+          </p>
+        </div>
+        <div class="hero-photo">
+          <picture>
+            <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x" type="image/webp" />
+            <img src="/resources/my_photo.webp" alt="Timofey Kharitonov" data-full="/resources/my_photo_full.webp"
+              id="profilePhoto" class="profile-photo" width="300" height="300" fetchpriority="high" />
+          </picture>
+        </div>
+      </section>
+
+      <!-- Work experience -->
+      <section id="work" class="section" aria-labelledby="work-heading">
+        <h2 id="work-heading" class="section-title">
+          <span class="prompt">$</span>cd work_experience
+        </h2>
+
+        <article class="work-item" aria-labelledby="mws-heading">
+          <header class="work-header">
+            <h3 id="mws-heading" class="work-company">
+              <img src="/resources/mws_logo.webp" srcset="/resources/mws_logo.webp 1x, /resources/mws_logo@2x.webp 2x"
+                alt="MWS Logo" width="30" height="30" />
+              MWS (ex. MTS Digital) - "My MTS" App
+            </h3>
+            <time class="work-date" datetime="2023-04">04.2023 — present</time>
+          </header>
+          <p class="work-role">iOS Developer</p>
+          <ul class="work-desc">
+            <li>
+              Implemented scalable fonts (Accessibility) for MTS ecosystem projects by contributing to the Design System
+              SDK and shared the feature's lifecycle at
+              <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="contact-value"
+                target="_blank">Mobius</a>
+              [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value" target="_blank">GitHub
+                Project</a>]. Impact on the "My MTS" app users: 26.7% (MAU 30M).
+            </li>
+            <li>
+              I promote and implement SwiftUI: developed a splash screen with background data loading, allowing the user
+              to seamlessly enter the ready-made main screen.
+            </li>
+            <li>
+              Generally improve user experience, working on personalization and app customization.
+            </li>
+            <li>
+              Other key features: power bank rental (Yurent), rebranding, onboarding flows, authorization module,
+              migration to GraphQL (network layer + logger).
+            </li>
+            <li>Code Review, conducting interviews, and mentoring.</li>
+          </ul>
+          <p class="work-stack">
+            <strong>Stack:</strong> iOS 15+, Swift, MVP / MVVM, Swift
+            Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket /
+            GraphQL, Keychain / Core Data, Unit Tests, Widgets, Accessibility
+          </p>
+          <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="work-link-app contact-value"
+            target="_blank">
+            <img
+              src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp"
+              alt="MWS Logo" width="30" height="30" />
+            <span>Link to App Store</span>
+          </a>
+        </article>
+
+        <article class="work-item" aria-labelledby="decartus-heading">
+          <header class="work-header">
+            <h3 id="decartus-heading" class="work-company">Decartus - "Provider App" (ex. "My Sevstar", "My Digital
+              City")</h3>
+            <time class="work-date" datetime="2022-02">02.2022 — 04.2023</time>
+          </header>
+          <p class="work-role">iOS Developer</p>
+          <ul class="work-desc">
+            <li>
+              Implemented video intercom modules, authorization (Touch/Face ID, 2FA).
+            </li>
+            <li>
+              Rewrote application modules from Objective-C to Swift, implemented a new network layer (REST API,
+              Alamofire), developed and extracted push notification functionality (Rich Push Notifications) into a dev
+              SDK.
+            </li>
+            <li>
+              After raising the target to iOS 13, used Combine and Async / Await.
+            </li>
+          </ul>
+          <p class="work-stack">
+            <strong>Stack:</strong> iOS 12+, Swift / Objective-C, MVVM +
+            RxSwift / Combine, Async / Await, REST API, Firebase, GCD,
+            UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
+          </p>
+          <a href="https://apps.apple.com/ru/app/провайдер-app/id6742094590" class="work-link-app contact-value"
+            target="_blank">
+            <img
+              src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp"
+              alt="Provider App Logo" width="30" height="30" />
+            <span>Link to App Store</span>
+          </a>
+        </article>
+
+        <div id="extra-work">
+          <article class="work-item" aria-labelledby="itactis-heading">
+            <header class="work-header">
+              <h3 id="itactis-heading" class="work-company">Itactis</h3>
+              <time class="work-date" datetime="2021-09">09.2021 — 02.2022</time>
+            </header>
+            <div class="work-role">iOS Developer</div>
+            <ul class="work-desc">
+              <li>
+                Worked on creating and implementing a mobile app from scratch for an e-commerce project where I
+                previously worked as a frontend developer.
+              </li>
+              <li>
+                Implemented the login screen, product list, and order placement.
+              </li>
+            </ul>
+            <p class="work-stack">
+              <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core Data
+            </p>
+          </article>
+
+          <article class="work-item" aria-labelledby="frontend-work-heading">
+            <header class="work-header">
+              <h3 id="frontend-work-heading" class="work-company">Itactis, SD "PRACTIKA", Wizard promo
+              </h3>
+              <time class="work-date" datetime="2019-04">04.2019 — 09.2021</time>
+            </header>
+            <div class="work-role">Frontend Developer</div>
+            <p class="work-stack">
+              <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery,
+              HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress,
+              Joomla, Figma, AMO / Retail Rocket and other external services, Google
+              / Yandex Analytics
+            </p>
+          </article>
+        </div>
+
+        <div class="block-show-more-button">
+          <button id="showMoreBtn" class="button-style">
+            <span class="prompt">↓</span> Show more experience
+          </button>
+        </div>
+      </section>
+
+      <!-- Contacts -->
+      <section id="contact" class="section" aria-labelledby="contact-heading">
+        <h2 id="contact-heading" class="section-title">
+          <span class="prompt">$</span>./connect
+        </h2>
+
+        <address class="contact-lines">
+          <span class="contact-line">
+            <span class="contact-key">Email</span>
+            <span class="contact-sep">:</span>
+            <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value">dev.kharitonov@ya.ru</a>
+          </span>
+
+          <span class="contact-line">
+            <span class="contact-key">Telegram</span>
+            <span class="contact-sep">:</span>
+            <a href="https://t.me/bytim" class="contact-value" target="_blank">@bytim</a>
+          </span>
+
+          <span class="contact-line">
+            <span class="contact-key">GitHub</span>
+            <span class="contact-sep">:</span>
+            <a href="https://github.com/kharitonov-dev" class="contact-value" target="_blank">/kharitonov-dev</a>
+          </span>
+
+          <span class="contact-line">
+            <span class="contact-key">LinkedIn</span>
+            <span class="contact-sep">:</span>
+            <a href="https://linkedin.com/in/bytim" class="contact-value" target="_blank">/in/bytim</a>
+          </span>
+        </address>
+
+        <div class="resume-download">
+          <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" class="button-style resume-link" target="_blank">
+            <span class="prompt">↓</span> Download Resume (PDF)
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <strong>© 2026 Timofey Kharitonov · iOS Developer</strong>
+      <ul class="work-stack">
+        <li>Swift / Objective-C</li>
+        <li>UIKit / SwiftUI</li>
+        <li>RxSwift / Combine</li>
+        <li>MVVM / VIPER / Clean Swift</li>
+        <li>GCD / OperationQueue / Swift Concurrency</li>
+        <li>REST API / GraphQL / WebSocket</li>
+        <li>Backend-Driven UI</li>
+        <li>UserDefaults / Keychain / Core Data</li>
+        <li>Unit Tests</li>
+        <li>Git / GitFlow</li>
+        <li>CI/CD (Fastlane)</li>
+        <li>Flutter</li>
+        <li>Agile / Scrum</li>
+        <li>English Intermediate+</li>
+      </ul>
+    </footer>
+  </div>
+
+  <!-- Modals -->
+  <div id="photoModal" class="modal" onclick="closeModal()">
+    <span class="modal-close">&times;</span>
+    <img class="modal-content" id="modalImage" alt="Timofey Kharitonov, full photo">
+  </div>
+
+  <!-- Scripts -->
+  <script src="/scripts/script.js" defer></script>
+  <script src="/scripts/modal.js" defer></script>
   <!-- Yandex.Metrika counter -->
   <script type="text/javascript">
     (function (m, e, t, r, i, k, a) {
@@ -112,235 +782,6 @@
     <div><img src="https://mc.yandex.ru/watch/107697692" style="position:absolute; left:-9999px;" alt="" /></div>
   </noscript>
   <!-- /Yandex.Metrika counter -->
-</head>
-
-<body>
-  <div class="container">
-    <header class="header">
-      <div class="logo"><span class="prompt">$</span> Timofey Kharitonov</div>
-      <div class="header-right">
-        <nav class="nav">
-          <a href="#about" class="nav-link">/about</a>
-          <a href="#work" class="nav-link">/work</a>
-          <a href="#contact" class="nav-link">/contact</a>
-        </nav>
-      </div>
-    </header>
-
-    <main>
-      <!-- "About me" section with photo -->
-      <section id="about" class="hero">
-        <div class="hero-content">
-          <h1 class="hero-title">
-            <span class="prompt">></span> iOS Developer with 7+ years<br />of
-            commercial experience,
-          </h1>
-          <p class="hero-text">
-            passionate about creating intuitive and fast applications. I
-            believe in clean code, thoughtful architecture, and an ideal user
-            experience.
-          </p>
-          <p class="hero-text">
-            I actively participate in the IT community and follow trends
-            through professional conferences. I was a speaker at Mobius Conf
-            2025 and hope to speak at other major venues in the future.
-            Nominee for "Employee of the Year 2025" at MWS (ex. MTS).
-          </p>
-          <p class="hero-text">
-            Outside of coding, I enjoy running and hockey. I play for a local
-            amateur team. I love traveling with my family and friends. I value
-            a balance between work and an active life.
-          </p>
-        </div>
-        <div class="hero-photo">
-          <picture>
-            <source srcset="/resources/my_photo.webp" type="image/webp" />
-            <img src="/resources/my_photo.webp" alt="Timofey Kharitonov" class="profile-photo" loading="lazy" />
-          </picture>
-        </div>
-      </section>
-
-      <section id="work" class="section">
-        <h2 class="section-title">
-          <span class="prompt">$</span> cd work_experience
-        </h2>
-
-        <div class="work-item">
-          <div class="work-header">
-            <span class="work-company">MWS (ex. MTS Digital) - App "My MTS"</span>
-            <span class="work-date">04.2023 — present</span>
-          </div>
-          <div class="work-role">iOS Developer</div>
-          <ul class="work-desc">
-            <li>
-              Implemented scalable fonts (Accessibility) for MTS ecosystem
-              projects by contributing to the Design System SDK and shared the
-              feature's lifecycle at
-              <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="contact-value"
-                target="_blank">Mobius</a>
-              [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value" target="_blank">GitHub
-                Project</a>]. Impact on users of the "My MTS" app: 26.7% (MAU 30 million).
-            </li>
-            <li>
-              Advocate for and implement SwiftUI: developed a splash screen
-              with background data loading, allowing the user to seamlessly
-              enter a ready-made main screen.
-            </li>
-            <li>
-              Generally improve user experience, working on personalization
-              and app customization.
-            </li>
-            <li>
-              Other key features: power bank rental (Yurent), rebranding,
-              onboarding flows, authorization module, migration to GraphQL
-              (network layer + logger).
-            </li>
-            <li>Code Review, conducting interviews, and mentoring.</li>
-          </ul>
-          <p class="footer-note">
-            <strong>Stack:</strong> iOS 15+, Swift, MVP / MVVM, Swift
-            Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket /
-            GraphQL, Keychain / Core Data, Unit Tests, Widgets, Accessibility
-          </p>
-          <a href="https://apps.apple.com/us/app/мой-мтс/id1069871095" class="work-link-app contact-value"
-            target="_blank">
-            <img
-              src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp"
-              alt="My MTS" width="30" />
-            <span>Link to App Store</span>
-          </a>
-        </div>
-
-        <div class="work-item">
-          <div class="work-header">
-            <span class="work-company">Decartus - App "Provider App" (ex. "My Sevstar", "My Digital
-              City")</span>
-            <span class="work-date">02.2022 — 04.2023</span>
-          </div>
-          <div class="work-role">iOS Developer</div>
-          <ul class="work-desc">
-            <li>
-              Implemented video intercom modules, authorization (Touch/Face
-              ID, 2FA).
-            </li>
-            <li>
-              Rewrote application modules from Objective-C to Swift,
-              implemented a new network layer (REST API, Alamofire), developed
-              and extracted push notification functionality (Rich Push
-              Notifications) into a dev SDK.
-            </li>
-            <li>
-              After raising the target to iOS 13, used Combine and Async /
-              Await.
-            </li>
-          </ul>
-          <p class="footer-note">
-            <strong>Stack:</strong> iOS 12+, Swift / Objective-C, MVVM +
-            RxSwift / Combine, Async / Await, REST API, Firebase, GCD,
-            UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
-          </p>
-          <a href="https://apps.apple.com/ru/app/провайдер-app/id6742094590" class="work-link-app contact-value"
-            target="_blank">
-            <img
-              src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp"
-              alt="Provider App" width="30" />
-            <span>Link to App Store</span>
-          </a>
-        </div>
-
-        <div id="extra-work">
-          <div class="work-item">
-            <div class="work-header">
-              <span class="work-company">Itactis</span>
-              <span class="work-date">09.2021 — 02.2022</span>
-            </div>
-            <div class="work-role">iOS Developer</div>
-            <ul class="work-desc">
-              <li>
-                Worked on building and implementing a mobile app from scratch
-                for an e-commerce project I previously worked on as a frontend
-                developer.
-              </li>
-              <li>
-                Implemented the login screen, product list, and order
-                checkout.
-              </li>
-            </ul>
-            <p class="footer-note">
-              <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core
-              Data
-            </p>
-          </div>
-
-          <div class="work-item">
-            <div class="work-header">
-              <span class="work-company">Itactis, SD "PRACTIKA", Wizard promo</span>
-              <span class="work-date">04.2019 — 09.2021</span>
-            </div>
-            <div class="work-role">Frontend Developer</div>
-            <p class="footer-note">
-              <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery,
-              HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress,
-              Joomla, Figma, AMO / Retail Rocket and other external services,
-              Google / Yandex analytics
-            </p>
-          </div>
-        </div>
-
-        <div class="block-show-more-button">
-          <button id="showMoreBtn" class="button-style">
-            <span class="prompt">↓</span> Show more experience
-          </button>
-        </div>
-      </section>
-
-      <section id="contact" class="section">
-        <h2 class="section-title"><span class="prompt">$</span> ./connect</h2>
-
-        <div class="contact-lines">
-          <div class="contact-line">
-            <span class="contact-key">Email</span>
-            <span class="contact-sep">:</span>
-            <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value" target="_blank">dev.kharitonov@yandex.ru</a>
-          </div>
-          <div class="contact-line">
-            <span class="contact-key">Telegram</span>
-            <span class="contact-sep">:</span>
-            <a href="https://t.me/bytim" target="_blank" class="contact-value">@bytim</a>
-          </div>
-          <div class="contact-line">
-            <span class="contact-key">GitHub</span>
-            <span class="contact-sep">:</span>
-            <a href="https://github.com/kharitonov-dev" target="_blank" class="contact-value">/kharitonov-dev</a>
-          </div>
-          <div class="contact-line">
-            <span class="contact-key">LinkedIn</span>
-            <span class="contact-sep">:</span>
-            <a href="https://linkedin.com/in/bytim" target="_blank" class="contact-value">/in/bytim</a>
-          </div>
-        </div>
-        <div class="resume-download">
-          <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" download class="button-style resume-link"
-            target="_blank">
-            <span class="prompt">↓</span> Download Resume (PDF)
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <footer class="footer">
-      <strong>© 2026 Timofey Kharitonov · iOS Developer</strong>
-      <p class="footer-note">
-        Swift / Objective-C, UIKit / SwiftUI, RxSwift / Combine, MVVM / VIPER
-        / Clean Swift, GCD / OperationQueue / Swift Concurrency, REST API /
-        GraphQL / WebSocket, Backend-Driven UI, UserDefaults / Keychain / Core
-        Data, Unit Tests, Git / GitFlow, CI/CD (Fastlane), Flutter, Agile /
-        Scrum, English Intermediate+
-      </p>
-    </footer>
-  </div>
-
-  <script src="/scripts/script.js"></script>
 </body>
 
 </html>
