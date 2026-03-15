@@ -24,9 +24,9 @@ jobs:
         with:
           node-version: '24'
       
-      - name: Install minification tools
+      - name: Install tools
         run: |
-          npm install -g clean-css-cli html-minifier-terser
+          npm install -g clean-css-cli html-minifier-terser critical
       
       - name: Create build directory
         run: mkdir -p build
@@ -36,6 +36,25 @@ jobs:
           cp -r * build/ 2>/dev/null || :
           cp .nojekyll build/ 2>/dev/null || :
           cp _headers build/ 2>/dev/null || :
+      
+      - name: Generate critical CSS
+        run: |
+          npx http-server build -p 8080 &
+          SERVER_PID=$!
+          sleep 3
+          
+          npx critical http://localhost:8080/index.html \
+            --base build/ \
+            --inline > build/critical.css
+          
+          kill $SERVER_PID
+          
+          for file in build/*.html; do
+            if [ -f "$file" ]; then
+              echo "Injecting critical CSS into $file"
+              sed -i '/<style>/,/<\/style>/c\<style>'"$(cat build/critical.css)"'</style>' "$file"
+            fi
+          done
       
       - name: Minify CSS in build directory
         run: |
@@ -59,24 +78,14 @@ jobs:
       
       - name: Add version hash to assets
         run: |
-          # Получаем короткий хеш коммита (первые 7 символов)
           COMMIT_HASH=$(git rev-parse --short HEAD)
           echo "Adding version hash: $COMMIT_HASH to assets"
           
-          # Проходим по всем HTML файлам в папке build
           for file in build/*.html; do
             if [ -f "$file" ]; then
-              echo "Processing $file"
-              
-              # Добавляем хеш ко всем ссылкам на CSS
-              sed -i "s/\(href=[\"']\/[^\"]*\.css\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
-              sed -i "s/\(href=[\"']\/[^\"]*\.css\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
-              
-              # Добавляем хеш ко всем ссылкам на JS
+              sed -i "s/\(href=[\"']\/[^\"]*\.css\"\) media=\"print\"/\1?v=$COMMIT_HASH\" media=\"print\"/g" "$file"
               sed -i "s/\(src=[\"']\/[^\"]*\.js\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
               sed -i "s/\(src=[\"']\/[^\"]*\.js\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
-              
-              echo "✅ Added version $COMMIT_HASH to $file"
             fi
           done
       
