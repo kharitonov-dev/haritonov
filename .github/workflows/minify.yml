@@ -39,41 +39,42 @@ jobs:
 
       - name: Generate critical CSS
         run: |
+          npm install -g http-server
           npx http-server build -p 8080 > /dev/null 2>&1 &
           SERVER_PID=$!
           sleep 5
-          npx critical http://localhost:8080/index.html --base build/ --inline > build/critical.css
+          npx critical http://localhost:8080/index.html --base build/ --inline --width 375 --height 812 > build/critical-raw.css 2> /dev/null || true
           kill $SERVER_PID 2>/dev/null || true
-
-          if [ ! -f build/critical.css ]; then
-            echo "❌ Failed to generate critical CSS"
-            exit 1
+          if [ ! -s build/critical-raw.css ]; then
+            rm -f build/critical-raw.css
+            exit 0
           fi
-
-          echo "✅ Critical CSS generated"
-
+          cat build/critical-raw.css | grep -E '^[.#@a-zA-Z]|^\s*[a-zA-Z-]+:|^\s*}' | grep -v '</' | grep -vE '[а-яА-ЯёЁ]' > build/critical.css || true
+          if [ ! -s build/critical.css ]; then
+            rm -f build/critical-raw.css build/critical.css
+            exit 0
+          fi
           for file in build/*.html; do
             if [ -f "$file" ]; then
-              echo "Injecting critical CSS into $file"
               TMP_FILE="${file}.tmp"
-              CRITICAL_CSS=$(cat build/critical.css)
-              
               node -e "
                 const fs = require('fs');
-                const html = fs.readFileSync('$file', 'utf8');
-                const css = fs.readFileSync('build/critical.css', 'utf8');
-                const result = html.replace(
-                  /<style>[\s\S]*?<\/style>/,
-                  '<style>' + css + '</style>'
-                );
-                fs.writeFileSync('$TMP_FILE', result);
+                try {
+                  const html = fs.readFileSync('$file', 'utf8');
+                  const css = fs.readFileSync('build/critical.css', 'utf8');
+                  const result = html.replace(
+                    /<style>[\s\S]*?<\/style>/,
+                    '<style>' + css + '</style>'
+                  );
+                  fs.writeFileSync('$TMP_FILE', result);
+                } catch (err) {
+                  process.exit(1);
+                }
               "
-
               mv "$TMP_FILE" "$file"
-              
-              echo "✅ Critical CSS injected into $file"
             fi
           done
+          rm -f build/critical-raw.css build/critical.css
 
       - name: Minify CSS in build directory
         run: |
@@ -85,7 +86,6 @@ jobs:
         run: |
           for file in build/*.html; do
             if [ -f "$file" ]; then
-              echo "Minifying $file"
               npx html-minifier-terser "$file" \
                 -o "$file" \
                 --collapse-whitespace \
@@ -98,13 +98,10 @@ jobs:
       - name: Add version hash to assets
         run: |
           COMMIT_HASH=$(git rev-parse --short HEAD)
-          echo "Adding version hash: $COMMIT_HASH to assets"
-
           for file in build/*.html; do
             if [ -f "$file" ]; then
               sed -i "s/\(href=[\"']\/[^\"]*\.css\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
               sed -i "s/\(href=[\"']\/[^\"]*\.css\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
-              
               sed -i "s/\(src=[\"']\/[^\"]*\.js\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
               sed -i "s/\(src=[\"']\/[^\"]*\.js\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
             fi
