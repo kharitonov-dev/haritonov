@@ -5,7 +5,13 @@
     box-sizing: border-box;
 }
 
-article, header, footer, section, address, time, nav {
+article,
+header,
+footer,
+section,
+address,
+time,
+nav {
     display: block;
     margin: 0;
     padding: 0;
@@ -471,6 +477,7 @@ a.work-link-app:hover span {
 @media (max-width: 375px) {
     .logo {
         max-width: 30px;
+        max-height: 30px;
     }
 
     .header-info-description {

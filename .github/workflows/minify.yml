@@ -57,6 +57,29 @@ jobs:
             fi
           done
       
+      - name: Add version hash to assets
+        run: |
+          # Получаем короткий хеш коммита (первые 7 символов)
+          COMMIT_HASH=$(git rev-parse --short HEAD)
+          echo "Adding version hash: $COMMIT_HASH to assets"
+          
+          # Проходим по всем HTML файлам в папке build
+          for file in build/*.html; do
+            if [ -f "$file" ]; then
+              echo "Processing $file"
+              
+              # Добавляем хеш ко всем ссылкам на CSS
+              sed -i "s/\(href=[\"']\/[^\"]*\.css\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
+              sed -i "s/\(href=[\"']\/[^\"]*\.css\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
+              
+              # Добавляем хеш ко всем ссылкам на JS
+              sed -i "s/\(src=[\"']\/[^\"]*\.js\)\"/\1?v=$COMMIT_HASH\"/g" "$file"
+              sed -i "s/\(src=[\"']\/[^\"]*\.js\)?[^\"]*\"/\1?v=$COMMIT_HASH\"/g" "$file"
+              
+              echo "✅ Added version $COMMIT_HASH to $file"
+            fi
+          done
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
