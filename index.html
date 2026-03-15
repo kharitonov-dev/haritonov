@@ -197,13 +197,16 @@
 
         .hero-photo {
             flex: 1;
+            width: 100%;
             max-width: 300px;
+            aspect-ratio: 1/1;
         }
 
         .profile-photo {
             cursor: pointer;
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
@@ -271,6 +274,11 @@
             .hero-subtitle {
                 max-width: 100%;
                 font-size: 1.1rem;
+            }
+
+            .hero-photo {
+                max-width: 200px;
+                margin: 0 auto;
             }
 
             .section {
@@ -454,12 +462,8 @@
                         <source srcset="/resources/my_photo.webp" type="image/webp" />
                         <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
                             data-full="/resources/my_photo_full.webp" id="profilePhoto" class="profile-photo"
-                            loading="lazy" width="300" height="300" />
+                            width="300" height="300" fetchpriority="high" />
                     </picture>
-                    <div id="photoModal" class="modal" onclick="closeModal()">
-                        <span class="modal-close">&times;</span>
-                        <img class="modal-content" id="modalImage" alt="Тимофей Харитонов, полное фото">
-                    </div>
                 </div>
             </section>
 
@@ -663,6 +667,12 @@
                 <li>English Intermediate+</li>
             </ul>
         </footer>
+    </div>
+
+    <!-- Modals -->
+    <div id="photoModal" class="modal" onclick="closeModal()">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Тимофей Харитонов, полное фото">
     </div>
 
     <!-- Scripts -->
