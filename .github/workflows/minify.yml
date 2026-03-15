@@ -9,6 +9,7 @@ on:
 
 jobs:
   build-and-deploy:
+    name: Deploy Minify CSS and HTML
     runs-on: ubuntu-latest
     permissions:
       contents: write
