@@ -1,4 +1,8 @@
-document.addEventListener("DOMContentLoaded", function () {
+/* Модуль для модального окна с фото */
+
+import { closeModal } from "../utils/helpers.js";
+
+export function initPhotoModal() {
   const modal = document.getElementById("photoModal");
   const modalImg = document.getElementById("modalImage");
   const profilePhoto = document.getElementById("profilePhoto");
@@ -19,21 +23,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
   modal.addEventListener("click", function (e) {
     if (e.target === modal || e.target.classList.contains("modal-close")) {
-      closeModal();
+      closeModal(modal);
     }
   });
 
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && modal.style.display === "block") {
-      closeModal();
+      closeModal(modal);
     }
   });
-});
-
-function closeModal() {
-  const modal = document.getElementById("photoModal");
-  if (modal) {
-    modal.style.display = "none";
-    document.body.style.overflow = "auto";
-  }
 }
