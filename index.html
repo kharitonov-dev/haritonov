@@ -532,7 +532,6 @@
             <!-- About me -->
             <section id="about" class="hero">
                 <div class="hero-content">
-
                     <!-- Hidden H1 for SEO -->
                     <h1 class="visually-hidden">Тимофей Харитонов · iOS разработчик с 7+ годами опыта</h1>
 
@@ -540,28 +539,65 @@
                         <span class="prompt">></span>
                         <span>iOS разработчик с 7+&nbsp;годами коммерческого опыта,</span>
                     </div>
-                    <p class="hero-text">
-                        увлеченный созданием интуитивно понятных и быстрых приложений.
-                        Верю в чистый код, продуманную архитектуру и идеальный
-                        пользовательский опыт.
-                    </p>
-                    <p class="hero-text">
+
+                    <div class="hero-text">
                         Активно принимаю участие в it-сообществе, слежу за трендами через
-                        профильные конференции. Являюсь спикером Mobius Conf 2025 и
-                        надеюсь в будущем, других крупных площадок. Номинант на "Сотрудник
-                        года 2025" в MWS (ex. МТС).
-                    </p>
-                    <p class="hero-text">
+                        профильные конференции. Являюсь спикером
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="mobius">Mobius Conf 2025</button>
+                            <div class="event-preview" data-event="mobius">
+                                <div class="preview-header">
+                                    <span class="preview-icon">🎤</span>
+                                    <span class="preview-title">Mobius Conf 2025</span>
+                                </div>
+                                <div class="preview-body">
+                                    <img src="/resources/events/mobius.webp" alt="Mobius Conf" class="preview-img"
+                                        onerror="this.style.display='none'">
+                                    <p class="preview-text">Доклад о масштабируемых шрифтах (Accessibility) для
+                                        экосистемы
+                                        МТС.</p>
+                                </div>
+                                <div class="preview-footer">
+                                    <a href="#" class="preview-link">Подробнее →</a>
+                                </div>
+                            </div>
+                        </span>
+                        и надеюсь в будущем, других крупных площадок. Номинант на
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">"Сотрудник года 2025"</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏆</span>
+                                        <span class="preview-title">Сотрудник года 2025</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <img src="/resources/events/award.webp" alt="Award" class="preview-img"
+                                            onerror="this.style.display='none'">
+                                        <p class="preview-text">Номинант на премию 'Сотрудник года' в MWS (ex. МТС).</p>
+                                    </div>
+                                    <div class="preview-footer">
+                                        <a href="#" class="preview-link">Подробнее →</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        в MWS (ex. МТС).
+                    </div>
+                    <div class="hero-text">
                         Вне кода увлекаюсь бегом и хоккеем. Играю за местную любительскую
                         команду. Люблю путешествовать с семьей и друзьями. Ценю баланс
                         между работой и активной жизнью.
-                    </p>
+                    </div>
                 </div>
                 <div class="hero-photo">
-                    <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x" type="image/webp" />
-                    <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
-                        data-full="/resources/my_photo_full.webp" id="profilePhoto" class="profile-photo" width="300"
-                        height="300" fetchpriority="high" />
+                    <picture>
+                        <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x"
+                            type="image/webp" />
+                        <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
+                            data-full="/resources/my_photo_full.webp" id="profilePhoto" class="profile-photo"
+                            width="300" height="300" fetchpriority="high" />
+                    </picture>
                 </div>
             </section>
 

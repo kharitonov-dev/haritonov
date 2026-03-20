@@ -1,6 +1,6 @@
 /* Модуль для кнопки "Показать больше" - work_experience */
 
-export function initShowMore() {
+export function ShowMore() {
   "use strict";
 
   const btn = document.getElementById("showMoreBtn");

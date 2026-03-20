@@ -1,5 +1,189 @@
 /* Critical CSS in head index.html for SEO */
 
+/* ===== EVENT PREVIEW CARDS ===== */
+
+.event-trigger {
+    all: unset;
+    display: inline;
+    color: #0066cc;
+    cursor: pointer;
+    border-bottom: 1px dashed #0066cc;
+    transition: all 0.2s ease;
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+    white-space: nowrap;
+}
+
+.event-trigger:hover {
+    color: #F05138;
+    border-bottom-color: #F05138;
+}
+
+.event-trigger:focus-visible {
+    outline: 2px solid #0066cc;
+    outline-offset: 2px;
+    border-radius: 2px;
+}
+
+.event-trigger::after {
+    content: " ↗️";
+    font-size: 0.9em;
+    opacity: 0.6;
+    transition: opacity 0.2s;
+}
+
+.event-trigger:hover::after {
+    opacity: 1;
+}
+
+/* Адаптивность для мобильных: на маленьких экранах карточка может уехать, но hover всё равно не работает */
+@media (max-width: 600px) {
+    .event-preview {
+        min-width: 220px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .event-preview::before {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+button {
+    border: none;
+    background: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.event-trigger-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+.event-preview {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 280px;
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+    z-index: 1000;
+    margin-top: 0.5rem;
+    font-family: 'Cascadia Code', monospace;
+    font-size: 0.9rem;
+    color: #333;
+}
+
+.event-preview.visible {
+    display: block;
+}
+
+/* .event-trigger-wrapper:hover .event-preview {
+    display: block;
+} */
+
+/* Маленькая стрелочка сверху */
+.event-preview::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 1rem;
+    border-width: 8px;
+    border-style: solid;
+    border-color: transparent transparent #fff transparent;
+    filter: drop-shadow(0 -2px 2px rgba(0, 0, 0, 0.05));
+}
+
+.preview-content {
+    display: flex;
+    flex-direction: column;
+}
+
+.preview-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-weight: 600;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 0.5rem;
+}
+
+.preview-icon {
+    font-size: 1.5rem;
+}
+
+.preview-title {
+    font-size: 1rem;
+    color: #1e1e1e;
+}
+
+.preview-body {
+    display: flex;
+    align-items: flex-start;
+    padding: 1rem 0;
+    gap: 1rem;
+}
+
+.preview-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 6px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.preview-text {
+    flex: 1;
+    font-size: 0.85rem;
+    line-height: 1.4;
+    color: #666;
+}
+
+.preview-footer {
+    text-align: right;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 0.5rem;
+}
+
+.preview-link {
+    color: #0066cc;
+    text-decoration: none;
+    font-size: 0.85rem;
+    border-bottom: 1px solid transparent;
+}
+
+.preview-link:hover {
+    border-bottom-color: #0066cc;
+}
+
+/* Адаптивность для мобильных: на маленьких экранах карточка может уехать, но hover всё равно не работает */
+@media (max-width: 600px) {
+    .event-preview {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 90%;
+        z-index: 10000;
+    }
+
+    .event-preview::before {
+        display: none;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
 #extra-work {
     overflow: hidden;
     transition: height 0.3s cubic-bezier(0.4, 0, 0.2, 1);

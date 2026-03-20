@@ -3,10 +3,12 @@
  * @module main
  */
 
-import { initShowMore } from "./modules/showMore.js";
-import { initPhotoModal } from "./modules/photoModal.js";
+import { PhotoModal } from "./modules/photoModal.js";
+import { FocusCard } from "./modules/focusCard.js";
+import { ShowMore } from "./modules/showMore.js";
 
 document.addEventListener("DOMContentLoaded", () => {
-  initShowMore();
-  initPhotoModal();
+  PhotoModal();
+  FocusCard();
+  ShowMore();
 });

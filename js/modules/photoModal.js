@@ -2,7 +2,7 @@
 
 import { closeModal } from "../utils/helpers.js";
 
-export function initPhotoModal() {
+export function PhotoModal() {
   const modal = document.getElementById("photoModal");
   const modalImg = document.getElementById("modalImage");
   const profilePhoto = document.getElementById("profilePhoto");
