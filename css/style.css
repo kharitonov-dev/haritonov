@@ -37,19 +37,6 @@
     opacity: 1;
 }
 
-/* Адаптивность для мобильных: на маленьких экранах карточка может уехать, но hover всё равно не работает */
-@media (max-width: 600px) {
-    .event-preview {
-        min-width: 220px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    .event-preview::before {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
 
 button {
     border: none;
@@ -67,11 +54,12 @@ button {
 }
 
 .event-preview {
-    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     min-width: 280px;
+    max-height: 70vh;
+    overflow-y: auto;
     background: #fff;
     border: 1px solid #e0e0e0;
     border-radius: 8px;
@@ -82,15 +70,17 @@ button {
     font-family: 'Cascadia Code', monospace;
     font-size: 0.9rem;
     color: #333;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
 .event-preview.visible {
-    display: block;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
 }
-
-/* .event-trigger-wrapper:hover .event-preview {
-    display: block;
-} */
 
 /* Маленькая стрелочка сверху */
 .event-preview::before {
@@ -166,21 +156,70 @@ button {
     border-bottom-color: #0066cc;
 }
 
-/* Адаптивность для мобильных: на маленьких экранах карточка может уехать, но hover всё равно не работает */
-@media (max-width: 600px) {
+/* Кнопка закрытия карточки */
+.event-preview-close {
+    display: none;
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    width: 2rem;
+    height: 2rem;
+    border: none;
+    background: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #666;
+    align-items: center;
+    justify-content: center;
+    border-radius: 4px;
+    transition: background-color 0.15s ease;
+    flex-shrink: 0;
+}
+
+.event-preview-close:hover {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+/* Бэкдроп для мобильного модала */
+.event-preview-backdrop {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 9999;
+}
+
+.event-preview-backdrop.visible {
+    display: block;
+}
+
+/* Блокировка скролла при открытом модале */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Мобильный модал: полноэкранная карточка */
+@media (hover: none) {
     .event-preview {
         position: fixed;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 90%;
+        max-width: 420px;
+        max-height: 80vh;
+        margin-top: 0;
         z-index: 10000;
     }
 
     .event-preview::before {
         display: none;
-        left: 50%;
-        transform: translateX(-50%);
+    }
+
+    .event-preview-close {
+        display: flex;
     }
 }
 
