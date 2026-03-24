@@ -102,8 +102,8 @@
 
         .header-right {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
         .header-info {
@@ -496,11 +496,6 @@
 </head>
 
 <body>
-    <div class="lang-switcher">
-        <a href="/pages/mobius/" class="lang-link" hreflang="ru">RU</a>
-        <span class="lang-sep">/</span>
-        <a href="/en/pages/mobius/" class="lang-link active" hreflang="en">EN</a>
-    </div>
     <div class="container">
 
         <header class="header">
@@ -525,6 +520,11 @@
                 </div>
             </div>
             <div class="header-right">
+                <div class="lang-switcher">
+                    <a href="/pages/mobius/" class="lang-link" hreflang="ru">RU</a>
+                    <span class="lang-sep">/</span>
+                    <a href="/en/pages/mobius/" class="lang-link active" hreflang="en">EN</a>
+                </div>
                 <nav class="nav">
                     <a href="/en/" class="nav-link">← Back to main</a>
                 </nav>
@@ -646,7 +646,8 @@
 
                     <h3>What we covered</h3>
                     <p>
-                        MTS has more than 9 mobile products that share a single design system. The challenge was to build
+                        MTS has more than 9 mobile products that share a single design system. The challenge was to
+                        build
                         a unified approach to typography that works correctly at any custom font size, including at
                         minimum/maximum accessibility settings. We walked through how we designed the type scale,
                         how we integrated it into the design system, and how it works in code.
@@ -684,7 +685,8 @@
                             <div class="file-name">Mobiusconf.com · Speaker profile</div>
                             <div class="file-meta">Speaker page on the conference website</div>
                         </div>
-                        <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/" class="button-style" target="_blank">
+                        <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                            class="button-style" target="_blank">
                             <span class="prompt">↗</span> Open
                         </a>
                     </div>
@@ -692,9 +694,11 @@
                         <div class="file-icon">📢</div>
                         <div class="file-info">
                             <div class="file-name">Mobiusconf.com · A11Y: scalable fonts in "My MTS"</div>
-                            <div class="file-meta">Talk page with description and materials on the conference website</div>
+                            <div class="file-meta">Talk page with description and materials on the conference website
+                            </div>
                         </div>
-                        <a href="https://mobiusconf.com/archive/2025%20Spring/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="button-style" target="_blank">
+                        <a href="https://mobiusconf.com/archive/2025%20Spring/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
+                            class="button-style" target="_blank">
                             <span class="prompt">↗</span> Open
                         </a>
                     </div>
@@ -735,6 +739,11 @@
                 <li>Agile / Scrum</li>
                 <li>English Intermediate+</li>
             </ul>
+            <div class="lang-switcher footer-lang">
+                <a href="/pages/mobius/" class="lang-link" hreflang="ru">RU</a>
+                <span class="lang-sep">/</span>
+                <a href="/en/pages/mobius/" class="lang-link active" hreflang="en">EN</a>
+            </div>
         </footer>
 
     </div>

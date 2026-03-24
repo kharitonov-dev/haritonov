@@ -622,21 +622,11 @@ body.modal-open {
 /* ===== LANG SWITCHER ===== */
 
 .lang-switcher {
-    position: fixed;
-    top: 0.75rem;
-    right: 1rem;
-    z-index: 10001;
     display: flex;
     align-items: center;
-    gap: 0.25rem;
+    gap: 0.3rem;
     font-family: 'Cascadia Code', monospace;
     font-size: 0.75rem;
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(4px);
-    border: 1px solid #e0e0e0;
-    border-radius: 6px;
-    padding: 0.25rem 0.5rem;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
 
 .lang-link {
@@ -660,4 +650,9 @@ body.modal-open {
 .lang-sep {
     color: #ddd;
     user-select: none;
+}
+
+.footer-lang {
+    margin-top: 1rem;
+    justify-content: center;
 }

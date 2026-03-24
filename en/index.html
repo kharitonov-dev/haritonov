@@ -132,8 +132,8 @@
 
         .header-right {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
         .header-left {
@@ -558,11 +558,6 @@
 </head>
 
 <body>
-    <div class="lang-switcher">
-        <a href="/" class="lang-link" hreflang="ru">RU</a>
-        <span class="lang-sep">/</span>
-        <a href="/en/" class="lang-link active" hreflang="en">EN</a>
-    </div>
     <div class="container">
 
         <header class="header">
@@ -588,6 +583,11 @@
                 </div>
             </div>
             <div class="header-right">
+                <div class="lang-switcher">
+                    <a href="/" class="lang-link" hreflang="ru">RU</a>
+                    <span class="lang-sep">/</span>
+                    <a href="/en/" class="lang-link active" hreflang="en">EN</a>
+                </div>
                 <nav class="nav">
                     <a href="#about" class="nav-link"><span class="prompt">/</span>about</a>
                     <a href="#work" class="nav-link"><span class="prompt">/</span>work</a>
@@ -669,11 +669,13 @@
                                                     </picture>
                                                 </div>
                                             </div>
-                                            <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
+                                            <button class="slider-btn slider-prev"
+                                                aria-label="Previous">&#8249;</button>
                                             <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
                                             <div class="slider-dots"></div>
                                         </div>
-                                        <p class="preview-text">Nominee for the "Employee of the Year" award at MWS (ex. MTS).</p>
+                                        <p class="preview-text">Nominee for the "Employee of the Year" award at MWS (ex.
+                                            MTS).</p>
                                     </div>
                                 </div>
                             </div>
@@ -695,8 +697,7 @@
                                             <div class="slider-track">
                                                 <div class="slider-slide">
                                                     <picture>
-                                                        <source srcset="/resources/marathon-1.jpg"
-                                                            type="image/webp" />
+                                                        <source srcset="/resources/marathon-1.jpg" type="image/webp" />
                                                         <img src="/resources/marathon-1.jpg"
                                                             alt="Timofey Kharitonov marathon participant"
                                                             data-full-image="/resources/marathon-1.jpg"
@@ -707,8 +708,7 @@
                                                 </div>
                                                 <div class="slider-slide">
                                                     <picture>
-                                                        <source srcset="/resources/marathon-2.jpg"
-                                                            type="image/webp" />
+                                                        <source srcset="/resources/marathon-2.jpg" type="image/webp" />
                                                         <img src="/resources/marathon-2.jpg"
                                                             alt="Timofey Kharitonov marathon participant"
                                                             data-full-image="/resources/marathon-2.jpg"
@@ -730,7 +730,8 @@
                                                     </picture>
                                                 </div>
                                             </div>
-                                            <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
+                                            <button class="slider-btn slider-prev"
+                                                aria-label="Previous">&#8249;</button>
                                             <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
                                             <div class="slider-dots"></div>
                                         </div>
@@ -824,7 +825,8 @@
                                                     </picture>
                                                 </div>
                                             </div>
-                                            <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
+                                            <button class="slider-btn slider-prev"
+                                                aria-label="Previous">&#8249;</button>
                                             <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
                                             <div class="slider-dots"></div>
                                         </div>
@@ -870,7 +872,8 @@
                     <p class="work-role">iOS Developer</p>
                     <ul class="work-desc">
                         <li>
-                            Implemented scalable fonts (Accessibility) for MTS ecosystem projects via contribution to the
+                            Implemented scalable fonts (Accessibility) for MTS ecosystem projects via contribution to
+                            the
                             Design System SDK and shared the feature lifecycle at
                             <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
                                 class="contact-value" target="_blank">Mobius</a>
@@ -907,7 +910,8 @@
 
                 <article class="work-item" aria-labelledby="decartus-heading">
                     <header class="work-header">
-                        <h3 id="decartus-heading" class="work-company">Dekartus - "Provider App" (ex. "My Sevstar", "My Digital City")</h3>
+                        <h3 id="decartus-heading" class="work-company">Dekartus - "Provider App" (ex. "My Sevstar", "My
+                            Digital City")</h3>
                         <time class="work-date" datetime="2022-02">02.2022 — 04.2023</time>
                     </header>
                     <p class="work-role">iOS Developer</p>
@@ -917,7 +921,8 @@
                         </li>
                         <li>
                             Rewrote app modules from Objective-C to Swift, implemented a new network layer (REST API,
-                            Alamofire), developed and extracted push notification functionality (Rich Push Notifications)
+                            Alamofire), developed and extracted push notification functionality (Rich Push
+                            Notifications)
                             into a dev SDK.
                         </li>
                         <li>
@@ -1041,6 +1046,11 @@
                 <li>Agile / Scrum</li>
                 <li>English Intermediate+</li>
             </ul>
+            <div class="lang-switcher footer-lang">
+                <a href="/" class="lang-link" hreflang="ru">RU</a>
+                <span class="lang-sep">/</span>
+                <a href="/en/" class="lang-link active" hreflang="en">EN</a>
+            </div>
         </footer>
     </div>
 

@@ -99,8 +99,8 @@
 
         .header-right {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
         .header-info {
@@ -493,11 +493,6 @@
 </head>
 
 <body>
-    <div class="lang-switcher">
-        <a href="/" class="lang-link active" hreflang="ru">RU</a>
-        <span class="lang-sep">/</span>
-        <a href="/en/" class="lang-link" hreflang="en">EN</a>
-    </div>
     <div class="container">
 
         <header class="header">
@@ -522,6 +517,11 @@
                 </div>
             </div>
             <div class="header-right">
+                <div class="lang-switcher">
+                    <a href="/pages/mobius/" class="lang-link active" hreflang="ru">RU</a>
+                    <span class="lang-sep">/</span>
+                    <a href="/en/pages/mobius/" class="lang-link" hreflang="en">EN</a>
+                </div>
                 <nav class="nav">
                     <a href="/" class="nav-link">← На главную</a>
                 </nav>
@@ -639,14 +639,17 @@
                     <p>
                         Mobius Conf — одна из крупнейших независимых конференций для мобильных разработчиков в России.
                         В 2025 году я выступил с докладом о реализации системы масштабируемых шрифтов
-                        (Dynamic Type / Accessibility) в приложении "Мой МТС" и для всей экосистемы приложений МТС в целом.
+                        (Dynamic Type / Accessibility) в приложении "Мой МТС" и для всей экосистемы приложений МТС в
+                        целом.
                     </p>
 
                     <h3>Что разбирали</h3>
                     <p>
-                        В МТС более 9 мобильных продуктов, которые используют единую дизайн-систему. Задача - выстроить единый подход к типографике,
+                        В МТС более 9 мобильных продуктов, которые используют единую дизайн-систему. Задача - выстроить
+                        единый подход к типографике,
                         который работает корректно при любом кастомном размере шрифта, в том числе при
-                        минимальных/максимальных настройках доступности. Разобрали, как мы проектировали шрифтовую шкалу,
+                        минимальных/максимальных настройках доступности. Разобрали, как мы проектировали шрифтовую
+                        шкалу,
                         как интегрировали её в дизайн-систему и как работает это в коде.
                     </p>
 
@@ -682,7 +685,8 @@
                             <div class="file-name">Mobiusconf.com · Профиль спикера</div>
                             <div class="file-meta">Страница докладчика на сайте конференции</div>
                         </div>
-                        <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/" class="button-style" target="_blank">
+                        <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                            class="button-style" target="_blank">
                             <span class="prompt">↗</span> Открыть
                         </a>
                     </div>
@@ -692,7 +696,8 @@
                             <div class="file-name">Mobiusconf.com · A11Y: масштабирование шрифтов в «Мой МТС»</div>
                             <div class="file-meta">Страница доклада с описанием и материалами на сайте конференции</div>
                         </div>
-                        <a href="https://mobiusconf.com/archive/2025%20Spring/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="button-style" target="_blank">
+                        <a href="https://mobiusconf.com/archive/2025%20Spring/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
+                            class="button-style" target="_blank">
                             <span class="prompt">↗</span> Открыть
                         </a>
                     </div>
@@ -702,7 +707,8 @@
                             <div class="file-name">GitHub.com · A11Y app - Accessibility: Dynamic Type</div>
                             <div class="file-meta">
                                 Пример масштабирования шрифтов с глобальным и локальными флагами · UIKit / SwiftUI.
-                                <br>Живой код — поможет понять, как правильно работать с кастомными шрифтами в iOS-приложении.
+                                <br>Живой код — поможет понять, как правильно работать с кастомными шрифтами в
+                                iOS-приложении.
                             </div>
                         </div>
                         <a href="https://github.com/kharitonov-dev/a11y" class="button-style" target="_blank">
@@ -733,6 +739,11 @@
                 <li>Agile / Scrum</li>
                 <li>English Intermediate+</li>
             </ul>
+            <div class="lang-switcher footer-lang">
+                <a href="/pages/mobius/" class="lang-link active" hreflang="ru">RU</a>
+                <span class="lang-sep">/</span>
+                <a href="/en/pages/mobius/" class="lang-link" hreflang="en">EN</a>
+            </div>
         </footer>
 
     </div>
