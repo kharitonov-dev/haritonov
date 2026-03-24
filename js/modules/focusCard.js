@@ -6,7 +6,6 @@ export function FocusCard() {
 
   const isTouchDevice = window.matchMedia("(hover: none)").matches;
 
-  // Бэкдроп создаём один раз для всех карточек
   const backdrop = document.createElement("div");
   backdrop.className = "event-preview-backdrop";
   document.body.appendChild(backdrop);
@@ -33,10 +32,10 @@ export function FocusCard() {
     const card = wrapper.querySelector(".event-preview");
     if (!trigger || !card) return;
 
-    // Инжектим кнопку закрытия в каждую карточку
     const closeBtn = document.createElement("button");
     closeBtn.className = "event-preview-close";
-    closeBtn.setAttribute("aria-label", "Закрыть");
+    const lang = document.documentElement.lang;
+    closeBtn.setAttribute("aria-label", lang === "en" ? "Close" : "Закрыть");
     closeBtn.textContent = "×";
     card.prepend(closeBtn);
     closeBtn.addEventListener("click", closeAll);
@@ -107,7 +106,6 @@ export function FocusCard() {
       card.addEventListener("mouseenter", cancelHideAndShow);
       card.addEventListener("mouseleave", scheduleHide);
 
-      // Закрытие по клику вне карточки
       document.addEventListener("click", (e) => {
         if (!wrapper.contains(e.target) && card.classList.contains("visible")) {
           card.classList.remove("visible");

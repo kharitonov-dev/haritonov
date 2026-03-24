@@ -389,23 +389,73 @@
         margin-bottom: 1rem;
       }
     }
+
+    button {
+      border: none;
+      background: none;
+      padding: 0;
+      margin: 0;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: inherit;
+    }
+
+    .event-trigger-wrapper {
+      position: relative;
+      display: inline-block;
+    }
+
+    .event-trigger {
+      all: unset;
+      display: inline;
+      color: #0066cc;
+      cursor: pointer;
+      border-bottom: 1px dashed #0066cc;
+      transition: color 0.2s ease, border-bottom-color 0.2s ease;
+      font-family: inherit;
+      font-size: inherit;
+      line-height: inherit;
+      white-space: nowrap;
+    }
+
+    .event-trigger:hover {
+      color: #F05138;
+      border-bottom-color: #F05138;
+    }
+
+    .event-trigger:focus-visible {
+      outline: 2px solid #0066cc;
+      outline-offset: 2px;
+      border-radius: 2px;
+    }
+
+    button.event-trigger::after {
+      content: " ⓘ";
+      font-size: 0.9em;
+      opacity: 0.6;
+    }
+
+    a.event-trigger::after {
+      content: " ↗";
+      font-size: 0.9em;
+      opacity: 0.6;
+    }
+
+    .event-trigger:hover::after {
+      opacity: 1;
+    }
   </style>
   <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
   <noscript>
     <link rel="stylesheet" href="/css/style.css">
   </noscript>
 
-  <!-- Preload -->
   <link rel="preload" as="image" href="/resources/logo.webp" imagesrcset="/resources/logo.webp" type="image/webp">
   <link rel="preload" as="image" href="/resources/my_photo.webp" imagesrcset="/resources/my_photo.webp"
     type="image/webp">
   <link rel="preload" href="/css/style.css" as="style">
-
-  <!-- Preconnect -->
   <link rel="preconnect" href="https://mc.yandex.ru">
   <link rel="preconnect" href="https://mc.yandex.com">
-
-  <!-- JSON-LD -->
   <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -495,16 +545,20 @@
 </head>
 
 <body>
+  <div class="lang-switcher">
+    <a href="/" class="lang-link" hreflang="ru">RU</a>
+    <span class="lang-sep">/</span>
+    <a href="/en/" class="lang-link active" hreflang="en">EN</a>
+  </div>
   <div class="container">
 
-    <!-- Header -->
     <header class="header">
       <div class="header-left">
         <div class="header-logo">
           <picture>
             <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
             <img src="/resources/logo.webp" alt="Timofey Kharitonov logo" class="logo" width="50" height="50"
-              loading="lazy" />
+              />
           </picture>
         </div>
         <div class="header-info">
@@ -529,14 +583,12 @@
     </header>
 
     <main>
-      <!-- About me -->
       <section id="about" class="hero">
         <div class="hero-content">
-
           <!-- Hidden H1 for SEO -->
           <h1 class="visually-hidden">Timofey Kharitonov · iOS Developer with 7+ years of experience</h1>
 
-          <div class="hero-title" role="heading" aria-level="1">
+          <div class="hero-title" aria-hidden="true">
             <span class="prompt">></span>
             <span>iOS Developer with 7+&nbsp;years of commercial experience,</span>
           </div>
@@ -547,9 +599,68 @@
           </p>
           <p class="hero-text">
             I actively participate in the IT community and follow trends through
-            industry conferences. I was a speaker at Mobius Conf 2025 and
-            hope to be at other major venues in the future. Nominee for "Employee
-            of the Year 2025" at MWS (ex. MTS).
+            industry conferences. I was a speaker at
+            <span class="event-trigger-wrapper">
+              <a href="/pages/mobius/" class="event-trigger" target="_blank" data-event="mobius">Mobius Conf 2025</a>
+              <div class="event-preview" data-event="mobius">
+                <div class="preview-header">
+                  <span class="preview-icon">🎤</span>
+                  <span class="preview-title">Mobius Conf 2025</span>
+                </div>
+                <div class="preview-body">
+                  <div class="preview-slider" data-slider>
+                    <div class="slider-track">
+                      <div class="slider-slide">
+                        <img src="/resources/Mobius/mobius-preview.jpg" alt="Timofey Kharitonov at Mobius Conf 2025"
+                          onerror="this.style.display='none'">
+                      </div>
+                    </div>
+                    <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
+                    <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
+                    <div class="slider-dots"></div>
+                  </div>
+                  <p class="preview-text"><b>Mobius Conf</b> — one of the largest independent conferences for mobile developers in Russia. In 2025, I gave a talk on scalable fonts (Dynamic Type / Accessibility) for the MTS app ecosystem.</p>
+                </div>
+                <div class="preview-footer">
+                  <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                    class="preview-link" target="_blank">Profile on Mobius</a>
+                  <a href="/pages/mobius/" class="preview-link" target="_blank">More details →</a>
+                </div>
+              </div>
+            </span>
+            and hope to be at other major venues in the future. Nominee for
+            <span class="event-trigger-wrapper">
+              <button class="event-trigger" data-event="award">"Employee of the Year 2025"</button>
+              <div class="event-preview" data-event="award">
+                <div class="preview-content">
+                  <div class="preview-header">
+                    <span class="preview-icon">🏃</span>
+                    <span class="preview-title">Employee of the Year 2025</span>
+                  </div>
+                  <div class="preview-body">
+                    <div class="preview-slider" data-slider>
+                      <div class="slider-track">
+                        <div class="slider-slide">
+                          <picture>
+                            <source srcset="/resources/employee-of-year.png" type="image/webp" />
+                            <img src="/resources/employee-of-year.png"
+                              alt="Nominee for 'Employee of the Year' award"
+                              data-full-image="/resources/employee-of-year.png"
+                              class="preview-img preview-photo"
+                              onerror="this.style.display='none'" width="245" height="335" />
+                          </picture>
+                        </div>
+                      </div>
+                      <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
+                      <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
+                      <div class="slider-dots"></div>
+                    </div>
+                    <p class="preview-text">Nominee for the "Employee of the Year" award at MWS (ex. MTS).</p>
+                  </div>
+                </div>
+              </div>
+            </span>
+            at MWS (ex. MTS).
           </p>
           <p class="hero-text">
             Outside of coding, I enjoy running and hockey. I play for a local amateur
@@ -566,7 +677,7 @@
         </div>
       </section>
 
-      <!-- Work experience -->
+
       <section id="work" class="section" aria-labelledby="work-heading">
         <h2 id="work-heading" class="section-title">
           <span class="prompt">$</span>cd work_experience
@@ -696,7 +807,6 @@
         </div>
       </section>
 
-      <!-- Contacts -->
       <section id="contact" class="section" aria-labelledby="contact-heading">
         <h2 id="contact-heading" class="section-title">
           <span class="prompt">$</span>./connect
@@ -736,7 +846,6 @@
       </section>
     </main>
 
-    <!-- Footer -->
     <footer class="footer">
       <strong>© 2026 Timofey Kharitonov · iOS Developer</strong>
       <ul class="work-stack">
@@ -759,12 +868,10 @@
   </div>
 
   <!-- Modals -->
-  <div id="photoModal" class="modal" onclick="closeModal()">
+  <div id="photoModal" class="modal">
     <span class="modal-close">&times;</span>
     <img class="modal-content" id="modalImage" alt="Timofey Kharitonov, full photo">
   </div>
-
-  <!-- Scripts -->
   <script type="module" src="/js/main.js"></script>
 
   <!-- Yandex.Metrika counter -->

@@ -16,7 +16,6 @@ export function Slider() {
     const total = slides.length;
     let current = 0;
 
-    // Скрываем навигацию если один слайд
     if (total <= 1) {
       prevBtn?.remove();
       nextBtn?.remove();
@@ -25,11 +24,11 @@ export function Slider() {
       return;
     }
 
-    // Генерируем дотсы (точки)
+    const lang = document.documentElement.lang;
     const dots = Array.from({ length: total }, (_, i) => {
       const dot = document.createElement("button");
       dot.className = "slider-dot";
-      dot.setAttribute("aria-label", `Слайд ${i + 1}`);
+      dot.setAttribute("aria-label", lang === "en" ? `Slide ${i + 1}` : `Слайд ${i + 1}`);
       dot.addEventListener("click", () => goTo(i));
       dotsContainer.appendChild(dot);
       return dot;

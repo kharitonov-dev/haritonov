@@ -402,23 +402,73 @@
                 margin-bottom: 1rem;
             }
         }
+
+        button {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .event-trigger-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .event-trigger {
+            all: unset;
+            display: inline;
+            color: #0066cc;
+            cursor: pointer;
+            border-bottom: 1px dashed #0066cc;
+            transition: color 0.2s ease, border-bottom-color 0.2s ease;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+
+        .event-trigger:hover {
+            color: #F05138;
+            border-bottom-color: #F05138;
+        }
+
+        .event-trigger:focus-visible {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        button.event-trigger::after {
+            content: " ⓘ";
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+
+        a.event-trigger::after {
+            content: " ↗";
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+
+        .event-trigger:hover::after {
+            opacity: 1;
+        }
     </style>
     <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="/css/style.css">
     </noscript>
 
-    <!-- Preload -->
     <link rel="preload" as="image" href="/resources/logo.webp" imagesrcset="/resources/logo.webp" type="image/webp">
     <link rel="preload" as="image" href="/resources/my_photo.webp" imagesrcset="/resources/my_photo.webp"
         type="image/webp">
     <link rel="preload" href="/css/style.css" as="style">
-
-    <!-- Preconnect -->
     <link rel="preconnect" href="https://mc.yandex.ru">
     <link rel="preconnect" href="https://mc.yandex.com">
-
-    <!-- JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -508,16 +558,20 @@
 </head>
 
 <body>
+    <div class="lang-switcher">
+        <a href="/" class="lang-link active" hreflang="ru">RU</a>
+        <span class="lang-sep">/</span>
+        <a href="/en/" class="lang-link" hreflang="en">EN</a>
+    </div>
     <div class="container">
 
-        <!-- Header -->
         <header class="header">
             <div class="header-left">
                 <div class="header-logo">
                     <picture>
                         <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
                         <img src="/resources/logo.webp" alt="логотип Тимофея Харитонова" class="logo" width="50"
-                            height="50" loading="lazy" />
+                            height="50" />
                     </picture>
                 </div>
                 <div class="header-info">
@@ -543,13 +597,12 @@
         </header>
 
         <main>
-            <!-- About me -->
             <section id="about" class="hero">
                 <div class="hero-content">
                     <!-- Hidden H1 for SEO -->
                     <h1 class="visually-hidden">Тимофей Харитонов · iOS разработчик с 7+ годами опыта</h1>
 
-                    <div class="hero-title" role="heading" aria-level="1">
+                    <div class="hero-title" aria-hidden="true">
                         <span class="prompt">></span>
                         <span>iOS разработчик с 7+&nbsp;годами коммерческого опыта,</span>
                     </div>
@@ -939,7 +992,6 @@
                 </div>
             </section>
 
-            <!-- Contacts -->
             <section id="contact" class="section" aria-labelledby="contact-heading">
                 <h2 id="contact-heading" class="section-title">
                     <span class="prompt">$</span>./connect
@@ -981,7 +1033,6 @@
             </section>
         </main>
 
-        <!-- Footer -->
         <footer class="footer">
             <strong>© 2026 Тимофей Харитонов · iOS Developer</strong>
             <ul class="work-stack">
@@ -1009,7 +1060,6 @@
         <img class="modal-content" id="modalImage" alt="Тимофей Харитонов, полное фото">
     </div>
 
-    <!-- Scripts -->
     <script type="module" src="/js/main.js"></script>
 
     <!-- Yandex.Metrika counter -->
