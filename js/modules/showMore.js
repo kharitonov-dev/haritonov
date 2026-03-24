@@ -7,9 +7,16 @@ export function ShowMore() {
   const extra = document.getElementById("extra-work");
 
   if (!btn || !extra) {
-    console.error("Elements not found!");
     return;
   }
+
+  const isEn = document.documentElement.lang === "en";
+  const textExpanded = isEn
+    ? '<span class="prompt">↑</span> Hide'
+    : '<span class="prompt">↑</span> Скрыть';
+  const textCollapsed = isEn
+    ? '<span class="prompt">↓</span> Show more experience'
+    : '<span class="prompt">↓</span> Показать больше опыта';
 
   extra.style.overflow = "hidden";
   extra.style.transition = "height 0.3s ease";
@@ -24,16 +31,15 @@ export function ShowMore() {
       const targetHeight = extra.scrollHeight;
 
       if (targetHeight === 0) {
-        console.error("scrollHeight = 0! No content in block");
         return;
       }
 
       extra.style.height = targetHeight + "px";
-      btn.innerHTML = '<span class="prompt">↑</span> Скрыть';
+      btn.innerHTML = textExpanded;
       isExpanded = true;
     } else {
       extra.style.height = "0";
-      btn.innerHTML = '<span class="prompt">↓</span> Показать больше опыта';
+      btn.innerHTML = textCollapsed;
       isExpanded = false;
     }
   });
