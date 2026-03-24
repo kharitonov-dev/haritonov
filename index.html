@@ -204,6 +204,16 @@
             line-height: 1.2;
         }
 
+        .note {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0rem 1rem;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            border-left: 4px solid #F05138;
+        }
+
         .hero-photo {
             flex: 1;
             width: 100%;
@@ -211,7 +221,7 @@
             aspect-ratio: 1/1;
         }
 
-        .profile-photo {
+        .preview-photo {
             cursor: pointer;
             width: 100%;
             height: 100%;
@@ -221,7 +231,7 @@
             will-change: transform;
         }
 
-        .profile-photo:hover {
+        .preview-photo:hover {
             transform: scale(1.02) translateZ(0);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
@@ -544,7 +554,8 @@
                         Активно принимаю участие в it-сообществе, слежу за трендами через
                         профильные конференции. Являюсь спикером
                         <span class="event-trigger-wrapper">
-                            <button class="event-trigger" data-event="mobius">Mobius Conf 2025</button>
+                            <a href="/pages/mobius/" class="event-trigger" target="_blank" data-event="mobius">Mobius
+                                Conf 2025</a>
                             <div class="event-preview" data-event="mobius">
                                 <div class="preview-header">
                                     <span class="preview-icon">🎤</span>
@@ -553,18 +564,8 @@
                                 <div class="preview-body">
                                     <div class="preview-slider" data-slider>
                                         <div class="slider-track">
-
                                             <div class="slider-slide">
-                                                <img src="/resources/my_photo_full.webp" alt="Mobius Conf 2025"
-                                                    loading="lazy" onerror="this.style.display='none'">
-                                            </div>
-                                            <div class="slider-slide">
-                                                <img src="/resources/my_photo_full.webp"
-                                                    alt="Доклад на Mobius Conf 2025" loading="lazy"
-                                                    onerror="this.style.display='none'">
-                                            </div>
-                                            <div class="slider-slide">
-                                                <img src="/resources/my_photo.webp" alt="Доклад на Mobius Conf 2025"
+                                                <img src="/resources/Mobius/mobius-preview.jpg" alt="Mobius Conf 2025"
                                                     loading="lazy" onerror="this.style.display='none'">
                                             </div>
                                         </div>
@@ -572,20 +573,17 @@
                                         <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
                                         <div class="slider-dots"></div>
                                     </div>
-                                    <img src="/resources/events/mobius.webp" alt="Mobius Conf" class="preview-img"
-                                        onerror="this.style.display='none'">
                                     <p class="preview-text">
-                                        Доклад на тему <a
-                                            href="https://mobiusconf.com/archive/2025%20Spring/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
-                                            class="preview-link" target="_blank">"A11Y: масштабирование
-                                            шрифтов в «Мой МТС»"</a> и в целом для всех экосистемных продуктов компании,
-                                        которые используют MWS Design System.
+                                        <b>Mobius Conf</b> — одна из крупнейших конференций для мобильных
+                                        разработчиков в России. В 2025 году выступил с докладом по реализации
+                                        масштабируемых шрифтов для экосистемы приложений
+                                        МТС.
                                     </p>
                                 </div>
                                 <div class="preview-footer">
                                     <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
                                         class="preview-link" target="_blank">Профиль на Mobius</a>
-                                    <a href="#" class="preview-link" target="_blank">Подробнее →</a>
+                                    <a href="/pages/mobius/" class="preview-link" target="_blank">Подробнее →</a>
                                 </div>
                             </div>
                         </span>
@@ -599,12 +597,26 @@
                                         <span class="preview-title">Сотрудник года 2025</span>
                                     </div>
                                     <div class="preview-body">
-                                        <img src="/resources/events/award.webp" alt="Award" class="preview-img"
-                                            onerror="this.style.display='none'">
-                                        <p class="preview-text">Номинант на премию 'Сотрудник года' в MWS (ex. МТС).</p>
-                                    </div>
-                                    <div class="preview-footer">
-                                        <a href="#" class="preview-link">Подробнее →</a>
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/employee-of-year.png"
+                                                            type="image/webp" />
+                                                        <img src="/resources/employee-of-year.png"
+                                                            alt="Номинант на премию 'Сотрудник года'"
+                                                            data-full-image="/resources/employee-of-year.png"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev" aria-label="Назад">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                        <p class="preview-text">Номинант на премию "Сотрудник года" в MWS (ex. МТС).</p>
                                     </div>
                                 </div>
                             </div>
@@ -612,9 +624,48 @@
                         в MWS (ex. МТС).
                     </div>
                     <div class="hero-text">
-                        Вне кода увлекаюсь бегом и хоккеем. Играю за местную любительскую
+                        Вне кода увлекаюсь
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">бегом</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏃</span>
+                                        <span class="preview-title">Участник марафонов</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/marathon-participant.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/marathon-participant.jpg"
+                                                            alt="Номинант на премию 'Сотрудник года'"
+                                                            data-full-image="/resources/marathon-participant.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev" aria-label="Назад">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                        <p class="preview-text">Сотрудники MWS на Казанском национальном полумарафоне
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        и хоккеем. Играю за местную любительскую
                         команду. Люблю путешествовать с семьей и друзьями. Ценю баланс
                         между работой и активной жизнью.
+                    </div>
+                    <div class="hero-text note">
+                        <span>Подробнее про жизнь между коммитами в моем tg-канале <a href="https://t.me/haritonovme"
+                                class="contact-value" target="_blank">@haritonovme</a>!</span>
                     </div>
                 </div>
                 <div class="hero-photo">
@@ -622,8 +673,8 @@
                         <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x"
                             type="image/webp" />
                         <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
-                            data-full="/resources/my_photo_full.webp" id="profilePhoto" class="profile-photo"
-                            width="300" height="300" fetchpriority="high" />
+                            data-full-image="/resources/my_photo_full.webp" class="preview-photo" width="300"
+                            height="300" fetchpriority="high" />
                     </picture>
                 </div>
             </section>
@@ -833,7 +884,7 @@
     </div>
 
     <!-- Modals -->
-    <div id="photoModal" class="modal" onclick="closeModal()">
+    <div id="photoModal" class="modal">
         <span class="modal-close">&times;</span>
         <img class="modal-content" id="modalImage" alt="Тимофей Харитонов, полное фото">
     </div>

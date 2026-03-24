@@ -43,11 +43,12 @@ export function FocusCard() {
 
     if (isTouchDevice) {
       // Мобильное поведение: тап открывает модал
-      trigger.addEventListener("click", () => {
+      trigger.addEventListener("click", (e) => {
         if (card.classList.contains("visible")) {
           closeAll();
         } else {
-          closeAll(); // закрываем предыдущую если была
+          e.preventDefault(); // не переходим по ссылке — сначала показываем превью
+          closeAll();
           card.classList.add("visible");
           backdrop.classList.add("visible");
           document.body.classList.add("modal-open");

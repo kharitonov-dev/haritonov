@@ -1,0 +1,719 @@
+<!doctype html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Mobius Conf 2025 · Тимофей Харитонов</title>
+    <meta name="description"
+        content="Доклад Тимофея Харитонова на Mobius Conf 2025 — масштабируемые шрифты (Accessibility) для экосистемы МТС. Фото, видео, презентация." />
+
+    <link rel="canonical" href="https://haritonov.me/pages/mobius/" />
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Cascadia Code', monospace;
+            background-color: #f9f9f9;
+            color: #1e1e1e;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        article,
+        header,
+        footer,
+        section,
+        time,
+        nav {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #0066cc;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .prompt {
+            color: #F05138;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        /* Header */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .logo {
+            display: block;
+            width: 50px;
+            height: 50px;
+            border-radius: 8px;
+        }
+
+        .header-right {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header-info-title {
+            font-size: 1.96rem;
+            line-height: 1.7rem;
+        }
+
+        .header-info-description {
+            font-size: 1rem;
+            color: #666;
+            font-family: inherit;
+        }
+
+        .header-info-description .prompt {
+            margin: 0;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: #333;
+            border-bottom: none;
+            font-size: 1.1rem;
+        }
+
+        .nav-link:hover {
+            color: #0066cc;
+            border-bottom: none;
+        }
+
+        .back-link {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: #666;
+            font-size: 0.9rem;
+            border-bottom: none;
+        }
+
+        .back-link:hover {
+            color: #0066cc;
+            border-bottom: none;
+        }
+
+        /* Section */
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border-left: 4px solid #F05138;
+            padding-left: 1rem;
+        }
+
+        /* Event Hero */
+        .event-hero {
+            margin-bottom: 4rem;
+        }
+
+        .event-hero-eyebrow {
+            font-size: 0.85rem;
+            color: #F05138;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .event-hero-title {
+            font-size: 2.4rem;
+            font-weight: 700;
+            line-height: 1.15;
+            margin-bottom: 1.5rem;
+        }
+
+        .event-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            padding: 1.25rem 1.5rem;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            border-left: 4px solid #F05138;
+        }
+
+        .event-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.9rem;
+            color: #444;
+        }
+
+        .event-meta-item strong {
+            color: #1e1e1e;
+        }
+
+        /* Slider (page-level — large) */
+        .page-slider {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #111;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        .page-slider .slider-track {
+            display: flex;
+            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .page-slider .slider-slide {
+            min-width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .page-slider .slider-slide img {
+            width: 100%;
+            height: auto;
+            max-height: 70vh;
+            object-fit: contain;
+            display: block;
+        }
+
+        .page-slider .slider-slide iframe {
+            width: 100%;
+            aspect-ratio: 16 / 9;
+            border: none;
+            display: block;
+        }
+
+        .page-slider .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            width: 2.75rem;
+            height: 2.75rem;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.15s ease;
+            z-index: 1;
+            padding: 0;
+        }
+
+        .page-slider .slider-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+        }
+
+        .page-slider .slider-prev {
+            left: 1rem;
+        }
+
+        .page-slider .slider-next {
+            right: 1rem;
+        }
+
+        .page-slider .slider-prev::before,
+        .page-slider .slider-next::before {
+            content: '';
+            display: block;
+            width: 8px;
+            height: 8px;
+            border-top: 2px solid #fff;
+            border-right: 2px solid #fff;
+            border-radius: 1px;
+        }
+
+        .page-slider .slider-prev::before {
+            transform: rotate(-135deg) translateX(2px);
+        }
+
+        .page-slider .slider-next::before {
+            transform: rotate(45deg) translateX(-2px);
+        }
+
+        .page-slider .slider-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 6px;
+        }
+
+        .page-slider .slider-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.45);
+            cursor: pointer;
+            transition: background 0.2s ease, transform 0.2s ease;
+        }
+
+        .page-slider .slider-dot.active {
+            background: #fff;
+            transform: scale(1.2);
+        }
+
+        /* Talk article */
+        .event-article {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            line-height: 1.8;
+            color: #333;
+        }
+
+        .event-article h3 {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1e1e1e;
+            margin-bottom: 0.75rem;
+            margin-top: 1.5rem;
+        }
+
+        .event-article h3:first-child {
+            margin-top: 0;
+        }
+
+        .event-article p {
+            margin-bottom: 1rem;
+        }
+
+        .event-article p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* File list */
+        .file-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .file-card {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 1.25rem 1.5rem;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            transition: box-shadow 0.2s ease;
+        }
+
+        .file-card:hover {
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        }
+
+        .file-icon {
+            font-size: 2rem;
+            flex-shrink: 0;
+            line-height: 1;
+        }
+
+        .file-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .file-name {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #1e1e1e;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .file-meta {
+            font-size: 0.8rem;
+            color: #888;
+            margin-top: 0.2rem;
+        }
+
+        .button-style {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            padding: 0.6rem 1.2rem;
+            background: #1e1e1e;
+            color: #f9f9f9;
+            border: none;
+            border-radius: 6px;
+            font-family: inherit;
+            font-size: 0.9rem;
+            cursor: pointer;
+            text-decoration: none;
+            border-bottom: none;
+            transition: background-color 0.15s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .button-style:hover {
+            background: #333;
+            border-bottom: none;
+        }
+
+        /* Footer */
+        .footer {
+            padding: 2rem 0 1rem;
+            border-top: 1px dashed #ccc;
+            color: #888;
+            font-size: 0.85rem;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+                margin-bottom: 1rem;
+            }
+
+            .header-info-description {
+                font-size: 0.85rem;
+            }
+
+            .logo {
+                width: 50px;
+                height: 50px;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav-link {
+                width: 100%;
+                text-align: center;
+            }
+
+            .nav {
+                gap: 1.5rem;
+            }
+
+            .event-hero-title {
+                font-size: 1.7rem;
+            }
+
+            .section-title {
+                font-size: 1.4rem;
+            }
+
+            .file-card {
+                flex-wrap: wrap;
+            }
+
+            .file-card .button-style {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .nav {
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+
+        <!-- Header -->
+        <header class="header">
+            <div class="header-left">
+                <a href="/" class="header-logo" style="border-bottom:none;">
+                    <picture>
+                        <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
+                        <img src="/resources/logo.webp" alt="логотип Тимофея Харитонова" class="logo" width="50"
+                            height="50" loading="lazy" />
+                    </picture>
+                </a>
+                <div class="header-info">
+                    <span class="header-info-title">Тимофей Харитонов</span>
+                    <span class="header-info-description">
+                        iOS Dev
+                        <span class="prompt">•</span> tg:
+                        <a href="https://t.me/bytim" class="contact-value" target="_blank"> @bytim</a>
+                        <span class="prompt">•</span>
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value"
+                            target="_blank">dev.kharitonov@ya.ru</a>
+                    </span>
+                </div>
+            </div>
+            <div class="header-right">
+                <nav class="nav">
+                    <a href="/" class="nav-link">← На главную</a>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+
+            <!-- Hero -->
+            <section class="event-hero">
+                <div class="event-hero-eyebrow"><span class="prompt">/</span>events</div>
+                <h1 class="event-hero-title">
+                    <span class="prompt">></span> Mobius Conf 2025
+                </h1>
+                <div class="event-meta">
+                    <div class="event-meta-item">
+                        📅 <span><strong>9–10 апреля 2025</strong></span>
+                    </div>
+                    <div class="event-meta-item">
+                        📍 <span><strong>Москва</strong>, ул. ​Краснопресненская
+                            набережная, д.12</span>
+                    </div>
+                    <div class="event-meta-item">
+                        🎤 <span>Доклад: <strong>A11Y: масштабирование шрифтов в «Мой МТС»</strong></span>
+                    </div>
+                    <div class="event-meta-item">
+                        👥 <span>Формат: <strong>очная конференция</strong></span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="prompt">$</span> ls media/
+                </h2>
+
+                <div class="page-slider" data-slider>
+                    <div class="slider-track">
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-1.jpg" alt="Тимофей Харитонов на Mobius Conf 2025"
+                                loading="lazy" onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-2.jpg" alt="Доклад Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-3.jpg" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-4.jpg" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-5.webp" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-6.webp" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-7.webp" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-8.webp" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-9.webp" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-10.jpg" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-11.webp" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <img src="/resources/Mobius/photo-12.jpg" alt="Зал на Mobius Conf 2025"
+                                onerror="this.style.display='none'">
+                        </div>
+                        <div class="slider-slide">
+                            <iframe
+                                src="https://rutube.ru/play/embed/3303dddfb042596ba6649315544eba06/?skinColor=0066cc"
+                                style="border: none;" allow="clipboard-write; autoplay" webkitAllowFullScreen
+                                mozallowfullscreen allowFullScreen></iframe>
+                        </div>
+                        <div class="slider-slide">
+                            <iframe src="https://rutube.ru/play/embed/1b79d36f39bcbe305c15fb5e18c407ca/?r=wd"
+                                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen
+                                mozallowfullscreen allowFullScreen>
+                            </iframe>
+                        </div>
+                    </div>
+                    <button class="slider-btn slider-prev" aria-label="Назад">&#8249;</button>
+                    <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
+                    <div class="slider-dots"></div>
+                </div>
+            </section>
+
+            <!-- About talk -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="prompt">$</span> cat README.md
+                </h2>
+
+                <article class="event-article">
+                    <h3>О докладе</h3>
+                    <p>
+                        Mobius Conf — одна из крупнейших независимых конференций для мобильных разработчиков в России.
+                        В 2025 году я выступил с докладом о реализации системы масштабируемых шрифтов
+                        (Dynamic Type / Accessibility) в приложении "Мой МТС" и для всей экосистемы приложений МТС в целом.
+                    </p>
+
+                    <h3>Что разбирали</h3>
+                    <p>
+                        В МТС более 9 мобильных продуктов, которые используют единую дизайн-систему. Задача - выстроить единый подход к типографике,
+                        который работает корректно при любом кастомном размере шрифта, в том числе при
+                        минимальных/максимальных настройках доступности. Разобрали, как мы проектировали шрифтовую шкалу,
+                        как интегрировали её в дизайн-систему и как работает это в коде.
+                    </p>
+
+                    <h3>Почему это важно</h3>
+                    <p>
+                        Аудитория приложения «Мой МТС» — 30 млн активных пользователей в месяц,
+                        среди которых значительная доля людей с нарушениями зрения.
+                        Правильная поддержка Dynamic Type напрямую влияет на доступность продукта.
+                    </p>
+                </article>
+            </section>
+
+            <!-- Files -->
+            <section class="section">
+                <h2 class="section-title">
+                    <span class="prompt">$</span> ls attachments/
+                </h2>
+
+                <div class="file-list">
+                    <div class="file-card">
+                        <div class="file-icon">📄</div>
+                        <div class="file-info">
+                            <div class="file-name">mobius_2025_accessibility_fonts.pdf</div>
+                            <div class="file-meta">Презентация доклада · PDF</div>
+                        </div>
+                        <a href="/resources/Mobius/Kharitonov-A11Y-in-MTS.pdf" class="button-style" target="_blank">
+                            <span class="prompt">↓</span> Открыть
+                        </a>
+                    </div>
+                    <div class="file-card">
+                        <div class="file-icon">🐙</div>
+                        <div class="file-info">
+                            <div class="file-name">GitHub.com | A11Y app - Accessibility: Dynamic Type</div>
+                            <div class="file-meta">
+                                Пример масштабирования шрифтов с глобальным и локальными флагами · UIKit / SwiftUI.
+                                Живой код — поможет понять, как правильно работать с кастомными шрифтами в iOS-приложении.
+                            </div>
+                        </div>
+                        <a href="https://github.com/kharitonov-dev/a11y" class="button-style" target="_blank">
+                            <span class="prompt">↗</span> GitHub
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <strong>© 2026 Тимофей Харитонов · iOS Developer</strong>
+            <ul class="work-stack">
+                <li>Swift / Objective-C</li>
+                <li>UIKit / SwiftUI</li>
+                <li>RxSwift / Combine</li>
+                <li>MVVM / VIPER / Clean Swift</li>
+                <li>GCD / OperationQueue / Swift Concurrency</li>
+                <li>REST API / GraphQL / WebSocket</li>
+                <li>Backend-Driven UI</li>
+                <li>UserDefaults / Keychain / Core Data</li>
+                <li>Unit Tests</li>
+                <li>Git / GitFlow</li>
+                <li>CI/CD (Fastlane)</li>
+                <li>Flutter</li>
+                <li>Agile / Scrum</li>
+                <li>English Intermediate+</li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <script type="module" src="../../js/main.js"></script>
+</body>
+
+</html>

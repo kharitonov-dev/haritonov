@@ -5,20 +5,19 @@ import { closeModal } from "../utils/helpers.js";
 export function PhotoModal() {
   const modal = document.getElementById("photoModal");
   const modalImg = document.getElementById("modalImage");
-  const profilePhoto = document.getElementById("profilePhoto");
+  const photos = document.querySelectorAll("[data-full-image]");
 
-  // Если фото нет на странице (например, в английской версии пока нет) — выходим
-  if (!profilePhoto) return;
+  if (photos.length === 0) return;
 
-  profilePhoto.addEventListener("click", function () {
-    const fullSizeSrc = this.dataset.full;
-
-    if (fullSizeSrc) {
-      modal.style.display = "block";
-      modalImg.src = fullSizeSrc;
-
-      document.body.style.overflow = "hidden";
-    }
+  photos.forEach((photo) => {
+    photo.addEventListener("click", function () {
+      const fullSizeSrc = this.dataset.fullImage;
+      if (fullSizeSrc) {
+        modal.style.display = "block";
+        modalImg.src = fullSizeSrc;
+        document.body.style.overflow = "hidden";
+      }
+    });
   });
 
   modal.addEventListener("click", function (e) {

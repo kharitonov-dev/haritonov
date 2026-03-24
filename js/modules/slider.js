@@ -21,6 +21,7 @@ export function Slider() {
       prevBtn?.remove();
       nextBtn?.remove();
       dotsContainer?.remove();
+      slides[0].classList.add("active");
       return;
     }
 
@@ -42,9 +43,10 @@ export function Slider() {
     }
 
     function goTo(index) {
+      slides[current].classList.remove("active");
       stopMedia(slides[current]);
       current = (index + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
+      slides[current].classList.add("active");
       dots.forEach((dot, i) => dot.classList.toggle("active", i === current));
     }
 
