@@ -221,7 +221,16 @@
             border-radius: 10px;
             background: #111;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+
+        .page-slider:not([data-ready]) {
             min-height: 300px;
+        }
+
+        .page-slider .slider-track {
+            overflow: visible;
         }
 
         .page-slider .slider-slide {
