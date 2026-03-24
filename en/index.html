@@ -2,417 +2,482 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-  <!-- Title and Description -->
-  <title>Timofey Kharitonov · iOS Developer, Speaker at Mobius Conf, ex. MTS</title>
-  <meta name="description"
-    content="iOS Developer with 7+ years of experience. Working on the 'My MTS' app (MAU 30M). Speaker at Mobius Conf 2025. Swift, SwiftUI, UIKit, clean architecture." />
-
-  <meta name="keywords"
-    content="iOS Developer, Swift, SwiftUI, UIKit, MWS, MTS, My MTS, Mobius Conf, iOS jobs, iOS development" />
-  <meta name="author" content="Timofey Kharitonov" />
-  <meta property="og:title" content="Timofey Kharitonov · iOS Developer" />
-  <meta property="og:description"
-    content="iOS Developer with 7+ years of experience. Working on the 'My MTS' app, speaker at Mobius Conf 2025." />
-  <meta property="og:image" content="https://haritonov.me/resources/my_photo.webp" />
-  <meta property="og:url" content="https://haritonov.me/en.html" />
-  <meta property="og:type" content="profile" />
-  <meta property="og:locale" content="en_US" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Timofey Kharitonov · iOS Developer" />
-  <meta name="twitter:description"
-    content="iOS Developer with 7+ years of experience. Working on the 'My MTS' app, speaker at Mobius Conf 2025." />
-  <meta name="twitter:image" content="https://haritonov.me/resources/my_photo.webp" />
-
-  <!-- Canonical and Hreflang -->
-  <link rel="canonical" href="https://haritonov.me/en.html" />
-  <link rel="alternate" hreflang="ru" href="https://haritonov.me/" />
-  <link rel="alternate" hreflang="en" href="https://haritonov.me/en.html" />
-  <link rel="alternate" hreflang="x-default" href="https://haritonov.me/" />
-
-  <!-- Favicon -->
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
-  <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png" />
-  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
-
-  <!-- Critical CSS -->
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      margin: -1px;
-      padding: 0;
-      overflow: hidden;
-      border: 0;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-    }
-
-    body {
-      font-family: 'Cascadia Code', monospace;
-      background-color: #f9f9f9;
-      color: #1e1e1e;
-      line-height: 1.6;
-      font-size: 16px;
-    }
-
-    img {
-      image-rendering: -webkit-optimize-contrast;
-      image-rendering: crisp-edges;
-      -webkit-backface-visibility: hidden;
-      backface-visibility: hidden;
-      -webkit-transform: translateZ(0);
-      transform: translateZ(0);
-    }
-
-    article,
-    header,
-    footer,
-    section,
-    address,
-    time,
-    nav {
-      display: block;
-      margin: 0;
-      padding: 0;
-    }
-
-    address {
-      font-style: normal;
-    }
-
-    .section {
-      margin-bottom: 4rem;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 2rem 1.5rem;
-    }
-
-    a {
-      color: #0066cc;
-      text-decoration: none;
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s ease;
-    }
-
-    a:hover {
-      border-bottom-color: #0066cc;
-    }
-
-    .prompt {
-      color: #F05138;
-      font-weight: bold;
-      margin-right: 8px;
-    }
-
-    .header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1.5rem 0;
-      border-bottom: 2px solid #e0e0e0;
-      margin-bottom: 3rem;
-      flex-wrap: wrap;
-      gap: 1rem;
-    }
-
-    .header-right {
-      display: flex;
-      align-items: center;
-      gap: 2rem;
-    }
-
-    .header-left {
-      display: flex;
-      align-items: center;
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-    }
-
-    .header-info {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .logo {
-      display: flex;
-      max-width: 50px;
-      border-radius: 8px;
-    }
-
-    .header-info-title {
-      font-size: 1.96rem;
-      letter-spacing: -1px;
-      line-height: 1.7rem;
-    }
-
-    .header-info-description {
-      font-size: 1rem;
-      color: #666;
-      font-family: inherit;
-    }
-
-    .header-info-description .prompt {
-      margin: 0rem;
-    }
-
-    .nav {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .nav-link {
-      color: #333;
-      font-size: 1.1rem;
-      border-bottom: none;
-    }
-
-    .nav-link:hover {
-      color: #0066cc;
-      border-bottom: none;
-    }
-
-    .hero {
-      display: flex;
-      gap: 3rem;
-      margin-bottom: 4rem;
-      align-items: flex-start;
-    }
-
-    .hero-content {
-      flex: 2;
-    }
-
-    .hero-title {
-      font-size: 2.0rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-      line-height: 1.2;
-    }
-
-    .hero-photo {
-      flex: 1;
-      width: 100%;
-      max-width: 300px;
-      aspect-ratio: 1/1;
-    }
-
-    .profile-photo {
-      cursor: pointer;
-      width: 100%;
-      height: 100%;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-      will-change: transform;
-    }
-
-    .profile-photo:hover {
-      transform: scale(1.02) translateZ(0);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-    }
-
-    .section-title {
-      font-size: 1.8rem;
-      font-weight: 600;
-      margin-bottom: 2rem;
-      border-left: 4px solid #F05138;
-      padding-left: 1rem;
-    }
-
-    .work-item {
-      margin-bottom: 2rem;
-      padding-bottom: 2rem;
-      border-bottom: 1px dashed #ccc;
-    }
-
-    .work-item:last-child {
-      border-bottom: none;
-      padding-bottom: 0;
-    }
-
-    .work-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 0.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .work-company {
-      display: flex;
-      align-items: center;
-      font-size: 1.4rem;
-      font-weight: 600;
-      color: #1e1e1e;
-      gap: 0.5rem;
-    }
-
-    .work-company img {
-      max-width: 30px;
-      max-height: 30px;
-    }
-
-    .work-date {
-      min-width: 200px;
-      text-align: right;
-      color: #666;
-      font-family: inherit;
-    }
-
-    .work-role {
-      font-size: 1.1rem;
-      color: #F05138;
-      margin-bottom: 1rem;
-      font-weight: 500;
-    }
-
-    .work-desc {
-      list-style: none;
-    }
-
-    .work-desc li {
-      margin-bottom: 0.5rem;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-
-    .work-desc li::before {
-      content: "→";
-      color: #F05138;
-      position: absolute;
-      left: 0;
-      font-weight: bold;
-    }
-
-    .work-link-app {
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
-    }
-
-    .work-link-app img {
-      border-radius: 7px;
-      max-width: 30px;
-      max-height: 30px;
-    }
-
-    .work-link-app span {
-      border-bottom: 1px solid transparent;
-    }
-
-    a.work-link-app:hover {
-      border-bottom-color: transparent;
-    }
-
-    a.work-link-app:hover span {
-      border-bottom-color: #0066cc;
-    }
-
-    .work-stack {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-    }
-
-    @media (max-width: 600px) {
-      body {
-        font-size: 15px;
-      }
-
-      .container {
-        padding: 1rem;
-      }
-
-      .header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 0;
-        margin-bottom: 1rem;
-      }
-
-      .header-info-description {
-        font-size: 0.85rem;
-      }
-
-      .header-right {
-        width: 100%;
-        justify-content: center;
-      }
-
-      .nav {
-        gap: 1.5rem;
-      }
-
-      .hero {
-        flex-direction: column-reverse;
-        gap: 1rem;
-        margin-bottom: 2rem;
-      }
-
-      .hero-title {
-        font-size: 2rem;
-        letter-spacing: -0.5px;
-        margin-bottom: 0.5rem;
-      }
-
-      .hero-title br {
-        display: none;
-      }
-
-      .hero-photo {
-        max-width: 200px;
-        margin: 0 auto;
-      }
-
-      .section {
-        margin-bottom: 1rem;
-      }
-
-      .section-title {
-        margin-bottom: 1rem;
-      }
-    }
-  </style>
-  <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
-  <noscript>
-    <link rel="stylesheet" href="/style.css">
-  </noscript>
-
-  <!-- Preload -->
-  <link rel="preload" as="image" href="/resources/logo.webp" imagesrcset="/resources/logo.webp" type="image/webp">
-  <link rel="preload" as="image" href="/resources/my_photo.webp" imagesrcset="/resources/my_photo.webp"
-    type="image/webp">
-  <link rel="preload" href="/style.css" as="style">
-
-  <!-- Preconnect -->
-  <link rel="preconnect" href="https://mc.yandex.ru">
-  <link rel="preconnect" href="https://mc.yandex.com">
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Title and Description -->
+    <title>Timofey Kharitonov · iOS Developer, Mobius Conf Speaker, ex. MTS</title>
+    <meta name="description"
+        content="iOS developer with 7+ years of experience. Working on &quot;My MTS&quot; app (MAU 30M). Speaker at Mobius Conf 2025. Swift, SwiftUI, UIKit, clean architecture." />
+
+    <meta name="keywords"
+        content="iOS developer, Swift, SwiftUI, UIKit, MWS, MTS, My MTS, Mobius Conf, iOS jobs, iOS development" />
+    <meta name="author" content="Timofey Kharitonov" />
+    <meta property="og:title" content="Timofey Kharitonov · iOS Developer" />
+    <meta property="og:description"
+        content="iOS developer with 7+ years of experience. Working on &quot;My MTS&quot; app, speaker at Mobius Conf 2025." />
+    <meta property="og:image" content="https://haritonov.me/resources/my_photo.webp" />
+    <meta property="og:url" content="https://haritonov.me/en/" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:locale" content="en_US" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Timofey Kharitonov · iOS Developer" />
+    <meta name="twitter:description"
+        content="iOS developer with 7+ years of experience. Working on &quot;My MTS&quot; app, speaker at Mobius Conf 2025." />
+    <meta name="twitter:image" content="https://haritonov.me/resources/my_photo.webp" />
+
+    <!-- Canonical and Hreflang -->
+    <link rel="canonical" href="https://haritonov.me/en/" />
+    <link rel="alternate" hreflang="ru" href="https://haritonov.me/" />
+    <link rel="alternate" hreflang="en" href="https://haritonov.me/en/" />
+    <link rel="alternate" hreflang="x-default" href="https://haritonov.me/" />
+
+    <!-- Favicon -->
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Critical CSS -->
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            margin: -1px;
+            padding: 0;
+            overflow: hidden;
+            border: 0;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+        }
+
+        body {
+            font-family: 'Cascadia Code', monospace;
+            background-color: #f9f9f9;
+            color: #1e1e1e;
+            line-height: 1.6;
+            font-size: 16px;
+        }
+
+        img {
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+
+        article,
+        header,
+        footer,
+        section,
+        address,
+        time,
+        nav {
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+
+        address {
+            font-style: normal;
+        }
+
+        .section {
+            margin-bottom: 4rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.2s ease;
+        }
+
+        a:hover {
+            border-bottom-color: #0066cc;
+        }
+
+        .prompt {
+            color: #F05138;
+            font-weight: bold;
+            margin-right: 8px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            border-bottom: 2px solid #e0e0e0;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .header-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+
+        .header-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo {
+            display: flex;
+            max-width: 50px;
+            border-radius: 8px;
+        }
+
+        .header-info-title {
+            font-size: 1.96rem;
+            line-height: 1.7rem;
+        }
+
+        .header-info-description {
+            font-size: 1rem;
+            color: #666;
+            font-family: inherit;
+        }
+
+        .header-info-description .prompt {
+            margin: 0rem;
+        }
+
+        .nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            color: #333;
+            font-size: 1.1rem;
+            border-bottom: none;
+        }
+
+        .nav-link:hover {
+            color: #0066cc;
+            border-bottom: none;
+        }
+
+        .hero {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 4rem;
+            align-items: flex-start;
+        }
+
+        .hero-content {
+            flex: 2;
+        }
+
+        .hero-title {
+            font-size: 2.0rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .note {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0rem 1rem;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            border-left: 4px solid #F05138;
+        }
+
+        .hero-text.note {
+            margin-top: 0.5rem;
+        }
+
+        .hero-photo {
+            flex: 1;
+            width: 100%;
+            max-width: 300px;
+            aspect-ratio: 1/1;
+        }
+
+        .preview-photo {
+            cursor: pointer;
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
+            will-change: transform;
+        }
+
+        .preview-photo:hover {
+            transform: scale(1.02) translateZ(0);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            border-left: 4px solid #F05138;
+            padding-left: 1rem;
+        }
+
+        .work-item {
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px dashed #ccc;
+        }
+
+        .work-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .work-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-company {
+            display: flex;
+            align-items: center;
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: #1e1e1e;
+            gap: 0.5rem;
+        }
+
+        .work-company img {
+            max-width: 30px;
+            max-height: 30px;
+        }
+
+        .work-date {
+            min-width: 200px;
+            text-align: right;
+            color: #666;
+            font-family: inherit;
+        }
+
+        .work-role {
+            font-size: 1.1rem;
+            color: #F05138;
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .work-desc {
+            list-style: none;
+        }
+
+        .work-desc li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .work-desc li::before {
+            content: "→";
+            color: #F05138;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .work-link-app {
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.5rem;
+        }
+
+        .work-link-app img {
+            border-radius: 7px;
+            max-width: 30px;
+            max-height: 30px;
+        }
+
+        .work-link-app span {
+            border-bottom: 1px solid transparent;
+        }
+
+        a.work-link-app:hover {
+            border-bottom-color: transparent;
+        }
+
+        a.work-link-app:hover span {
+            border-bottom-color: #0066cc;
+        }
+
+        .work-stack {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                font-size: 15px;
+            }
+
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 0;
+                margin-bottom: 1rem;
+                gap: 0.5rem;
+            }
+
+            .header-info-description {
+                font-size: 0.85rem;
+            }
+
+            .header-right {
+                width: 100%;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .nav {
+                gap: 1.5rem;
+            }
+
+            .hero {
+                flex-direction: column-reverse;
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            .hero-title {
+                font-size: 2rem;
+                letter-spacing: -0.5px;
+                margin-bottom: 0.5rem;
+            }
+
+            .hero-title br {
+                display: none;
+            }
+
+            .hero-photo {
+                max-width: 200px;
+                margin: 0 auto;
+            }
+
+            .section {
+                margin-bottom: 1rem;
+            }
+
+            .section-title {
+                margin-bottom: 1rem;
+            }
+        }
+
+        button {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .event-trigger-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .event-trigger {
+            all: unset;
+            display: inline;
+            color: #0066cc;
+            cursor: pointer;
+            border-bottom: 1px dashed #0066cc;
+            transition: color 0.2s ease, border-bottom-color 0.2s ease;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+
+        .event-trigger:hover {
+            color: #F05138;
+            border-bottom-color: #F05138;
+        }
+
+        .event-trigger:focus-visible {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        button.event-trigger::after {
+            content: " ⓘ";
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+
+        a.event-trigger::after {
+            content: " ↗";
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+
+        .event-trigger:hover::after {
+            opacity: 1;
+        }
+    </style>
+    <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="/css/style.css">
+    </noscript>
+
+    <link rel="preload" as="image" href="/resources/logo.webp" imagesrcset="/resources/logo.webp" type="image/webp">
+    <link rel="preload" as="image" href="/resources/my_photo.webp" imagesrcset="/resources/my_photo.webp"
+        type="image/webp">
+    <link rel="preload" href="/css/style.css" as="style">
+    <link rel="preconnect" href="https://mc.yandex.ru">
+    <link rel="preconnect" href="https://mc.yandex.com">
+    <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Person",
         "name": "Timofey Kharitonov",
-        "alternateName": "@bytim",
-        "description": "iOS Developer with 7+ years of commercial experience. Speaker at Mobius Conf 2025, nominee for 'Employee of the Year 2025' at MWS (ex. MTS). Passionate about running and hockey.",
+        "alternateName": "Тимофей Харитонов",
+        "description": "iOS developer with 7+ years of commercial experience. Speaker at Mobius Conf 2025, nominee for 'Employee of the Year 2025' at MWS (ex. MTS). Passionate about running and hockey.",
         "image": "https://haritonov.me/resources/my_photo.webp",
         "url": "https://haritonov.me/en/",
         "sameAs": [
@@ -425,14 +490,14 @@
         "worksFor": {
           "@type": "Organization",
           "name": "MWS (ex. MTS Digital)",
-          "description": "Developing the 'My MTS' app",
-          "sameAs": "https://apps.apple.com/ru/app/%D0%BC%D0%BE%D0%B9-%D0%BC%D1%82%D1%81-%D0%BB%D0%B8%D1%87%D0%BD%D1%8B%D0%B9-%D0%BA%D0%B0%D0%B1%D0%B8%D0%BD%D0%B5%D1%82/id483014788"
+          "description": "\"My MTS\" app",
+          "sameAs": "https://apps.apple.com/ru/app/мой-мтс/id1069871095"
         },
         "hasCredential": [
           {
             "@type": "EducationalOccupationalCredential",
             "credentialCategory": "experience",
-            "name": "7+ years of commercial iOS development"
+            "name": "7+ years of commercial development"
           },
           {
             "@type": "EducationalOccupationalCredential",
@@ -441,7 +506,7 @@
           }
         ],
         "knowsAbout": [
-          "iOS Development",
+          "iOS dev",
           "Swift",
           "Objective-C",
           "SwiftUI",
@@ -471,12 +536,12 @@
           "name": "Mobius Conf 2025",
           "startDate": "2025",
           "location": "Moscow",
-          "description": "Talk on implementing scalable fonts (Accessibility) for the MTS ecosystem"
+          "description": "Talk on implementing scalable fonts (Accessibility) for the MTS app ecosystem"
         },
         "alumniOf": {
           "@type": "Organization",
-          "name": "Decartus",
-          "description": "iOS Developer on the 'Provider App' team (02.2022 — 04.2023)"
+          "name": "Dekartus (\"Provider App\")",
+          "description": "iOS Developer (02.2022 — 04.2023)"
         },
         "knowsLanguage": [
           {
@@ -495,305 +560,536 @@
 </head>
 
 <body>
-  <div class="container">
+    <div class="container">
 
-    <!-- Header -->
-    <header class="header">
-      <div class="header-left">
-        <div class="header-logo">
-          <picture>
-            <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
-            <img src="/resources/logo.webp" alt="Timofey Kharitonov logo" class="logo" width="50" height="50"
-              loading="lazy" />
-          </picture>
-        </div>
-        <div class="header-info">
-          <span class="header-info-title">Timofey Kharitonov</span>
-          <span class="header-info-description">
-            iOS Dev
-            <span class="prompt">•</span> tg:
-            <a href="https://t.me/bytim" class="contact-value" target="_blank"> @bytim</a>
-            <span class="prompt">•</span>
-            <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value" target="_blank">dev.kharitonov@ya.ru
-            </a>
-          </span>
-        </div>
-      </div>
-      <div class="header-right">
-        <nav class="nav">
-          <a href="#about" class="nav-link"><span class="prompt">/</span>about</a>
-          <a href="#work" class="nav-link"><span class="prompt">/</span>work</a>
-          <a href="#contact" class="nav-link"><span class="prompt">/</span>contact</a>
-        </nav>
-      </div>
-    </header>
+        <header class="header">
+            <div class="header-left">
+                <div class="header-logo">
+                    <picture>
+                        <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
+                        <img src="/resources/logo.webp" alt="Timofey Kharitonov logo" class="logo" width="50"
+                            height="50" />
+                    </picture>
+                </div>
+                <div class="header-info">
+                    <span class="header-info-title">Timofey Kharitonov</span>
+                    <span class="header-info-description">
+                        iOS Dev
+                        <span class="prompt">•</span> tg:
+                        <a href="https://t.me/bytim" class="contact-value" target="_blank"> @bytim</a>
+                        <span class="prompt">•</span>
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value"
+                            target="_blank">dev.kharitonov@ya.ru
+                        </a>
+                    </span>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="lang-switcher">
+                    <a href="/" class="lang-link" hreflang="ru">RU</a>
+                    <span class="lang-sep">/</span>
+                    <a href="/en/" class="lang-link active" hreflang="en">EN</a>
+                </div>
+                <nav class="nav">
+                    <a href="#about" class="nav-link"><span class="prompt">/</span>about</a>
+                    <a href="#work" class="nav-link"><span class="prompt">/</span>work</a>
+                    <a href="#contact" class="nav-link"><span class="prompt">/</span>contact</a>
+                </nav>
+            </div>
+        </header>
 
-    <main>
-      <!-- About me -->
-      <section id="about" class="hero">
-        <div class="hero-content">
+        <main>
 
-          <!-- Hidden H1 for SEO -->
-          <h1 class="visually-hidden">Timofey Kharitonov · iOS Developer with 7+ years of experience</h1>
+            <section id="about" class="hero">
+                <div class="hero-content">
+                    <!-- Hidden H1 for SEO -->
+                    <h1 class="visually-hidden">Timofey Kharitonov · iOS Developer with 7+ years of experience</h1>
 
-          <div class="hero-title" role="heading" aria-level="1">
-            <span class="prompt">></span>
-            <span>iOS Developer with 7+&nbsp;years of commercial experience,</span>
-          </div>
-          <p class="hero-text">
-            passionate about creating intuitive and fast applications.
-            I believe in clean code, thoughtful architecture, and the perfect
-            user experience.
-          </p>
-          <p class="hero-text">
-            I actively participate in the IT community and follow trends through
-            industry conferences. I was a speaker at Mobius Conf 2025 and
-            hope to be at other major venues in the future. Nominee for "Employee
-            of the Year 2025" at MWS (ex. MTS).
-          </p>
-          <p class="hero-text">
-            Outside of coding, I enjoy running and hockey. I play for a local amateur
-            team. I love traveling with my family and friends. I value a balance
-            between work and an active life.
-          </p>
-        </div>
-        <div class="hero-photo">
-          <picture>
-            <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x" type="image/webp" />
-            <img src="/resources/my_photo.webp" alt="Timofey Kharitonov" data-full="/resources/my_photo_full.webp"
-              id="profilePhoto" class="profile-photo" width="300" height="300" fetchpriority="high" />
-          </picture>
-        </div>
-      </section>
+                    <div class="hero-title" aria-hidden="true">
+                        <span class="prompt">></span>
+                        <span>iOS Developer with 7+&nbsp;years of commercial experience,</span>
+                    </div>
 
-      <!-- Work experience -->
-      <section id="work" class="section" aria-labelledby="work-heading">
-        <h2 id="work-heading" class="section-title">
-          <span class="prompt">$</span>cd work_experience
-        </h2>
+                    <div class="hero-text">
+                        I actively participate in the IT community and keep up with trends through professional
+                        conferences. I am a speaker at
+                        <span class="event-trigger-wrapper">
+                            <a href="/en/pages/mobius/" class="event-trigger" target="_blank" data-event="mobius">Mobius
+                                Conf 2025</a>
+                            <div class="event-preview" data-event="mobius">
+                                <div class="preview-header">
+                                    <span class="preview-icon">🎤</span>
+                                    <span class="preview-title">Mobius Conf 2025</span>
+                                </div>
+                                <div class="preview-body">
+                                    <div class="preview-slider" data-slider>
+                                        <div class="slider-track">
+                                            <div class="slider-slide">
+                                                <img src="/resources/Mobius/mobius-preview.jpg" alt="Mobius Conf 2025"
+                                                    loading="lazy" onerror="this.style.display='none'">
+                                            </div>
+                                        </div>
+                                        <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
+                                        <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
+                                        <div class="slider-dots"></div>
+                                    </div>
+                                    <p class="preview-text">
+                                        <b>Mobius Conf</b> — one of the largest conferences for mobile
+                                        developers in Russia. In 2025 I gave a talk on implementing
+                                        scalable fonts for the MTS app ecosystem.
+                                    </p>
+                                </div>
+                                <div class="preview-footer">
+                                    <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                                        class="preview-link" target="_blank">Profile on Mobius</a>
+                                    <a href="/en/pages/mobius/" class="preview-link" target="_blank">More details →</a>
+                                </div>
+                            </div>
+                        </span>
+                        and hope to speak at other major venues in the future. Nominee for
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">"Employee of the Year 2025"</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏆</span>
+                                        <span class="preview-title">Employee of the Year 2025</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/employee-of-year.png"
+                                                            type="image/webp" />
+                                                        <img src="/resources/employee-of-year.png"
+                                                            alt="Nominee for Employee of the Year award"
+                                                            data-full-image="/resources/employee-of-year.png"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev"
+                                                aria-label="Previous">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                        <p class="preview-text">Nominee for the "Employee of the Year" award at MWS (ex.
+                                            MTS).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        at MWS (ex. MTS).
+                    </div>
+                    <div class="hero-text">
+                        Outside of code I enjoy
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">running</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏃</span>
+                                        <span class="preview-title">Marathon participant</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/marathon-1.jpg" type="image/webp" />
+                                                        <img src="/resources/marathon-1.jpg"
+                                                            alt="Timofey Kharitonov marathon participant"
+                                                            data-full-image="/resources/marathon-1.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/marathon-2.jpg" type="image/webp" />
+                                                        <img src="/resources/marathon-2.jpg"
+                                                            alt="Timofey Kharitonov marathon participant"
+                                                            data-full-image="/resources/marathon-2.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/marathon-participant.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/marathon-participant.jpg"
+                                                            alt="Timofey Kharitonov marathon participant"
+                                                            data-full-image="/resources/marathon-participant.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev"
+                                                aria-label="Previous">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                        <p class="preview-text">MWS employees at the Kazan National Half Marathon</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        and
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">hockey</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏒</span>
+                                        <span class="preview-title">Playing hockey</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-0.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-0.jpg"
+                                                            alt="Timofey Kharitonov playing hockey"
+                                                            data-full-image="/resources/hockey/photo-0.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-1.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-1.jpg"
+                                                            alt="Timofey Kharitonov playing hockey"
+                                                            data-full-image="/resources/hockey/photo-1.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-2.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-2.jpg"
+                                                            alt="Timofey Kharitonov playing hockey"
+                                                            data-full-image="/resources/hockey/photo-2.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-3.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-3.jpg"
+                                                            alt="Timofey Kharitonov playing hockey"
+                                                            data-full-image="/resources/hockey/photo-3.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-4.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-4.jpg"
+                                                            alt="Timofey Kharitonov playing hockey"
+                                                            data-full-image="/resources/hockey/photo-4.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-5.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-5.jpg"
+                                                            alt="Timofey Kharitonov playing hockey"
+                                                            data-full-image="/resources/hockey/photo-5.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev"
+                                                aria-label="Previous">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>. I play for a local amateur
+                        team. I love travelling with family and friends. I value the balance
+                        between work and an active life.
+                    </div>
+                    <div class="hero-text note">
+                        <span>More about life between commits in my TG channel <a href="https://t.me/haritonovme"
+                                class="contact-value" target="_blank">@haritonovme</a>!</span>
+                    </div>
+                </div>
+                <div class="hero-photo">
+                    <picture>
+                        <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x"
+                            type="image/webp" />
+                        <img src="/resources/my_photo.webp" alt="Timofey Kharitonov"
+                            data-full-image="/resources/my_photo_full.webp" class="preview-photo" width="300"
+                            height="300" fetchpriority="high" />
+                    </picture>
+                </div>
+            </section>
 
-        <article class="work-item" aria-labelledby="mws-heading">
-          <header class="work-header">
-            <h3 id="mws-heading" class="work-company">
-              <img src="/resources/mws_logo.webp" srcset="/resources/mws_logo.webp 1x, /resources/mws_logo@2x.webp 2x"
-                alt="MWS Logo" width="30" height="30" />
-              MWS (ex. MTS Digital) - "My MTS" App
-            </h3>
-            <time class="work-date" datetime="2023-04">04.2023 — present</time>
-          </header>
-          <p class="work-role">iOS Developer</p>
-          <ul class="work-desc">
-            <li>
-              Implemented scalable fonts (Accessibility) for MTS ecosystem projects by contributing to the Design System
-              SDK and shared the feature's lifecycle at
-              <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/" class="contact-value"
-                target="_blank">Mobius</a>
-              [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value" target="_blank">GitHub
-                Project</a>]. Impact on the "My MTS" app users: 26.7% (MAU 30M).
-            </li>
-            <li>
-              I promote and implement SwiftUI: developed a splash screen with background data loading, allowing the user
-              to seamlessly enter the ready-made main screen.
-            </li>
-            <li>
-              Generally improve user experience, working on personalization and app customization.
-            </li>
-            <li>
-              Other key features: power bank rental (Yurent), rebranding, onboarding flows, authorization module,
-              migration to GraphQL (network layer + logger).
-            </li>
-            <li>Code Review, conducting interviews, and mentoring.</li>
-          </ul>
-          <p class="work-stack">
-            <strong>Stack:</strong> iOS 15+, Swift, MVP / MVVM, Swift
-            Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket /
-            GraphQL, Keychain / Core Data, Unit Tests, Widgets, Accessibility
-          </p>
-          <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="work-link-app contact-value"
-            target="_blank">
-            <img
-              src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp"
-              alt="MWS Logo" width="30" height="30" />
-            <span>Link to App Store</span>
-          </a>
-        </article>
+            <!-- Work experience -->
+            <section id="work" class="section" aria-labelledby="work-heading">
+                <h2 id="work-heading" class="section-title">
+                    <span class="prompt">$</span>cd work_experience
+                </h2>
 
-        <article class="work-item" aria-labelledby="decartus-heading">
-          <header class="work-header">
-            <h3 id="decartus-heading" class="work-company">Decartus - "Provider App" (ex. "My Sevstar", "My Digital
-              City")</h3>
-            <time class="work-date" datetime="2022-02">02.2022 — 04.2023</time>
-          </header>
-          <p class="work-role">iOS Developer</p>
-          <ul class="work-desc">
-            <li>
-              Implemented video intercom modules, authorization (Touch/Face ID, 2FA).
-            </li>
-            <li>
-              Rewrote application modules from Objective-C to Swift, implemented a new network layer (REST API,
-              Alamofire), developed and extracted push notification functionality (Rich Push Notifications) into a dev
-              SDK.
-            </li>
-            <li>
-              After raising the target to iOS 13, used Combine and Async / Await.
-            </li>
-          </ul>
-          <p class="work-stack">
-            <strong>Stack:</strong> iOS 12+, Swift / Objective-C, MVVM +
-            RxSwift / Combine, Async / Await, REST API, Firebase, GCD,
-            UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
-          </p>
-          <a href="https://apps.apple.com/ru/app/провайдер-app/id6742094590" class="work-link-app contact-value"
-            target="_blank">
-            <img
-              src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp"
-              alt="Provider App Logo" width="30" height="30" />
-            <span>Link to App Store</span>
-          </a>
-        </article>
+                <article class="work-item" aria-labelledby="mws-heading">
+                    <header class="work-header">
+                        <h3 id="mws-heading" class="work-company">
+                            <img src="/resources/mws_logo.webp"
+                                srcset="/resources/mws_logo.webp 1x, /resources/mws_logo@2x.webp 2x" alt="MWS logo"
+                                width="30" height="30" />
+                            MWS (ex. MTS Digital) - "My MTS" App
+                        </h3>
+                        <time class="work-date" datetime="2023-04">04.2023 — present</time>
+                    </header>
+                    <p class="work-role">iOS Developer</p>
+                    <ul class="work-desc">
+                        <li>
+                            Implemented scalable fonts (Accessibility) for MTS ecosystem projects via contribution to
+                            the
+                            Design System SDK and shared the feature lifecycle at
+                            <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
+                                class="contact-value" target="_blank">Mobius</a>
+                            [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value"
+                                target="_blank">GitHub Project</a>]. Impact on "My MTS" app users: 26.7%
+                            (MAU 30M).
+                        </li>
+                        <li>
+                            Promoting and implementing SwiftUI: developed a splash screen with background data loading,
+                            so the user seamlessly lands on the ready main screen.
+                        </li>
+                        <li>
+                            Generally improving UX: working on app personalization and customization.
+                        </li>
+                        <li>
+                            Other key features: power bank rental (Yurent), rebranding,
+                            onboardings, authorization module, migration to GraphQL (network
+                            layer + logger).
+                        </li>
+                        <li>Code Review, conducting interviews and mentoring.</li>
+                    </ul>
+                    <p class="work-stack">
+                        <strong>Stack:</strong> iOS 15+, Swift, MVP / MVVM, Swift
+                        Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket /
+                        GraphQL, Keychain / Core Data, Unit Tests, Widgets, Accessibility
+                    </p>
+                    <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="work-link-app contact-value"
+                        target="_blank">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp"
+                            alt="MWS logo" width="30" height="30" />
+                        <span>App Store link</span>
+                    </a>
+                </article>
 
-        <div id="extra-work">
-          <article class="work-item" aria-labelledby="itactis-heading">
-            <header class="work-header">
-              <h3 id="itactis-heading" class="work-company">Itactis</h3>
-              <time class="work-date" datetime="2021-09">09.2021 — 02.2022</time>
-            </header>
-            <div class="work-role">iOS Developer</div>
-            <ul class="work-desc">
-              <li>
-                Worked on creating and implementing a mobile app from scratch for an e-commerce project where I
-                previously worked as a frontend developer.
-              </li>
-              <li>
-                Implemented the login screen, product list, and order placement.
-              </li>
+                <article class="work-item" aria-labelledby="decartus-heading">
+                    <header class="work-header">
+                        <h3 id="decartus-heading" class="work-company">Dekartus - "Provider App" (ex. "My Sevstar", "My
+                            Digital City")</h3>
+                        <time class="work-date" datetime="2022-02">02.2022 — 04.2023</time>
+                    </header>
+                    <p class="work-role">iOS Developer</p>
+                    <ul class="work-desc">
+                        <li>
+                            Implemented video intercom and authorization modules (Touch/Face ID, 2FA).
+                        </li>
+                        <li>
+                            Rewrote app modules from Objective-C to Swift, implemented a new network layer (REST API,
+                            Alamofire), developed and extracted push notification functionality (Rich Push
+                            Notifications)
+                            into a dev SDK.
+                        </li>
+                        <li>
+                            After raising the deployment target to iOS 13, adopted Combine and Async / Await.
+                        </li>
+                    </ul>
+                    <p class="work-stack">
+                        <strong>Stack:</strong> iOS 12+, Swift / Objective-C, MVVM +
+                        RxSwift / Combine, Async / Await, REST API, Firebase, GCD,
+                        UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
+                    </p>
+                    <a href="https://apps.apple.com/ru/app/провайдер-app/id6742094590"
+                        class="work-link-app contact-value" target="_blank">
+                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp"
+                            alt="Provider App" width="30" height="30" />
+                        <span>App Store link</span>
+                    </a>
+                </article>
+
+                <div id="extra-work">
+                    <article class="work-item" aria-labelledby="itactis-heading">
+                        <header class="work-header">
+                            <h3 id="itactis-heading" class="work-company">Itactis</h3>
+                            <time class="work-date" datetime="2021-09">09.2021 — 02.2022</time>
+                        </header>
+                        <div class="work-role">iOS Developer</div>
+                        <ul class="work-desc">
+                            <li>
+                                Built and delivered a mobile app from scratch for an e-commerce project I had previously
+                                worked on as a frontend developer.
+                            </li>
+                            <li>
+                                Implemented login screen, product listing and checkout flow.
+                            </li>
+                        </ul>
+                        <p class="work-stack">
+                            <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core
+                            Data
+                        </p>
+                    </article>
+
+                    <article class="work-item" aria-labelledby="frontend-work-heading">
+                        <header class="work-header">
+                            <h3 id="frontend-work-heading" class="work-company">Itactis, SD "PRAKTIKA", Wizard promo
+                            </h3>
+                            <time class="work-date" datetime="2019-04">04.2019 — 09.2021</time>
+                        </header>
+                        <div class="work-role">Frontend Developer</div>
+                        <p class="work-stack">
+                            <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery,
+                            HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress,
+                            Joomla, Figma, AMO / Retail Rocket and other external services, Google
+                            / Yandex Analytics
+                        </p>
+                    </article>
+                </div>
+
+                <div class="block-show-more-button">
+                    <button id="showMoreBtn" class="button-style">
+                        <span class="prompt">↓</span> Show more experience
+                    </button>
+                </div>
+            </section>
+
+            <section id="contact" class="section" aria-labelledby="contact-heading">
+                <h2 id="contact-heading" class="section-title">
+                    <span class="prompt">$</span>./connect
+                </h2>
+
+                <address class="contact-lines">
+                    <span class="contact-line">
+                        <span class="contact-key">Email</span>
+                        <span class="contact-sep">:</span>
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value">dev.kharitonov@ya.ru</a>
+                    </span>
+
+                    <span class="contact-line">
+                        <span class="contact-key">Telegram</span>
+                        <span class="contact-sep">:</span>
+                        <a href="https://t.me/bytim" class="contact-value" target="_blank">@bytim</a>
+                    </span>
+
+                    <span class="contact-line">
+                        <span class="contact-key">GitHub</span>
+                        <span class="contact-sep">:</span>
+                        <a href="https://github.com/kharitonov-dev" class="contact-value"
+                            target="_blank">/kharitonov-dev</a>
+                    </span>
+
+                    <span class="contact-line">
+                        <span class="contact-key">LinkedIn</span>
+                        <span class="contact-sep">:</span>
+                        <a href="https://linkedin.com/in/bytim" class="contact-value" target="_blank">/in/bytim</a>
+                    </span>
+                </address>
+
+                <div class="resume-download">
+                    <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" class="button-style resume-link"
+                        target="_blank">
+                        <span class="prompt">↓</span> Download Resume (PDF)
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer class="footer">
+            <strong>© 2026 Timofey Kharitonov · iOS Developer</strong>
+            <ul class="work-stack">
+                <li>Swift / Objective-C</li>
+                <li>UIKit / SwiftUI</li>
+                <li>RxSwift / Combine</li>
+                <li>MVVM / VIPER / Clean Swift</li>
+                <li>GCD / OperationQueue / Swift Concurrency</li>
+                <li>REST API / GraphQL / WebSocket</li>
+                <li>Backend-Driven UI</li>
+                <li>UserDefaults / Keychain / Core Data</li>
+                <li>Unit Tests</li>
+                <li>Git / GitFlow</li>
+                <li>CI/CD (Fastlane)</li>
+                <li>Flutter</li>
+                <li>Agile / Scrum</li>
+                <li>English Intermediate+</li>
             </ul>
-            <p class="work-stack">
-              <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core Data
-            </p>
-          </article>
+            <div class="lang-switcher footer-lang">
+                <a href="/" class="lang-link" hreflang="ru">RU</a>
+                <span class="lang-sep">/</span>
+                <a href="/en/" class="lang-link active" hreflang="en">EN</a>
+            </div>
+        </footer>
+    </div>
 
-          <article class="work-item" aria-labelledby="frontend-work-heading">
-            <header class="work-header">
-              <h3 id="frontend-work-heading" class="work-company">Itactis, SD "PRACTIKA", Wizard promo
-              </h3>
-              <time class="work-date" datetime="2019-04">04.2019 — 09.2021</time>
-            </header>
-            <div class="work-role">Frontend Developer</div>
-            <p class="work-stack">
-              <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery,
-              HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress,
-              Joomla, Figma, AMO / Retail Rocket and other external services, Google
-              / Yandex Analytics
-            </p>
-          </article>
-        </div>
+    <!-- Modals -->
+    <div id="photoModal" class="modal">
+        <span class="modal-close">&times;</span>
+        <img class="modal-content" id="modalImage" alt="Timofey Kharitonov, full photo">
+    </div>
 
-        <div class="block-show-more-button">
-          <button id="showMoreBtn" class="button-style">
-            <span class="prompt">↓</span> Show more experience
-          </button>
-        </div>
-      </section>
+    <script type="module" src="/js/main.js"></script>
 
-      <!-- Contacts -->
-      <section id="contact" class="section" aria-labelledby="contact-heading">
-        <h2 id="contact-heading" class="section-title">
-          <span class="prompt">$</span>./connect
-        </h2>
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107468755', 'ym');
 
-        <address class="contact-lines">
-          <span class="contact-line">
-            <span class="contact-key">Email</span>
-            <span class="contact-sep">:</span>
-            <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value">dev.kharitonov@ya.ru</a>
-          </span>
+        ym(107468755, 'init', { ssr: true, webvisor: true, trackHash: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/107468755" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
 
-          <span class="contact-line">
-            <span class="contact-key">Telegram</span>
-            <span class="contact-sep">:</span>
-            <a href="https://t.me/bytim" class="contact-value" target="_blank">@bytim</a>
-          </span>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DV6WQFHT1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
 
-          <span class="contact-line">
-            <span class="contact-key">GitHub</span>
-            <span class="contact-sep">:</span>
-            <a href="https://github.com/kharitonov-dev" class="contact-value" target="_blank">/kharitonov-dev</a>
-          </span>
-
-          <span class="contact-line">
-            <span class="contact-key">LinkedIn</span>
-            <span class="contact-sep">:</span>
-            <a href="https://linkedin.com/in/bytim" class="contact-value" target="_blank">/in/bytim</a>
-          </span>
-        </address>
-
-        <div class="resume-download">
-          <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" class="button-style resume-link" target="_blank">
-            <span class="prompt">↓</span> Download Resume (PDF)
-          </a>
-        </div>
-      </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="footer">
-      <strong>© 2026 Timofey Kharitonov · iOS Developer</strong>
-      <ul class="work-stack">
-        <li>Swift / Objective-C</li>
-        <li>UIKit / SwiftUI</li>
-        <li>RxSwift / Combine</li>
-        <li>MVVM / VIPER / Clean Swift</li>
-        <li>GCD / OperationQueue / Swift Concurrency</li>
-        <li>REST API / GraphQL / WebSocket</li>
-        <li>Backend-Driven UI</li>
-        <li>UserDefaults / Keychain / Core Data</li>
-        <li>Unit Tests</li>
-        <li>Git / GitFlow</li>
-        <li>CI/CD (Fastlane)</li>
-        <li>Flutter</li>
-        <li>Agile / Scrum</li>
-        <li>English Intermediate+</li>
-      </ul>
-    </footer>
-  </div>
-
-  <!-- Modals -->
-  <div id="photoModal" class="modal" onclick="closeModal()">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage" alt="Timofey Kharitonov, full photo">
-  </div>
-
-  <!-- Scripts -->
-  <script src="/scripts/script.js" defer></script>
-  <script src="/scripts/modal.js" defer></script>
-
-  <!-- Yandex.Metrika counter -->
-  <script type="text/javascript">
-    (function (m, e, t, r, i, k, a) {
-      m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-      m[i].l = 1 * new Date();
-      for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-      k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-    })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107697692', 'ym');
-
-    ym(107697692, 'init', { ssr: true, webvisor: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
-  </script>
-  <noscript>
-    <div><img src="https://mc.yandex.ru/watch/107697692" style="position:absolute; left:-9999px;" alt="" /></div>
-  </noscript>
-  <!-- /Yandex.Metrika counter -->
-
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=GT-MK57BVL5"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    gtag('js', new Date());
-
-    gtag('config', 'GT-MK57BVL5');
-  </script>
-  <!-- /Google tag (gtag.js) -->
+        gtag('config', 'G-2DV6WQFHT1');
+    </script>
+    <!-- /Google tag (gtag.js) -->
 </body>
 
 </html>
