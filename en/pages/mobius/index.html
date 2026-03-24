@@ -221,18 +221,37 @@
             border-radius: 10px;
             background: #111;
             box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-        }
-
-        .page-slider .slider-track {
-            display: flex;
-            transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            min-height: 300px;
         }
 
         .page-slider .slider-slide {
-            min-width: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
+        }
+
+        .slider-loader {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 5;
+            pointer-events: none;
+        }
+
+        .slider-loader::after {
+            content: '';
+            width: 32px;
+            height: 32px;
+            border: 3px solid rgba(255, 255, 255, 0.15);
+            border-top-color: rgba(255, 255, 255, 0.7);
+            border-radius: 50%;
+            animation: sliderSpin 0.8s linear infinite;
+        }
+
+        @keyframes sliderSpin {
+            to { transform: rotate(360deg); }
         }
 
         .page-slider .slider-slide img {
@@ -494,6 +513,42 @@
                 gap: 1rem;
             }
         }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: 'Cascadia Code', monospace;
+            font-size: 0.75rem;
+        }
+
+        .lang-link {
+            color: #999;
+            text-decoration: none;
+            border-bottom: none;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: color 0.15s ease;
+        }
+
+        .lang-link:hover {
+            color: #333;
+            border-bottom: none;
+        }
+
+        .lang-link.active {
+            color: #F05138;
+        }
+
+        .lang-sep {
+            color: #ddd;
+            user-select: none;
+        }
+
+        .footer-lang {
+            margin-top: 1rem;
+            justify-content: center;
+        }
     </style>
 </head>
 
@@ -564,6 +619,7 @@
                 </h2>
 
                 <div class="page-slider" data-slider>
+                    <div class="slider-loader" aria-hidden="true"></div>
                     <div class="slider-track">
                         <div class="slider-slide">
                             <img src="/resources/Mobius/photo-1.jpg" alt="Timofey Kharitonov at Mobius Conf 2025"

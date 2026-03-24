@@ -460,6 +460,42 @@
         .event-trigger:hover::after {
             opacity: 1;
         }
+
+        .lang-switcher {
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            font-family: 'Cascadia Code', monospace;
+            font-size: 0.75rem;
+        }
+
+        .lang-link {
+            color: #999;
+            text-decoration: none;
+            border-bottom: none;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: color 0.15s ease;
+        }
+
+        .lang-link:hover {
+            color: #333;
+            border-bottom: none;
+        }
+
+        .lang-link.active {
+            color: #F05138;
+        }
+
+        .lang-sep {
+            color: #ddd;
+            user-select: none;
+        }
+
+        .footer-lang {
+            margin-top: 1rem;
+            justify-content: center;
+        }
     </style>
     <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
     <noscript>
