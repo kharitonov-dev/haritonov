@@ -132,8 +132,8 @@
 
         .header-right {
             display: flex;
-            align-items: center;
-            gap: 2rem;
+            flex-direction: column;
+            align-items: flex-end;
         }
 
         .header-left {
@@ -204,6 +204,20 @@
             line-height: 1.2;
         }
 
+        .note {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 0rem 1rem;
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            border-left: 4px solid #F05138;
+        }
+
+        .hero-text.note {
+            margin-top: 0.5rem;
+        }
+
         .hero-photo {
             flex: 1;
             width: 100%;
@@ -211,7 +225,7 @@
             aspect-ratio: 1/1;
         }
 
-        .profile-photo {
+        .preview-photo {
             cursor: pointer;
             width: 100%;
             height: 100%;
@@ -221,7 +235,7 @@
             will-change: transform;
         }
 
-        .profile-photo:hover {
+        .preview-photo:hover {
             transform: scale(1.02) translateZ(0);
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
@@ -344,6 +358,7 @@
                 align-items: flex-start;
                 padding: 0;
                 margin-bottom: 1rem;
+                gap: 0.5rem;
             }
 
             .header-info-description {
@@ -353,6 +368,7 @@
             .header-right {
                 width: 100%;
                 justify-content: center;
+                align-items: center;
             }
 
             .nav {
@@ -388,23 +404,73 @@
                 margin-bottom: 1rem;
             }
         }
+
+        button {
+            border: none;
+            background: none;
+            padding: 0;
+            margin: 0;
+            cursor: pointer;
+            font-family: inherit;
+            font-size: inherit;
+        }
+
+        .event-trigger-wrapper {
+            position: relative;
+            display: inline-block;
+        }
+
+        .event-trigger {
+            all: unset;
+            display: inline;
+            color: #0066cc;
+            cursor: pointer;
+            border-bottom: 1px dashed #0066cc;
+            transition: color 0.2s ease, border-bottom-color 0.2s ease;
+            font-family: inherit;
+            font-size: inherit;
+            line-height: inherit;
+            white-space: nowrap;
+        }
+
+        .event-trigger:hover {
+            color: #F05138;
+            border-bottom-color: #F05138;
+        }
+
+        .event-trigger:focus-visible {
+            outline: 2px solid #0066cc;
+            outline-offset: 2px;
+            border-radius: 2px;
+        }
+
+        button.event-trigger::after {
+            content: " ⓘ";
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+
+        a.event-trigger::after {
+            content: " ↗";
+            font-size: 0.9em;
+            opacity: 0.6;
+        }
+
+        .event-trigger:hover::after {
+            opacity: 1;
+        }
     </style>
-    <link rel="stylesheet" href="/style.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
     <noscript>
-        <link rel="stylesheet" href="/style.css">
+        <link rel="stylesheet" href="/css/style.css">
     </noscript>
 
-    <!-- Preload -->
     <link rel="preload" as="image" href="/resources/logo.webp" imagesrcset="/resources/logo.webp" type="image/webp">
     <link rel="preload" as="image" href="/resources/my_photo.webp" imagesrcset="/resources/my_photo.webp"
         type="image/webp">
-    <link rel="preload" href="/style.css" as="style">
-
-    <!-- Preconnect -->
+    <link rel="preload" href="/css/style.css" as="style">
     <link rel="preconnect" href="https://mc.yandex.ru">
     <link rel="preconnect" href="https://mc.yandex.com">
-
-    <!-- JSON-LD -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -496,14 +562,13 @@
 <body>
     <div class="container">
 
-        <!-- Header -->
         <header class="header">
             <div class="header-left">
                 <div class="header-logo">
                     <picture>
                         <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
                         <img src="/resources/logo.webp" alt="логотип Тимофея Харитонова" class="logo" width="50"
-                            height="50" loading="lazy" />
+                            height="50" />
                     </picture>
                 </div>
                 <div class="header-info">
@@ -520,6 +585,11 @@
                 </div>
             </div>
             <div class="header-right">
+                <div class="lang-switcher">
+                    <a href="/" class="lang-link active" hreflang="ru">RU</a>
+                    <span class="lang-sep">/</span>
+                    <a href="/en/" class="lang-link" hreflang="en">EN</a>
+                </div>
                 <nav class="nav">
                     <a href="#about" class="nav-link"><span class="prompt">/</span>about</a>
                     <a href="#work" class="nav-link"><span class="prompt">/</span>work</a>
@@ -529,39 +599,258 @@
         </header>
 
         <main>
-            <!-- About me -->
             <section id="about" class="hero">
                 <div class="hero-content">
-
                     <!-- Hidden H1 for SEO -->
                     <h1 class="visually-hidden">Тимофей Харитонов · iOS разработчик с 7+ годами опыта</h1>
 
-                    <div class="hero-title" role="heading" aria-level="1">
+                    <div class="hero-title" aria-hidden="true">
                         <span class="prompt">></span>
                         <span>iOS разработчик с 7+&nbsp;годами коммерческого опыта,</span>
                     </div>
-                    <p class="hero-text">
-                        увлеченный созданием интуитивно понятных и быстрых приложений.
-                        Верю в чистый код, продуманную архитектуру и идеальный
-                        пользовательский опыт.
-                    </p>
-                    <p class="hero-text">
+
+                    <div class="hero-text">
                         Активно принимаю участие в it-сообществе, слежу за трендами через
-                        профильные конференции. Являюсь спикером Mobius Conf 2025 и
-                        надеюсь в будущем, других крупных площадок. Номинант на "Сотрудник
-                        года 2025" в MWS (ex. МТС).
-                    </p>
-                    <p class="hero-text">
-                        Вне кода увлекаюсь бегом и хоккеем. Играю за местную любительскую
+                        профильные конференции. Являюсь спикером
+                        <span class="event-trigger-wrapper">
+                            <a href="/pages/mobius/" class="event-trigger" target="_blank" data-event="mobius">Mobius
+                                Conf 2025</a>
+                            <div class="event-preview" data-event="mobius">
+                                <div class="preview-header">
+                                    <span class="preview-icon">🎤</span>
+                                    <span class="preview-title">Mobius Conf 2025</span>
+                                </div>
+                                <div class="preview-body">
+                                    <div class="preview-slider" data-slider>
+                                        <div class="slider-track">
+                                            <div class="slider-slide">
+                                                <img src="/resources/Mobius/mobius-preview.jpg" alt="Mobius Conf 2025"
+                                                    loading="lazy" onerror="this.style.display='none'">
+                                            </div>
+                                        </div>
+                                        <button class="slider-btn slider-prev" aria-label="Назад">&#8249;</button>
+                                        <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
+                                        <div class="slider-dots"></div>
+                                    </div>
+                                    <p class="preview-text">
+                                        <b>Mobius Conf</b> — одна из крупнейших конференций для мобильных
+                                        разработчиков в России. В 2025 году выступил с докладом по реализации
+                                        масштабируемых шрифтов для экосистемы приложений
+                                        МТС.
+                                    </p>
+                                </div>
+                                <div class="preview-footer">
+                                    <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                                        class="preview-link" target="_blank">Профиль на Mobius</a>
+                                    <a href="/pages/mobius/" class="preview-link" target="_blank">Подробнее →</a>
+                                </div>
+                            </div>
+                        </span>
+                        и надеюсь в будущем, других крупных площадок. Номинант на
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">"Сотрудник года 2025"</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏆</span>
+                                        <span class="preview-title">Сотрудник года 2025</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/employee-of-year.png"
+                                                            type="image/webp" />
+                                                        <img src="/resources/employee-of-year.png"
+                                                            alt="Номинант на премию 'Сотрудник года'"
+                                                            data-full-image="/resources/employee-of-year.png"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev" aria-label="Назад">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                        <p class="preview-text">Номинант на премию "Сотрудник года" в MWS (ex. МТС).</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        в MWS (ex. МТС).
+                    </div>
+                    <div class="hero-text">
+                        Вне кода увлекаюсь
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">бегом</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏃</span>
+                                        <span class="preview-title">Участник марафонов</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/marathon-1.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/marathon-1.jpg"
+                                                            alt="Тимофей Харитонов участник марафона"
+                                                            data-full-image="/resources/marathon-1.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/marathon-2.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/marathon-2.jpg"
+                                                            alt="Тимофей Харитонов участник марафона"
+                                                            data-full-image="/resources/marathon-2.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/marathon-participant.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/marathon-participant.jpg"
+                                                            alt="Тимофей Харитонов участник марафона"
+                                                            data-full-image="/resources/marathon-participant.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev" aria-label="Назад">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                        <p class="preview-text">Сотрудники MWS на Казанском национальном полумарафоне
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>
+                        и 
+                        <span class="event-trigger-wrapper">
+                            <button class="event-trigger" data-event="award">хоккеем</button>
+                            <div class="event-preview" data-event="award">
+                                <div class="preview-content">
+                                    <div class="preview-header">
+                                        <span class="preview-icon">🏒</span>
+                                        <span class="preview-title">Играю в хоккей</span>
+                                    </div>
+                                    <div class="preview-body">
+                                        <div class="preview-slider" data-slider>
+                                            <div class="slider-track">
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-0.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-0.jpg"
+                                                            alt="Тимофей Харитонов играет в хоккей"
+                                                            data-full-image="/resources/hockey/photo-0.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-1.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-1.jpg"
+                                                            alt="Тимофей Харитонов играет в хоккей"
+                                                            data-full-image="/resources/hockey/photo-1.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-2.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-2.jpg"
+                                                            alt="Тимофей Харитонов играет в хоккей"
+                                                            data-full-image="/resources/hockey/photo-2.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-3.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-3.jpg"
+                                                            alt="Тимофей Харитонов играет в хоккей"
+                                                            data-full-image="/resources/hockey/photo-3.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-4.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-4.jpg"
+                                                            alt="Тимофей Харитонов играет в хоккей"
+                                                            data-full-image="/resources/hockey/photo-4.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                                <div class="slider-slide">
+                                                    <picture>
+                                                        <source srcset="/resources/hockey/photo-5.jpg"
+                                                            type="image/webp" />
+                                                        <img src="/resources/hockey/photo-5.jpg"
+                                                            alt="Тимофей Харитонов играет в хоккей"
+                                                            data-full-image="/resources/hockey/photo-5.jpg"
+                                                            class="preview-img preview-photo"
+                                                            onerror="this.style.display='none'" width="245"
+                                                            height="335" />
+                                                    </picture>
+                                                </div>
+                                            </div>
+                                            <button class="slider-btn slider-prev" aria-label="Назад">&#8249;</button>
+                                            <button class="slider-btn slider-next" aria-label="Вперёд">&#8250;</button>
+                                            <div class="slider-dots"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </span>. Играю за местную любительскую
                         команду. Люблю путешествовать с семьей и друзьями. Ценю баланс
                         между работой и активной жизнью.
-                    </p>
+                    </div>
+                    <div class="hero-text note">
+                        <span>Подробнее про жизнь между коммитами в моем tg-канале <a href="https://t.me/haritonovme"
+                                class="contact-value" target="_blank">@haritonovme</a>!</span>
+                    </div>
                 </div>
                 <div class="hero-photo">
-                    <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x" type="image/webp" />
-                    <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
-                        data-full="/resources/my_photo_full.webp" id="profilePhoto" class="profile-photo" width="300"
-                        height="300" fetchpriority="high" />
+                    <picture>
+                        <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x"
+                            type="image/webp" />
+                        <img src="/resources/my_photo.webp" alt="Тимофей Харитонов"
+                            data-full-image="/resources/my_photo_full.webp" class="preview-photo" width="300"
+                            height="300" fetchpriority="high" />
+                    </picture>
                 </div>
             </section>
 
@@ -705,7 +994,6 @@
                 </div>
             </section>
 
-            <!-- Contacts -->
             <section id="contact" class="section" aria-labelledby="contact-heading">
                 <h2 id="contact-heading" class="section-title">
                     <span class="prompt">$</span>./connect
@@ -747,7 +1035,6 @@
             </section>
         </main>
 
-        <!-- Footer -->
         <footer class="footer">
             <strong>© 2026 Тимофей Харитонов · iOS Developer</strong>
             <ul class="work-stack">
@@ -766,18 +1053,21 @@
                 <li>Agile / Scrum</li>
                 <li>English Intermediate+</li>
             </ul>
+            <div class="lang-switcher footer-lang">
+                <a href="/" class="lang-link active" hreflang="ru">RU</a>
+                <span class="lang-sep">/</span>
+                <a href="/en/" class="lang-link" hreflang="en">EN</a>
+            </div>
         </footer>
     </div>
 
     <!-- Modals -->
-    <div id="photoModal" class="modal" onclick="closeModal()">
+    <div id="photoModal" class="modal">
         <span class="modal-close">&times;</span>
         <img class="modal-content" id="modalImage" alt="Тимофей Харитонов, полное фото">
     </div>
 
-    <!-- Scripts -->
-    <script src="/scripts/script.js" defer></script>
-    <script src="/scripts/modal.js" defer></script>
+    <script type="module" src="/js/main.js"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
