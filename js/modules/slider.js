@@ -67,5 +67,6 @@ export function Slider() {
     });
 
     goTo(0);
+    slider.querySelector(".slider-loader")?.remove();
   });
 }
