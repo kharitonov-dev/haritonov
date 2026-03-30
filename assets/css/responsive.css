@@ -1,0 +1,493 @@
+/* ==========================================================================
+   responsive.css — Mobile overrides (max-width: 640px)
+   All desktop styles live in their component files.
+   This file only contains deltas for small screens.
+   ========================================================================== */
+
+@media (max-width: 640px) {
+
+   /* --------------------------------------------------------------------------
+     BODY
+     -------------------------------------------------------------------------- */
+   body {
+      /* Prevent horizontal scroll on mobile */
+      overflow-x: hidden;
+   }
+
+   /* --------------------------------------------------------------------------
+     ORBS — smaller sizes
+     -------------------------------------------------------------------------- */
+   .orb-1 {
+      width: 380px;
+      height: 380px;
+      top: -80px;
+      left: -80px;
+   }
+
+   .orb-2 {
+      width: 300px;
+      height: 300px;
+      top: 100px;
+      right: -60px;
+   }
+
+   .orb-3 {
+      width: 280px;
+      height: 280px;
+      bottom: 100px;
+      left: 10%;
+   }
+
+   .orb-4 {
+      width: 200px;
+      height: 200px;
+      bottom: 300px;
+      right: 0;
+   }
+
+   .orb-5 {
+      display: none;
+   }
+
+   /* --------------------------------------------------------------------------
+     NAV — fixed top with status-bar padding
+     -------------------------------------------------------------------------- */
+   .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: var(--z-nav);
+      padding: 10px;
+      background: var(--nav-bg-mobile);
+      backdrop-filter: blur(30px);
+      -webkit-backdrop-filter: blur(30px);
+      border-bottom: 1px solid var(--nav-border-mob);
+      border-radius: 0;
+   }
+
+   /* Smaller avatar on mobile */
+   .nav-ava-wrap {
+      width: 32px;
+      height: 32px;
+   }
+
+   .nav-ava {
+      width: 32px;
+      height: 32px;
+      font-size: 14px;
+   }
+
+   .nav-ava-dot {
+      width: 9px;
+      height: 9px;
+   }
+
+   /* Hide desktop text buttons */
+   .nav-btn {
+      display: none;
+   }
+
+   /* Show hamburger */
+   .nav-menu {
+      display: none;
+   }
+
+   /* --------------------------------------------------------------------------
+     PAGE SCROLL WRAPPER
+     -------------------------------------------------------------------------- */
+   .page {
+      padding-top: 75px;
+      padding-bottom: 65px;
+   }
+
+   /* --------------------------------------------------------------------------
+     HERO — single column
+     -------------------------------------------------------------------------- */
+   .hero {
+      border-radius: 26px;
+   }
+
+   .terminal-bar {
+      padding: 9px 14px;
+   }
+
+   .terminal-bar .terminal-dot {
+      width: 9px;
+      height: 9px;
+   }
+
+   .terminal-bar-title {
+      font-size: var(--fs-xs);
+   }
+
+   .hero-body {
+      display: block;
+      padding: 18px 18px 16px;
+   }
+
+   /* Remove left/right column structure */
+   .hero-left {
+      padding: 0;
+   }
+
+   .hero-right {
+      display: none;
+   }
+
+   /* Hide desktop-only duplicated elements */
+   .desk-only {
+      display: none;
+   }
+
+   /* Mobile hero layout: name + photo side by side */
+   .hero-top {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+   }
+
+   .hero-top-left {
+      flex: 1;
+   }
+
+   .hero-name {
+      font-size: var(--fs-hero-mob);
+      letter-spacing: -1.5px;
+      margin-bottom: 4px;
+   }
+
+   .hero-status {
+      margin-bottom: 12px;
+      padding: 4px 10px 4px 7px;
+   }
+
+   .hero-status .status-dot {
+      width: 6px;
+      height: 6px;
+   }
+
+   .status-text {
+      font-size: var(--fs-xs);
+   }
+
+   .hero-description {
+      font-size: 13.5px;
+      margin-bottom: 12px;
+   }
+
+   .hero-link {
+      border-radius: var(--radius-sm);
+      padding: 5px 9px;
+      font-size: var(--fs-xs);
+   }
+
+   /* Smaller photo */
+   .photo {
+      width: 76px;
+      height: 76px;
+      border-radius: var(--radius-3xl);
+      flex-shrink: 0;
+   }
+
+   .hero-left .prompt-line {
+      margin-bottom: 10px;
+   }
+
+   /* --------------------------------------------------------------------------
+     STATS — 2×2 grid
+     -------------------------------------------------------------------------- */
+   .stats-row {
+      grid-template-columns: 1fr 1fr;
+   }
+
+   .stat-number {
+      font-size: var(--fs-stat-mob);
+   }
+
+   .stat-card {
+      padding: 10px;
+   }
+
+   /* --------------------------------------------------------------------------
+     ACHIEVEMENTS — horizontal scroll
+     -------------------------------------------------------------------------- */
+   .achievement-strip {
+      padding: 12px 14px;
+      gap: 8px;
+      border-radius: var(--radius-4xl);
+   }
+
+   .achievement-row {
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      padding-bottom: 2px;
+      -webkit-overflow-scrolling: touch;
+   }
+
+   .achievement-row::-webkit-scrollbar {
+      display: none;
+   }
+
+   .achievement {
+      padding: 6px 10px 6px 7px;
+      border-radius: var(--radius-md);
+   }
+
+   .achievement-icon {
+      font-size: 15px;
+   }
+
+   .achievement-name {
+      font-size: 13px;
+   }
+
+   .achievement-value {
+      font-size: var(--fs-2xs);
+   }
+
+   /* --------------------------------------------------------------------------
+     ABOUT
+     -------------------------------------------------------------------------- */
+   .about-card {
+      border-radius: var(--radius-4xl);
+      padding: 16px 18px;
+   }
+
+   .hint {
+      margin-top: 12px;
+   }
+
+   /* On mobile: tap instead of hover — hint text changes */
+   .hint::after {
+      content: '';
+   }
+
+   /* --------------------------------------------------------------------------
+     JOBS
+     -------------------------------------------------------------------------- */
+   .job {
+      border-radius: var(--radius-4xl);
+   }
+
+   .job-header {
+      padding: 10px 15px;
+   }
+
+   .job-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: var(--radius-md);
+      font-size: 7px;
+   }
+
+   .job-company {
+      font-size: var(--fs-lg);
+   }
+
+   .job-company-sub {
+      font-size: var(--fs-2xs);
+   }
+
+   /* Stack role + date vertically */
+   .job-right {
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 3px;
+   }
+
+   .job-role {
+      font-size: var(--fs-2xs);
+      padding: 2px 7px;
+   }
+
+   .job-date {
+      font-size: var(--fs-2xs);
+   }
+
+   .job-body {
+      padding: 12px 15px 14px;
+   }
+
+   /* Metrics: 4 narrow columns */
+   .metrics-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 5px;
+   }
+
+   .metric-card {
+      border-radius: var(--radius-md);
+      padding: 7px 5px;
+   }
+
+   .metric-number {
+      font-size: var(--fs-job-num);
+   }
+
+   .metric-label {
+      font-size: 7px;
+   }
+
+   .job-main .job-text {
+      font-size: 13.5px;
+   }
+
+   .js .job-text {
+      font-size: var(--fs-sm);
+   }
+
+   .tag {
+      font-size: var(--fs-2xs);
+      padding: 2px 7px;
+   }
+
+   .applink {
+      padding: 5px 10px;
+      font-size: var(--fs-xs);
+      border-radius: var(--radius-sm);
+      margin-top: 8px;
+   }
+
+   .show-button {
+      padding: 11px;
+      border-radius: var(--radius-lg);
+      font-size: var(--fs-sm);
+   }
+
+   .show-button-count {
+      font-size: var(--fs-2xs);
+      padding: 2px 7px;
+   }
+
+   /* --------------------------------------------------------------------------
+     SKILLS — 2-column grid
+     -------------------------------------------------------------------------- */
+   .skill-grid {
+      grid-template-columns: 1fr 1fr;
+   }
+
+   .skill-group {
+      border-radius: var(--radius-xl);
+      padding: 12px;
+   }
+
+   .skill-title {
+      font-size: var(--fs-2xs);
+      margin-bottom: 7px;
+   }
+
+   .skill-tag {
+      font-size: var(--fs-2xs);
+      padding: 2px 6px;
+   }
+
+   /* Last card spans full width */
+   .skill-grid .skill-group:last-child {
+      grid-column: span 2;
+   }
+
+   /* --------------------------------------------------------------------------
+     EDUCATION — single column
+     -------------------------------------------------------------------------- */
+   .education-grid {
+      grid-template-columns: 1fr;
+   }
+
+   .edu-wide {
+      grid-column: span 1;
+   }
+
+   .edu-card {
+      border-radius: var(--radius-2xl);
+      padding: 13px 14px;
+   }
+
+   .edu-icon {
+      font-size: 16px;
+   }
+
+   /* --------------------------------------------------------------------------
+     CONTACT
+     -------------------------------------------------------------------------- */
+   .contact-card {
+      border-radius: var(--radius-4xl);
+   }
+
+   .contact-header {
+      padding: 9px 15px;
+   }
+
+   .contact-body {
+      padding: 12px 15px;
+   }
+
+   .contact-row {
+      padding: 8px 10px;
+      font-size: var(--fs-xs);
+      border-radius: var(--radius-md);
+   }
+
+   .contact-dot {
+      width: 4px;
+      height: 4px;
+   }
+
+   .contact-cta {
+      padding: 12px;
+      border-radius: var(--radius-lg);
+      font-size: var(--fs-md);
+   }
+
+   /* --------------------------------------------------------------------------
+     FOOTER
+     -------------------------------------------------------------------------- */
+   .footer-wrap {
+      padding-bottom: 0;
+   }
+
+   .footer-card {
+      border-radius: var(--radius-4xl);
+      padding: 22px 18px 18px;
+      gap: 16px;
+   }
+
+   .footer-logo-main {
+      font-size: 26px;
+   }
+
+   .footer-copy {
+      gap: 10px;
+   }
+
+   /* --------------------------------------------------------------------------
+     TAB BAR — show on mobile
+     -------------------------------------------------------------------------- */
+   .tab-item-bar {
+      display: flex;
+      padding: 10px 0;
+   }
+
+   /* --------------------------------------------------------------------------
+     TERMINAL DOTS — smaller on mobile
+     -------------------------------------------------------------------------- */
+   .terminal-dots {
+      gap: 4px;
+   }
+
+   /* --------------------------------------------------------------------------
+     SECTION LABELS
+     -------------------------------------------------------------------------- */
+   .section-label {
+      padding-left: 0;
+   }
+
+   /* --------------------------------------------------------------------------
+     POPUP — hide on mobile (replaced by bottom sheet)
+     -------------------------------------------------------------------------- */
+   #popup {
+      display: none !important;
+   }
+}

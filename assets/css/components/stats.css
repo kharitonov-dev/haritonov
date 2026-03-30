@@ -1,0 +1,61 @@
+/* ==========================================================================
+   components/stats.css — Stats row (6+ years / 30M MAU / 26.7% / B2+)
+   Desktop: 4 columns
+   Mobile: 2×2 grid — overrides in responsive.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   ROW
+   -------------------------------------------------------------------------- */
+.stats-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-md);
+}
+
+/* --------------------------------------------------------------------------
+   STAT CARD
+   -------------------------------------------------------------------------- */
+.stat-card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: center;
+  border-radius: var(--radius-xl);
+  padding: 10px 8px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top shimmer line */
+.stat-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  height: .5px;
+  background: rgba(255, 255, 255, .20);
+}
+
+/* --------------------------------------------------------------------------
+   NUMBER
+   -------------------------------------------------------------------------- */
+.stat-number {
+  font-family: var(--font-display);
+  font-size: var(--fs-stat);
+  font-weight: 800;
+  color: var(--color-text-primary);
+  line-height: 1;
+  margin-bottom: 3px;
+}
+
+/* --------------------------------------------------------------------------
+   LABEL
+   -------------------------------------------------------------------------- */
+.stat-label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: .04em;
+}
