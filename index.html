@@ -802,6 +802,10 @@
             opacity: .85;
         }
 
+        .nav-lang:visited {
+            color: var(--nav-lang-color);
+        }
+
         .nav-menu {
             display: none;
             width: 30px;
@@ -1409,7 +1413,7 @@
                     onclick="document.getElementById('connect').scrollIntoView({behavior:'smooth'})">contact</button>
                 <button type="button" class="nav-theme" id="nav-theme-btn" onclick="toggleTheme()"
                     aria-label="Светлая тема">☀︎</button>
-                <button type="button" class="nav-lang" aria-label="Переключить язык">RU</button>
+                <a href="/en/" class="nav-lang" aria-label="Переключить язык">EN</a>
                 <button type="button" class="nav-menu" id="nav-menu-btn" aria-label="Меню">
                     <div class="nav-menu-line"></div>
                     <div class="nav-menu-line"></div>
@@ -2055,6 +2059,7 @@
 
     <!-- JS -->
     <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/popup-data.js"></script>
     <script src="/assets/js/popup.js"></script>
     <script src="/assets/js/jobs.js"></script>
     <script src="/assets/js/theme.js"></script>
