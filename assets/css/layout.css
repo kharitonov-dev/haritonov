@@ -92,6 +92,7 @@
   position: relative;
   height: 128px;
   overflow: hidden;
+  transition: height 0.3s ease;
 }
 
 .popup-slider-track {
@@ -109,6 +110,11 @@
   justify-content: center;
   position: relative;
   overflow: hidden;
+}
+
+.popup-slide img[data-lightbox],
+.sheet-slide img[data-lightbox] {
+  cursor: pointer;
 }
 
 .popup-slide-emoji {
@@ -332,6 +338,7 @@
   position: relative;
   height: 180px;
   overflow: hidden;
+  transition: height 0.3s ease;
 }
 
 .sheet-track {
