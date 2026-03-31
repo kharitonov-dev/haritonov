@@ -81,9 +81,9 @@
   border-radius: var(--radius-3xl);
   pointer-events: none;
   z-index: 9;
-  border-top:    1px solid var(--chromatic-top);
-  border-left:   1px solid var(--chromatic-left);
-  border-right:  1px solid var(--chromatic-right);
+  border-top: 1px solid var(--chromatic-top);
+  border-left: 1px solid var(--chromatic-left);
+  border-right: 1px solid var(--chromatic-right);
   border-bottom: 1px solid var(--chromatic-bottom);
 }
 
@@ -134,8 +134,8 @@
 }
 
 [data-theme="light"] .popup-slide-label {
-  background: linear-gradient(to top, rgba(0, 0, 0, .25), transparent);
-  color: rgba(0, 0, 0, .60);
+  background: linear-gradient(to top, rgba(0, 0, 0, .65), transparent);
+  color: rgba(255, 255, 255, .60);
 }
 
 /* Prev / Next arrows */
@@ -173,8 +173,13 @@
   background: rgba(255, 255, 255, .95);
 }
 
-.popup-arrow-prev { left: 7px; }
-.popup-arrow-next { right: 7px; }
+.popup-arrow-prev {
+  left: 7px;
+}
+
+.popup-arrow-next {
+  right: 7px;
+}
 
 /* Slide dots */
 .popup-dots {
@@ -405,8 +410,13 @@
   color: rgba(0, 0, 0, .45);
 }
 
-.sheet-arrow-left { left: 10px; }
-.sheet-arrow-right { right: 10px; }
+.sheet-arrow-left {
+  left: 10px;
+}
+
+.sheet-arrow-right {
+  right: 10px;
+}
 
 /* Sheet slide dots */
 .sheet-dots {
@@ -477,7 +487,8 @@
    MOBILE TAB BAR
    -------------------------------------------------------------------------- */
 .tab-item-bar {
-  display: none; /* shown in responsive.css */
+  display: none;
+  /* shown in responsive.css */
   position: fixed;
   bottom: 0;
   left: 0;
