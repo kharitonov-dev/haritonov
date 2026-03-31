@@ -20,11 +20,12 @@ function _setActiveTab(id) {
 
 function _onScroll() {
     if (_tabScrolling) return;
-    var trigger = window.innerHeight * 0.35;
-    var active = null;
+    var scrollY = window.scrollY || window.pageYOffset;
+    var trigger = scrollY + window.innerHeight * 0.25;
+    var active = _tabSections[0] ? _tabSections[0].id : null;
     for (var i = 0; i < _tabSections.length; i++) {
-        var rect = _tabSections[i].el.getBoundingClientRect();
-        if (rect.top <= trigger) active = _tabSections[i].id;
+        var top = _tabSections[i].el.getBoundingClientRect().top + scrollY;
+        if (top <= trigger) active = _tabSections[i].id;
     }
     if (active) _setActiveTab(active);
 }
