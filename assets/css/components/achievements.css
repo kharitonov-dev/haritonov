@@ -1,0 +1,111 @@
+/* ==========================================================================
+   components/achievements.css — Achievements strip
+   Desktop: flex-wrap row
+   Mobile: horizontal scroll — overrides in responsive.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   STRIP CONTAINER
+   -------------------------------------------------------------------------- */
+.achievement-strip {
+  border-radius: var(--radius-4xl);
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION LABEL inside strip
+   -------------------------------------------------------------------------- */
+.achievement-label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: .10em;
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+}
+
+.achievement-label::before {
+  content: '//';
+  color: var(--color-accent);
+  opacity: .35;
+}
+
+.achievement-label::after {
+  content: '';
+  flex: 1;
+  height: .5px;
+  background: var(--color-divider);
+}
+
+/* --------------------------------------------------------------------------
+   BADGES ROW
+   -------------------------------------------------------------------------- */
+.achievement-row {
+  display: flex;
+  gap: var(--gap-sm);
+  flex-wrap: wrap;
+}
+
+/* --------------------------------------------------------------------------
+   SINGLE BADGE
+   -------------------------------------------------------------------------- */
+.achievement {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 12px 7px 8px;
+  border-radius: var(--radius-lg);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--color-border-soft);
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+/* Top shimmer */
+.achievement::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: .5px;
+  background: rgba(255, 255, 255, .40);
+}
+
+/* --------------------------------------------------------------------------
+   BADGE ICON
+   -------------------------------------------------------------------------- */
+.achievement-icon {
+  font-size: 16px;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   BADGE TEXT
+   -------------------------------------------------------------------------- */
+.achievement-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.achievement-name {
+  font-family: var(--font-display);
+  font-size: var(--fs-base);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  line-height: 1;
+}
+
+.achievement-value {
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+}

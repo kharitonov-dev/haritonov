@@ -1,1114 +1,2073 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Title and Description -->
     <title>Timofey Kharitonov · iOS Developer, Mobius Conf Speaker, ex. MTS</title>
     <meta name="description"
-        content="iOS developer with 7+ years of experience. Working on &quot;My MTS&quot; app (MAU 30M). Speaker at Mobius Conf 2025. Swift, SwiftUI, UIKit, clean architecture." />
-
+        content="iOS Developer with 7+ years of experience. Working on the My MTS app (MAU 30M). Mobius Conf 2025 Speaker. Swift, SwiftUI, UIKit, clean architecture.">
     <meta name="keywords"
-        content="iOS developer, Swift, SwiftUI, UIKit, MWS, MTS, My MTS, Mobius Conf, iOS jobs, iOS development" />
-    <meta name="author" content="Timofey Kharitonov" />
-    <meta property="og:title" content="Timofey Kharitonov · iOS Developer" />
+        content="iOS Developer, Swift, SwiftUI, UIKit, Accessibility, Backend-Driven UI, GraphQL, MWS, MTS, My MTS, Mobius Conf">
+    <meta name="author" content="Timofey Kharitonov">
+
+    <meta property="og:title" content="Timofey Kharitonov · iOS Developer">
     <meta property="og:description"
-        content="iOS developer with 7+ years of experience. Working on &quot;My MTS&quot; app, speaker at Mobius Conf 2025." />
-    <meta property="og:image" content="https://haritonov.me/resources/my_photo.webp" />
-    <meta property="og:url" content="https://haritonov.me/en/" />
-    <meta property="og:type" content="profile" />
-    <meta property="og:locale" content="en_US" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Timofey Kharitonov · iOS Developer" />
+        content="iOS Developer with 7+ years of experience. Working on the My MTS app (MAU 30M), Mobius Conf 2025 Speaker.">
+    <meta property="og:image" content="https://haritonov.me/resources/logo.webp">
+    <meta property="og:url" content="https://haritonov.me/en/">
+    <meta property="og:type" content="profile">
+    <meta property="og:locale" content="en_US">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Timofey Kharitonov · iOS Developer">
     <meta name="twitter:description"
-        content="iOS developer with 7+ years of experience. Working on &quot;My MTS&quot; app, speaker at Mobius Conf 2025." />
-    <meta name="twitter:image" content="https://haritonov.me/resources/my_photo.webp" />
+        content="iOS Developer with 7+ years of experience. Working on the My MTS app (MAU 30M), Mobius Conf 2025 Speaker.">
+    <meta name="twitter:image" content="https://haritonov.me/resources/logo.webp">
 
-    <!-- Canonical and Hreflang -->
-    <link rel="canonical" href="https://haritonov.me/en/" />
-    <link rel="alternate" hreflang="ru" href="https://haritonov.me/" />
-    <link rel="alternate" hreflang="en" href="https://haritonov.me/en/" />
-    <link rel="alternate" hreflang="x-default" href="https://haritonov.me/" />
+    <link rel="canonical" href="https://haritonov.me/en/">
+    <link rel="alternate" hreflang="ru" href="https://haritonov.me/">
+    <link rel="alternate" hreflang="en" href="https://haritonov.me/en/">
+    <link rel="alternate" hreflang="x-default" href="https://haritonov.me/">
 
-    <!-- Favicon -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
-    <link rel="icon" type="image/png" sizes="120x120" href="/favicon-120x120.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 
-    <!-- Critical CSS -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap"
+        rel="stylesheet">
+
+    <!-- Theme: detect saved preference before first paint (no flash); default = dark -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+        })();
+    </script>
+
+    <!-- CRITICAL CSS: design tokens + themes + base + nav + hero (above-fold, inlined to prevent render-blocking) -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        /* ── TOKENS ──────────────────────────────────────────────────────────── */
+        :root {
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-display: 'Bricolage Grotesque', sans-serif;
+            --fs-2xs: 10px;
+            --fs-xs: 11px;
+            --fs-sm: 12px;
+            --fs-md: 13px;
+            --fs-base: 14px;
+            --fs-lg: 15px;
+            --fs-xl: 16px;
+            --fs-stat: 22px;
+            --fs-stat-mob: 26px;
+            --fs-job-num: 17px;
+            --fs-hero: 54px;
+            --fs-hero-mob: 42px;
+            --fs-footer: 36px;
+            --fs-mau: 34px;
+            --color-bg: #eef1f7;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: rgba(0, 0, 0, .45);
+            --color-text-muted: rgba(0, 0, 0, .30);
+            --color-text-faint: rgba(0, 0, 0, .22);
+            --color-accent: #4338ca;
+            --color-accent-mid: #6366f1;
+            --color-accent-light: #818cf8;
+            --color-teal: #0891b2;
+            --color-green: #10b981;
+            --color-green-dark: #065f46;
+            --color-orange: #f97316;
+            --color-cyan: #67e8f9;
+            --color-divider: rgba(0, 0, 0, .08);
+            --color-border-soft: rgba(0, 0, 0, .09);
+            --color-border-hard: rgba(0, 0, 0, .13);
+            --color-inset-top: rgba(255, 255, 255, .90);
+            --orb-1-color: radial-gradient(circle, #bfcfe8, transparent 70%);
+            --orb-2-color: radial-gradient(circle, #c5bfe8, transparent 70%);
+            --orb-3-color: radial-gradient(circle, #bfe8e0, transparent 70%);
+            --orb-4-color: radial-gradient(circle, #c5d5f0, transparent 70%);
+            --orb-5-color: radial-gradient(circle, #e0c5f0, transparent 70%);
+            --orb-1-opacity: .85;
+            --orb-2-opacity: .70;
+            --orb-3-opacity: .60;
+            --orb-4-opacity: .50;
+            --orb-5-opacity: .45;
+            --orb-1-blur: 100px;
+            --orb-2-blur: 100px;
+            --orb-3-blur: 90px;
+            --orb-4-blur: 70px;
+            --orb-5-blur: 65px;
+            --glass-subtle-bg: rgba(255, 255, 255, .38);
+            --glass-subtle-filter: blur(20px) saturate(1.6);
+            --glass-subtle-border: 1px solid rgba(255, 255, 255, .75);
+            --glass-subtle-shadow: 0 2px 16px rgba(100, 120, 200, .08), inset 0 1px 0 rgba(255, 255, 255, .90);
+            --glass-subtle-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-subtle-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --glass-medium-bg: rgba(255, 255, 255, .52);
+            --glass-medium-filter: blur(44px) saturate(1.85);
+            --glass-medium-border: 1px solid rgba(255, 255, 255, .85);
+            --glass-medium-shadow: 0 4px 28px rgba(100, 120, 200, .10), 0 1px 4px rgba(100, 120, 200, .06),
+                inset 0 1.5px 0 rgba(255, 255, 255, .98), inset 0 -.5px 0 rgba(140, 160, 220, .08);
+            --glass-medium-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-medium-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --glass-strong-bg: rgba(255, 255, 255, .62);
+            --glass-strong-filter: blur(60px) saturate(2.0);
+            --glass-strong-border: 1px solid rgba(255, 255, 255, .92);
+            --glass-strong-shadow: 0 8px 40px rgba(100, 120, 200, .13), 0 2px 8px rgba(100, 120, 200, .08),
+                inset 0 2px 0 rgba(255, 255, 255, 1), inset 0 -.5px 0 rgba(140, 160, 220, .10);
+            --glass-strong-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-strong-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --chromatic-top: rgba(140, 160, 240, .28);
+            --chromatic-left: rgba(100, 180, 255, .20);
+            --chromatic-right: rgba(200, 140, 240, .16);
+            --chromatic-bottom: rgba(100, 220, 200, .14);
+            --popup-bg: rgba(255, 255, 255, .88);
+            --popup-filter: blur(60px) saturate(2.0);
+            --popup-border: 1px solid rgba(255, 255, 255, .95);
+            --popup-shadow: 0 8px 40px rgba(100, 120, 200, .18), 0 2px 8px rgba(100, 120, 200, .10),
+                inset 0 1.5px 0 rgba(255, 255, 255, 1);
+            --popup-tail-bg: rgba(255, 255, 255, .88);
+            --popup-dot: rgba(0, 0, 0, .18);
+            --popup-dot-active: rgba(67, 56, 202, .70);
+            --sheet-bg: rgba(255, 255, 255, .92);
+            --sheet-filter: blur(60px) saturate(2.0);
+            --sheet-border: 1px solid rgba(255, 255, 255, .95);
+            --sheet-shadow: 0 -4px 32px rgba(100, 120, 200, .15), inset 0 1.5px 0 rgba(255, 255, 255, 1);
+            --sheet-handle: rgba(0, 0, 0, .15);
+            --sheet-overlay: rgba(15, 23, 42, .25);
+            --radius-xs: 5px;
+            --radius-sm: 8px;
+            --radius-md: 9px;
+            --radius-lg: 12px;
+            --radius-xl: 14px;
+            --radius-2xl: 16px;
+            --radius-3xl: 18px;
+            --radius-4xl: 20px;
+            --radius-5xl: 22px;
+            --radius-hero: 28px;
+            --radius-full: 50%;
+            --gap-2xs: 3px;
+            --gap-xs: 4px;
+            --gap-sm: 6px;
+            --gap-md: 8px;
+            --gap-lg: 10px;
+            --gap-xl: 14px;
+            --gap-2xl: 18px;
+            --page-padding-x: 20px;
+            --page-max-width: 900px;
+            --page-gap: 12px;
+            --z-orb: 0;
+            --z-content: 2;
+            --z-nav: 50;
+            --z-popup: 2000;
+            --z-overlay: 200;
+            --z-sheet: 210;
+            --transition-fast: .15s ease;
+            --transition-base: .18s ease;
+            --transition-slide: .32s cubic-bezier(.4, 0, .2, 1);
+            --transition-popup: .15s ease;
+            --status-dot-color: #10b981;
+            --status-dot-ring: rgba(16, 185, 129, .18);
+            --status-dot-ring-lg: rgba(16, 185, 129, .06);
+            --status-text-color: #065f46;
+            --status-bg: rgba(16, 185, 129, .08);
+            --status-border: rgba(16, 185, 129, .22);
+            --slide-mobius-1: linear-gradient(135deg, #e0e7ff, #c7d2fe, #a5b4fc);
+            --slide-mobius-2: linear-gradient(135deg, #ddd6fe, #c4b5fd, #a78bfa);
+            --slide-run-1: linear-gradient(135deg, #d1fae5, #a7f3d0, #6ee7b7);
+            --slide-run-2: linear-gradient(135deg, #ccfbf1, #99f6e4, #5eead4);
+            --slide-hockey-1: linear-gradient(135deg, #dbeafe, #bfdbfe, #93c5fd);
+            --slide-hockey-2: linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc);
+            --slide-employee: linear-gradient(135deg, #ede9fe, #ddd6fe, #c4b5fd);
+            --slide-tg: linear-gradient(135deg, #dbeafe, #bfdbfe, #93c5fd);
+            --cursor-color: rgba(67, 56, 202, .50);
+            --avatar-gradient: linear-gradient(145deg, #818cf8 0%, #4338ca 40%, #0891b2 100%);
+            --nav-bg-mobile: rgba(238, 241, 247, .75);
+            --nav-border-mob: rgba(0, 0, 0, .07);
+            --nav-btn-hover-bg: rgba(67, 56, 202, .08);
+            --nav-btn-hover-color: #4338ca;
+            --nav-lang-bg: linear-gradient(135deg, #4338ca, #6366f1);
+            --nav-lang-shadow: 0 2px 8px rgba(67, 56, 202, .30);
+            --nav-lang-color: #fff;
+            --nav-online-dot: #10b981;
+            --nav-online-border: #eef1f7;
+            --photo-shadow: 0 4px 20px rgba(67, 56, 202, .12), inset 0 2px 0 rgba(255, 255, 255, .80);
+            --mau-gradient: linear-gradient(135deg, #4338ca, #6366f1);
+        }
+
+        /* ── DARK THEME ──────────────────────────────────────────────────────── */
+        [data-theme="dark"] {
+            --color-bg: #0a0812;
+            --color-text-primary: rgba(255, 255, 255, .95);
+            --color-text-secondary: rgba(200, 185, 255, .60);
+            --color-text-muted: rgba(167, 139, 250, .40);
+            --color-text-faint: rgba(255, 255, 255, .22);
+            --color-accent: #7c3aed;
+            --color-accent-mid: #a78bfa;
+            --color-accent-light: #c4b5fd;
+            --color-teal: #0f766e;
+            --color-green: #34d399;
+            --color-green-dark: #34d399;
+            --color-divider: rgba(255, 255, 255, .07);
+            --color-border-soft: rgba(255, 255, 255, .09);
+            --color-border-hard: rgba(255, 255, 255, .13);
+            --color-inset-top: rgba(255, 255, 255, .10);
+            --orb-1-color: radial-gradient(circle, #5b21b6, transparent 70%);
+            --orb-2-color: radial-gradient(circle, #1d4ed8, transparent 70%);
+            --orb-3-color: radial-gradient(circle, #0f766e, transparent 70%);
+            --orb-4-color: radial-gradient(circle, #7c3aed, transparent 70%);
+            --orb-5-color: radial-gradient(circle, #be185d, transparent 70%);
+            --orb-1-opacity: .40;
+            --orb-2-opacity: .35;
+            --orb-3-opacity: .30;
+            --orb-4-opacity: .30;
+            --orb-5-opacity: .28;
+            --orb-1-blur: 120px;
+            --orb-2-blur: 120px;
+            --orb-3-blur: 110px;
+            --orb-4-blur: 70px;
+            --orb-5-blur: 70px;
+            --glass-subtle-bg: rgba(255, 255, 255, .035);
+            --glass-subtle-filter: blur(18px) saturate(1.5);
+            --glass-subtle-border: 1px solid rgba(255, 255, 255, .08);
+            --glass-subtle-shadow: 0 4px 20px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .10);
+            --glass-subtle-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+            --glass-subtle-glare: linear-gradient(145deg, rgba(255, 255, 255, .06) 0%, transparent 40%, rgba(140, 100, 255, .03) 100%);
+            --glass-medium-bg: rgba(255, 255, 255, .062);
+            --glass-medium-filter: blur(44px) saturate(1.85) brightness(1.06);
+            --glass-medium-border: 1px solid rgba(255, 255, 255, .13);
+            --glass-medium-shadow: 0 0 0 .5px rgba(150, 120, 255, .20), 0 8px 40px rgba(0, 0, 0, .50),
+                inset 0 1.5px 0 rgba(255, 255, 255, .20), inset 1.5px 0 0 rgba(255, 255, 255, .07);
+            --glass-medium-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+            --glass-medium-glare: linear-gradient(145deg, rgba(255, 255, 255, .06) 0%, transparent 40%, rgba(140, 100, 255, .03) 100%);
+            --glass-strong-bg: rgba(255, 255, 255, .088);
+            --glass-strong-filter: blur(70px) saturate(2.1) brightness(1.1);
+            --glass-strong-border: 1px solid rgba(255, 255, 255, .18);
+            --glass-strong-shadow: 0 0 0 .5px rgba(180, 150, 255, .30), 0 20px 60px rgba(0, 0, 0, .55),
+                inset 0 2px 0 rgba(255, 255, 255, .28), inset 2px 0 0 rgba(255, 255, 255, .10);
+            --glass-strong-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+            --glass-strong-glare: linear-gradient(145deg, rgba(255, 255, 255, .06) 0%, transparent 40%, rgba(140, 100, 255, .03) 100%);
+            --chromatic-top: rgba(140, 100, 255, .32);
+            --chromatic-left: rgba(80, 160, 255, .22);
+            --chromatic-right: rgba(220, 80, 200, .16);
+            --chromatic-bottom: rgba(80, 220, 160, .14);
+            --popup-bg: rgba(14, 9, 28, .90);
+            --popup-filter: blur(60px) saturate(2.2);
+            --popup-border: 1px solid rgba(255, 255, 255, .16);
+            --popup-shadow: 0 0 0 .5px rgba(180, 140, 255, .28), 0 20px 60px rgba(0, 0, 0, .75),
+                inset 0 1.5px 0 rgba(255, 255, 255, .22);
+            --popup-tail-bg: rgba(14, 9, 28, .90);
+            --popup-dot: rgba(255, 255, 255, .28);
+            --popup-dot-active: rgba(255, 255, 255, .88);
+            --sheet-bg: rgba(14, 9, 28, .92);
+            --sheet-filter: blur(60px) saturate(2.2);
+            --sheet-border: 1px solid rgba(255, 255, 255, .16);
+            --sheet-shadow: 0 -4px 40px rgba(0, 0, 0, .60), inset 0 1.5px 0 rgba(255, 255, 255, .20);
+            --sheet-handle: rgba(255, 255, 255, .25);
+            --sheet-overlay: rgba(0, 0, 0, .60);
+            --status-dot-color: #34d399;
+            --status-dot-ring: rgba(52, 211, 153, .20);
+            --status-dot-ring-lg: rgba(52, 211, 153, .07);
+            --status-text-color: #34d399;
+            --status-bg: rgba(52, 211, 153, .10);
+            --status-border: rgba(52, 211, 153, .25);
+            --slide-mobius-1: linear-gradient(135deg, #1e1040, #4c1d95, #7c3aed);
+            --slide-mobius-2: linear-gradient(135deg, #312e81, #3730a3, #4f46e5);
+            --slide-run-1: linear-gradient(135deg, #064e3b, #065f46, #047857);
+            --slide-run-2: linear-gradient(135deg, #052e16, #14532d, #166534);
+            --slide-hockey-1: linear-gradient(135deg, #1e3a5f, #1e40af, #1d4ed8);
+            --slide-hockey-2: linear-gradient(135deg, #0c1a35, #1e3a8a, #2563eb);
+            --slide-employee: linear-gradient(135deg, #3b0764, #6b21a8, #9333ea);
+            --slide-tg: linear-gradient(135deg, #0c1a35, #0f2d5a, #1a56db);
+            --cursor-color: rgba(167, 139, 250, .80);
+            --avatar-gradient: linear-gradient(145deg, #c4b5fd 0%, #7c3aed 40%, #0f766e 100%);
+            --nav-bg-mobile: rgba(10, 8, 18, .70);
+            --nav-border-mob: rgba(255, 255, 255, .07);
+            --nav-btn-hover-bg: rgba(167, 139, 250, .12);
+            --nav-btn-hover-color: rgba(200, 185, 255, .90);
+            --nav-lang-bg: rgba(124, 58, 237, .55);
+            --nav-lang-shadow: inset 0 1px 0 rgba(255, 255, 255, .18);
+            --nav-lang-color: #fff;
+            --nav-online-dot: #34d399;
+            --nav-online-border: #0a0812;
+            --photo-shadow: 0 12px 40px rgba(124, 58, 237, .40);
+            --mau-gradient: linear-gradient(135deg, #a78bfa, #67e8f9);
+        }
+
+        /* ── LIGHT THEME ─────────────────────────────────────────────────────── */
+        [data-theme="light"] {
+            --color-bg: #eef1f7;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: rgba(0, 0, 0, .45);
+            --color-text-muted: rgba(0, 0, 0, .30);
+            --color-text-faint: rgba(0, 0, 0, .22);
+            --color-accent: #4338ca;
+            --color-accent-mid: #6366f1;
+            --color-accent-light: #818cf8;
+            --color-teal: #0891b2;
+            --color-green: #10b981;
+            --color-green-dark: #065f46;
+            --color-orange: #f97316;
+            --color-cyan: #67e8f9;
+            --color-divider: rgba(0, 0, 0, .08);
+            --color-border-soft: rgba(0, 0, 0, .09);
+            --color-border-hard: rgba(0, 0, 0, .13);
+            --color-inset-top: rgba(255, 255, 255, .90);
+            --orb-1-color: radial-gradient(circle, #bfcfe8, transparent 70%);
+            --orb-2-color: radial-gradient(circle, #c5bfe8, transparent 70%);
+            --orb-3-color: radial-gradient(circle, #bfe8e0, transparent 70%);
+            --orb-4-color: radial-gradient(circle, #c5d5f0, transparent 70%);
+            --orb-5-color: radial-gradient(circle, #e0c5f0, transparent 70%);
+            --orb-1-opacity: .85;
+            --orb-2-opacity: .70;
+            --orb-3-opacity: .60;
+            --orb-4-opacity: .50;
+            --orb-5-opacity: .45;
+            --orb-1-blur: 100px;
+            --orb-2-blur: 100px;
+            --orb-3-blur: 90px;
+            --orb-4-blur: 70px;
+            --orb-5-blur: 65px;
+            --glass-subtle-bg: rgba(255, 255, 255, .38);
+            --glass-subtle-filter: blur(20px) saturate(1.6);
+            --glass-subtle-border: 1px solid rgba(255, 255, 255, .75);
+            --glass-subtle-shadow: 0 2px 16px rgba(100, 120, 200, .08), inset 0 1px 0 rgba(255, 255, 255, .90);
+            --glass-subtle-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-subtle-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --glass-medium-bg: rgba(255, 255, 255, .52);
+            --glass-medium-filter: blur(44px) saturate(1.85);
+            --glass-medium-border: 1px solid rgba(255, 255, 255, .85);
+            --glass-medium-shadow: 0 4px 28px rgba(100, 120, 200, .10), 0 1px 4px rgba(100, 120, 200, .06),
+                inset 0 1.5px 0 rgba(255, 255, 255, .98), inset 0 -.5px 0 rgba(140, 160, 220, .08);
+            --glass-medium-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-medium-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --glass-strong-bg: rgba(255, 255, 255, .62);
+            --glass-strong-filter: blur(60px) saturate(2.0);
+            --glass-strong-border: 1px solid rgba(255, 255, 255, .92);
+            --glass-strong-shadow: 0 8px 40px rgba(100, 120, 200, .13), 0 2px 8px rgba(100, 120, 200, .08),
+                inset 0 2px 0 rgba(255, 255, 255, 1), inset 0 -.5px 0 rgba(140, 160, 220, .10);
+            --glass-strong-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-strong-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --chromatic-top: rgba(140, 160, 240, .28);
+            --chromatic-left: rgba(100, 180, 255, .20);
+            --chromatic-right: rgba(200, 140, 240, .16);
+            --chromatic-bottom: rgba(100, 220, 200, .14);
+            --popup-bg: rgba(255, 255, 255, .88);
+            --popup-filter: blur(60px) saturate(2.0);
+            --popup-border: 1px solid rgba(255, 255, 255, .95);
+            --popup-shadow: 0 8px 40px rgba(100, 120, 200, .18), 0 2px 8px rgba(100, 120, 200, .10),
+                inset 0 1.5px 0 rgba(255, 255, 255, 1);
+            --popup-tail-bg: rgba(255, 255, 255, .88);
+            --popup-dot: rgba(0, 0, 0, .18);
+            --popup-dot-active: rgba(67, 56, 202, .70);
+            --sheet-bg: rgba(255, 255, 255, .92);
+            --sheet-filter: blur(60px) saturate(2.0);
+            --sheet-border: 1px solid rgba(255, 255, 255, .95);
+            --sheet-shadow: 0 -4px 32px rgba(100, 120, 200, .15), inset 0 1.5px 0 rgba(255, 255, 255, 1);
+            --sheet-handle: rgba(0, 0, 0, .15);
+            --sheet-overlay: rgba(15, 23, 42, .25);
+            --status-dot-color: #10b981;
+            --status-dot-ring: rgba(16, 185, 129, .18);
+            --status-dot-ring-lg: rgba(16, 185, 129, .06);
+            --status-text-color: #065f46;
+            --status-bg: rgba(16, 185, 129, .08);
+            --status-border: rgba(16, 185, 129, .22);
+            --slide-mobius-1: linear-gradient(135deg, #e0e7ff, #c7d2fe, #a5b4fc);
+            --slide-mobius-2: linear-gradient(135deg, #ddd6fe, #c4b5fd, #a78bfa);
+            --slide-run-1: linear-gradient(135deg, #d1fae5, #a7f3d0, #6ee7b7);
+            --slide-run-2: linear-gradient(135deg, #ccfbf1, #99f6e4, #5eead4);
+            --slide-hockey-1: linear-gradient(135deg, #dbeafe, #bfdbfe, #93c5fd);
+            --slide-hockey-2: linear-gradient(135deg, #e0f2fe, #bae6fd, #7dd3fc);
+            --slide-employee: linear-gradient(135deg, #ede9fe, #ddd6fe, #c4b5fd);
+            --slide-tg: linear-gradient(135deg, #dbeafe, #bfdbfe, #93c5fd);
+            --cursor-color: rgba(67, 56, 202, .50);
+            --avatar-gradient: linear-gradient(145deg, #818cf8 0%, #4338ca 40%, #0891b2 100%);
+            --nav-bg-mobile: rgba(238, 241, 247, .75);
+            --nav-border-mob: rgba(0, 0, 0, .07);
+            --nav-btn-hover-bg: rgba(67, 56, 202, .08);
+            --nav-btn-hover-color: #4338ca;
+            --nav-lang-bg: linear-gradient(135deg, #4338ca, #6366f1);
+            --nav-lang-shadow: 0 2px 8px rgba(67, 56, 202, .30);
+            --nav-lang-color: #fff;
+            --nav-online-dot: #10b981;
+            --nav-online-border: #eef1f7;
+            --photo-shadow: 0 4px 20px rgba(67, 56, 202, .12), inset 0 2px 0 rgba(255, 255, 255, .80);
+            --mau-gradient: linear-gradient(135deg, #4338ca, #6366f1);
+        }
+
+        /* ── RESET & BODY ────────────────────────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
-        }
-
-        .visually-hidden {
-            position: absolute;
-            width: 1px;
-            height: 1px;
-            margin: -1px;
-            padding: 0;
-            overflow: hidden;
-            border: 0;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-        }
-
-        body {
-            font-family: 'Cascadia Code', monospace;
-            background-color: #f9f9f9;
-            color: #1e1e1e;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        img {
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-        }
-
-        article,
-        header,
-        footer,
-        section,
-        address,
-        time,
-        nav {
-            display: block;
             margin: 0;
             padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font: inherit;
         }
 
         address {
-            font-style: normal;
-        }
-
-        .section {
-            margin-bottom: 4rem;
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
+            font-style: inherit;
         }
 
         a {
-            color: #0066cc;
+            color: inherit;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease;
         }
 
-        a:hover {
-            border-bottom-color: #0066cc;
+        a:visited {
+            color: inherit;
         }
 
-        .prompt {
-            color: #F05138;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 2px solid #e0e0e0;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .header-right {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            letter-spacing: -0.5px;
-        }
-
-        .header-info {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo {
-            display: flex;
-            max-width: 50px;
-            border-radius: 8px;
-        }
-
-        .header-info-title {
-            font-size: 1.96rem;
-            line-height: 1.7rem;
-        }
-
-        .header-info-description {
-            font-size: 1rem;
-            color: #666;
-            font-family: inherit;
-        }
-
-        .header-info-description .prompt {
-            margin: 0rem;
-        }
-
-        .nav {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: #333;
-            font-size: 1.1rem;
-            border-bottom: none;
-        }
-
-        .nav-link:hover {
-            color: #0066cc;
-            border-bottom: none;
-        }
-
-        .hero {
-            display: flex;
-            gap: 3rem;
-            margin-bottom: 4rem;
-            align-items: flex-start;
-        }
-
-        .hero-content {
-            flex: 2;
-        }
-
-        .hero-title {
-            font-size: 2.0rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .note {
-            display: flex;
-            flex-wrap: wrap;
-            padding: 0rem 1rem;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            border-left: 4px solid #F05138;
-        }
-
-        .hero-text.note {
-            margin-top: 0.5rem;
-        }
-
-        .hero-photo {
-            flex: 1;
-            width: 100%;
-            max-width: 300px;
-            aspect-ratio: 1/1;
-        }
-
-        .preview-photo {
-            cursor: pointer;
-            width: 100%;
-            height: 100%;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s ease;
-            will-change: transform;
-        }
-
-        .preview-photo:hover {
-            transform: scale(1.02) translateZ(0);
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-        }
-
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            border-left: 4px solid #F05138;
-            padding-left: 1rem;
-        }
-
-        .work-item {
-            margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px dashed #ccc;
-        }
-
-        .work-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-
-        .work-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .work-company {
-            display: flex;
-            align-items: center;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #1e1e1e;
-            gap: 0.5rem;
-        }
-
-        .work-company img {
-            max-width: 30px;
-            max-height: 30px;
-        }
-
-        .work-date {
-            min-width: 200px;
-            text-align: right;
-            color: #666;
-            font-family: inherit;
-        }
-
-        .work-role {
-            font-size: 1.1rem;
-            color: #F05138;
-            margin-bottom: 1rem;
-            font-weight: 500;
-        }
-
-        .work-desc {
-            list-style: none;
-        }
-
-        .work-desc li {
-            margin-bottom: 0.5rem;
-            padding-left: 1.5rem;
-            position: relative;
-        }
-
-        .work-desc li::before {
-            content: "→";
-            color: #F05138;
-            position: absolute;
-            left: 0;
-            font-weight: bold;
-        }
-
-        .work-link-app {
-            display: flex;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .work-link-app img {
-            border-radius: 7px;
-            max-width: 30px;
-            max-height: 30px;
-        }
-
-        .work-link-app span {
-            border-bottom: 1px solid transparent;
-        }
-
-        a.work-link-app:hover {
-            border-bottom-color: transparent;
-        }
-
-        a.work-link-app:hover span {
-            border-bottom-color: #0066cc;
-        }
-
-        .work-stack {
-            margin-top: 0.5rem;
-            font-size: 0.85rem;
-        }
-
-        @media (max-width: 600px) {
-            body {
-                font-size: 15px;
-            }
-
-            .container {
-                padding: 1rem;
-            }
-
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 0;
-                margin-bottom: 1rem;
-                gap: 0.5rem;
-            }
-
-            .header-info-description {
-                font-size: 0.85rem;
-            }
-
-            .header-right {
-                width: 100%;
-                justify-content: center;
-                align-items: center;
-            }
-
-            .nav {
-                gap: 1.5rem;
-            }
-
-            .hero {
-                flex-direction: column-reverse;
-                gap: 1rem;
-                margin-bottom: 2rem;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-                letter-spacing: -0.5px;
-                margin-bottom: 0.5rem;
-            }
-
-            .hero-title br {
-                display: none;
-            }
-
-            .hero-photo {
-                max-width: 200px;
-                margin: 0 auto;
-            }
-
-            .section {
-                margin-bottom: 1rem;
-            }
-
-            .section-title {
-                margin-bottom: 1rem;
-            }
+        [data-theme="dark"] a:visited {
+            color: var(--color-text-secondary);
         }
 
         button {
             border: none;
             background: none;
+            font: inherit;
+            cursor: pointer;
             padding: 0;
-            margin: 0;
-            cursor: pointer;
-            font-family: inherit;
-            font-size: inherit;
         }
 
-        .event-trigger-wrapper {
+        body {
+            font-family: var(--font-mono);
+            background: var(--color-bg);
+            min-height: 100vh;
             position: relative;
-            display: inline-block;
-            margin-right: 0.2em;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .event-trigger {
-            all: unset;
-            display: inline;
-            color: #0066cc;
-            cursor: pointer;
-            border-bottom: 1px dashed #0066cc;
-            transition: color 0.2s ease, border-bottom-color 0.2s ease;
-            font-family: inherit;
-            font-size: inherit;
-            line-height: inherit;
-            white-space: nowrap;
+        /* ── GLASS SYSTEM ────────────────────────────────────────────────────── */
+        .glass-subtle,
+        .glass-medium,
+        .glass-strong {
+            position: relative;
+            overflow: hidden;
         }
 
-        .event-trigger:hover {
-            color: #F05138;
-            border-bottom-color: #F05138;
+        .glass-subtle::before,
+        .glass-medium::before,
+        .glass-strong::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 8%;
+            right: 8%;
+            height: 1px;
+            z-index: 10;
         }
 
-        .event-trigger:focus-visible {
-            outline: 2px solid #0066cc;
-            outline-offset: 2px;
-            border-radius: 2px;
+        .glass-subtle::after,
+        .glass-medium::after,
+        .glass-strong::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
         }
 
-        button.event-trigger::after {
-            content: " ⓘ";
-            font-size: 0.9em;
-            opacity: 0.6;
+        .glass-subtle {
+            background: var(--glass-subtle-bg);
+            backdrop-filter: var(--glass-subtle-filter);
+            -webkit-backdrop-filter: var(--glass-subtle-filter);
+            border: var(--glass-subtle-border);
+            box-shadow: var(--glass-subtle-shadow);
         }
 
-        a.event-trigger::after {
-            content: " ↗";
-            font-size: 0.9em;
-            opacity: 0.6;
+        .glass-subtle::before {
+            background: var(--glass-subtle-highlight);
         }
 
-        .event-trigger:hover::after {
-            opacity: 1;
+        .glass-subtle::after {
+            background: var(--glass-subtle-glare);
         }
 
-        .lang-switcher {
+        .glass-medium {
+            background: var(--glass-medium-bg);
+            backdrop-filter: var(--glass-medium-filter);
+            -webkit-backdrop-filter: var(--glass-medium-filter);
+            border: var(--glass-medium-border);
+            box-shadow: var(--glass-medium-shadow);
+        }
+
+        .glass-medium::before {
+            background: var(--glass-medium-highlight);
+        }
+
+        .glass-medium::after {
+            background: var(--glass-medium-glare);
+        }
+
+        .glass-strong {
+            background: var(--glass-strong-bg);
+            backdrop-filter: var(--glass-strong-filter);
+            -webkit-backdrop-filter: var(--glass-strong-filter);
+            border: var(--glass-strong-border);
+            box-shadow: var(--glass-strong-shadow);
+        }
+
+        .glass-strong::before {
+            background: var(--glass-strong-highlight);
+        }
+
+        .glass-strong::after {
+            background: var(--glass-strong-glare);
+        }
+
+        /* ── PAGE LAYOUT ─────────────────────────────────────────────────────── */
+        .page {
+            position: relative;
+            z-index: var(--z-content);
+            max-width: var(--page-max-width);
+            margin: 0 auto;
+            padding: 16px var(--page-padding-x) 0;
+            display: flex;
+            flex-direction: column;
+            gap: var(--page-gap);
+        }
+
+        main {
+            display: contents;
+        }
+
+        /* ── ORBS ────────────────────────────────────────────────────────────── */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: var(--z-orb);
+            will-change: transform, filter;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--orb-1-color);
+            top: -150px;
+            left: -150px;
+            filter: blur(var(--orb-1-blur));
+            opacity: var(--orb-1-opacity);
+            animation: orb-1 28s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--orb-2-color);
+            top: 50px;
+            right: -120px;
+            filter: blur(var(--orb-2-blur));
+            opacity: var(--orb-2-opacity);
+            animation: orb-2 34s ease-in-out infinite;
+        }
+
+        .orb-3 {
+            width: 420px;
+            height: 420px;
+            background: var(--orb-3-color);
+            bottom: -60px;
+            left: 5%;
+            filter: blur(var(--orb-3-blur));
+            opacity: var(--orb-3-opacity);
+            animation: orb-3 24s ease-in-out infinite;
+        }
+
+        .orb-4 {
+            width: 280px;
+            height: 280px;
+            background: var(--orb-4-color);
+            top: 400px;
+            left: 25%;
+            filter: blur(var(--orb-4-blur));
+            opacity: var(--orb-4-opacity);
+            animation: orb-4 20s ease-in-out infinite;
+        }
+
+        .orb-5 {
+            width: 240px;
+            height: 240px;
+            background: var(--orb-5-color);
+            bottom: 200px;
+            right: 5%;
+            filter: blur(var(--orb-5-blur));
+            opacity: var(--orb-5-opacity);
+            animation: orb-5 26s ease-in-out infinite;
+        }
+
+        @keyframes orb-1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            40% {
+                transform: translate(50px, 40px) scale(1.08)
+            }
+
+            70% {
+                transform: translate(-25px, 60px) scale(.94)
+            }
+        }
+
+        @keyframes orb-2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            35% {
+                transform: translate(-40px, 25px) scale(1.1)
+            }
+
+            75% {
+                transform: translate(20px, -35px) scale(1.05)
+            }
+        }
+
+        @keyframes orb-3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(30px, -40px) scale(1.12)
+            }
+        }
+
+        @keyframes orb-4 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-20px, 25px) scale(1.1)
+            }
+        }
+
+        @keyframes orb-5 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(15px, -20px) scale(1.08)
+            }
+        }
+
+        /* ── NAV ─────────────────────────────────────────────────────────────── */
+        .nav {
+            border-radius: var(--radius-3xl);
+            padding: 9px 14px;
             display: flex;
             align-items: center;
-            gap: 0.3rem;
-            font-family: 'Cascadia Code', monospace;
-            font-size: 0.75rem;
+            justify-content: space-between;
         }
 
-        .lang-link {
-            color: #999;
-            text-decoration: none;
-            border-bottom: none;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            transition: color 0.15s ease;
+        .nav-id {
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
-        .lang-link:hover {
-            color: #333;
-            border-bottom: none;
+        .nav-ava-wrap {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
         }
 
-        .lang-link.active {
-            color: #F05138;
+        .nav-ava {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background: var(--avatar-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, .25);
+            box-shadow: 0 2px 10px rgba(124, 58, 237, .45), inset 0 1px 0 rgba(255, 255, 255, .30);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
         }
 
-        .lang-sep {
-            color: #ddd;
+        .nav-ava::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, .30) 0%, transparent 70%);
+        }
+
+        .nav-ava-dot {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--nav-online-dot);
+            border: 2px solid var(--nav-online-border);
+            z-index: 2;
+        }
+
+        .nav-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .nav-name {
+            font-family: var(--font-display);
+            font-size: var(--fs-lg);
+            font-weight: 700;
+            color: var(--color-text-primary);
+        }
+
+        .nav-sub {
+            font-size: var(--fs-2xs);
+            color: var(--color-accent-mid);
+            opacity: .6;
+        }
+
+        .nav-r {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .nav-btn {
+            font-size: var(--fs-sm);
+            color: var(--color-text-secondary);
+            padding: 5px 9px;
+            border-radius: var(--radius-md);
+            transition: background var(--transition-fast), color var(--transition-fast);
             user-select: none;
         }
 
-        .footer-lang {
-            margin-top: 1rem;
+        .nav-btn:hover {
+            background: var(--nav-btn-hover-bg);
+            color: var(--nav-btn-hover-color);
+        }
+
+        .nav-lang,
+        .nav-theme {
+            font-size: var(--fs-2xs);
+            font-weight: 600;
+            color: var(--nav-lang-color);
+            background: var(--nav-lang-bg);
+            padding: 4px 10px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--nav-lang-shadow);
+            user-select: none;
+            transition: opacity var(--transition-fast);
+            flex-shrink: 0;
+        }
+
+        .nav-lang:hover,
+        .nav-theme:hover {
+            opacity: .85;
+        }
+
+        .nav-lang:visited {
+            color: var(--nav-lang-color);
+        }
+
+        .nav-menu {
+            display: none;
+            width: 30px;
+            height: 30px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid var(--color-border-soft);
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
+            gap: 4px;
+            cursor: pointer;
+        }
+
+        .nav-menu-line {
+            width: 14px;
+            height: 1.5px;
+            background: var(--color-text-secondary);
+            border-radius: 1px;
+        }
+
+        /* ── HERO ────────────────────────────────────────────────────────────── */
+        .hero {
+            border-radius: var(--radius-hero);
+            padding: 0;
+        }
+
+        .hero-body {
+            display: grid;
+            grid-template-columns: 1fr 210px;
+            position: relative;
+            z-index: 11;
+        }
+
+        .hero-left {
+            padding: 22px 0 22px 22px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 18px;
+            border-left: 1px solid var(--color-divider);
+            gap: 10px;
+        }
+
+        .hero-top {
+            display: none;
+        }
+
+        .hero-top-left {
+            flex: 1;
+        }
+
+        .hero-left .prompt-line {
+            margin-bottom: 12px;
+        }
+
+        .hero-name {
+            font-family: var(--font-display);
+            font-size: var(--fs-hero);
+            font-weight: 800;
+            line-height: 1.0;
+            letter-spacing: -2px;
+            color: var(--color-text-primary);
+            margin-bottom: 5px;
+        }
+
+        .hero-name-accent {
+            background: linear-gradient(135deg, #312e81, #4338ca, #818cf8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        [data-theme="dark"] .hero-name-accent {
+            background: linear-gradient(135deg, #c4b5fd 0%, #818cf8 40%, #67e8f9 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-role {
+            font-size: var(--fs-md);
+            color: var(--color-text-muted);
+            margin-bottom: 16px;
+            letter-spacing: .04em;
+        }
+
+        .hero-location {
+            font-size: var(--fs-sm);
+            color: var(--color-text-muted);
+            opacity: .7;
+            margin-bottom: 14px;
+        }
+
+        .hero-status {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: var(--status-bg);
+            border: 1px solid var(--status-border);
+            border-radius: 20px;
+            padding: 5px 12px 5px 8px;
+            margin-bottom: 14px;
+            width: fit-content;
+        }
+
+        .status-text {
+            font-size: var(--fs-sm);
+            color: var(--status-text-color);
+        }
+
+        .hero-description {
+            font-size: 13.5px;
+            color: var(--color-text-secondary);
+            line-height: 1.7;
+            margin-bottom: 16px;
+        }
+
+        .hlinks {
+            display: flex;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .hero-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 255, 255, .05);
+            border: 1px solid rgba(255, 255, 255, .1);
+            border-radius: 9px;
+            padding: 5px 10px;
+            font-size: var(--fs-xs);
+            color: rgba(200, 185, 255, .6);
+            text-decoration: none;
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
+            transition: background var(--transition-fast),
+                border-color var(--transition-fast),
+                color var(--transition-fast);
+        }
+
+        .hero-link:visited {
+            color: rgba(200, 185, 255, .6);
+        }
+
+        .hero-link:hover {
+            background: rgba(167, 139, 250, .12);
+            border-color: rgba(167, 139, 250, .3);
+            color: #a78bfa;
+        }
+
+        .hero-link-dot {
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            background: currentColor;
+            opacity: .5;
+            flex-shrink: 0;
+        }
+
+        [data-theme="light"] .hero-link {
+            background: rgba(255, 255, 255, .6);
+            border-color: rgba(0, 0, 0, .1);
+            box-shadow: inset 0 1px 0 rgba(255, 255, 255, .9);
+            color: rgba(0, 0, 0, .5);
+        }
+
+        [data-theme="light"] .hero-link:visited {
+            color: rgba(0, 0, 0, .5);
+        }
+
+        [data-theme="light"] .hero-link:hover {
+            background: rgba(67, 56, 202, .08);
+            border-color: rgba(67, 56, 202, .2);
+            color: #4338ca;
+        }
+
+        .photo {
+            width: 140px;
+            height: 140px;
+            border-radius: var(--radius-5xl);
+            background: var(--avatar-gradient);
+            box-shadow: var(--photo-shadow);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+            display: block;
+            cursor: pointer;
+        }
+
+        .photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .hero-location {
+            text-align: center;
+            margin-top: 2px;
+            font-family: var(--font-display);
+            font-size: 13px;
+            font-weight: 600;
+            color: var(--color-text-secondary);
+        }
+
+        .hero-mau {
+            text-align: center;
+            margin-top: 6px;
+        }
+
+        .hero-mau-num {
+            font-family: var(--font-display);
+            font-size: var(--fs-mau);
+            font-weight: 800;
+            background: var(--mau-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1;
+        }
+
+        .hero-mau-label {
+            font-size: var(--fs-xs);
+            color: var(--color-text-muted);
+            margin-top: 1px;
+        }
+
+        /* ── SECTION LABEL ───────────────────────────────────────────────────── */
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+            font-size: var(--fs-xs);
+            color: var(--color-text-muted);
+            letter-spacing: .12em;
+            padding-left: 1px;
+            font-weight: 400;
+        }
+
+        .section-label::before {
+            content: '//';
+            font-size: var(--fs-xs);
+            color: var(--color-accent);
+            opacity: .4;
+        }
+
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: .5px;
+            background: var(--color-divider);
+        }
+
+        /* ── COMMON COMPONENTS ───────────────────────────────────────────────── */
+        .chromatic-reflection {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 9;
+            border-top: 1px solid var(--chromatic-top);
+            border-left: 1px solid var(--chromatic-left);
+            border-right: 1px solid var(--chromatic-right);
+            border-bottom: 1px solid var(--chromatic-bottom);
+        }
+
+        .prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .prompt-user {
+            color: var(--color-accent);
+            font-size: var(--fs-sm);
+        }
+
+        [data-theme="dark"] .prompt-user {
+            color: var(--color-accent-mid);
+        }
+
+        .prompt-at {
+            color: var(--color-text-faint);
+            font-size: var(--fs-sm);
+        }
+
+        .prompt-dir {
+            color: var(--color-teal);
+            font-size: var(--fs-sm);
+        }
+
+        [data-theme="dark"] .prompt-dir {
+            color: var(--color-green);
+        }
+
+        .prompt-symbol {
+            color: var(--color-accent-mid);
+            font-size: var(--fs-md);
+        }
+
+        [data-theme="dark"] .prompt-symbol {
+            color: #f472b6;
+        }
+
+        .prompt-cmd {
+            color: var(--color-text-secondary);
+            font-size: var(--fs-sm);
+        }
+
+        [data-theme="dark"] .prompt-cmd {
+            color: rgba(255, 255, 255, .65);
+        }
+
+        .terminal-bar {
+            padding: 10px 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-bottom: 1px solid var(--color-divider);
+            position: relative;
+            z-index: 11;
+        }
+
+        .terminal-bar-title {
+            flex: 1;
+            text-align: center;
+            font-size: var(--fs-sm);
+            color: var(--color-text-faint);
+        }
+
+        .terminal-dots {
+            display: flex;
+            gap: 5px;
+        }
+
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
+        }
+
+        .terminal-dot-red {
+            background: #ff5f57;
+            box-shadow: 0 0 6px rgba(255, 95, 87, .6);
+        }
+
+        .terminal-dot-yellow {
+            background: #febc2e;
+            box-shadow: 0 0 6px rgba(254, 188, 46, .5);
+        }
+
+        .terminal-dot-green {
+            background: #28c840;
+            box-shadow: 0 0 6px rgba(40, 200, 64, .5);
+        }
+
+        .status-dot {
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--status-dot-color);
+            box-shadow: 0 0 0 3px var(--status-dot-ring);
+            animation: status-pulse 2.5s ease-in-out infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes status-pulse {
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 3px var(--status-dot-ring)
+            }
+
+            50% {
+                box-shadow: 0 0 0 7px var(--status-dot-ring-lg)
+            }
+        }
+
+        .cursor-blink {
+            display: inline-block;
+            width: 3px;
+            height: 45px;
+            background: var(--cursor-color);
+            margin-left: 3px;
+            vertical-align: middle;
+            border-radius: 1px;
+            animation: cursor-blink 1.1s step-end infinite;
+        }
+
+        @keyframes cursor-blink {
+
+            0%,
+            100% {
+                opacity: 1
+            }
+
+            50% {
+                opacity: 0
+            }
+        }
+
+        /* ── POPUP SLIDE GRADIENT CLASSES ────────────────────────────────────── */
+        .gradient-mask-1 {
+            background: var(--slide-mobius-1)
+        }
+
+        .gradient-mask-2 {
+            background: var(--slide-mobius-2)
+        }
+
+        .gradient-radial-1 {
+            background: var(--slide-run-1)
+        }
+
+        .gradient-radial-2 {
+            background: var(--slide-run-2)
+        }
+
+        .gradient-shine-1 {
+            background: var(--slide-hockey-1)
+        }
+
+        .gradient-shine-2 {
+            background: var(--slide-hockey-2)
+        }
+
+        .gradient-edge {
+            background: var(--slide-employee)
+        }
+
+        .gradient-tag {
+            background: var(--slide-tg)
+        }
+
+        /* ── SAFETY DEFAULTS (prevent flash before async layout.css loads) ───── */
+        #popup {
+            position: absolute;
+            z-index: 2000;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sheet-overlay {
+            position: fixed;
+            inset: 0;
+            z-index: 200;
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .bottom-sheet {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 210;
+            transform: translateY(100%);
+            overflow: hidden;
+        }
+
+        .tab-item-bar {
+            display: none;
+        }
+
+        /* ── CRITICAL MOBILE (above-fold, prevents CLS before responsive.css loads) */
+        @media (max-width: 640px) {
+
+            /* desk-only elements hidden on mobile (e.g. desktop h1 duplicate) */
+            .desk-only {
+                display: none;
+            }
+
+            /* mobile hero layout */
+            .hero-top {
+                display: flex;
+                align-items: flex-start;
+                justify-content: space-between;
+                gap: 12px;
+                margin-bottom: 10px;
+            }
+
+            .hero-right {
+                display: none;
+            }
+
+            .hero-body {
+                display: block;
+                padding: 18px 18px 16px;
+            }
+
+            .hero-left {
+                padding: 0;
+            }
+
+            .hero-name {
+                font-size: var(--fs-hero-mob);
+                letter-spacing: -1.5px;
+            }
+
+            /* scroll offset for fixed nav */
+            #about,
+            #work,
+            #skills,
+            #connect {
+                scroll-margin-top: 72px;
+            }
+
+            /* mobile nav: fixed top */
+            .nav {
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: var(--z-nav);
+                padding: 10px;
+                background: var(--nav-bg-mobile);
+                backdrop-filter: blur(30px);
+                -webkit-backdrop-filter: blur(30px);
+                border-bottom: 1px solid var(--nav-border-mob);
+                border-radius: 0;
+            }
+
+            .nav-btn {
+                display: none;
+            }
+
+            .nav-menu {
+                display: flex;
+            }
+
+            .page {
+                padding-top: 75px;
+                padding-bottom: 65px;
+            }
         }
     </style>
-    <link rel="stylesheet" href="/css/style.css" media="print" onload="this.media='all'">
-    <noscript>
-        <link rel="stylesheet" href="/css/style.css">
-    </noscript>
 
-    <link rel="preload" as="image" href="/resources/logo.webp" imagesrcset="/resources/logo.webp" type="image/webp">
-    <link rel="preload" as="image" href="/resources/my_photo.webp" imagesrcset="/resources/my_photo.webp"
-        type="image/webp">
-    <link rel="preload" href="/css/style.css" as="style">
-    <link rel="preconnect" href="https://mc.yandex.ru">
-    <link rel="preconnect" href="https://mc.yandex.com">
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Timofey Kharitonov",
-        "alternateName": "Тимофей Харитонов",
-        "description": "iOS developer with 7+ years of commercial experience. Speaker at Mobius Conf 2025, nominee for 'Employee of the Year 2025' at MWS (ex. MTS). Passionate about running and hockey.",
-        "image": "https://haritonov.me/resources/my_photo.webp",
-        "url": "https://haritonov.me/en/",
-        "sameAs": [
-          "https://t.me/bytim",
-          "https://linkedin.com/in/bytim",
-          "https://www.instagram.com/by.tim/",
-          "https://github.com/kharitonov-dev"
-        ],
-        "jobTitle": "iOS Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "MWS (ex. MTS Digital)",
-          "description": "\"My MTS\" app",
-          "sameAs": "https://apps.apple.com/ru/app/мой-мтс/id1069871095"
-        },
-        "hasCredential": [
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "experience",
-            "name": "7+ years of commercial development"
-          },
-          {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "achievement",
-            "name": "Nominee for 'Employee of the Year 2025' at MWS"
-          }
-        ],
-        "knowsAbout": [
-          "iOS dev",
-          "Swift",
-          "Objective-C",
-          "SwiftUI",
-          "UIKit",
-          "RxSwift",
-          "Combine",
-          "MVP",
-          "MVVM",
-          "VIPER",
-          "Clean Swift",
-          "GCD",
-          "OperationQueue",
-          "Swift Concurrency",
-          "REST API",
-          "GraphQL",
-          "WebSocket",
-          "Backend-Driven UI",
-          "UserDefaults",
-          "Keychain",
-          "Core Data",
-          "Accessibility",
-          "Unit Testing",
-          "UI Testing"
-        ],
-        "performerIn": {
-          "@type": "Event",
-          "name": "Mobius Conf 2025",
-          "startDate": "2025",
-          "location": "Moscow",
-          "description": "Talk on implementing scalable fonts (Accessibility) for the MTS app ecosystem"
-        },
-        "alumniOf": {
-          "@type": "Organization",
-          "name": "Dekartus (\"Provider App\")",
-          "description": "iOS Developer (02.2022 — 04.2023)"
-        },
-        "knowsLanguage": [
-          {
-            "@type": "Language",
-            "name": "Russian",
-            "alternateName": "ru"
-          },
-          {
-            "@type": "Language",
-            "name": "English",
-            "alternateName": "en"
-          }
-        ]
-      }
-    </script>
+    <!-- Non-critical CSS (below-fold components, async) -->
+    <link rel="preload" href="/assets/css/components/stats.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/achievements.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/about.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/jobs.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/skills.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/education.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/contact.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/links.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/footer.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/layout.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/components/lightbox.css" as="style" onload="this.rel='stylesheet'">
+    <link rel="preload" href="/assets/css/responsive.css" as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="/assets/css/components/stats.css">
+        <link rel="stylesheet" href="/assets/css/components/achievements.css">
+        <link rel="stylesheet" href="/assets/css/components/about.css">
+        <link rel="stylesheet" href="/assets/css/components/jobs.css">
+        <link rel="stylesheet" href="/assets/css/components/skills.css">
+        <link rel="stylesheet" href="/assets/css/components/education.css">
+        <link rel="stylesheet" href="/assets/css/components/contact.css">
+        <link rel="stylesheet" href="/assets/css/components/links.css">
+        <link rel="stylesheet" href="/assets/css/components/footer.css">
+        <link rel="stylesheet" href="/assets/css/layout.css">
+        <link rel="stylesheet" href="/assets/css/components/lightbox.css">
+        <link rel="stylesheet" href="/assets/css/responsive.css">
+    </noscript>
 </head>
 
 <body>
-    <div class="container">
 
-        <header class="header">
-            <div class="header-left">
-                <div class="header-logo">
-                    <picture>
-                        <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
-                        <img src="/resources/logo.webp" alt="Timofey Kharitonov logo" class="logo" width="50"
-                            height="50" />
-                    </picture>
+    <!-- ============================================================
+     PAGE
+     ============================================================ -->
+    <div class="page">
+
+        <!-- NAV -->
+        <nav class="glass-subtle nav" aria-label="Main navigation">
+            <div class="nav-id">
+                <div class="nav-ava-wrap">
+                    <div class="nav-ava">TK</div>
+                    <div class="nav-ava-dot" aria-hidden="true"></div>
                 </div>
-                <div class="header-info">
-                    <span class="header-info-title">Timofey Kharitonov</span>
-                    <span class="header-info-description">
+                <div class="nav-info">
+                    <span class="nav-name">Timofey Kharitonov</span>
+                    <span class="nav-sub">
                         iOS Dev
-                        <span class="prompt">•</span> tg:
-                        <a href="https://t.me/bytim" class="contact-value" target="_blank"> @bytim</a>
-                        <span class="prompt">•</span>
-                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value"
-                            target="_blank">dev.kharitonov@ya.ru
-                        </a>
+                        •
+                        tg: <a href="https://t.me/bytim" class="link" target="_blank"> @bytim</a>
+                        •
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="link" target="_blank">dev.kharitonov@ya.ru</a>
                     </span>
                 </div>
             </div>
-            <div class="header-right">
-                <div class="lang-switcher">
-                    <a href="/" class="lang-link" hreflang="ru">RU</a>
-                    <span class="lang-sep">/</span>
-                    <a href="/en/" class="lang-link active" hreflang="en">EN</a>
-                </div>
-                <nav class="nav">
-                    <a href="#about" class="nav-link"><span class="prompt">/</span>about</a>
-                    <a href="#work" class="nav-link"><span class="prompt">/</span>work</a>
-                    <a href="#contact" class="nav-link"><span class="prompt">/</span>contact</a>
-                </nav>
+            <div class="nav-r">
+                <button type="button" class="nav-btn"
+                    onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">about</button>
+                <button type="button" class="nav-btn"
+                    onclick="document.getElementById('work').scrollIntoView({behavior:'smooth'})">work</button>
+                <button type="button" class="nav-btn"
+                    onclick="document.getElementById('connect').scrollIntoView({behavior:'smooth'})">contact</button>
+                <button type="button" class="nav-theme" id="nav-theme-btn" onclick="toggleTheme()"
+                    aria-label="Light theme">&#9788;&#65038;</button>
+                <a href="/" class="nav-lang" aria-label="Switch language">RU</a>
+                <button type="button" class="nav-menu" id="nav-menu-btn" aria-label="Menu">
+                    <div class="nav-menu-line"></div>
+                    <div class="nav-menu-line"></div>
+                    <div class="nav-menu-line"></div>
+                </button>
             </div>
-        </header>
+        </nav>
 
         <main>
 
-            <section id="about" class="hero">
-                <div class="hero-content">
-                    <!-- Hidden H1 for SEO -->
-                    <h1 class="visually-hidden">Timofey Kharitonov · iOS Developer with 7+ years of experience</h1>
-
-                    <div class="hero-title" aria-hidden="true">
-                        <span class="prompt">></span>
-                        <span>iOS Developer with 7+&nbsp;years of commercial experience,</span>
+            <!-- HERO -->
+            <header class="glass-strong hero" id="about">
+                <div class="chromatic-reflection"></div>
+                <div class="terminal-bar" aria-hidden="true">
+                    <div class="terminal-dots">
+                        <div class="terminal-dot terminal-dot-red"></div>
+                        <div class="terminal-dot terminal-dot-yellow"></div>
+                        <div class="terminal-dot terminal-dot-green"></div>
                     </div>
-
-                    <div class="hero-text">
-                        I actively participate in the IT community and keep up with trends through professional
-                        conferences. I am a speaker at
-                        <span class="event-trigger-wrapper">
-                            <a href="/en/pages/mobius/" class="event-trigger" target="_blank" data-event="mobius">Mobius
-                                Conf 2025</a>
-                            <div class="event-preview" data-event="mobius">
-                                <div class="preview-header">
-                                    <span class="preview-icon">🎤</span>
-                                    <span class="preview-title">Mobius Conf 2025</span>
-                                </div>
-                                <div class="preview-body">
-                                    <div class="preview-slider" data-slider>
-                                        <div class="slider-track">
-                                            <div class="slider-slide">
-                                                <img src="/resources/Mobius/mobius-preview.jpg" alt="Mobius Conf 2025"
-                                                    loading="lazy" onerror="this.style.display='none'">
-                                            </div>
-                                        </div>
-                                        <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
-                                        <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
-                                        <div class="slider-dots"></div>
-                                    </div>
-                                    <p class="preview-text">
-                                        <b>Mobius Conf</b> — one of the largest conferences for mobile
-                                        developers in Russia. In 2025 I gave a talk on implementing
-                                        scalable fonts for the MTS app ecosystem.
-                                    </p>
-                                </div>
-                                <div class="preview-footer">
-                                    <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
-                                        class="preview-link" target="_blank">Profile on Mobius</a>
-                                    <a href="/en/pages/mobius/" class="preview-link" target="_blank">More details →</a>
-                                </div>
+                    <div class="terminal-bar-title">zsh — haritonov.me ~ 80&#215;24</div>
+                </div>
+                <div class="hero-body">
+                    <div class="hero-left">
+                        <div class="prompt-line" aria-hidden="true"><span class="prompt-user">timofey</span><span
+                                class="prompt-at">@</span><span class="prompt-dir">haritonov.me</span><span
+                                class="prompt-symbol">&#10095;</span><span class="prompt-cmd">whoami</span></div>
+                        <!-- Mobile: name + photo side by side -->
+                        <div class="hero-top">
+                            <div class="hero-top-left">
+                                <p class="hero-name" aria-hidden="true">iOS<br><span
+                                        class="hero-name-accent">Developer</span><span class="cursor-blink"
+                                        aria-hidden="true"></span></p>
                             </div>
-                        </span>
-                        and hope to speak at other major venues in the future. Nominee for
-                        <span class="event-trigger-wrapper">
-                            <button class="event-trigger" data-event="award">"Employee of the Year 2025"</button>
-                            <div class="event-preview" data-event="award">
-                                <div class="preview-content">
-                                    <div class="preview-header">
-                                        <span class="preview-icon">🏆</span>
-                                        <span class="preview-title">Employee of the Year 2025</span>
-                                    </div>
-                                    <div class="preview-body">
-                                        <div class="preview-slider" data-slider>
-                                            <div class="slider-track">
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/employee-of-year.png"
-                                                            type="image/webp" />
-                                                        <img src="/resources/employee-of-year.png"
-                                                            alt="Nominee for Employee of the Year award"
-                                                            data-full-image="/resources/employee-of-year.png"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                            </div>
-                                            <button class="slider-btn slider-prev"
-                                                aria-label="Previous">&#8249;</button>
-                                            <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
-                                            <div class="slider-dots"></div>
-                                        </div>
-                                        <p class="preview-text">Nominee for the "Employee of the Year" award at MWS (ex.
-                                            MTS).</p>
-                                    </div>
-                                </div>
+                            <div class="photo" data-lightbox="/resources/my_photo_full.webp"
+                                data-lightbox-alt="Timofey Kharitonov">
+                                <img src="/resources/my_photo.webp" srcset="/resources/my_photo@2x.webp 2x"
+                                    alt="Timofey Kharitonov" width="76" height="76">
                             </div>
-                        </span>
-                        at MWS (ex. MTS).
+                        </div>
+                        <!-- Desktop: name + status -->
+                        <h1 class="hero-name desk-only">iOS<br><span class="hero-name-accent">Developer</span><span
+                                class="cursor-blink" aria-hidden="true"></span></h1>
+                        <p class="hero-role">// SwiftUI, Accessibility, Backend-Driven UI</p>
+                        <p class="hero-description">iOS Developer, 7+ years of commercial experience. Working on the
+                            My MTS app (MAU 30M) &mdash; personalization, customization and user experience improvements
+                            in a product team. Speaker at <span class="keyword" data-id="mobius">Mobius Conf
+                                2025</span>.
+                        </p>
+                        <div class="hlinks">
+                            <a href="https://t.me/bytim" class="hero-link" target="_blank" rel="noopener">
+                                <div class="hero-link-dot" aria-hidden="true"></div>@bytim
+                            </a>
+                            <a href="mailto:dev.kharitonov@yandex.ru" class="hero-link">
+                                <div class="hero-link-dot" aria-hidden="true"></div>email
+                            </a>
+                            <a href="https://github.com/kharitonov-dev" class="hero-link" target="_blank"
+                                rel="noopener">
+                                <div class="hero-link-dot" aria-hidden="true"></div>github
+                            </a>
+                            <a href="https://linkedin.com/in/bytim" class="hero-link" target="_blank" rel="noopener">
+                                <div class="hero-link-dot" aria-hidden="true"></div>linkedin
+                            </a>
+                            <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                                class="hero-link" target="_blank" rel="noopener">
+                                <div class="hero-link-dot" aria-hidden="true"></div>mobius
+                            </a>
+                            <a href="https://t.me/haritonovme" class="hero-link" target="_blank" rel="noopener">
+                                <div class="hero-link-dot" aria-hidden="true"></div>tg-channel
+                            </a>
+                        </div>
                     </div>
-                    <div class="hero-text">
-                        Outside of code I enjoy
-                        <span class="event-trigger-wrapper">
-                            <button class="event-trigger" data-event="award">running</button>
-                            <div class="event-preview" data-event="award">
-                                <div class="preview-content">
-                                    <div class="preview-header">
-                                        <span class="preview-icon">🏃</span>
-                                        <span class="preview-title">Marathon participant</span>
-                                    </div>
-                                    <div class="preview-body">
-                                        <div class="preview-slider" data-slider>
-                                            <div class="slider-track">
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/marathon-1.jpg" type="image/webp" />
-                                                        <img src="/resources/marathon-1.jpg"
-                                                            alt="Timofey Kharitonov marathon participant"
-                                                            data-full-image="/resources/marathon-1.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/marathon-2.jpg" type="image/webp" />
-                                                        <img src="/resources/marathon-2.jpg"
-                                                            alt="Timofey Kharitonov marathon participant"
-                                                            data-full-image="/resources/marathon-2.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/marathon-participant.jpg"
-                                                            type="image/webp" />
-                                                        <img src="/resources/marathon-participant.jpg"
-                                                            alt="Timofey Kharitonov marathon participant"
-                                                            data-full-image="/resources/marathon-participant.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                            </div>
-                                            <button class="slider-btn slider-prev"
-                                                aria-label="Previous">&#8249;</button>
-                                            <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
-                                            <div class="slider-dots"></div>
-                                        </div>
-                                        <p class="preview-text">MWS employees at the Kazan National Half Marathon</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </span>
-                        and
-                        <span class="event-trigger-wrapper">
-                            <button class="event-trigger" data-event="award">hockey</button>
-                            <div class="event-preview" data-event="award">
-                                <div class="preview-content">
-                                    <div class="preview-header">
-                                        <span class="preview-icon">🏒</span>
-                                        <span class="preview-title">Playing hockey</span>
-                                    </div>
-                                    <div class="preview-body">
-                                        <div class="preview-slider" data-slider>
-                                            <div class="slider-track">
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/hockey/photo-0.jpg"
-                                                            type="image/webp" />
-                                                        <img src="/resources/hockey/photo-0.jpg"
-                                                            alt="Timofey Kharitonov playing hockey"
-                                                            data-full-image="/resources/hockey/photo-0.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/hockey/photo-1.jpg"
-                                                            type="image/webp" />
-                                                        <img src="/resources/hockey/photo-1.jpg"
-                                                            alt="Timofey Kharitonov playing hockey"
-                                                            data-full-image="/resources/hockey/photo-1.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/hockey/photo-2.jpg"
-                                                            type="image/webp" />
-                                                        <img src="/resources/hockey/photo-2.jpg"
-                                                            alt="Timofey Kharitonov playing hockey"
-                                                            data-full-image="/resources/hockey/photo-2.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/hockey/photo-3.jpg"
-                                                            type="image/webp" />
-                                                        <img src="/resources/hockey/photo-3.jpg"
-                                                            alt="Timofey Kharitonov playing hockey"
-                                                            data-full-image="/resources/hockey/photo-3.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/hockey/photo-4.jpg"
-                                                            type="image/webp" />
-                                                        <img src="/resources/hockey/photo-4.jpg"
-                                                            alt="Timofey Kharitonov playing hockey"
-                                                            data-full-image="/resources/hockey/photo-4.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                                <div class="slider-slide">
-                                                    <picture>
-                                                        <source srcset="/resources/hockey/photo-5.jpg"
-                                                            type="image/webp" />
-                                                        <img src="/resources/hockey/photo-5.jpg"
-                                                            alt="Timofey Kharitonov playing hockey"
-                                                            data-full-image="/resources/hockey/photo-5.jpg"
-                                                            class="preview-img preview-photo"
-                                                            onerror="this.style.display='none'" width="245"
-                                                            height="335" />
-                                                    </picture>
-                                                </div>
-                                            </div>
-                                            <button class="slider-btn slider-prev"
-                                                aria-label="Previous">&#8249;</button>
-                                            <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
-                                            <div class="slider-dots"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </span>. I play for a local amateur
-                        team. I love travelling with family and friends. I value the balance
-                        between work and an active life.
-                    </div>
-                    <div class="hero-text note">
-                        <span>More about life between commits in my TG channel <a href="https://t.me/haritonovme"
-                                class="contact-value" target="_blank">@haritonovme</a>!</span>
+                    <div class="hero-right">
+                        <div class="photo" data-lightbox="/resources/my_photo_full.webp"
+                            data-lightbox-alt="Timofey Kharitonov">
+                            <img src="/resources/my_photo.webp" srcset="/resources/my_photo@2x.webp 2x"
+                                alt="Timofey Kharitonov" width="140" height="140">
+                        </div>
+                        <div class="hero-mau" aria-label="30 million monthly active users">
+                            <div class="hero-mau-num">30M</div>
+                            <div class="hero-mau-label">MAU &middot; My MTS</div>
+                        </div>
                     </div>
                 </div>
-                <div class="hero-photo">
-                    <picture>
-                        <source srcset="/resources/my_photo.webp 1x, /resources/my_photo@2x.webp 2x"
-                            type="image/webp" />
-                        <img src="/resources/my_photo.webp" alt="Timofey Kharitonov"
-                            data-full-image="/resources/my_photo_full.webp" class="preview-photo" width="300"
-                            height="300" fetchpriority="high" />
-                    </picture>
+            </header>
+
+            <!-- STATS -->
+            <section class="stats-row" aria-label="Key metrics">
+                <div class="glass-subtle stat-card">
+                    <strong class="stat-number">7+</strong>
+                    <span class="stat-label">years_exp</span>
+                </div>
+                <div class="glass-subtle stat-card">
+                    <strong class="stat-number">30M</strong>
+                    <span class="stat-label">MAU</span>
+                </div>
+                <div class="glass-subtle stat-card">
+                    <strong class="stat-number">26,7%</strong>
+                    <span class="stat-label">a11y_impact</span>
+                </div>
+                <div class="glass-subtle stat-card">
+                    <strong class="stat-number">B1+</strong>
+                    <span class="stat-label">english</span>
                 </div>
             </section>
 
-            <!-- Work experience -->
-            <section id="work" class="section" aria-labelledby="work-heading">
-                <h2 id="work-heading" class="section-title">
-                    <span class="prompt">$</span>cd work_experience
-                </h2>
+            <!-- ACHIEVEMENTS -->
+            <h2 class="section-label" id="achievements">achievements</h2>
 
-                <article class="work-item" aria-labelledby="mws-heading">
-                    <header class="work-header">
-                        <h3 id="mws-heading" class="work-company">
+            <section class="glass-medium achievement-strip" aria-label="Achievements">
+                <div class="chromatic-reflection"></div>
+                <div class="achievement-row">
+                    <div class="achievement"><span class="achievement-icon" aria-hidden="true">&#127908;</span>
+                        <div class="achievement-info"><span class="achievement-name">Mobius Conf 2025</span><span
+                                class="achievement-value">speaker &middot; Accessibility in MWS</span></div>
+                    </div>
+                    <div class="achievement"><span class="achievement-icon" aria-hidden="true">&#9851;</span>
+                        <div class="achievement-info"><span class="achievement-name">Accessibility SDK</span><span
+                                class="achievement-value">26.7% MAU &middot; ~8M users</span></div>
+                    </div>
+                    <div class="achievement"><span class="achievement-icon" aria-hidden="true">&#127942;</span>
+                        <div class="achievement-info"><span class="achievement-name">Employee of the Year 2025</span><span
+                                class="achievement-value">nominee at MWS (ex. MTS)</span></div>
+                    </div>
+                    <div class="achievement"><span class="achievement-icon" aria-hidden="true">&#129713;</span>
+                        <div class="achievement-info"><span class="achievement-name">Design System SDK</span><span
+                                class="achievement-value">contributed to DS SDK at MWS</span></div>
+                    </div>
+                    <div class="achievement"><span class="achievement-icon" aria-hidden="true">&#128230;</span>
+                        <div class="achievement-info"><span class="achievement-name">Push Notifications SDK</span><span
+                                class="achievement-value">built SDK &middot; Sevstar</span></div>
+                    </div>
+                    <div class="achievement"><span class="achievement-icon" aria-hidden="true">&#128241;</span>
+                        <div class="achievement-info"><span class="achievement-name">E-Commerce App from scratch</span><span
+                                class="achievement-value">sole iOS developer</span></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ABOUT -->
+            <section class="glass-medium about-card" aria-label="About me">
+                <div class="chromatic-reflection"></div>
+                <div class="prompt-line" style="margin-bottom:14px;"><span class="prompt-user">timofey</span><span
+                        class="prompt-at">@</span><span class="prompt-dir">haritonov.me</span><span
+                        class="prompt-symbol">&#10095;</span><span class="prompt-cmd">cat about.md</span></div>
+                <p class="about-text">
+                    I work on personalization and customization of the My MTS app. Together with the team, we strive to
+                    give every user the feeling that &ldquo;this app was made for me&rdquo;.<br><br>
+                    In 2025 I spoke at <span class="keyword" data-id="mobius">Mobius Conf with a talk</span> on the
+                    lifecycle of an Accessibility feature within the MTS ecosystem. The changes affected 26.7% of users
+                    (~8M out of 30M total MAU).<br>
+                    I actively contribute to
+                    the MTS Design System SDK.<br>
+                    Nominated for <span class="keyword" data-id="employee">&ldquo;Employee of the Year 2025&rdquo;</span> at MWS.<br><br>
+
+                    I love learning and sharing knowledge: I speak at and attend conferences, and run
+                    <span class="keyword keyword-accent" data-id="tg">a Telegram channel @haritonovme</span>.<br>
+                    Between commits I enjoy <span class="keyword" data-id="marathon">running</span> and <span
+                        class="keyword" data-id="hockey">hockey</span>. I play for a local amateur team.
+                </p>
+                <p class="hint">hover over the underlined words</p>
+            </section>
+
+            <!-- WORK EXPERIENCE -->
+            <h2 class="section-label" id="work">work_experience</h2>
+
+            <article class="glass-medium job">
+                <div class="chromatic-reflection"></div>
+                <div class="job-header">
+                    <div class="job-header-left">
+                        <div class="job-logo">
                             <img src="/resources/mws_logo.webp"
                                 srcset="/resources/mws_logo.webp 1x, /resources/mws_logo@2x.webp 2x" alt="MWS logo"
                                 width="30" height="30" />
-                            MWS (ex. MTS Digital) - "My MTS" App
-                        </h3>
-                        <time class="work-date" datetime="2023-04">04.2023 — present</time>
-                    </header>
-                    <p class="work-role">iOS Developer</p>
-                    <ul class="work-desc">
-                        <li>
-                            Implemented scalable fonts (Accessibility) for MTS ecosystem projects via contribution to
-                            the
-                            Design System SDK and shared the feature lifecycle at
-                            <a href="https://mobiusconf.com/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
-                                class="contact-value" target="_blank">Mobius</a>
-                            [<a href="https://github.com/kharitonov-dev/a11y" class="contact-value"
-                                target="_blank">GitHub Project</a>]. Impact on "My MTS" app users: 26.7%
-                            (MAU 30M).
-                        </li>
-                        <li>
-                            Promoting and implementing SwiftUI: developed a splash screen with background data loading,
-                            so the user seamlessly lands on the ready main screen.
-                        </li>
-                        <li>
-                            Generally improving UX: working on app personalization and customization.
-                        </li>
-                        <li>
-                            Other key features: power bank rental (Yurent), rebranding,
-                            onboardings, authorization module, migration to GraphQL (network
-                            layer + logger).
-                        </li>
-                        <li>Code Review, conducting interviews and mentoring.</li>
-                    </ul>
-                    <p class="work-stack">
-                        <strong>Stack:</strong> iOS 15+, Swift, MVP / MVVM, Swift
-                        Concurrency / GCD, SwiftUI / UIKit, Backend-Driven UI, WebSocket /
-                        GraphQL, Keychain / Core Data, Unit Tests, Widgets, Accessibility
-                    </p>
-                    <a href="https://apps.apple.com/ru/app/мой-мтс/id1069871095" class="work-link-app contact-value"
-                        target="_blank">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/00/65/eb/0065ebbf-c003-f720-82d2-ca835aede519/Placeholder.mill/200x200bb-75.webp"
-                            alt="MWS logo" width="30" height="30" />
-                        <span>App Store link</span>
+                        </div>
+                        <div class="job-company-block">
+                            <h3 class="job-company">MWS (ex. MTS Digital) &middot; My MTS</h3>
+                            <span class="job-company-sub">Team: 2 iOS, 2 Android, 2 QA, 2 analysts, product manager</span>
+                        </div>
+                    </div>
+                    <div class="job-right">
+                        <div class="job-role">iOS Developer</div>
+                        <time class="job-date" datetime="2023-04">04.2023 &mdash; present</time>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                class="highlight">Accessibility for the MTS ecosystem:</span>
+                            implemented scalable fonts via a contribution to the Design System SDK. The feature affected <span
+                                class="highlight">26.7% of users</span>
+                            (MAU 30M, ~8M) <span class="keyword" data-id="mobius">Mobius Conf 2025</span>.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text">
+                            <span class="highlight">Personalization in SwiftUI:</span>
+                            a splash screen with a personalized greeting and background data loading &mdash; the user lands
+                            seamlessly on a ready-to-use home screen. Implemented a birthday congratulation screen
+                            with a custom confetti-fall animation.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text">
+                            <span class="highlight">GraphQL migration:</span>
+                            migrated the team&#39;s network layer, implemented a network logger. One flexible GraphQL
+                            query per module.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text">
+                            <span class="highlight">Stories with video:</span>
+                            extended the Stories format to support video slides &mdash; a new marketing and communication
+                            tool for users.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text">
+                            <span class="highlight">Other product features:</span>
+                            power bank rental (<span class="highlight-alt">Yourent integration</span>), rebranding,
+                            onboarding flows, authorization module, &ldquo;Family Group&rdquo;, A/B test configuration, TNPS
+                            surveys, and more.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text">
+                            <span class="highlight">Unit testing:</span>
+                            test coverage for the team&#39;s key classes.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text">
+                            <span class="highlight">Mentoring &amp; hiring:</span>
+                            code review, mentoring, conducting technical interviews.</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">iOS 15+</span>
+                        <span class="tag">Swift</span>
+                        <span class="tag">SwiftUI</span>
+                        <span class="tag">UIKit</span>
+                        <span class="tag">MVP / MVVM</span>
+                        <span class="tag">Swift Concurrency</span>
+                        <span class="tag">GCD</span>
+                        <span class="tag">Backend-Driven UI</span>
+                        <span class="tag">GraphQL</span>
+                        <span class="tag">WebSocket</span>
+                        <span class="tag">Core Data</span>
+                        <span class="tag">Keychain</span>
+                        <span class="tag">Unit Tests</span>
+                        <span class="tag">Widgets</span>
+                        <span class="tag">Accessibility</span>
+                        <span class="tag">AppMetrica</span>
+                    </div>
+                    <a href="https://apps.apple.com/ru/app/%D0%BC%D0%BE%D0%B9-%D0%BC%D1%82%D1%81/id1069871095"
+                        class="applink" target="_blank" rel="noopener">
+                        <div class="applink-dot" aria-hidden="true"></div>App Store &middot; My MTS
                     </a>
-                </article>
+                </div>
+            </article>
 
-                <article class="work-item" aria-labelledby="decartus-heading">
-                    <header class="work-header">
-                        <h3 id="decartus-heading" class="work-company">Dekartus - "Provider App" (ex. "My Sevstar", "My
-                            Digital City")</h3>
-                        <time class="work-date" datetime="2022-02">02.2022 — 04.2023</time>
-                    </header>
-                    <p class="work-role">iOS Developer</p>
-                    <ul class="work-desc">
-                        <li>
-                            Implemented video intercom and authorization modules (Touch/Face ID, 2FA).
-                        </li>
-                        <li>
-                            Rewrote app modules from Objective-C to Swift, implemented a new network layer (REST API,
-                            Alamofire), developed and extracted push notification functionality (Rich Push
-                            Notifications)
-                            into a dev SDK.
-                        </li>
-                        <li>
-                            After raising the deployment target to iOS 13, adopted Combine and Async / Await.
-                        </li>
-                    </ul>
-                    <p class="work-stack">
-                        <strong>Stack:</strong> iOS 12+, Swift / Objective-C, MVVM +
-                        RxSwift / Combine, Async / Await, REST API, Firebase, GCD,
-                        UserDefaults / Keychain, Alamofire, UIKit, Kingfisher, SnapKit
-                    </p>
-                    <a href="https://apps.apple.com/ru/app/провайдер-app/id6742094590"
-                        class="work-link-app contact-value" target="_blank">
-                        <img src="https://is1-ssl.mzstatic.com/image/thumb/PurpleSource211/v4/df/6b/aa/df6baab3-bc92-52d3-a459-b99374c00d44/Placeholder.mill/200x200bb-75.webp"
-                            alt="Provider App" width="30" height="30" />
-                        <span>App Store link</span>
+            <article class="glass-medium job">
+                <div class="chromatic-reflection"></div>
+                <div class="job-header">
+                    <div class="job-header-left">
+                        <div class="job-logo">
+                            <img src="/resources/sevstar.png"
+                                srcset="/resources/sevstar.png 1x, /resources/sevstar@2x.png 2x" alt="Sevstar logo"
+                                width="30" height="30" />
+                        </div>
+                        <div class="job-company-block">
+                            <h3 class="job-company">Dekartus (ex. Sevstar)</h3>
+                            <span class="job-company-sub">Largest telecom in Sevastopol &middot; 2 iOS, 2 Android, 2 QA,
+                                team lead</span>
+                        </div>
+                    </div>
+                    <div class="job-right">
+                        <div class="job-role">iOS Developer</div>
+                        <time class="job-date" datetime="2022-02">02.2022 &mdash; 04.2023</time>
+                    </div>
+                </div>
+                <div class="job-body">
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                class="highlight">Video intercom from scratch:</span>
+                            designed and implemented the module. Users control their intercom from a phone or
+                            tablet.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                class="highlight">Obj-C &#8594; Swift migration:</span>
+                            migrated key modules. Improved codebase stability, development speed, and readability.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                class="highlight">Push Notifications SDK:</span>
+                            extracted Rich Push Notifications into a standalone dev SDK for reuse across company
+                            apps.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                class="highlight">Touch/Face ID &amp; 2FA authentication:</span>
+                            implemented secure authentication using biometrics and two-factor authentication.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                class="highlight">Stack modernization:</span>
+                            Combine, async/await after bumping the target to iOS 13.</span>
+                    </div>
+                    <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                class="highlight">App redesign:</span>
+                            updated the interface and improved the user experience.</span>
+                    </div>
+                    <div class="tags">
+                        <span class="tag">Swift</span>
+                        <span class="tag">Obj-C</span>
+                        <span class="tag">MVVM</span>
+                        <span class="tag">RxSwift</span>
+                        <span class="tag">Combine</span>
+                        <span class="tag">async/await</span>
+                        <span class="tag">REST API</span>
+                        <span class="tag">Alamofire</span>
+                        <span class="tag">Firebase</span>
+                        <span class="tag">UIKit</span>
+                        <span class="tag">SnapKit</span>
+                        <span class="tag">Kingfisher</span>
+                    </div>
+                    <a href="https://apps.apple.com/ru/app/%D0%BF%D1%80%D0%BE%D0%B2%D0%B0%D0%B9%D0%B4%D0%B5%D1%80-app/id6742094590"
+                        class="applink" target="_blank" rel="noopener">
+                        <div class="applink-dot" aria-hidden="true"></div>App Store &middot; Provider App / My Digital City
                     </a>
-                </article>
+                </div>
+            </article>
 
-                <div id="extra-work">
-                    <article class="work-item" aria-labelledby="itactis-heading">
-                        <header class="work-header">
-                            <h3 id="itactis-heading" class="work-company">Itactis</h3>
-                            <time class="work-date" datetime="2021-09">09.2021 — 02.2022</time>
-                        </header>
-                        <div class="work-role">iOS Developer</div>
-                        <ul class="work-desc">
-                            <li>
-                                Built and delivered a mobile app from scratch for an e-commerce project I had previously
-                                worked on as a frontend developer.
-                            </li>
-                            <li>
-                                Implemented login screen, product listing and checkout flow.
-                            </li>
-                        </ul>
-                        <p class="work-stack">
-                            <strong>Stack:</strong> Swift, MVP, URLSession, UIKit, GCD, Core
-                            Data
-                        </p>
+            <div>
+                <div class="hidden-jobs" id="hidden-jobs-container">
+                    <article class="glass-subtle job">
+                        <div class="job-header">
+                            <div class="job-header-left">
+                                <div class="job-logo-text">ITC</div>
+                                <div class="job-company-block">
+                                    <h3 class="job-company">Itactis</h3>
+                                    <span class="job-company-sub">Sole iOS developer on the project</span>
+                                </div>
+                            </div>
+                            <div class="job-right">
+                                <div class="job-role">iOS Developer</div>
+                                <time class="job-date" datetime="2021-09">09.2021 &mdash; 02.2022</time>
+                            </div>
+                        </div>
+                        <div class="job-body">
+                            <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span
+                                    class="job-text">Independently built an <span class="highlight">iOS app from
+                                        scratch</span>
+                                    for an e-commerce project I had previously worked on as a frontend developer.</span>
+                            </div>
+                            <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span class="job-text"><span
+                                        class="highlight">Complete user flow:</span>
+                                    authentication &#8594; product catalog &#8594;
+                                    checkout. Independent architectural decisions (MVP).</span>
+                            </div>
+                            <div class="tags">
+                                <span class="tag">Swift</span>
+                                <span class="tag">MVP</span>
+                                <span class="tag">URLSession</span>
+                                <span class="tag">UIKit</span>
+                                <span class="tag">GCD</span>
+                                <span class="tag">Core Data</span>
+                            </div>
+                        </div>
                     </article>
-
-                    <article class="work-item" aria-labelledby="frontend-work-heading">
-                        <header class="work-header">
-                            <h3 id="frontend-work-heading" class="work-company">Itactis, SD "PRAKTIKA", Wizard promo
-                            </h3>
-                            <time class="work-date" datetime="2019-04">04.2019 — 09.2021</time>
-                        </header>
-                        <div class="work-role">Frontend Developer</div>
-                        <p class="work-stack">
-                            <strong>Stack:</strong> JS / TypeScript / PHP, Vue.js / JQuery,
-                            HTML, CSS, AJAX, API, Git / GitFlow, Docker, Bitrix, WordPress,
-                            Joomla, Figma, AMO / Retail Rocket and other external services, Google
-                            / Yandex Analytics
-                        </p>
+                    <article class="glass-subtle job">
+                        <div class="job-header">
+                            <div class="job-header-left">
+                                <div class="job-logo-text">FE</div>
+                                <div class="job-company-block">
+                                    <h3 class="job-company">Itactis &middot; SD &ldquo;PRAKTIKA&rdquo; &middot; Wizard Promo</h3>
+                                    <span class="job-company-sub">2.5 years of web development before switching to iOS</span>
+                                </div>
+                            </div>
+                            <div class="job-right">
+                                <div class="job-role"
+                                    style="color:#34d399;background:rgba(15,118,110,.18);border-color:rgba(15,118,110,.3);">
+                                    Frontend</div>
+                                <time class="job-date" datetime="2019-04">04.2019 &mdash; 09.2021</time>
+                            </div>
+                        </div>
+                        <div class="job-body">
+                            <div class="job-line job-main"><span class="job-arrow">&#8250;</span><span
+                                    class="job-text">Web development for commercial projects (Vue.js, TypeScript, PHP).
+                                    Deep understanding of <span class="highlight">client-server interaction</span>,
+                                    working with APIs, and cross-platform thinking.</span></div>
+                            <div class="tags">
+                                <span class="tag">JS/TS</span>
+                                <span class="tag">Vue.js</span>
+                                <span class="tag">PHP</span>
+                                <span class="tag">Bitrix</span>
+                                <span class="tag">WordPress</span>
+                                <span class="tag">Docker</span>
+                                <span class="tag">Figma</span>
+                            </div>
+                        </div>
                     </article>
                 </div>
+                <button class="show-button" id="show-btn" onclick="toggleJobs()">
+                    <span id="show-btn-text">// show more</span>
+                    <span class="show-button-count" id="show-btn-count">+ 2 positions</span>
+                    <span id="show-btn-icon">&#8595;</span>
+                </button>
+            </div>
 
-                <div class="block-show-more-button">
-                    <button id="showMoreBtn" class="button-style">
-                        <span class="prompt">↓</span> Show more experience
-                    </button>
+            <!-- SKILLS -->
+            <h2 class="section-label" id="skills">skills</h2>
+            <section class="skill-grid" aria-label="Technical skills">
+                <div class="glass-subtle skill-group">
+                    <h3 class="skill-title">// languages &amp; UI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Swift</span>
+                        <span class="skill-tag">Objective-C</span>
+                        <span class="skill-tag">SwiftUI</span>
+                        <span class="skill-tag">UIKit</span>
+                        <span class="skill-tag">Accessibility</span>
+                        <span class="skill-tag">Widgets</span>
+                    </div>
+                </div>
+                <div class="glass-subtle skill-group">
+                    <h3 class="skill-title">// architecture</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">MVVM</span>
+                        <span class="skill-tag">MVP</span>
+                        <span class="skill-tag">VIPER</span>
+                        <span class="skill-tag">Clean Swift</span>
+                        <span class="skill-tag">Backend-Driven UI</span>
+                    </div>
+                </div>
+                <div class="glass-subtle skill-group">
+                    <h3 class="skill-title">// concurrency &amp; network</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Combine</span>
+                        <span class="skill-tag">RxSwift</span>
+                        <span class="skill-tag">GCD</span>
+                        <span class="skill-tag">Swift Concurrency (Actors, Sendable)</span>
+                        <span class="skill-tag">OperationQueue</span>
+                        <span class="skill-tag">REST API</span>
+                        <span class="skill-tag">GraphQL</span>
+                        <span class="skill-tag">WebSocket</span>
+                        <span class="skill-tag">URLSession</span>
+                        <span class="skill-tag">Alamofire</span>
+                    </div>
+                </div>
+                <div class="glass-subtle skill-group">
+                    <h3 class="skill-title">// storage &amp; tests</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">SwiftData</span>
+                        <span class="skill-tag">Core Data</span>
+                        <span class="skill-tag">Keychain</span>
+                        <span class="skill-tag">UserDefaults</span>
+                        <span class="skill-tag">Unit Tests</span>
+                        <span class="skill-tag">Snapshot Testing</span>
+                        <span class="skill-tag">Code Review</span>
+                    </div>
+                </div>
+                <div class="glass-subtle skill-group">
+                    <h3 class="skill-title">// tools &amp; ci/cd</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">AI assisted development</span>
+                        <span class="skill-tag">Git / GitFlow</span>
+                        <span class="skill-tag">Fastlane CI/CD</span>
+                        <span class="skill-tag">SPM (Swift Package Manager)</span>
+                        <span class="skill-tag">CocoaPods</span>
+                        <span class="skill-tag">AppMetrica</span>
+                        <span class="skill-tag">Flutter</span>
+                        <span class="skill-tag">Charles / Proxyman</span>
+                        <span class="skill-tag">Xcode instruments</span>
+                    </div>
+                </div>
+                <div class="glass-subtle skill-group">
+                    <h3 class="skill-title">// soft &amp; languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Agile / Scrum</span>
+                        <span class="skill-tag">Mentoring</span>
+                        <span class="skill-tag">System Design</span>
+                        <span class="skill-tag">Russian &mdash; native</span>
+                        <span class="skill-tag">English &mdash; Intermediate+</span>
+                    </div>
                 </div>
             </section>
 
-            <section id="contact" class="section" aria-labelledby="contact-heading">
-                <h2 id="contact-heading" class="section-title">
-                    <span class="prompt">$</span>./connect
-                </h2>
+            <!-- EDUCATION -->
+            <h2 class="section-label">education</h2>
+            <section class="education-grid" aria-label="Education">
+                <div class="edu-card edu-card-violet">
+                    <div class="edu-icon" aria-hidden="true">&#127891;</div>
+                    <h3 class="edu-title">MSTU &ldquo;STANKIN&rdquo;</h3>
+                    <p class="edu-subtitle">Degree &middot; Bachelor, Master &middot; Technosphere Safety<br>Graduated 2018</p>
+                </div>
+                <div class="edu-card edu-card-blue">
+                    <div class="edu-icon" aria-hidden="true">&#128241;</div>
+                    <h3 class="edu-title">Flutter Course &middot; MTS Teta</h3>
+                    <p class="edu-subtitle">2024 &middot; 6 months <br>
+                        Dart, cross-platform development, corporate training<br>
+                        <a href="/resources/education/Sert_MTS_TETA_Flutter_Timofey_Kharitonov.pdf" class="link"
+                            target="_blank">Certificate</a>
+                    </p>
+                </div>
+                <div class="edu-card edu-card-teal edu-wide">
+                    <div class="edu-icon" aria-hidden="true">&#128241;</div>
+                    <h3 class="edu-title">Course &ldquo;iOS Developer. Professional&rdquo; &middot; OTUS</h3>
+                    <p class="edu-subtitle">2025 &middot; 6 months<br>
+                        SwiftUI, architecture (MVVM+S, Clean Swift, SOA), Swift Concurrency, CoreML, modularization,
+                        multiplatform<br>
+                        Thesis project on GitHub: <a href="https://github.com/kharitonov-dev/family-hub" class="link"
+                            target="_blank">Family Hub (SwiftUI)</a><br>
+                        <a href="/resources/education/Sert_OTUS_iOS_Professional_Timofey_Kharitonov.pdf" class="link"
+                            target="_blank">Certificate</a> &middot; <a
+                            href="/resources/education/upk_OTUS_Timofey_Kharitonov.jpg" class="link"
+                            target="_blank">Professional Development Certificate</a>
+                    </p>
+                </div>
+            </section>
 
-                <address class="contact-lines">
-                    <span class="contact-line">
-                        <span class="contact-key">Email</span>
-                        <span class="contact-sep">:</span>
-                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value">dev.kharitonov@ya.ru</a>
-                    </span>
-
-                    <span class="contact-line">
-                        <span class="contact-key">Telegram</span>
-                        <span class="contact-sep">:</span>
-                        <a href="https://t.me/bytim" class="contact-value" target="_blank">@bytim</a>
-                    </span>
-
-                    <span class="contact-line">
-                        <span class="contact-key">GitHub</span>
-                        <span class="contact-sep">:</span>
-                        <a href="https://github.com/kharitonov-dev" class="contact-value"
-                            target="_blank">/kharitonov-dev</a>
-                    </span>
-
-                    <span class="contact-line">
-                        <span class="contact-key">LinkedIn</span>
-                        <span class="contact-sep">:</span>
-                        <a href="https://linkedin.com/in/bytim" class="contact-value" target="_blank">/in/bytim</a>
-                    </span>
-                </address>
-
-                <div class="resume-download">
-                    <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" class="button-style resume-link"
-                        target="_blank">
-                        <span class="prompt">↓</span> Download Resume (PDF)
+            <!-- CONTACT -->
+            <h2 class="section-label" id="connect">connect</h2>
+            <section class="glass-medium contact-card" aria-label="Contacts">
+                <div class="chromatic-reflection"></div>
+                <div class="contact-header">
+                    <div class="terminal-dots" aria-hidden="true">
+                        <div class="terminal-dot terminal-dot-red"></div>
+                        <div class="terminal-dot terminal-dot-yellow"></div>
+                        <div class="terminal-dot terminal-dot-green"></div>
+                    </div>
+                    <span class="contact-header-title">$./connect &mdash; haritonov.me</span>
+                </div>
+                <div class="contact-body">
+                    <address class="contact-grid">
+                        <a href="https://t.me/bytim" class="contact-row" target="_blank" rel="noopener">
+                            <div class="contact-dot" aria-hidden="true"></div>@bytim &middot; Telegram
+                        </a>
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-row">
+                            <div class="contact-dot" aria-hidden="true"></div>dev.kharitonov@ya.ru
+                        </a>
+                        <a href="https://t.me/haritonovme" class="contact-row" target="_blank" rel="noopener">
+                            <div class="contact-dot" aria-hidden="true"></div>@haritonovme &middot; Telegram channel
+                        </a>
+                        <a href="https://linkedin.com/in/bytim" class="contact-row" target="_blank" rel="noopener">
+                            <div class="contact-dot" aria-hidden="true"></div>LinkedIn
+                        </a>
+                        <a href="https://github.com/kharitonov-dev" class="contact-row" target="_blank" rel="noopener">
+                            <div class="contact-dot" aria-hidden="true"></div>GitHub
+                        </a>
+                        <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                            class="contact-row" target="_blank" rel="noopener">
+                            <div class="contact-dot" aria-hidden="true"></div>Mobius Profile
+                        </a>
+                    </address>
+                    <a href="/resources/resume_kharitonov_timofey_iOS_dev.pdf" class="contact-cta" target="_blank">
+                        <span class="contact-contact-cta-prefix">$</span>
+                        <span>download resume.pdf</span>
                     </a>
                 </div>
             </section>
         </main>
 
-        <footer class="footer">
-            <strong>© 2026 Timofey Kharitonov · iOS Developer</strong>
-            <ul class="work-stack">
-                <li>Swift / Objective-C</li>
-                <li>UIKit / SwiftUI</li>
-                <li>RxSwift / Combine</li>
-                <li>MVVM / VIPER / Clean Swift</li>
-                <li>GCD / OperationQueue / Swift Concurrency</li>
-                <li>REST API / GraphQL / WebSocket</li>
-                <li>Backend-Driven UI</li>
-                <li>UserDefaults / Keychain / Core Data</li>
-                <li>Unit Tests</li>
-                <li>Git / GitFlow</li>
-                <li>CI/CD (Fastlane)</li>
-                <li>Flutter</li>
-                <li>Agile / Scrum</li>
-                <li>English Intermediate+</li>
-            </ul>
-            <div class="lang-switcher footer-lang">
-                <a href="/" class="lang-link" hreflang="ru">RU</a>
-                <span class="lang-sep">/</span>
-                <a href="/en/" class="lang-link active" hreflang="en">EN</a>
+        <!-- FOOTER -->
+        <footer class="footer-zone">
+            <div class="footer-section-label">footer</div>
+            <div class="footer-wrap">
+                <div class="glass-medium footer-card">
+                    <div class="footer-chromatic"></div>
+                    <div class="footer-logo">
+                        <span class="footer-logo-ann">@main struct Portfolio</span>
+                        <span class="footer-logo-main">haritonov<span class="footer-logo-dot">.</span>me</span>
+                        <span class="footer-logo-cmt">// iOS Developer &middot; 7+ years &middot; Swift &middot; SwiftUI</span>
+                    </div>
+                    <div class="footer-copy">
+                        <span>&#169;
+                            <script>document.write(new Date().getFullYear())</script>
+                        </span>
+                    </div>
+                </div>
+                <div class="footer-bottom-space"></div>
             </div>
         </footer>
+
+    </div><!-- /page -->
+
+    <!-- Mobile tab-item bar -->
+    <nav class="tab-item-bar" aria-label="Mobile navigation">
+        <button type="button" class="tab-item active" onclick="tabNav(this,'about')">
+            <span class="tab-item-icon" aria-hidden="true">&#128100;</span>
+            <span class="tab-item-label">about</span>
+        </button>
+        <button type="button" class="tab-item" onclick="tabNav(this,'work')">
+            <span class="tab-item-icon" aria-hidden="true">&#128188;</span>
+            <span class="tab-item-label">work</span>
+        </button>
+        <button type="button" class="tab-item" onclick="tabNav(this,'skills')">
+            <span class="tab-item-icon" aria-hidden="true">&#9881;&#65039;</span>
+            <span class="tab-item-label">skills</span>
+        </button>
+        <button type="button" class="tab-item" onclick="tabNav(this,'connect')">
+            <span class="tab-item-icon" aria-hidden="true">&#9993;&#65039;</span>
+            <span class="tab-item-label">contact</span>
+        </button>
+    </nav>
+
+    <!-- Background orbs -->
+    <div class="orb-1 orb" aria-hidden="true"></div>
+    <div class="orb-2 orb" aria-hidden="true"></div>
+    <div class="orb-3 orb" aria-hidden="true"></div>
+    <div class="orb-4 orb" aria-hidden="true"></div>
+    <div class="orb-5 orb" aria-hidden="true"></div>
+
+    <!-- Lightbox -->
+    <div id="lightbox">
+        <div id="lightbox-close">&#10005;</div>
+        <img id="lightbox-img" src="" alt="">
     </div>
 
-    <!-- Modals -->
-    <div id="photoModal" class="modal">
-        <span class="modal-close">&times;</span>
-        <img class="modal-content" id="modalImage" alt="Timofey Kharitonov, full photo">
+    <!-- Global popup (desktop hover) -->
+    <div id="popup" role="tooltip" aria-live="polite">
+        <div class="popup-glass">
+            <div class="popup-glass-chromatic"></div>
+            <div class="popup-slider">
+                <div class="popup-slider-track" id="popup-track"></div>
+                <div class="popup-arrow popup-arrow-prev" id="popup-arrow-left">&#8249;</div>
+                <div class="popup-arrow popup-arrow-next" id="popup-arrow-right">&#8250;</div>
+                <div class="popup-dots" id="popup-nav"></div>
+            </div>
+            <div class="popup-body">
+                <div class="popup-body-title" id="popup-title"></div>
+                <div class="popup-body-desc" id="popup-desc"></div>
+                <a class="popup-body-link" id="popup-link" target="_blank" rel="noopener"></a>
+            </div>
+        </div>
+        <div class="popup-tail-element" id="popup-tail"></div>
+        <div id="popup-bridge"></div>
     </div>
 
-    <script type="module" src="/js/main.js"></script>
+    <!-- Sheet overlay (mobile) -->
+    <div class="sheet-overlay" id="overlay"></div>
+
+    <!-- Bottom sheet (mobile) -->
+    <div class="bottom-sheet" id="sheet" role="dialog" aria-modal="true">
+        <div class="sheet-handle"></div>
+        <div class="sheet-slider">
+            <div class="sheet-track" id="sheet-track"></div>
+            <div class="sheet-arrows sheet-arrow-left" onclick="shSlide(-1)">&#8249;</div>
+            <div class="sheet-arrows sheet-arrow-right" onclick="shSlide(1)">&#8250;</div>
+            <div class="sheet-dots" id="sheet-nav"></div>
+        </div>
+        <div class="sheet-body">
+            <div class="sheet-title" id="sheet-title"></div>
+            <div class="sheet-desc" id="sheet-desc"></div>
+            <a class="sheet-link" id="sheet-link" target="_blank" rel="noopener"></a>
+        </div>
+    </div>
+
+    <!-- JS -->
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/popup-data.en.js"></script>
+    <script src="/assets/js/popup.js"></script>
+    <script src="/assets/js/jobs.js"></script>
+    <script src="/assets/js/theme.js"></script>
+    <script src="/assets/js/tabbar.js"></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107468755', 'ym');
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107468755', 'ym');
 
         ym(107468755, 'init', { ssr: true, webvisor: true, trackHash: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
     </script>

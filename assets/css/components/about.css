@@ -1,0 +1,75 @@
+/* ==========================================================================
+   components/about.css — About card with interactive keywords
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   CARD
+   -------------------------------------------------------------------------- */
+.about-card {
+  border-radius: var(--radius-5xl);
+  padding: 20px 22px;
+}
+
+.about-card .prompt-line {
+  margin-bottom: 14px;
+}
+
+/* --------------------------------------------------------------------------
+   TEXT
+   -------------------------------------------------------------------------- */
+.about-text {
+  font-size: var(--fs-base);
+  color: var(--color-text-secondary);
+  line-height: 1.9;
+}
+
+/* --------------------------------------------------------------------------
+   INTERACTIVE KEYWORDS
+   -------------------------------------------------------------------------- */
+.keyword {
+  color: var(--color-text-primary);
+  border-bottom: 1px solid rgba(67, 56, 202, .40);
+  cursor: pointer;
+  padding-bottom: 1px;
+  white-space: nowrap;
+  transition: color var(--transition-fast),
+              border-color var(--transition-fast);
+}
+
+.keyword:hover,
+.keyword.keyword-active,
+.keyword-accent {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+}
+
+/* Dark theme adjusts border opacity via token cascade */
+[data-theme="dark"] .keyword {
+  border-bottom-color: rgba(167, 139, 250, .45);
+}
+
+[data-theme="dark"] .keyword:hover,
+[data-theme="dark"] .keyword.keyword-active,
+[data-theme="dark"] .keyword-accent {
+  color: var(--color-accent-mid);
+  border-color: var(--color-accent-mid);
+}
+
+/* --------------------------------------------------------------------------
+   HINT
+   -------------------------------------------------------------------------- */
+.hint {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  opacity: .65;
+  margin-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.hint::before {
+  content: '//';
+  color: var(--color-accent);
+  opacity: .35;
+}

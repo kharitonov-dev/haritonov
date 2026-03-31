@@ -1,0 +1,80 @@
+/* ==========================================================================
+   components/skills.css — Skills grid
+   Desktop: 3 columns
+   Mobile: 2 columns — overrides in responsive.css
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   GRID
+   -------------------------------------------------------------------------- */
+.skill-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7px;
+}
+
+/* --------------------------------------------------------------------------
+   SKILL GROUP CARD
+   -------------------------------------------------------------------------- */
+.skill-group {
+  border-radius: var(--radius-2xl);
+  padding: 13px 13px 11px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Top shimmer */
+.skill-group::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: .5px;
+  background: rgba(255, 255, 255, .18);
+}
+
+/* --------------------------------------------------------------------------
+   GROUP TITLE
+   -------------------------------------------------------------------------- */
+.skill-title {
+  font-size: var(--fs-xs);
+  color: var(--color-accent-mid);
+  opacity: .5;
+  margin-bottom: var(--gap-md);
+  letter-spacing: .08em;
+}
+
+[data-theme="light"] .skill-title {
+  color: var(--color-accent);
+  opacity: .6;
+}
+
+/* --------------------------------------------------------------------------
+   TAG ROW
+   -------------------------------------------------------------------------- */
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--gap-xs);
+}
+
+.skill-tag {
+  cursor: pointer;
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--color-border-soft);
+  padding: 2px 7px;
+  border-radius: var(--radius-xs);
+}
+
+[data-theme="light"] .skill-tag {
+  background: rgba(255, 255, 255, .60);
+}
+
+[data-theme="light"] .skill-tag:hover {
+  background: rgba(67, 56, 202, .08);
+  border-color: rgba(67, 56, 202, .2);
+  color: #4338ca;
+}

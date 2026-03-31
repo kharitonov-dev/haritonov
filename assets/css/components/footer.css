@@ -1,0 +1,158 @@
+/* ==========================================================================
+   components/footer.css — Footer card + section label
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   FOOTER WRAPPER
+   .page already controls max-width, centering, and horizontal padding.
+   -------------------------------------------------------------------------- */
+.footer-wrap {
+  padding-bottom: 32px;
+}
+
+/* --------------------------------------------------------------------------
+   SECTION LABEL above footer
+   -------------------------------------------------------------------------- */
+.footer-section-label {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-md);
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  letter-spacing: .12em;
+  margin-bottom: 8px;
+}
+
+.footer-section-label::before {
+  content: '//';
+  font-size: var(--fs-xs);
+  color: var(--color-accent);
+  opacity: .35;
+}
+
+.footer-section-label::after {
+  content: '';
+  flex: 1;
+  height: .5px;
+  background: var(--color-divider);
+}
+
+/* --------------------------------------------------------------------------
+   FOOTER CARD
+   -------------------------------------------------------------------------- */
+.footer-card {
+  border-radius: var(--radius-5xl);
+  padding: 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Chromatic reflection inside footer */
+.footer-chromatic {
+  position: absolute;
+  inset: 0;
+  border-radius: var(--radius-5xl);
+  pointer-events: none;
+  z-index: 9;
+  border-top: 1px solid var(--chromatic-top);
+  border-left: 1px solid var(--chromatic-left);
+  border-right: 1px solid var(--chromatic-right);
+  border-bottom: 1px solid var(--chromatic-bottom);
+}
+
+/* --------------------------------------------------------------------------
+   LOGO BLOCK
+   -------------------------------------------------------------------------- */
+.footer-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  position: relative;
+  z-index: 1;
+}
+
+.footer-logo-ann {
+  font-size: var(--fs-sm);
+  color: var(--color-accent-mid);
+}
+
+[data-theme="light"] .footer-logo-ann {
+  color: var(--color-accent);
+}
+
+.footer-logo-main {
+  font-size: var(--fs-footer);
+  font-weight: 700;
+  color: var(--color-text-primary);
+  letter-spacing: -.5px;
+  line-height: 1;
+}
+
+.footer-logo-dot {
+  color: var(--color-orange);
+}
+
+.footer-logo-cmt {
+  text-align: center;
+  font-size: var(--fs-sm);
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+/* --------------------------------------------------------------------------
+   DIVIDER
+   -------------------------------------------------------------------------- */
+.footer-div {
+  width: 100%;
+  height: .5px;
+  background: linear-gradient(90deg, transparent, var(--color-divider), transparent);
+  position: relative;
+  z-index: 1;
+}
+
+/* --------------------------------------------------------------------------
+   COPYRIGHT ROW
+   -------------------------------------------------------------------------- */
+.footer-copy {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  position: relative;
+  z-index: 1;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-copy a {
+  color: var(--color-accent-mid);
+  opacity: .5;
+  text-decoration: none;
+  transition: opacity var(--transition-fast);
+}
+
+.footer-copy a:hover {
+  opacity: 1;
+}
+
+[data-theme="light"] .footer-copy a {
+  color: var(--color-accent);
+}
+
+.footer-sep {
+  color: var(--color-text-muted);
+  opacity: .5;
+}
+
+/* --------------------------------------------------------------------------
+   MOBILE FOOTER (extra bottom space for tab-item bar)
+   -------------------------------------------------------------------------- */
+.footer-bottom-space {
+  height: 16px;
+}
