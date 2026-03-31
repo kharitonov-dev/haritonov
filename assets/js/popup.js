@@ -55,16 +55,26 @@ function buildPopup(id) {
   d.slides.forEach(function (s, i) {
     var div = document.createElement("div");
     div.className = "popup-slide " + s.cls;
-    var inner = s.img
-      ? '<img src="' +
-        s.img +
-        '" data-lightbox="' +
-        (s.fullImg || s.img) +
-        '" data-lightbox-alt="' +
-        s.l.replace(/"/g, "&quot;") +
-        '" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">'
-      : '<span class="popup-slide-emoji">' + s.e + "</span>";
-    div.innerHTML = inner + '<div class="popup-slide-label">' + s.l + "</div>";
+    if (s.img) {
+      div.classList.add("slide-loading");
+      var img = document.createElement("img");
+      img.src = s.img;
+      img.setAttribute("data-lightbox", s.fullImg || s.img);
+      img.setAttribute("data-lightbox-alt", s.l);
+      img.style.cssText = "width:100%;height:100%;object-fit:cover;position:absolute;inset:0;";
+      img.onload = function () { div.classList.remove("slide-loading"); };
+      img.onerror = function () { div.classList.remove("slide-loading"); };
+      div.appendChild(img);
+    } else {
+      var span = document.createElement("span");
+      span.className = "popup-slide-emoji";
+      span.textContent = s.e;
+      div.appendChild(span);
+    }
+    var label = document.createElement("div");
+    label.className = "popup-slide-label";
+    label.textContent = s.l;
+    div.appendChild(label);
     track.appendChild(div);
     var dot = document.createElement("div");
     dot.className = "popup-dot" + (i === 0 ? " on" : "");
@@ -230,17 +240,26 @@ function openSheet(id) {
   d.slides.forEach(function (s, i) {
     var div = document.createElement("div");
     div.className = "sheet-slide " + s.cls;
-    var shInner = s.img
-      ? '<img src="' +
-        s.img +
-        '" data-lightbox="' +
-        (s.fullImg || s.img) +
-        '" data-lightbox-alt="' +
-        s.l.replace(/"/g, "&quot;") +
-        '" style="width:100%;height:100%;object-fit:cover;position:absolute;inset:0;">'
-      : '<span class="sheet-slide-emoji">' + s.e + "</span>";
-    div.innerHTML =
-      shInner + '<div class="sheet-slide-label">' + s.l + "</div>";
+    if (s.img) {
+      div.classList.add("slide-loading");
+      var img = document.createElement("img");
+      img.src = s.img;
+      img.setAttribute("data-lightbox", s.fullImg || s.img);
+      img.setAttribute("data-lightbox-alt", s.l);
+      img.style.cssText = "width:100%;height:100%;object-fit:cover;position:absolute;inset:0;";
+      img.onload = function () { div.classList.remove("slide-loading"); };
+      img.onerror = function () { div.classList.remove("slide-loading"); };
+      div.appendChild(img);
+    } else {
+      var span = document.createElement("span");
+      span.className = "sheet-slide-emoji";
+      span.textContent = s.e;
+      div.appendChild(span);
+    }
+    var label = document.createElement("div");
+    label.className = "sheet-slide-label";
+    label.textContent = s.l;
+    div.appendChild(label);
     track.appendChild(div);
     var dot = document.createElement("div");
     dot.className = "sheet-dot" + (i === 0 ? " on" : "");
