@@ -175,6 +175,7 @@ function openSheet(id) {
   arrows.forEach(function (a) { a.style.display = d.slides.length < 2 ? 'none' : ''; });
   document.getElementById('overlay').classList.add('on');
   document.getElementById('sheet').classList.add('on');
+  document.body.style.overflow = 'hidden';
   document.querySelectorAll('.keyword').forEach(function (k) { k.classList.remove('keyword-active'); });
   var keyword = document.querySelector('.keyword[data-id="' + id + '"]');
   if (keyword) keyword.classList.add('keyword-active');
@@ -183,8 +184,41 @@ function openSheet(id) {
 function closeSheet() {
   document.getElementById('overlay').classList.remove('on');
   document.getElementById('sheet').classList.remove('on');
+  document.body.style.overflow = '';
   document.querySelectorAll('.keyword').forEach(function (k) { k.classList.remove('keyword-active'); });
 }
+
+/* Swipe-down to close — entire sheet */
+(function () {
+  var sheet = document.getElementById('sheet');
+  if (!sheet) return;
+  var startY = 0, isDragging = false;
+
+  sheet.addEventListener('touchstart', function (e) {
+    startY = e.touches[0].clientY;
+    isDragging = true;
+    sheet.style.transition = 'none';
+  }, { passive: true });
+
+  sheet.addEventListener('touchmove', function (e) {
+    if (!isDragging) return;
+    var dy = e.touches[0].clientY - startY;
+    if (dy > 0) sheet.style.transform = 'translateY(' + dy + 'px)';
+  }, { passive: true });
+
+  sheet.addEventListener('touchend', function (e) {
+    if (!isDragging) return;
+    isDragging = false;
+    sheet.style.transition = '';
+    var dy = e.changedTouches[0].clientY - startY;
+    if (dy > 80) {
+      sheet.style.transform = '';
+      closeSheet();
+    } else {
+      sheet.style.transform = '';
+    }
+  });
+})();
 
 function shGoTo(i) {
   var d = DATA[shCurId];
