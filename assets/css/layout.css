@@ -117,6 +117,38 @@
   cursor: pointer;
 }
 
+/* Image loading shimmer */
+.slide-loading::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, .12) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  background-size: 200% 100%;
+  animation: slide-shimmer 1.4s infinite;
+  z-index: 2;
+  pointer-events: none;
+}
+
+[data-theme="light"] .slide-loading::after {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, .07) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  background-size: 200% 100%;
+}
+
+@keyframes slide-shimmer {
+  0%   { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
 .popup-slide-emoji {
   font-size: 38px;
   opacity: .5;

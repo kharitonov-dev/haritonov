@@ -57,3 +57,56 @@
   background: rgba(255, 255, 255, .22);
   color: #fff;
 }
+
+/* Prev / Next arrows */
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  color: rgba(255, 255, 255, .80);
+  cursor: pointer;
+  user-select: none;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  z-index: 2;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(255, 255, 255, .22);
+  color: #fff;
+}
+
+#lightbox-prev { left: 24px; }
+#lightbox-next { right: 24px; }
+
+#lightbox-prev.hidden,
+#lightbox-next.hidden {
+  display: none;
+}
+
+/* Slide counter */
+#lightbox-counter {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 13px;
+  color: rgba(255, 255, 255, .55);
+  font-family: var(--font-mono);
+  letter-spacing: .05em;
+  display: none;
+}
+
+/* Swipe hint on mobile */
+@media (pointer: coarse) {
+  .lightbox-arrow { display: none; }
+  #lightbox-counter { display: block; }
+}
