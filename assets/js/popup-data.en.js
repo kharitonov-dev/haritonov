@@ -48,4 +48,37 @@ var DATA = {
     linkText: "→ open channel",
     slides: [{ cls: "gradient-tag", e: "✈️", l: "Life between commits" }],
   },
+  sertMtsTeta: {
+    title: "Flutter",
+    desc: "Studying Dart and cross-platform development as part of corporate training.",
+    slides: [
+      {
+        cls: "gradient-tag",
+        img: "/resources/education/Sert_MTS_TETA_Flutter_Timofey_Kharitonov.webp",
+        l: "Certificate",
+      },
+    ],
+  },
+  sertOtus: {
+    title: "iOS Professional",
+    desc: "Successful completion of the iOS development course from OTUS with a diploma project on GitHub.",
+    slides: [
+      {
+        cls: "gradient-tag",
+        img: "/resources/education/Sert_OTUS_iOS_Professional_Timofey_Kharitonov.webp",
+        l: "Certificate",
+      },
+    ],
+  },
+  upkOtus: {
+    title: "Certificate of Advanced Training (UPK)",
+    desc: "State-recognized certificate of advanced training.",
+    slides: [
+      {
+        cls: "gradient-tag",
+        img: "/resources/education/upk_OTUS_Timofey_Kharitonov.jpg",
+        l: "UPK",
+      },
+    ],
+  },
 };
