@@ -1,13 +1,14 @@
 /* tabbar.js — mobile tab bar navigation + scroll-based active state */
 
 var _tabScrolling = false;
+var _tabSections = [];
 
 function tabNav(btn, id) {
     document.querySelectorAll('.tab-item').forEach(function (t) { t.classList.remove('active'); });
     btn.classList.add('active');
     _tabScrolling = true;
     document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
-    setTimeout(function () { _tabScrolling = false; }, 800);
+    setTimeout(function () { _tabScrolling = false; }, 1000);
 }
 
 function _setActiveTab(id) {
@@ -17,14 +18,21 @@ function _setActiveTab(id) {
     });
 }
 
-var _tabObserver = new IntersectionObserver(function (entries) {
+function _onScroll() {
     if (_tabScrolling) return;
-    entries.forEach(function (entry) {
-        if (entry.isIntersecting) _setActiveTab(entry.target.id);
-    });
-}, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
+    var trigger = window.innerHeight * 0.35;
+    var active = null;
+    for (var i = 0; i < _tabSections.length; i++) {
+        var rect = _tabSections[i].el.getBoundingClientRect();
+        if (rect.top <= trigger) active = _tabSections[i].id;
+    }
+    if (active) _setActiveTab(active);
+}
 
 ['about', 'work', 'skills', 'connect'].forEach(function (id) {
     var el = document.getElementById(id);
-    if (el) _tabObserver.observe(el);
+    if (el) _tabSections.push({ id: id, el: el });
 });
+
+window.addEventListener('scroll', _onScroll, { passive: true });
+_onScroll();

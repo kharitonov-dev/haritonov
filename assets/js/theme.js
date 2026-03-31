@@ -34,7 +34,7 @@ function _syncThemeBtn() {
   var btn = document.getElementById('nav-theme-btn');
   if (!btn) return;
   var isLight = document.documentElement.getAttribute('data-theme') === 'light';
-  btn.textContent = isLight ? '🌙' : '☀︎';
+  btn.textContent = isLight ? '🌙' : '☀️';
   btn.setAttribute('aria-label', isLight ? 'Тёмная тема' : 'Светлая тема');
 }
 
