@@ -32,6 +32,22 @@
   user-select: none;
 }
 
+/* PDF iframe */
+#lightbox-pdf {
+  display: none;
+  width: min(92vw, 860px);
+  height: 85vh;
+  border: none;
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .70);
+  background: #fff;
+}
+
+#lightbox.pdf-mode #lightbox-img  { display: none; }
+#lightbox.pdf-mode #lightbox-pdf  { display: block; }
+#lightbox.pdf-mode .lightbox-arrow { display: none; }
+#lightbox.pdf-mode #lightbox-counter { display: none; }
+
 /* Close button */
 #lightbox-close {
   position: absolute;

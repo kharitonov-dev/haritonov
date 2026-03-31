@@ -8,12 +8,17 @@
 (function () {
   var lb      = document.getElementById('lightbox');
   var img     = document.getElementById('lightbox-img');
+  var pdf     = document.getElementById('lightbox-pdf');
   var close   = document.getElementById('lightbox-close');
   var btnPrev = document.getElementById('lightbox-prev');
   var btnNext = document.getElementById('lightbox-next');
   var counter = document.getElementById('lightbox-counter');
 
   if (!lb || !img) return;
+
+  function _isPdf(src) {
+    return src && src.toLowerCase().split('?')[0].endsWith('.pdf');
+  }
 
   var _slides = [];  /* [{src, alt}] */
   var _idx    = 0;
@@ -33,8 +38,16 @@
 
   function _updateUI() {
     var s = _slides[_idx];
-    img.src = s.src;
-    img.alt = s.alt;
+    if (_isPdf(s.src)) {
+      lb.classList.add('pdf-mode');
+      if (pdf) pdf.src = s.src;
+      img.src = '';
+    } else {
+      lb.classList.remove('pdf-mode');
+      img.src = s.src;
+      img.alt = s.alt || '';
+      if (pdf) pdf.src = '';
+    }
 
     var multi = _slides.length > 1;
     if (btnPrev) btnPrev.classList.toggle('hidden', !multi);
@@ -59,9 +72,10 @@
   }
 
   function closeLb() {
-    lb.classList.remove('open');
+    lb.classList.remove('open', 'pdf-mode');
     document.body.style.overflow = '';
     img.src = '';
+    if (pdf) pdf.src = '';
     _slides = [];
   }
 
