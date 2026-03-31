@@ -1,0 +1,373 @@
+/* ==========================================================================
+   components/jobs.css — Work experience cards + show more toggle
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   JOB CARD
+   -------------------------------------------------------------------------- */
+.job {
+  border-radius: var(--radius-5xl);
+  overflow: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   HEADER
+   -------------------------------------------------------------------------- */
+.job-header {
+  padding: 11px 18px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--color-divider);
+  position: relative;
+  z-index: 11;
+}
+
+.job-header-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Company logo badge */
+.job-logo {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.job-logo-text {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid var(--color-border-soft);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--color-accent-mid);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, .12);
+  flex-shrink: 0;
+}
+
+[data-theme="light"] .job-logo-text {
+  background: rgba(67, 56, 202, .08);
+  border-color: rgba(67, 56, 202, .15);
+  color: var(--color-accent);
+}
+
+.job-company-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.job-company {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-text-primary);
+}
+
+.job-company-sub {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+  margin-top: 1px;
+}
+
+/* Right: role badge + date */
+.job-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.job-role {
+  font-size: var(--fs-xs);
+  color: var(--color-accent-mid);
+  background: rgba(124, 58, 237, .18);
+  border: 1px solid rgba(124, 58, 237, .30);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+}
+
+[data-theme="light"] .job-role {
+  color: var(--color-accent);
+  background: rgba(67, 56, 202, .08);
+  border-color: rgba(67, 56, 202, .20);
+}
+
+.job-date {
+  font-size: var(--fs-xs);
+  color: var(--color-text-muted);
+}
+
+/* --------------------------------------------------------------------------
+   BODY
+   -------------------------------------------------------------------------- */
+.job-body {
+  padding: 14px 18px 16px;
+  position: relative;
+  z-index: 11;
+}
+
+/* --------------------------------------------------------------------------
+   METRICS ROW
+   -------------------------------------------------------------------------- */
+.metrics-row {
+  display: flex;
+  gap: var(--gap-sm);
+  margin-bottom: 13px;
+}
+
+.metric-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  border-radius: var(--radius-lg);
+  padding: 7px 8px;
+  text-align: center;
+  background: rgba(255, 255, 255, .04);
+  border: 1px solid var(--color-border-soft);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .metric-card {
+  background: rgba(255, 255, 255, .55);
+}
+
+.metric-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: .5px;
+  background: rgba(255, 255, 255, .18);
+}
+
+.metric-number {
+  font-family: var(--font-display);
+  font-size: var(--fs-xl);
+  font-weight: 800;
+  color: var(--color-accent);
+  line-height: 1;
+}
+
+.metric-label {
+  font-size: var(--fs-2xs);
+  color: var(--color-text-muted);
+  margin-top: 2px;
+}
+
+[data-theme="dark"] .metric-number {
+  color: var(--color-accent-mid);
+}
+
+/* --------------------------------------------------------------------------
+   BULLET LINES
+   -------------------------------------------------------------------------- */
+.job-line {
+  display: flex;
+  gap: 8px;
+  line-height: 1.65;
+  margin-bottom: 6px;
+}
+
+/* Arrow symbol */
+.job-arrow {
+  color: rgba(99, 102, 241, .80);
+  font-size: var(--fs-sm);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Main bullet */
+.job-main .job-text {
+  font-size: var(--fs-base);
+  color: var(--color-text-primary);
+  opacity: .88;
+  font-weight: 500;
+}
+
+/* Secondary bullet */
+.js .job-text {
+  font-size: var(--fs-sm);
+  color: var(--color-text-secondary);
+}
+
+/* Highlights inside bullet text */
+.job-text .highlight {
+  color: var(--color-green);
+}
+
+.job-text .highlight-alt {
+  color: var(--color-cyan);
+}
+
+[data-theme="light"] .job-text .highlight {
+  color: var(--color-accent);
+}
+
+[data-theme="light"] .job-text .highlight-alt {
+  color: var(--color-teal);
+}
+
+/* --------------------------------------------------------------------------
+   TAGS
+   -------------------------------------------------------------------------- */
+.tags {
+  display: flex;
+  gap: var(--gap-xs);
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.tag {
+  font-size: var(--fs-xs);
+  color: var(--color-accent-mid);
+  background: rgba(124, 58, 237, .10);
+  border: 1px solid rgba(124, 58, 237, .22);
+  padding: 3px 8px;
+  border-radius: var(--radius-sm);
+}
+
+[data-theme="light"] .tag {
+  color: rgba(67, 56, 202, .70);
+  background: rgba(67, 56, 202, .07);
+  border-color: rgba(67, 56, 202, .15);
+}
+
+/* --------------------------------------------------------------------------
+   APP STORE LINK
+   -------------------------------------------------------------------------- */
+.applink {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  padding: 5px 11px;
+  border-radius: var(--radius-md);
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid var(--color-border-soft);
+  font-size: var(--fs-xs);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  transition: background var(--transition-fast),
+    border-color var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.applink:hover {
+  background: var(--nav-btn-hover-bg);
+  border-color: rgba(124, 58, 237, .30);
+  color: var(--color-accent-mid);
+}
+
+.applink:visited {
+  color: var(--color-text-secondary);
+}
+
+[data-theme="light"] .applink {
+  background: rgba(255, 255, 255, .60);
+}
+
+[data-theme="light"] .applink:hover {
+  background: rgba(67, 56, 202, .08);
+  border-color: rgba(67, 56, 202, .20);
+  color: var(--color-accent);
+}
+
+.applink-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: .6;
+  flex-shrink: 0;
+}
+
+/* --------------------------------------------------------------------------
+   SHOW MORE BUTTON
+   -------------------------------------------------------------------------- */
+.hidden-jobs {
+  display: none;
+  flex-direction: column;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+.hidden-jobs.open {
+  display: flex;
+}
+
+.show-button {
+  width: 100%;
+  padding: 12px;
+  border-radius: var(--radius-xl);
+  background: rgba(255, 255, 255, .055);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid var(--color-border-soft);
+  box-shadow: inset 0 1.5px 0 rgba(255, 255, 255, .16);
+  color: var(--color-text-secondary);
+  font-family: var(--font-mono);
+  font-size: var(--fs-md);
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+[data-theme="light"] .show-button {
+  background: rgba(255, 255, 255, .50);
+}
+
+/* Top highlight */
+.show-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 15%;
+  right: 15%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .35), transparent);
+}
+
+.show-button:hover {
+  background: var(--nav-btn-hover-bg);
+  border-color: rgba(124, 58, 237, .30);
+  color: var(--color-accent-mid);
+}
+
+[data-theme="light"] .show-button:hover {
+  color: var(--color-accent);
+}
+
+/* Counter badge */
+.show-button-count {
+  font-size: var(--fs-xs);
+  color: var(--color-accent-mid);
+  background: rgba(167, 139, 250, .08);
+  border: 1px solid rgba(167, 139, 250, .18);
+  padding: 2px 8px;
+  border-radius: var(--radius-xs);
+}
+
+[data-theme="light"] .show-button-count {
+  color: rgba(67, 56, 202, .50);
+  background: rgba(67, 56, 202, .06);
+  border-color: rgba(67, 56, 202, .14);
+}

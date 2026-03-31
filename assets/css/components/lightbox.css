@@ -1,0 +1,59 @@
+/* ==========================================================================
+   components/lightbox.css — Full-screen image lightbox overlay
+   Triggered by any element with [data-lightbox="<image-src>"].
+   ========================================================================== */
+
+#lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-lightbox, 9000);
+  background: rgba(0, 0, 0, .80);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  align-items: center;
+  justify-content: center;
+  cursor: zoom-out;
+}
+
+#lightbox.open {
+  display: flex;
+}
+
+/* Image */
+#lightbox-img {
+  max-width: min(90vw, 640px);
+  max-height: 85vh;
+  border-radius: var(--radius-2xl);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, .70);
+  object-fit: contain;
+  display: block;
+  cursor: default;
+  user-select: none;
+}
+
+/* Close button */
+#lightbox-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .20);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 18px;
+  color: rgba(255, 255, 255, .80);
+  line-height: 1;
+  transition: background var(--transition-fast), color var(--transition-fast);
+  user-select: none;
+}
+
+#lightbox-close:hover {
+  background: rgba(255, 255, 255, .22);
+  color: #fff;
+}
