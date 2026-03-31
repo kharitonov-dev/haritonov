@@ -291,45 +291,71 @@ function closeSheet() {
   });
 }
 
-/* Swipe-down to close — entire sheet */
+/* Swipe on sheet-slider: horizontal = change slide, vertical (down) = close sheet */
 (function () {
   var sheet = document.getElementById("sheet");
-  if (!sheet) return;
-  var startY = 0,
-    isDragging = false;
+  var slider = document.querySelector(".sheet-slider");
+  if (!sheet || !slider) return;
 
-  sheet.addEventListener(
-    "touchstart",
-    function (e) {
-      startY = e.touches[0].clientY;
-      isDragging = true;
-      sheet.style.transition = "none";
-    },
-    { passive: true },
-  );
+  var startX = 0, startY = 0, dir = null;
 
-  sheet.addEventListener(
-    "touchmove",
-    function (e) {
-      if (!isDragging) return;
-      var dy = e.touches[0].clientY - startY;
-      if (dy > 0) sheet.style.transform = "translateY(" + dy + "px)";
-    },
-    { passive: true },
-  );
+  slider.addEventListener("touchstart", function (e) {
+    startX = e.touches[0].clientX;
+    startY = e.touches[0].clientY;
+    dir = null;
+  }, { passive: true });
+
+  slider.addEventListener("touchmove", function (e) {
+    if (!dir) {
+      var dx = Math.abs(e.touches[0].clientX - startX);
+      var dy = Math.abs(e.touches[0].clientY - startY);
+      dir = dx > dy ? "h" : "v";
+    }
+  }, { passive: true });
+
+  slider.addEventListener("touchend", function (e) {
+    if (dir !== "h") return;
+    var dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) shGoTo(shCurIdx + (dx < 0 ? 1 : -1));
+  });
+
+  /* Swipe-down on the rest of the sheet to close */
+  var sheetStartY = 0, sheetDragging = false;
+
+  sheet.addEventListener("touchstart", function (e) {
+    if (e.target.closest(".sheet-slider")) return;
+    sheetStartY = e.touches[0].clientY;
+    sheetDragging = true;
+    sheet.style.transition = "none";
+  }, { passive: true });
+
+  sheet.addEventListener("touchmove", function (e) {
+    if (!sheetDragging) return;
+    var dy = e.touches[0].clientY - sheetStartY;
+    if (dy > 0) sheet.style.transform = "translateY(" + dy + "px)";
+  }, { passive: true });
 
   sheet.addEventListener("touchend", function (e) {
-    if (!isDragging) return;
-    isDragging = false;
+    if (!sheetDragging) return;
+    sheetDragging = false;
     sheet.style.transition = "";
-    var dy = e.changedTouches[0].clientY - startY;
-    if (dy > 80) {
-      sheet.style.transform = "";
-      closeSheet();
-    } else {
-      sheet.style.transform = "";
+    var dy = e.changedTouches[0].clientY - sheetStartY;
+    if (dy > 80) { sheet.style.transform = ""; closeSheet(); }
+    else sheet.style.transform = "";
+  });
+})();
+
+/* Restore scroll lock if sheet is open when lightbox closes */
+(function () {
+  var lb = document.getElementById("lightbox");
+  if (!lb) return;
+  var observer = new MutationObserver(function () {
+    var sheet = document.getElementById("sheet");
+    if (sheet && sheet.classList.contains("on") && !lb.classList.contains("open")) {
+      document.body.style.overflow = "hidden";
     }
   });
+  observer.observe(lb, { attributes: true, attributeFilter: ["class"] });
 })();
 
 function shGoTo(i) {

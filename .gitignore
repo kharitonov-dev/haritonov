@@ -1,3 +1,6 @@
+# Jekyll build output (generated, don't commit)
+_site/
+
 # Minified backups
 *.backup
 *.original.css

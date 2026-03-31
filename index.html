@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 
     <title>Тимофей Харитонов · iOS разработчик, спикер Mobius Conf, ex. МТС</title>
     <meta name="description"
@@ -789,12 +789,17 @@
             font-weight: 600;
             color: var(--nav-lang-color);
             background: var(--nav-lang-bg);
-            padding: 4px 10px;
+            width: 36px;
+            height: 26px;
+            padding: 0;
             border-radius: var(--radius-md);
             box-shadow: var(--nav-lang-shadow);
             user-select: none;
             transition: opacity var(--transition-fast);
             flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .nav-lang:hover,

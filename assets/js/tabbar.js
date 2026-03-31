@@ -22,7 +22,7 @@ var _tabObserver = new IntersectionObserver(function (entries) {
     entries.forEach(function (entry) {
         if (entry.isIntersecting) _setActiveTab(entry.target.id);
     });
-}, { threshold: 0.4 });
+}, { rootMargin: "-40% 0px -55% 0px", threshold: 0 });
 
 ['about', 'work', 'skills', 'connect'].forEach(function (id) {
     var el = document.getElementById(id);
