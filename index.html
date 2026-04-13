@@ -11,11 +11,12 @@
     <meta name="keywords"
         content="iOS разработчик, Swift, SwiftUI, UIKit, Accessibility, Backend-Driven UI, GraphQL, MWS, МТС, Мой МТС, Mobius Conf">
     <meta name="author" content="Тимофей Харитонов">
+    <meta name="robots" content="index, follow">
 
     <meta property="og:title" content="Тимофей Харитонов · iOS разработчик">
     <meta property="og:description"
         content="iOS разработчик с 7+ годами опыта. Работаю над приложением «Мой МТС» (MAU 30 млн), спикер Mobius Conf 2025.">
-    <meta property="og:image" content="https://haritonov.me/resources/logo.webp">
+    <meta property="og:image" content="https://haritonov.me/resources/og-banner.jpg">
     <meta property="og:url" content="https://haritonov.me/">
     <meta property="og:type" content="profile">
     <meta property="og:locale" content="ru_RU">
@@ -24,7 +25,7 @@
     <meta name="twitter:title" content="Тимофей Харитонов · iOS разработчик">
     <meta name="twitter:description"
         content="iOS разработчик с 7+ годами опыта. Работаю над приложением «Мой МТС» (MAU 30 млн), спикер Mobius Conf 2025.">
-    <meta name="twitter:image" content="https://haritonov.me/resources/logo.webp">
+    <meta name="twitter:image" content="https://haritonov.me/resources/og-banner.jpg">
 
     <link rel="canonical" href="https://haritonov.me/">
     <link rel="alternate" hreflang="ru" href="https://haritonov.me/">
@@ -39,9 +40,42 @@
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link
         href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap"
         rel="stylesheet">
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Тимофей Харитонов",
+      "alternateName": "Timofey Kharitonov",
+      "jobTitle": "iOS Developer",
+      "description": "iOS-разработчик с 7+ годами опыта. Работаю над приложением «Мой МТС» (MAU 30 млн). Спикер Mobius Conf 2025.",
+      "url": "https://haritonov.me/",
+      "image": "https://haritonov.me/resources/my_photo_full.webp",
+      "worksFor": {
+        "@type": "Organization",
+        "name": "MWS (ex. МТС Диджитал)",
+        "url": "https://mws.ru/"
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "МГТУ «СТАНКИН»"
+      },
+      "knowsAbout": ["Swift", "SwiftUI", "UIKit", "Accessibility", "Dynamic Type", "Backend-Driven UI", "GraphQL", "iOS Development"],
+      "sameAs": [
+        "https://t.me/bytim",
+        "https://github.com/kharitonov-dev",
+        "https://linkedin.com/in/bytim",
+        "https://t.me/haritonovme",
+        "https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+      ]
+    }
+    </script>
 
     <!-- Theme: detect saved preference before first paint (no flash); default = dark -->
     <script>
@@ -1592,9 +1626,9 @@
                 <div class="job-header">
                     <div class="job-header-left">
                         <div class="job-logo">
-                            <img src="/resources/mws_logo.webp"
-                                srcset="/resources/mws_logo.webp 1x, /resources/mws_logo@2x.webp 2x" alt="Логотип MWS"
-                                width="30" height="30" />
+                            <img src="/resources/jobs/mws_logo.webp"
+                                srcset="/resources/jobs/mws_logo.webp 1x, /resources/jobs/mws_logo@2x.webp 2x"
+                                alt="Логотип MWS" width="30" height="30" />
                         </div>
                         <div class="job-company-block">
                             <h3 class="job-company">MWS (ex. МТС Диджитал) · «Мой МТС»</h3>
@@ -1681,8 +1715,8 @@
                 <div class="job-header">
                     <div class="job-header-left">
                         <div class="job-logo">
-                            <img src="/resources/sevstar_logo.webp"
-                                srcset="/resources/sevstar_logo.webp 1x, /resources/sevstar_logo@2x.webp 2x"
+                            <img src="/resources/jobs/sevstar_logo.webp"
+                                srcset="/resources/jobs/sevstar_logo.webp 1x, /resources/jobs/sevstar_logo@2x.webp 2x"
                                 alt="Логотип Севстар" width="30" height="30" />
                         </div>
                         <div class="job-company-block">
@@ -1752,7 +1786,11 @@
                     <article class="glass-subtle job">
                         <div class="job-header">
                             <div class="job-header-left">
-                                <div class="job-logo-text">ITC</div>
+                                <div class="job-logo">
+                                    <img src="/resources/jobs/itactis_logo.png"
+                                        srcset="/resources/jobs/itactis_logo.png 1x, /resources/jobs/itactis_logo@2x.png 2x"
+                                        alt="Itactis логотип" width="30" height="30" />
+                                </div>
                                 <div class="job-company-block">
                                     <h3 class="job-company">Itactis</h3>
                                     <span class="job-company-sub">Единственный iOS-разработчик на проекте</span>
@@ -1787,7 +1825,11 @@
                     <article class="glass-subtle job">
                         <div class="job-header">
                             <div class="job-header-left">
-                                <div class="job-logo-text">FE</div>
+                                <div class="job-logo">
+                                    <img src="/resources/jobs/sd_practic_logo.png"
+                                        srcset="/resources/jobs/sd_practic_logo.png 1x, /resources/jobs/sd_practic_logo@2x.png 2x"
+                                        alt="SD PRAKTIKA логотип" width="30" height="30" />
+                                </div>
                                 <div class="job-company-block">
                                     <h3 class="job-company">Itactis · СД «ПРАКТИКА» · Wizard Promo</h3>
                                     <span class="job-company-sub">2.5 года веб-разработки до перехода в iOS</span>
@@ -2072,12 +2114,12 @@
     </div>
 
     <!-- JS -->
-    <script src="/assets/js/lightbox.js"></script>
-    <script src="/assets/js/popup-data.js"></script>
-    <script src="/assets/js/popup.js"></script>
-    <script src="/assets/js/jobs.js"></script>
-    <script src="/assets/js/theme.js"></script>
-    <script src="/assets/js/tabbar.js"></script>
+    <script src="/assets/js/lightbox.js" defer></script>
+    <script src="/assets/js/popup-data.js" defer></script>
+    <script src="/assets/js/popup.js" defer></script>
+    <script src="/assets/js/jobs.js" defer></script>
+    <script src="/assets/js/theme.js" defer></script>
+    <script src="/assets/js/tabbar.js" defer></script>
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
