@@ -3,8 +3,8 @@ var DATA = {
   mobius: {
     title: "Mobius Conf 2025",
     desc: "One of the largest iOS conferences in Russia. A talk on the lifecycle of an Accessibility feature within the MTS ecosystem (MAU 30M, ~8M users affected).",
-    link: "https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/",
-    linkText: "→ Mobius profile",
+    link: "/en/pages/mobius/",
+    linkText: "→ Read more",
     slides: [
       { cls: "gradient-mask-1", img: "/resources/Mobius/mobius-preview.jpg", l: "Mobius Conf 2025 · Moscow" },
       { cls: "gradient-mask-2", img: "/resources/Mobius/photo-1.jpg", l: "Mobius Conf 2025 · Moscow" },
