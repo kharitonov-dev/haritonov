@@ -3,8 +3,8 @@ var DATA = {
   mobius: {
     title: "Mobius Conf 2025",
     desc: "Одна из крупнейших iOS-конференций в России. Доклад о жизненном цикле Accessibility-фичи в экосистеме МТС (MAU 30 млн, ~8 млн затронутых пользователей).",
-    link: "https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/",
-    linkText: "→ профиль на Mobius",
+    link: "/pages/mobius/",
+    linkText: "→ Подробнее",
     slides: [
       {
         cls: "gradient-mask-1",

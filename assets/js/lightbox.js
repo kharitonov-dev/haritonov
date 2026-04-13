@@ -19,6 +19,18 @@
   var _idx    = 0;
 
   function _collectSlides(trigger) {
+    /* Media-slider: collect all photo slides */
+    var sliderTrack = trigger.closest('.slider-main-track');
+    if (sliderTrack) {
+      var photoSlides = sliderTrack.querySelectorAll('.slider-slide[data-type="photo"]');
+      var sList = [];
+      photoSlides.forEach(function (el) {
+        sList.push({ src: el.dataset.lightbox, alt: el.dataset.lightboxAlt || '' });
+      });
+      return sList.length ? sList : [{ src: trigger.dataset.lightbox, alt: trigger.dataset.lightboxAlt || '' }];
+    }
+
+    /* Popup / sheet sliders */
     var track = trigger.closest('.popup-slider-track, .sheet-track');
     if (!track) return [{ src: trigger.dataset.lightbox, alt: trigger.dataset.lightboxAlt || '' }];
 
@@ -79,8 +91,15 @@
     var trigger = e.target.closest('[data-lightbox]');
     if (!trigger) return;
     if (trigger.closest('#lightbox')) return;
+    /* Skip slider slides — handled by media-slider.js via custom event */
+    if (trigger.closest('.slider-main-track')) return;
     e.preventDefault();
     open(trigger);
+  });
+
+  /* Custom event from media-slider.js */
+  document.addEventListener('open-lightbox', function (e) {
+    if (e.detail && e.detail.trigger) open(e.detail.trigger);
   });
 
   lb.addEventListener('click', function (e) {
