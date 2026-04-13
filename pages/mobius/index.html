@@ -740,8 +740,13 @@
             user-select: none;
         }
 
-        .nav-home:hover { opacity: .85; }
-        .nav-home:visited { color: var(--nav-lang-color); }
+        .nav-home:hover {
+            opacity: .85;
+        }
+
+        .nav-home:visited {
+            color: var(--nav-lang-color);
+        }
 
         .nav-menu {
             display: none;
@@ -1290,11 +1295,37 @@
                 padding-top: 75px;
             }
 
-            .orb-1 { width: 380px; height: 380px; top: -80px; left: -80px; }
-            .orb-2 { width: 300px; height: 300px; top: 100px; right: -60px; }
-            .orb-3 { width: 280px; height: 280px; bottom: 100px; left: 10%; }
-            .orb-4 { width: 200px; height: 200px; bottom: 300px; right: 0; }
-            .orb-5 { display: none; }
+            .orb-1 {
+                width: 380px;
+                height: 380px;
+                top: -80px;
+                left: -80px;
+            }
+
+            .orb-2 {
+                width: 300px;
+                height: 300px;
+                top: 100px;
+                right: -60px;
+            }
+
+            .orb-3 {
+                width: 280px;
+                height: 280px;
+                bottom: 100px;
+                left: 10%;
+            }
+
+            .orb-4 {
+                width: 200px;
+                height: 200px;
+                bottom: 300px;
+                right: 0;
+            }
+
+            .orb-5 {
+                display: none;
+            }
 
             .event-title {
                 font-size: 24px;
@@ -1353,7 +1384,9 @@
             <div class="nav-r">
                 <a href="/" class="nav-btn">&larr; на главную</a>
                 <a href="/" class="nav-home" aria-label="На главную">
-                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
+                    </svg>
                 </a>
                 <button type="button" class="nav-theme" id="nav-theme-btn" onclick="toggleTheme()"
                     aria-label="Светлая тема">☀️</button>
@@ -1378,8 +1411,8 @@
                 </div>
                 <div class="event-hero-body">
                     <div class="prompt-line" aria-hidden="true">
-                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a
-                            class="prompt-dir" href="/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
+                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a class="prompt-dir"
+                            href="/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
                             class="prompt-cmd">cat events/mobius-2025.md</span>
                     </div>
                     <p class="event-eyebrow">/ EVENTS / CONFERENCES</p>
@@ -1423,47 +1456,70 @@
                     <!-- Main slider -->
                     <div class="slider-main">
                         <div class="slider-main-track" id="slider-track">
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-1.jpg" data-lightbox-alt="Тимофей Харитонов на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-1.jpg" alt="Тимофей Харитонов на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="video">
+                                <iframe
+                                    src="https://vkvideo.ru/video_ext.php?oid=-64643261&id=456240259&hash=9e8628f24ccf8bf3&hd=2&autoplay=1"
+                                    width="853" height="480"
+                                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                                    frameborder="0" allowfullscreen></iframe>
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-2.jpg" data-lightbox-alt="Доклад на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-2.jpg" alt="Доклад на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-1.jpg"
+                                data-lightbox-alt="Тимофей Харитонов на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-1.jpg" alt="Тимофей Харитонов на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-3.jpg" data-lightbox-alt="Зал на Mobius Conf 2025">
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-2.jpg"
+                                data-lightbox-alt="Доклад на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-2.jpg" alt="Доклад на Mobius Conf 2025"
+                                    loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-3.jpg"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
                                 <img src="/resources/Mobius/photo-3.jpg" alt="Зал на Mobius Conf 2025" loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-4.jpg" data-lightbox-alt="Зал на Mobius Conf 2025">
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-4.jpg"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
                                 <img src="/resources/Mobius/photo-4.jpg" alt="Зал на Mobius Conf 2025" loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-5.webp" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-5.webp" alt="Зал на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-5.webp"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-5.webp" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-6.webp" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-6.webp" alt="Зал на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-6.webp"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-6.webp" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-7.webp" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-7.webp" alt="Зал на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-7.webp"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-7.webp" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-8.webp" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-8.webp" alt="Зал на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-8.webp"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-8.webp" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-9.webp" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-9.webp" alt="Зал на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-9.webp"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-9.webp" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-10.jpg" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-10.jpg" alt="Зал на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-10.jpg"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-10.jpg" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-11.webp" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-11.webp" alt="Зал на Mobius Conf 2025" loading="lazy" />
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-11.webp"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-11.webp" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-12.jpg" data-lightbox-alt="Зал на Mobius Conf 2025">
-                                <img src="/resources/Mobius/photo-12.jpg" alt="Зал на Mobius Conf 2025" loading="lazy" />
-                            </div>
-                            <div class="slider-slide" data-type="video">
-                                <iframe src="https://rutube.ru/play/embed/3303dddfb042596ba6649315544eba06/?skinColor=0066cc" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen loading="lazy" title="Mobius Conf 2025 — видео доклада A11Y"></iframe>
-                            </div>
-                            <div class="slider-slide" data-type="video">
-                                <iframe src="https://rutube.ru/play/embed/1b79d36f39bcbe305c15fb5e18c407ca/?r=wd" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen loading="lazy" title="Mobius Conf 2025 — дополнительное видео"></iframe>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-12.jpg"
+                                data-lightbox-alt="Зал на Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-12.jpg" alt="Зал на Mobius Conf 2025"
+                                    loading="lazy" />
                             </div>
                         </div>
                         <div class="slider-arrow slider-arrow-prev" id="slider-prev" aria-label="Назад">&#8249;</div>
@@ -1472,23 +1528,37 @@
                     <!-- Thumbnails -->
                     <div class="slider-thumbs-wrap">
                         <div class="slider-thumbs" id="slider-thumbs">
-                            <div class="slider-thumb active" data-index="0"><img src="/resources/Mobius/photo-1.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="1"><img src="/resources/Mobius/photo-2.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="2"><img src="/resources/Mobius/photo-3.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="3"><img src="/resources/Mobius/photo-4.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="4"><img src="/resources/Mobius/photo-5.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="5"><img src="/resources/Mobius/photo-6.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="6"><img src="/resources/Mobius/photo-7.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="7"><img src="/resources/Mobius/photo-8.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="8"><img src="/resources/Mobius/photo-9.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="9"><img src="/resources/Mobius/photo-10.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="10"><img src="/resources/Mobius/photo-11.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="11"><img src="/resources/Mobius/photo-12.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb slider-thumb-video" data-index="12"><img src="/resources/Mobius/photo-1.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb slider-thumb-video" data-index="13"><img src="/resources/Mobius/photo-2.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb slider-thumb-video active" data-index="0"><img
+                                    src="/resources/Mobius/mobius-preview.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="1"><img src="/resources/Mobius/photo-1.jpg" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="2"><img src="/resources/Mobius/photo-2.jpg" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="3"><img src="/resources/Mobius/photo-3.jpg" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="4"><img src="/resources/Mobius/photo-4.jpg" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="5"><img src="/resources/Mobius/photo-5.webp" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="6"><img src="/resources/Mobius/photo-6.webp" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="7"><img src="/resources/Mobius/photo-7.webp" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="8"><img src="/resources/Mobius/photo-8.webp" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="9"><img src="/resources/Mobius/photo-9.webp" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="10"><img src="/resources/Mobius/photo-10.jpg" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="11"><img src="/resources/Mobius/photo-11.webp" alt=""
+                                    loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="12"><img src="/resources/Mobius/photo-12.jpg" alt=""
+                                    loading="lazy" /></div>
                         </div>
-                        <div class="thumb-arrow thumb-arrow-prev" id="thumb-prev" aria-label="Прокрутить миниатюры влево">&#8249;</div>
-                        <div class="thumb-arrow thumb-arrow-next" id="thumb-next" aria-label="Прокрутить миниатюры вправо">&#8250;</div>
+                        <div class="thumb-arrow thumb-arrow-prev" id="thumb-prev"
+                            aria-label="Прокрутить миниатюры влево">&#8249;</div>
+                        <div class="thumb-arrow thumb-arrow-next" id="thumb-next"
+                            aria-label="Прокрутить миниатюры вправо">&#8250;</div>
                     </div>
                 </div>
             </section>
@@ -1500,8 +1570,8 @@
                 <div class="chromatic-reflection"></div>
                 <div class="talk-card-inner">
                     <div class="prompt-line" aria-hidden="true">
-                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a
-                            class="prompt-dir" href="/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
+                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a class="prompt-dir"
+                            href="/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
                             class="prompt-cmd">cat talk.md</span>
                     </div>
 
@@ -1547,13 +1617,13 @@
                 <div class="chromatic-reflection"></div>
                 <div class="files-card-inner">
                     <div class="prompt-line" aria-hidden="true">
-                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a
-                            class="prompt-dir" href="/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
+                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a class="prompt-dir"
+                            href="/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
                             class="prompt-cmd">ls attachments/</span>
                     </div>
 
-                    <a class="file-row" href="/resources/Mobius/Kharitonov-A11Y-in-MTS.pdf"
-                        target="_blank" rel="noopener" aria-label="Открыть презентацию PDF">
+                    <a class="file-row" href="/resources/Mobius/Kharitonov-A11Y-in-MTS.pdf" target="_blank"
+                        rel="noopener" aria-label="Открыть презентацию PDF">
                         <div class="file-icon" aria-hidden="true">&#128196;</div>
                         <div class="file-info">
                             <div class="file-name">Mobius_2025_accessibility_fonts.pdf</div>
@@ -1578,20 +1648,23 @@
                         target="_blank" rel="noopener" aria-label="Открыть страницу доклада на Mobiusconf.com">
                         <div class="file-icon" aria-hidden="true">&#128226;</div>
                         <div class="file-info">
-                            <div class="file-name">Mobiusconf.com &middot; A11Y: масштабирование шрифтов в &laquo;Мой МТС&raquo;</div>
+                            <div class="file-name">Mobiusconf.com &middot; A11Y: масштабирование шрифтов в &laquo;Мой
+                                МТС&raquo;</div>
                             <div class="file-desc">Страница доклада с описанием и материалами на сайте конференции</div>
                         </div>
                         <span class="file-btn">&#8599; Открыть</span>
                     </a>
 
-                    <a class="file-row" href="https://github.com/kharitonov-dev/a11y"
-                        target="_blank" rel="noopener" aria-label="Открыть репозиторий A11Y на GitHub">
+                    <a class="file-row" href="https://github.com/kharitonov-dev/a11y" target="_blank" rel="noopener"
+                        aria-label="Открыть репозиторий A11Y на GitHub">
                         <div class="file-icon" aria-hidden="true">&#128025;</div>
                         <div class="file-info">
                             <div class="file-name">GitHub &middot; A11Y app — Accessibility: Dynamic Type</div>
                             <div class="file-desc">
-                                Пример масштабирования шрифтов с глобальным и локальными флагами &middot; UIKit / SwiftUI.<br>
-                                Живой код — поможет понять, как правильно работать с кастомными шрифтами в iOS-приложении.
+                                Пример масштабирования шрифтов с глобальным и локальными флагами &middot; UIKit /
+                                SwiftUI.<br>
+                                Живой код — поможет понять, как правильно работать с кастомными шрифтами в
+                                iOS-приложении.
                             </div>
                         </div>
                         <span class="file-btn">&#8599; GitHub</span>
@@ -1648,12 +1721,12 @@
 
     <!-- Yandex.Metrika counter -->
     <script type="text/javascript">
-        (function (m, e, t, r, i, k, a) {
-            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
-            m[i].l = 1 * new Date();
-            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
-            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
-        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107468755', 'ym');
+            (function (m, e, t, r, i, k, a) {
+                m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+                m[i].l = 1 * new Date();
+                for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+                k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+            })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107468755', 'ym');
         ym(107468755, 'init', { ssr: true, webvisor: true, trackHash: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
     </script>
     <noscript>
