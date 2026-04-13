@@ -1,0 +1,207 @@
+/* ==========================================================================
+   media-slider.css — Media slider with thumbnails carousel
+   ========================================================================== */
+
+.media-card {
+    border-radius: var(--radius-hero);
+    padding: 20px;
+}
+
+.media-card-inner {
+    position: relative;
+    z-index: 11;
+}
+
+/* ── Main slider ─────────────────────────────────────────────────────────── */
+.slider-main {
+    position: relative;
+    aspect-ratio: 16/10;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: var(--color-divider);
+}
+
+.slider-main-track {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    transition: transform .35s ease;
+}
+
+.slider-slide {
+    min-width: 100%;
+    height: 100%;
+    position: relative;
+    cursor: pointer;
+}
+
+.slider-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slider-slide iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.slider-slide[data-type="video"] {
+    cursor: default;
+    background: #000;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--glass-subtle-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid var(--color-border-soft);
+    color: var(--color-text-primary);
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    opacity: .85;
+    transition: opacity .2s;
+    user-select: none;
+    line-height: 1;
+    padding: 0;
+}
+
+.slider-arrow:hover {
+    opacity: 1;
+}
+
+.slider-arrow-prev {
+    left: 8px;
+}
+
+.slider-arrow-next {
+    right: 8px;
+}
+
+/* ── Thumbnails carousel ─────────────────────────────────────────────────── */
+.slider-thumbs-wrap {
+    position: relative;
+    margin-top: 8px;
+}
+
+.slider-thumbs {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 4px 0;
+}
+
+.slider-thumbs::-webkit-scrollbar {
+    display: none;
+}
+
+.slider-thumb {
+    flex-shrink: 0;
+    width: 64px;
+    height: 44px;
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+    opacity: .55;
+    transition: opacity .2s, border-color .2s;
+    background: var(--color-divider);
+}
+
+.slider-thumb.active {
+    border-color: var(--color-accent);
+    opacity: 1;
+}
+
+.slider-thumb:hover {
+    opacity: .9;
+}
+
+.slider-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slider-thumb-video {
+    position: relative;
+}
+
+.slider-thumb-video::after {
+    content: '\25B6';
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    color: #fff;
+    background: rgba(0, 0, 0, .45);
+}
+
+.thumb-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background: var(--glass-subtle-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border: 1px solid var(--color-border-soft);
+    color: var(--color-text-primary);
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 5;
+    opacity: .8;
+    transition: opacity .2s;
+    user-select: none;
+    line-height: 1;
+    padding: 0;
+}
+
+.thumb-arrow:hover {
+    opacity: 1;
+}
+
+.thumb-arrow-prev {
+    left: 0;
+}
+
+.thumb-arrow-next {
+    right: 0;
+}
+
+/* ── Mobile ──────────────────────────────────────────────────────────────── */
+@media (max-width: 640px) {
+    .slider-thumb {
+        width: 52px;
+        height: 36px;
+    }
+
+    .slider-arrow {
+        width: 28px;
+        height: 28px;
+        font-size: 15px;
+    }
+}
