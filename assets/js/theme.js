@@ -35,7 +35,10 @@ function _syncThemeBtn() {
   if (!btn) return;
   var isLight = document.documentElement.getAttribute('data-theme') === 'light';
   btn.textContent = isLight ? '🌙' : '☀️';
-  btn.setAttribute('aria-label', isLight ? 'Тёмная тема' : 'Светлая тема');
+  var isEn = document.documentElement.lang === 'en';
+  btn.setAttribute('aria-label', isLight
+    ? (isEn ? 'Dark theme' : 'Тёмная тема')
+    : (isEn ? 'Light theme' : 'Светлая тема'));
 }
 
 /* Sync button icon immediately (script runs after DOM, at bottom of <body>) */

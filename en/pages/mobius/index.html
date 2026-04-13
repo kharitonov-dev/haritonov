@@ -1,414 +1,1095 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 
-    <title>Mobius Conf 2025 — Timofey Kharitonov</title>
+    <title>Mobius Conf 2025 — Timofey Kharitonov · iOS Developer</title>
     <meta name="description"
-        content="Timofey Kharitonov's talk at Mobius Conf 2025 — scalable fonts (Accessibility) for the MTS ecosystem. Photos, video, presentation slides." />
+        content="Timofey Kharitonov at Mobius Conf 2025. Talk: A11Y — scalable fonts (Dynamic Type / Accessibility) in the My MTS app and MTS ecosystem. Photos, video, slides." />
+    <meta name="keywords"
+        content="Mobius Conf 2025, Timofey Kharitonov, iOS Developer, Accessibility, Dynamic Type, scalable fonts, Swift, SwiftUI, MTS, My MTS, A11Y, conference talk" />
+    <meta name="author" content="Timofey Kharitonov" />
+    <meta name="robots" content="index, follow" />
 
+    <!-- Open Graph -->
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="Mobius Conf 2025 — Timofey Kharitonov · iOS Developer" />
+    <meta property="og:description"
+        content="Talk: A11Y — scalable fonts (Dynamic Type / Accessibility) in the My MTS app. Mobius Conf 2025, Moscow." />
+    <meta property="og:image" content="https://haritonov.me/resources/Mobius/photo-1.jpg" />
+    <meta property="og:url" content="https://haritonov.me/en/pages/mobius/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:site_name" content="Timofey Kharitonov" />
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Mobius Conf 2025 — Timofey Kharitonov · iOS Developer" />
+    <meta name="twitter:description"
+        content="Talk: A11Y — scalable fonts (Dynamic Type / Accessibility) in the My MTS app. Mobius Conf 2025, Moscow." />
+    <meta name="twitter:image" content="https://haritonov.me/resources/Mobius/photo-1.jpg" />
+
+    <!-- Canonical & hreflang -->
     <link rel="canonical" href="https://haritonov.me/en/pages/mobius/" />
     <link rel="alternate" hreflang="ru" href="https://haritonov.me/pages/mobius/" />
     <link rel="alternate" hreflang="en" href="https://haritonov.me/en/pages/mobius/" />
     <link rel="alternate" hreflang="x-default" href="https://haritonov.me/pages/mobius/" />
 
     <!-- Favicon -->
-    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
     <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
 
-    <!-- Critical CSS -->
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600&family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,700;12..96,800&display=swap"
+        rel="stylesheet" />
+
+    <!-- Theme: no-flash -->
+    <script>
+        (function () {
+            var saved = localStorage.getItem('theme');
+            document.documentElement.setAttribute('data-theme', saved === 'light' ? 'light' : 'dark');
+        })();
+    </script>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Event",
+      "name": "Mobius Conf 2025",
+      "description": "Timofey Kharitonov's talk — A11Y: scalable fonts in My MTS. Dynamic Type and Accessibility for MTS ecosystem.",
+      "startDate": "2025-04-09",
+      "endDate": "2025-04-10",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Expocentre Moscow",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Krasnopresenskaya Embankment 12",
+          "addressLocality": "Moscow",
+          "addressCountry": "RU"
+        }
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Timofey Kharitonov",
+        "jobTitle": "iOS Developer",
+        "url": "https://haritonov.me/en/"
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Mobius Conf",
+        "url": "https://mobiusconf.com"
+      },
+      "url": "https://haritonov.me/en/pages/mobius/",
+      "image": "https://haritonov.me/resources/Mobius/photo-1.jpg"
+    }
+    </script>
+
+    <!-- CRITICAL CSS -->
     <style>
-        * {
-            margin: 0;
-            padding: 0;
+        /* ── TOKENS ──────────────────────────────────────────────────────────── */
+        :root {
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-display: 'Bricolage Grotesque', sans-serif;
+            --fs-2xs: 10px;
+            --fs-xs: 11px;
+            --fs-sm: 12px;
+            --fs-md: 13px;
+            --fs-base: 14px;
+            --fs-lg: 15px;
+            --fs-xl: 16px;
+            --fs-footer: 36px;
+            --color-bg: #eef1f7;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: rgba(0, 0, 0, .45);
+            --color-text-muted: rgba(0, 0, 0, .30);
+            --color-text-faint: rgba(0, 0, 0, .22);
+            --color-accent: #4338ca;
+            --color-accent-mid: #6366f1;
+            --color-accent-light: #818cf8;
+            --color-teal: #0891b2;
+            --color-green: #10b981;
+            --color-green-dark: #065f46;
+            --color-orange: #f97316;
+            --color-divider: rgba(0, 0, 0, .08);
+            --color-border-soft: rgba(0, 0, 0, .09);
+            --color-border-hard: rgba(0, 0, 0, .13);
+            --color-inset-top: rgba(255, 255, 255, .90);
+            --orb-1-color: radial-gradient(circle, #bfcfe8, transparent 70%);
+            --orb-2-color: radial-gradient(circle, #c5bfe8, transparent 70%);
+            --orb-3-color: radial-gradient(circle, #bfe8e0, transparent 70%);
+            --orb-4-color: radial-gradient(circle, #c5d5f0, transparent 70%);
+            --orb-5-color: radial-gradient(circle, #e0c5f0, transparent 70%);
+            --orb-1-opacity: .85;
+            --orb-2-opacity: .70;
+            --orb-3-opacity: .60;
+            --orb-4-opacity: .50;
+            --orb-5-opacity: .45;
+            --orb-1-blur: 100px;
+            --orb-2-blur: 100px;
+            --orb-3-blur: 90px;
+            --orb-4-blur: 70px;
+            --orb-5-blur: 65px;
+            --glass-subtle-bg: rgba(255, 255, 255, .38);
+            --glass-subtle-filter: blur(20px) saturate(1.6);
+            --glass-subtle-border: 1px solid rgba(255, 255, 255, .75);
+            --glass-subtle-shadow: 0 2px 16px rgba(100, 120, 200, .08), inset 0 1px 0 rgba(255, 255, 255, .90);
+            --glass-subtle-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-subtle-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --glass-medium-bg: rgba(255, 255, 255, .52);
+            --glass-medium-filter: blur(44px) saturate(1.85);
+            --glass-medium-border: 1px solid rgba(255, 255, 255, .85);
+            --glass-medium-shadow: 0 4px 28px rgba(100, 120, 200, .10), 0 1px 4px rgba(100, 120, 200, .06),
+                inset 0 1.5px 0 rgba(255, 255, 255, .98), inset 0 -.5px 0 rgba(140, 160, 220, .08);
+            --glass-medium-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-medium-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --glass-strong-bg: rgba(255, 255, 255, .62);
+            --glass-strong-filter: blur(60px) saturate(2.0);
+            --glass-strong-border: 1px solid rgba(255, 255, 255, .92);
+            --glass-strong-shadow: 0 8px 40px rgba(100, 120, 200, .13), 0 2px 8px rgba(100, 120, 200, .08),
+                inset 0 2px 0 rgba(255, 255, 255, 1), inset 0 -.5px 0 rgba(140, 160, 220, .10);
+            --glass-strong-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, 1), transparent);
+            --glass-strong-glare: linear-gradient(145deg, rgba(255, 255, 255, .15) 0%, transparent 50%);
+            --chromatic-top: rgba(140, 160, 240, .28);
+            --chromatic-left: rgba(100, 180, 255, .20);
+            --chromatic-right: rgba(200, 140, 240, .16);
+            --chromatic-bottom: rgba(100, 220, 200, .14);
+            --radius-xs: 5px;
+            --radius-sm: 8px;
+            --radius-md: 9px;
+            --radius-lg: 12px;
+            --radius-xl: 14px;
+            --radius-2xl: 16px;
+            --radius-3xl: 18px;
+            --radius-4xl: 20px;
+            --radius-5xl: 22px;
+            --radius-hero: 28px;
+            --radius-full: 50%;
+            --gap-xs: 4px;
+            --gap-sm: 6px;
+            --gap-md: 8px;
+            --gap-lg: 10px;
+            --gap-xl: 14px;
+            --gap-2xl: 18px;
+            --page-padding-x: 20px;
+            --page-max-width: 900px;
+            --page-gap: 12px;
+            --z-orb: 0;
+            --z-content: 2;
+            --z-nav: 50;
+            --z-lightbox: 9000;
+            --transition-fast: .15s ease;
+            --transition-base: .18s ease;
+            --transition-slide: .32s cubic-bezier(.4, 0, .2, 1);
+            --avatar-gradient: linear-gradient(145deg, #818cf8 0%, #4338ca 40%, #0891b2 100%);
+            --nav-bg-mobile: rgba(238, 241, 247, .75);
+            --nav-border-mob: rgba(0, 0, 0, .07);
+            --nav-btn-hover-bg: rgba(67, 56, 202, .08);
+            --nav-btn-hover-color: #4338ca;
+            --nav-lang-bg: linear-gradient(135deg, #4338ca, #6366f1);
+            --nav-lang-shadow: 0 2px 8px rgba(67, 56, 202, .30);
+            --nav-lang-color: #fff;
+            --nav-online-dot: #10b981;
+            --nav-online-border: #eef1f7;
+        }
+
+        /* ── DARK ────────────────────────────────────────────────────────────── */
+        [data-theme="dark"] {
+            --color-bg: #0a0812;
+            --color-text-primary: rgba(255, 255, 255, .95);
+            --color-text-secondary: rgba(200, 185, 255, .60);
+            --color-text-muted: rgba(167, 139, 250, .40);
+            --color-text-faint: rgba(255, 255, 255, .22);
+            --color-accent: #7c3aed;
+            --color-accent-mid: #a78bfa;
+            --color-accent-light: #c4b5fd;
+            --color-teal: #0f766e;
+            --color-green: #34d399;
+            --color-green-dark: #34d399;
+            --color-divider: rgba(255, 255, 255, .07);
+            --color-border-soft: rgba(255, 255, 255, .09);
+            --color-border-hard: rgba(255, 255, 255, .13);
+            --color-inset-top: rgba(255, 255, 255, .10);
+            --orb-1-color: radial-gradient(circle, #5b21b6, transparent 70%);
+            --orb-2-color: radial-gradient(circle, #1d4ed8, transparent 70%);
+            --orb-3-color: radial-gradient(circle, #0f766e, transparent 70%);
+            --orb-4-color: radial-gradient(circle, #7c3aed, transparent 70%);
+            --orb-5-color: radial-gradient(circle, #be185d, transparent 70%);
+            --orb-1-opacity: .40;
+            --orb-2-opacity: .35;
+            --orb-3-opacity: .30;
+            --orb-4-opacity: .30;
+            --orb-5-opacity: .28;
+            --orb-1-blur: 120px;
+            --orb-2-blur: 120px;
+            --orb-3-blur: 110px;
+            --orb-4-blur: 70px;
+            --orb-5-blur: 70px;
+            --glass-subtle-bg: rgba(255, 255, 255, .035);
+            --glass-subtle-filter: blur(18px) saturate(1.5);
+            --glass-subtle-border: 1px solid rgba(255, 255, 255, .08);
+            --glass-subtle-shadow: 0 4px 20px rgba(0, 0, 0, .35), inset 0 1px 0 rgba(255, 255, 255, .10);
+            --glass-subtle-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+            --glass-subtle-glare: linear-gradient(145deg, rgba(255, 255, 255, .06) 0%, transparent 40%);
+            --glass-medium-bg: rgba(255, 255, 255, .062);
+            --glass-medium-filter: blur(44px) saturate(1.85) brightness(1.06);
+            --glass-medium-border: 1px solid rgba(255, 255, 255, .13);
+            --glass-medium-shadow: 0 0 0 .5px rgba(150, 120, 255, .20), 0 8px 40px rgba(0, 0, 0, .50),
+                inset 0 1.5px 0 rgba(255, 255, 255, .20), inset 1.5px 0 0 rgba(255, 255, 255, .07);
+            --glass-medium-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+            --glass-medium-glare: linear-gradient(145deg, rgba(255, 255, 255, .06) 0%, transparent 40%);
+            --glass-strong-bg: rgba(255, 255, 255, .088);
+            --glass-strong-filter: blur(70px) saturate(2.1) brightness(1.1);
+            --glass-strong-border: 1px solid rgba(255, 255, 255, .18);
+            --glass-strong-shadow: 0 0 0 .5px rgba(180, 150, 255, .30), 0 20px 60px rgba(0, 0, 0, .55),
+                inset 0 2px 0 rgba(255, 255, 255, .28), inset 2px 0 0 rgba(255, 255, 255, .10);
+            --glass-strong-highlight: linear-gradient(90deg, transparent, rgba(255, 255, 255, .55), transparent);
+            --glass-strong-glare: linear-gradient(145deg, rgba(255, 255, 255, .06) 0%, transparent 40%);
+            --chromatic-top: rgba(140, 100, 255, .32);
+            --chromatic-left: rgba(80, 160, 255, .22);
+            --chromatic-right: rgba(220, 80, 200, .16);
+            --chromatic-bottom: rgba(80, 220, 160, .14);
+            --avatar-gradient: linear-gradient(145deg, #c4b5fd 0%, #7c3aed 40%, #0f766e 100%);
+            --nav-bg-mobile: rgba(10, 8, 18, .70);
+            --nav-border-mob: rgba(255, 255, 255, .07);
+            --nav-btn-hover-bg: rgba(167, 139, 250, .12);
+            --nav-btn-hover-color: rgba(200, 185, 255, .90);
+            --nav-lang-bg: rgba(124, 58, 237, .55);
+            --nav-lang-shadow: inset 0 1px 0 rgba(255, 255, 255, .18);
+            --nav-lang-color: #fff;
+            --nav-online-dot: #34d399;
+            --nav-online-border: #0a0812;
+        }
+
+        /* ── LIGHT ───────────────────────────────────────────────────────────── */
+        [data-theme="light"] {
+            --color-bg: #eef1f7;
+            --color-text-primary: #0f172a;
+            --color-text-secondary: rgba(0, 0, 0, .45);
+            --color-text-muted: rgba(0, 0, 0, .30);
+            --color-text-faint: rgba(0, 0, 0, .22);
+            --color-accent: #4338ca;
+            --color-accent-mid: #6366f1;
+            --color-divider: rgba(0, 0, 0, .08);
+            --color-border-soft: rgba(0, 0, 0, .09);
+            --orb-1-color: radial-gradient(circle, #bfcfe8, transparent 70%);
+            --orb-2-color: radial-gradient(circle, #c5bfe8, transparent 70%);
+            --orb-3-color: radial-gradient(circle, #bfe8e0, transparent 70%);
+            --orb-4-color: radial-gradient(circle, #c5d5f0, transparent 70%);
+            --orb-5-color: radial-gradient(circle, #e0c5f0, transparent 70%);
+            --orb-1-opacity: .85;
+            --orb-2-opacity: .70;
+            --orb-3-opacity: .60;
+            --orb-4-opacity: .50;
+            --orb-5-opacity: .45;
+            --glass-subtle-bg: rgba(255, 255, 255, .38);
+            --glass-subtle-filter: blur(20px) saturate(1.6);
+            --glass-subtle-border: 1px solid rgba(255, 255, 255, .75);
+            --glass-subtle-shadow: 0 2px 16px rgba(100, 120, 200, .08), inset 0 1px 0 rgba(255, 255, 255, .90);
+            --glass-medium-bg: rgba(255, 255, 255, .52);
+            --glass-medium-filter: blur(44px) saturate(1.85);
+            --glass-medium-border: 1px solid rgba(255, 255, 255, .85);
+            --glass-medium-shadow: 0 4px 28px rgba(100, 120, 200, .10), inset 0 1.5px 0 rgba(255, 255, 255, .98);
+            --glass-strong-bg: rgba(255, 255, 255, .62);
+            --glass-strong-filter: blur(60px) saturate(2.0);
+            --glass-strong-border: 1px solid rgba(255, 255, 255, .92);
+            --glass-strong-shadow: 0 8px 40px rgba(100, 120, 200, .13), inset 0 2px 0 rgba(255, 255, 255, 1);
+            --chromatic-top: rgba(140, 160, 240, .28);
+            --chromatic-left: rgba(100, 180, 255, .20);
+            --chromatic-right: rgba(200, 140, 240, .16);
+            --chromatic-bottom: rgba(100, 220, 200, .14);
+            --avatar-gradient: linear-gradient(145deg, #818cf8 0%, #4338ca 40%, #0891b2 100%);
+            --nav-bg-mobile: rgba(238, 241, 247, .75);
+            --nav-border-mob: rgba(0, 0, 0, .07);
+            --nav-btn-hover-bg: rgba(67, 56, 202, .08);
+            --nav-btn-hover-color: #4338ca;
+            --nav-lang-bg: linear-gradient(135deg, #4338ca, #6366f1);
+            --nav-lang-shadow: 0 2px 8px rgba(67, 56, 202, .30);
+            --nav-online-dot: #10b981;
+            --nav-online-border: #eef1f7;
+        }
+
+        /* ── RESET ───────────────────────────────────────────────────────────── */
+        *,
+        *::before,
+        *::after {
             box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Cascadia Code', monospace;
-            background-color: #f9f9f9;
-            color: #1e1e1e;
-            line-height: 1.6;
-            font-size: 16px;
-        }
-
-        article,
-        header,
-        footer,
-        section,
-        time,
-        nav {
-            display: block;
             margin: 0;
             padding: 0;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font: inherit;
         }
 
         a {
-            color: #0066cc;
+            color: inherit;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            transition: border-color 0.2s ease;
         }
 
-        a:hover {
-            border-bottom-color: #0066cc;
+        a:visited {
+            color: inherit;
         }
 
-        .container {
-            max-width: 1100px;
+        [data-theme="dark"] a:visited {
+            color: var(--color-text-secondary);
+        }
+
+        button {
+            border: none;
+            background: none;
+            font: inherit;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-mono);
+            background: var(--color-bg);
+            min-height: 100vh;
+            position: relative;
+            overflow-x: hidden;
+            color: var(--color-text-primary);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* ── GLASS ───────────────────────────────────────────────────────────── */
+        .glass-subtle,
+        .glass-medium,
+        .glass-strong {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .glass-subtle::before,
+        .glass-medium::before,
+        .glass-strong::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 8%;
+            right: 8%;
+            height: 1px;
+            z-index: 10;
+        }
+
+        .glass-subtle::after,
+        .glass-medium::after,
+        .glass-strong::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+        }
+
+        .glass-subtle {
+            background: var(--glass-subtle-bg);
+            backdrop-filter: var(--glass-subtle-filter);
+            -webkit-backdrop-filter: var(--glass-subtle-filter);
+            border: var(--glass-subtle-border);
+            box-shadow: var(--glass-subtle-shadow);
+        }
+
+        .glass-subtle::before {
+            background: var(--glass-subtle-highlight);
+        }
+
+        .glass-subtle::after {
+            background: var(--glass-subtle-glare);
+        }
+
+        .glass-medium {
+            background: var(--glass-medium-bg);
+            backdrop-filter: var(--glass-medium-filter);
+            -webkit-backdrop-filter: var(--glass-medium-filter);
+            border: var(--glass-medium-border);
+            box-shadow: var(--glass-medium-shadow);
+        }
+
+        .glass-medium::before {
+            background: var(--glass-medium-highlight);
+        }
+
+        .glass-medium::after {
+            background: var(--glass-medium-glare);
+        }
+
+        .glass-strong {
+            background: var(--glass-strong-bg);
+            backdrop-filter: var(--glass-strong-filter);
+            -webkit-backdrop-filter: var(--glass-strong-filter);
+            border: var(--glass-strong-border);
+            box-shadow: var(--glass-strong-shadow);
+        }
+
+        .glass-strong::before {
+            background: var(--glass-strong-highlight);
+        }
+
+        .glass-strong::after {
+            background: var(--glass-strong-glare);
+        }
+
+        /* ── PAGE ────────────────────────────────────────────────────────────── */
+        .page {
+            position: relative;
+            z-index: var(--z-content);
+            max-width: var(--page-max-width);
             margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
-
-        .prompt {
-            color: #F05138;
-            font-weight: bold;
-            margin-right: 8px;
-        }
-
-        /* Header */
-        .header {
+            padding: 16px var(--page-padding-x) 0;
             display: flex;
+            flex-direction: column;
+            gap: var(--page-gap);
+        }
+
+        /* ── ORBS ────────────────────────────────────────────────────────────── */
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: var(--z-orb);
+            will-change: transform, filter;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+        }
+
+        .orb-1 {
+            width: 600px;
+            height: 600px;
+            background: var(--orb-1-color);
+            top: -150px;
+            left: -150px;
+            filter: blur(var(--orb-1-blur));
+            opacity: var(--orb-1-opacity);
+            animation: orb-1 28s ease-in-out infinite;
+        }
+
+        .orb-2 {
+            width: 500px;
+            height: 500px;
+            background: var(--orb-2-color);
+            top: 50px;
+            right: -120px;
+            filter: blur(var(--orb-2-blur));
+            opacity: var(--orb-2-opacity);
+            animation: orb-2 34s ease-in-out infinite;
+        }
+
+        .orb-3 {
+            width: 420px;
+            height: 420px;
+            background: var(--orb-3-color);
+            bottom: -60px;
+            left: 5%;
+            filter: blur(var(--orb-3-blur));
+            opacity: var(--orb-3-opacity);
+            animation: orb-3 24s ease-in-out infinite;
+        }
+
+        .orb-4 {
+            width: 280px;
+            height: 280px;
+            background: var(--orb-4-color);
+            top: 400px;
+            left: 25%;
+            filter: blur(var(--orb-4-blur));
+            opacity: var(--orb-4-opacity);
+            animation: orb-4 20s ease-in-out infinite;
+        }
+
+        .orb-5 {
+            width: 240px;
+            height: 240px;
+            background: var(--orb-5-color);
+            bottom: 200px;
+            right: 5%;
+            filter: blur(var(--orb-5-blur));
+            opacity: var(--orb-5-opacity);
+            animation: orb-5 26s ease-in-out infinite;
+        }
+
+        @keyframes orb-1 {
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1)
+            }
+
+            40% {
+                transform: translate(50px, 40px) scale(1.08)
+            }
+
+            70% {
+                transform: translate(-25px, 60px) scale(.94)
+            }
+        }
+
+        @keyframes orb-2 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            35% {
+                transform: translate(-40px, 25px) scale(1.1)
+            }
+
+            75% {
+                transform: translate(20px, -35px) scale(1.05)
+            }
+        }
+
+        @keyframes orb-3 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(30px, -40px) scale(1.12)
+            }
+        }
+
+        @keyframes orb-4 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(-20px, 25px) scale(1.1)
+            }
+        }
+
+        @keyframes orb-5 {
+
+            0%,
+            100% {
+                transform: translate(0, 0)
+            }
+
+            50% {
+                transform: translate(15px, -20px) scale(1.08)
+            }
+        }
+
+        /* ── NAV ─────────────────────────────────────────────────────────────── */
+        .nav {
+            border-radius: var(--radius-3xl);
+            padding: 9px 14px;
+            display: flex;
+            align-items: center;
             justify-content: space-between;
-            align-items: center;
-            padding: 1.5rem 0;
-            border-bottom: 2px solid #e0e0e0;
-            margin-bottom: 3rem;
-            flex-wrap: wrap;
-            gap: 1rem;
         }
 
-        .header-left {
+        .nav-id {
             display: flex;
             align-items: center;
-            font-size: 1.5rem;
+            gap: 10px;
+        }
+
+        .nav-ava-wrap {
+            position: relative;
+            width: 36px;
+            height: 36px;
+            flex-shrink: 0;
+            text-decoration: none;
+        }
+
+        .nav-ava {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-full);
+            background: var(--avatar-gradient);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-size: 15px;
+            font-weight: 800;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, .25);
+            box-shadow: 0 2px 10px rgba(124, 58, 237, .45), inset 0 1px 0 rgba(255, 255, 255, .30);
+            position: relative;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .nav-ava::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 60%;
+            background: radial-gradient(ellipse at 30% 20%, rgba(255, 255, 255, .30) 0%, transparent 70%);
+        }
+
+        .nav-ava-dot {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: var(--nav-online-dot);
+            border: 2px solid var(--nav-online-border);
+            z-index: 2;
+        }
+
+        .nav-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+        }
+
+        .nav-name {
+            font-family: var(--font-display);
+            font-size: var(--fs-lg);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            text-decoration: none;
+        }
+
+        .nav-sub {
+            font-size: var(--fs-2xs);
+            color: var(--color-accent-mid);
+            opacity: .6;
+        }
+
+        .nav-r {
+            display: flex;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .nav-btn {
+            font-size: var(--fs-sm);
+            color: var(--color-text-secondary);
+            padding: 5px 9px;
+            border-radius: var(--radius-md);
+            transition: background var(--transition-fast), color var(--transition-fast);
+            user-select: none;
+        }
+
+        .nav-btn:hover {
+            background: var(--nav-btn-hover-bg);
+            color: var(--nav-btn-hover-color);
+        }
+
+        .nav-lang,
+        .nav-theme {
+            font-size: var(--fs-2xs);
             font-weight: 600;
-            letter-spacing: -0.5px;
+            color: var(--nav-lang-color);
+            background: var(--nav-lang-bg);
+            width: 36px;
+            height: 26px;
+            padding: 0;
+            border-radius: var(--radius-md);
+            box-shadow: var(--nav-lang-shadow);
+            user-select: none;
+            transition: opacity var(--transition-fast);
+            flex-shrink: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .logo {
-            display: block;
-            width: 50px;
-            height: 50px;
-            border-radius: 8px;
+        .nav-lang:hover,
+        .nav-theme:hover {
+            opacity: .85;
         }
 
-        .header-right {
-            display: flex;
+        .nav-lang:visited {
+            color: var(--nav-lang-color);
+        }
+
+        .nav-home {
+            display: none;
+            width: 36px;
+            height: 26px;
+            padding: 0;
+            border-radius: var(--radius-md);
+            background: var(--nav-lang-bg);
+            box-shadow: var(--nav-lang-shadow);
+            color: var(--nav-lang-color);
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            transition: opacity var(--transition-fast);
+            user-select: none;
+        }
+
+        .nav-home:hover { opacity: .85; }
+        .nav-home:visited { color: var(--nav-lang-color); }
+
+        .nav-menu {
+            display: none;
+            width: 30px;
+            height: 30px;
+            border-radius: var(--radius-md);
+            background: rgba(255, 255, 255, .06);
+            border: 1px solid var(--color-border-soft);
             flex-direction: column;
-            align-items: flex-end;
+            align-items: center;
+            justify-content: center;
+            gap: 4px;
+            cursor: pointer;
         }
 
-        .header-info {
+        .nav-menu-line {
+            width: 14px;
+            height: 1.5px;
+            background: var(--color-text-secondary);
+            border-radius: 1px;
+        }
+
+        /* ── SECTION LABEL ───────────────────────────────────────────────────── */
+        .section-label {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            gap: var(--gap-md);
+            font-size: var(--fs-xs);
+            color: var(--color-text-muted);
+            letter-spacing: .12em;
+            padding-left: 1px;
+            font-weight: 400;
         }
 
-        .header-info-title {
-            font-size: 1.96rem;
-            line-height: 1.7rem;
+        .section-label::before {
+            content: '//';
+            font-size: var(--fs-xs);
+            color: var(--color-accent);
+            opacity: .4;
         }
 
-        .header-info-description {
-            font-size: 1rem;
-            color: #666;
-            font-family: inherit;
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: .5px;
+            background: var(--color-divider);
         }
 
-        .header-info-description .prompt {
+        /* ── MAIN ───────────────────────────────────────────────────────────── */
+        main {
+            display: contents;
+            padding: 0;
             margin: 0;
         }
 
-        .nav {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
+        /* ── CHROMATIC ───────────────────────────────────────────────────────── */
+        .chromatic-reflection {
+            position: absolute;
+            inset: 0;
+            border-radius: inherit;
+            pointer-events: none;
+            z-index: 9;
+            border-top: 1px solid var(--chromatic-top);
+            border-left: 1px solid var(--chromatic-left);
+            border-right: 1px solid var(--chromatic-right);
+            border-bottom: 1px solid var(--chromatic-bottom);
         }
 
-        .nav-link {
-            color: #333;
-            border-bottom: none;
-            font-size: 1.1rem;
-        }
-
-        .nav-link:hover {
-            color: #0066cc;
-            border-bottom: none;
-        }
-
-        .back-link {
+        /* ── TERMINAL BAR ────────────────────────────────────────────────────── */
+        .terminal-bar {
+            padding: 10px 18px;
             display: flex;
             align-items: center;
-            gap: 0.4rem;
-            color: #666;
-            font-size: 0.9rem;
-            border-bottom: none;
+            gap: 10px;
+            border-bottom: 1px solid var(--color-divider);
+            position: relative;
+            z-index: 11;
         }
 
-        .back-link:hover {
-            color: #0066cc;
-            border-bottom: none;
+        .terminal-bar-title {
+            flex: 1;
+            text-align: center;
+            font-size: var(--fs-sm);
+            color: var(--color-text-faint);
         }
 
-        /* Section */
-        .section {
-            margin-bottom: 4rem;
+        .terminal-dots {
+            display: flex;
+            gap: 5px;
         }
 
-        .section-title {
-            font-size: 1.8rem;
-            font-weight: 600;
-            margin-bottom: 2rem;
-            border-left: 4px solid #F05138;
-            padding-left: 1rem;
+        .terminal-dot {
+            width: 11px;
+            height: 11px;
+            border-radius: 50%;
         }
 
-        /* Event Hero */
-        .event-hero {
-            margin-bottom: 4rem;
+        .terminal-dot-red {
+            background: #ff5f57;
+            box-shadow: 0 0 6px rgba(255, 95, 87, .6);
         }
 
-        .event-hero-eyebrow {
-            font-size: 0.85rem;
-            color: #F05138;
-            font-weight: 600;
+        .terminal-dot-yellow {
+            background: #febc2e;
+            box-shadow: 0 0 6px rgba(254, 188, 46, .5);
+        }
+
+        .terminal-dot-green {
+            background: #28c840;
+            box-shadow: 0 0 6px rgba(40, 200, 64, .5);
+        }
+
+        /* ── PROMPT LINE ─────────────────────────────────────────────────────── */
+        .prompt-line {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .prompt-user {
+            color: var(--color-accent);
+            font-size: var(--fs-sm);
+        }
+
+        [data-theme="dark"] .prompt-user {
+            color: var(--color-accent-mid);
+        }
+
+        .prompt-at {
+            color: var(--color-text-faint);
+            font-size: var(--fs-sm);
+        }
+
+        .prompt-dir {
+            color: var(--color-teal);
+            font-size: var(--fs-sm);
+            text-decoration: none;
+        }
+
+        [data-theme="dark"] .prompt-dir {
+            color: var(--color-green);
+        }
+
+        .prompt-dir:visited {
+            color: var(--color-teal);
+        }
+
+        [data-theme="dark"] .prompt-dir:visited {
+            color: var(--color-green);
+        }
+
+        .prompt-symbol {
+            color: var(--color-accent-mid);
+            font-size: var(--fs-md);
+        }
+
+        [data-theme="dark"] .prompt-symbol {
+            color: #f472b6;
+        }
+
+        .prompt-cmd {
+            color: var(--color-text-secondary);
+            font-size: var(--fs-sm);
+        }
+
+        [data-theme="dark"] .prompt-cmd {
+            color: rgba(255, 255, 255, .65);
+        }
+
+        /* ── EVENT HERO CARD ─────────────────────────────────────────────────── */
+        .event-hero-card {
+            border-radius: var(--radius-hero);
+            padding: 0;
+        }
+
+        .event-hero-body {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+            position: relative;
+            z-index: 11;
+        }
+
+        .event-eyebrow {
+            font-size: var(--fs-xs);
+            color: var(--color-accent-mid);
+            letter-spacing: .1em;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
 
-        .event-hero-title {
-            font-size: 2.4rem;
-            font-weight: 700;
-            line-height: 1.15;
-            margin-bottom: 1.5rem;
+        [data-theme="light"] .event-eyebrow {
+            color: var(--color-accent);
         }
 
-        .event-meta {
+        .event-title {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -1px;
+            color: var(--color-text-primary);
+        }
+
+        .event-title-accent {
+            color: var(--color-accent-mid);
+        }
+
+        [data-theme="light"] .event-title-accent {
+            color: var(--color-accent);
+        }
+
+        .event-meta-row {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem 2rem;
-            padding: 1.25rem 1.5rem;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            border-left: 4px solid #F05138;
+            gap: 8px 20px;
         }
 
         .event-meta-item {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            font-size: 0.9rem;
-            color: #444;
+            gap: 6px;
+            font-size: var(--fs-sm);
+            color: var(--color-text-secondary);
         }
 
         .event-meta-item strong {
-            color: #1e1e1e;
+            color: var(--color-text-primary);
+            font-weight: 600;
         }
 
-        /* Slider (page-level — large) */
-        .page-slider {
+        .event-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-size: var(--fs-xs);
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: var(--radius-md);
+            background: rgba(124, 58, 237, .15);
+            border: 1px solid rgba(124, 58, 237, .30);
+            color: var(--color-accent-mid);
+        }
+
+        [data-theme="light"] .event-tag {
+            background: rgba(67, 56, 202, .08);
+            border-color: rgba(67, 56, 202, .20);
+            color: var(--color-accent);
+        }
+
+        /* ── PHOTO GRID ──────────────────────────────────────────────────────── */
+        .media-card {
+            border-radius: var(--radius-hero);
+            padding: 20px;
+        }
+
+        .media-card-inner {
             position: relative;
-            overflow: hidden;
-            border-radius: 10px;
-            background: #111;
-            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
-            aspect-ratio: 4 / 3;
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
+            z-index: 11;
         }
 
-        .page-slider .slider-track {
-            position: absolute;
-            inset: 0;
-            overflow: hidden;
+        /* ── TALK CARD ───────────────────────────────────────────────────────── */
+        .talk-card {
+            border-radius: var(--radius-hero);
+            padding: 22px;
         }
 
-        .page-slider .slider-slide,
-        .page-slider .slider-slide.active {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+        .talk-card-inner {
+            position: relative;
+            z-index: 11;
             display: flex;
-            align-items: center;
-            justify-content: center;
+            flex-direction: column;
+            gap: 14px;
         }
 
-        .page-slider .slider-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-            display: block;
+        .talk-section-title {
+            font-family: var(--font-display);
+            font-size: var(--fs-xl);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            margin-bottom: 4px;
         }
 
-        .page-slider .slider-slide iframe {
-            width: 100%;
-            aspect-ratio: 16 / 9;
-            max-height: 100%;
-            border: none;
-            display: block;
+        .talk-text {
+            font-size: var(--fs-base);
+            line-height: 1.75;
+            color: var(--color-text-secondary);
         }
 
-        .slider-loader {
-            position: absolute;
-            inset: 0;
+        .talk-block {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 5;
-            pointer-events: none;
-        }
-
-        .slider-loader::after {
-            content: '';
-            width: 32px;
-            height: 32px;
-            border: 3px solid rgba(255, 255, 255, 0.15);
-            border-top-color: rgba(255, 255, 255, 0.7);
-            border-radius: 50%;
-            animation: sliderSpin 0.8s linear infinite;
-        }
-
-        @keyframes sliderSpin {
-            to { transform: rotate(360deg); }
-        }
-
-        .page-slider .slider-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.15);
-            backdrop-filter: blur(4px);
-            -webkit-backdrop-filter: blur(4px);
-            border: 1px solid rgba(255, 255, 255, 0.25);
-            width: 2.75rem;
-            height: 2.75rem;
-            border-radius: 50%;
-            cursor: pointer;
-            font-size: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background-color 0.15s ease;
-            z-index: 1;
-            padding: 0;
-        }
-
-        .page-slider .slider-btn:hover {
-            background: rgba(255, 255, 255, 0.3);
-        }
-
-        .page-slider .slider-prev {
-            left: 1rem;
-        }
-
-        .page-slider .slider-next {
-            right: 1rem;
-        }
-
-        .page-slider .slider-prev::before,
-        .page-slider .slider-next::before {
-            content: '';
-            display: block;
-            width: 8px;
-            height: 8px;
-            border-top: 2px solid #fff;
-            border-right: 2px solid #fff;
-            border-radius: 1px;
-        }
-
-        .page-slider .slider-prev::before {
-            transform: rotate(-135deg) translateX(2px);
-        }
-
-        .page-slider .slider-next::before {
-            transform: rotate(45deg) translateX(-2px);
-        }
-
-        .page-slider .slider-dots {
-            position: absolute;
-            bottom: 1rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
+            flex-direction: column;
             gap: 6px;
         }
 
-        .page-slider .slider-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.45);
-            cursor: pointer;
-            transition: background 0.2s ease, transform 0.2s ease;
-        }
-
-        .page-slider .slider-dot.active {
-            background: #fff;
-            transform: scale(1.2);
-        }
-
-        /* Talk article */
-        .event-article {
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            padding: 2rem;
-            line-height: 1.8;
-            color: #333;
-        }
-
-        .event-article h3 {
-            font-size: 1.1rem;
+        .keyword-inline {
+            color: var(--color-accent-mid);
             font-weight: 600;
-            color: #1e1e1e;
-            margin-bottom: 0.75rem;
-            margin-top: 1.5rem;
         }
 
-        .event-article h3:first-child {
-            margin-top: 0;
+        [data-theme="light"] .keyword-inline {
+            color: var(--color-accent);
         }
 
-        .event-article p {
-            margin-bottom: 1rem;
+        /* ── FILES CARD ──────────────────────────────────────────────────────── */
+        .files-card {
+            border-radius: var(--radius-hero);
+            padding: 22px;
         }
 
-        .event-article p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* File list */
-        .file-list {
+        .files-card-inner {
+            position: relative;
+            z-index: 11;
             display: flex;
             flex-direction: column;
-            gap: 0.75rem;
+            gap: 10px;
         }
 
-        .file-card {
+        .file-row {
             display: flex;
             align-items: center;
-            gap: 1rem;
-            padding: 1.25rem 1.5rem;
-            background: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 8px;
-            transition: box-shadow 0.2s ease;
+            gap: 14px;
+            padding: 14px 16px;
+            border-radius: var(--radius-2xl);
+            border: 1px solid var(--color-border-soft);
+            transition: background var(--transition-fast);
+            cursor: pointer;
+            color: inherit;
         }
 
-        .file-card:hover {
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+        .file-row:hover {
+            background: rgba(255, 255, 255, .04);
+        }
+
+        .file-row:hover .file-btn {
+            background: rgba(124, 58, 237, .28);
+        }
+
+        [data-theme="light"] .file-row:hover {
+            background: rgba(0, 0, 0, .025);
+        }
+
+        [data-theme="light"] .file-row:hover .file-btn {
+            background: rgba(67, 56, 202, .15);
         }
 
         .file-icon {
-            font-size: 2rem;
+            font-size: 22px;
             flex-shrink: 0;
             line-height: 1;
         }
@@ -419,403 +1100,574 @@
         }
 
         .file-name {
-            font-size: 0.95rem;
+            font-size: var(--fs-base);
             font-weight: 600;
-            color: #1e1e1e;
+            color: var(--color-text-primary);
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .file-meta {
-            font-size: 0.8rem;
-            color: #888;
-            margin-top: 0.2rem;
+        .file-desc {
+            font-size: var(--fs-sm);
+            color: var(--color-text-muted);
+            margin-top: 2px;
         }
 
-        .button-style {
+        .file-btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.4rem;
-            padding: 0.6rem 1.2rem;
-            background: #1e1e1e;
-            color: #f9f9f9;
-            border: none;
-            border-radius: 6px;
-            font-family: inherit;
-            font-size: 0.9rem;
-            cursor: pointer;
-            text-decoration: none;
-            border-bottom: none;
-            transition: background-color 0.15s ease;
+            gap: 5px;
+            font-size: var(--fs-xs);
+            font-weight: 600;
+            color: var(--color-accent-mid);
+            background: rgba(124, 58, 237, .15);
+            border: 1px solid rgba(124, 58, 237, .30);
+            padding: 6px 12px;
+            border-radius: var(--radius-md);
             white-space: nowrap;
             flex-shrink: 0;
+            transition: background var(--transition-fast);
         }
 
-        .button-style:hover {
-            background: #333;
-            border-bottom: none;
+        [data-theme="light"] .file-btn {
+            color: var(--color-accent);
+            background: rgba(67, 56, 202, .08);
+            border-color: rgba(67, 56, 202, .20);
         }
 
-        /* Footer */
-        .footer {
-            padding: 2rem 0 1rem;
-            border-top: 1px dashed #ccc;
-            color: #888;
-            font-size: 0.85rem;
+        /* ── FOOTER ──────────────────────────────────────────────────────────── */
+        .footer-zone {
+            position: relative;
+            z-index: var(--z-content);
         }
 
-        /* Mobile */
-        @media (max-width: 600px) {
-            .container {
-                padding: 1rem;
-            }
+        .footer-section-label {
+            display: flex;
+            align-items: center;
+            gap: var(--gap-md);
+            font-size: var(--fs-xs);
+            color: var(--color-text-muted);
+            letter-spacing: .12em;
+            margin-bottom: 8px;
+        }
 
-            .header {
-                flex-direction: column;
-                align-items: flex-start;
-                padding: 0;
-                margin-bottom: 1rem;
-                gap: 0.5rem;
-            }
+        .footer-section-label::before {
+            content: '//';
+            font-size: var(--fs-xs);
+            color: var(--color-accent);
+            opacity: .35;
+        }
 
-            .header-info-description {
-                font-size: 0.85rem;
-            }
+        .footer-section-label::after {
+            content: '';
+            flex: 1;
+            height: .5px;
+            background: var(--color-divider);
+        }
 
-            .logo {
-                width: 50px;
-                height: 50px;
-            }
+        .footer-wrap {
+            padding-bottom: 32px;
+        }
 
-            .header-right {
-                width: 100%;
-                justify-content: center;
-                align-items: center;
-            }
+        .footer-card {
+            border-radius: var(--radius-5xl);
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+            position: relative;
+            overflow: hidden;
+        }
 
-            .nav-link {
-                width: 100%;
-                text-align: center;
-            }
+        .footer-chromatic {
+            position: absolute;
+            inset: 0;
+            border-radius: var(--radius-5xl);
+            pointer-events: none;
+            z-index: 9;
+            border-top: 1px solid var(--chromatic-top);
+            border-left: 1px solid var(--chromatic-left);
+            border-right: 1px solid var(--chromatic-right);
+            border-bottom: 1px solid var(--chromatic-bottom);
+        }
 
+        .footer-logo {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 3px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .footer-logo-ann {
+            font-size: var(--fs-sm);
+            color: var(--color-accent-mid);
+        }
+
+        [data-theme="light"] .footer-logo-ann {
+            color: var(--color-accent);
+        }
+
+        .footer-logo-main {
+            font-size: var(--fs-footer);
+            font-weight: 700;
+            color: var(--color-text-primary);
+            letter-spacing: -.5px;
+            line-height: 1;
+        }
+
+        .footer-logo-dot {
+            color: var(--color-orange);
+        }
+
+        .footer-logo-cmt {
+            text-align: center;
+            font-size: var(--fs-sm);
+            color: var(--color-text-muted);
+            margin-top: 1px;
+        }
+
+        .footer-copy {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            font-size: var(--fs-xs);
+            color: var(--color-text-muted);
+            position: relative;
+            z-index: 1;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .footer-bottom-space {
+            height: 16px;
+        }
+
+        /* ── LINK ────────────────────────────────────────────────────────────── */
+        .link {
+            color: var(--color-accent-mid);
+        }
+
+        [data-theme="light"] .link {
+            color: var(--color-accent);
+        }
+
+        /* ── MOBILE ──────────────────────────────────────────────────────────── */
+        @media (max-width: 640px) {
             .nav {
-                gap: 1.5rem;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                z-index: var(--z-nav);
+                padding: 10px;
+                background: rgba(10, 8, 18, .95);
+                border-bottom: 1px solid var(--nav-border-mob);
+                border-radius: 0;
             }
 
-            .event-hero-title {
-                font-size: 1.7rem;
+            [data-theme="light"] .nav {
+                background: rgba(238, 241, 247, .95);
             }
 
-            .section-title {
-                font-size: 1.4rem;
+            .nav-btn {
+                display: none;
             }
 
-            .file-card {
+            .nav-home {
+                display: inline-flex;
+            }
+
+            .nav-menu {
+                display: flex;
+            }
+
+            .page {
+                padding-top: 75px;
+            }
+
+            .orb-1 { width: 380px; height: 380px; top: -80px; left: -80px; }
+            .orb-2 { width: 300px; height: 300px; top: 100px; right: -60px; }
+            .orb-3 { width: 280px; height: 280px; bottom: 100px; left: 10%; }
+            .orb-4 { width: 200px; height: 200px; bottom: 300px; right: 0; }
+            .orb-5 { display: none; }
+
+            .event-title {
+                font-size: 24px;
+            }
+
+            .prompt-line {
                 flex-wrap: wrap;
             }
 
-            .file-card .button-style {
+            .prompt-cmd {
+                width: 100%;
+            }
+
+            .file-row {
+                flex-wrap: wrap;
+            }
+
+            .file-btn {
                 width: 100%;
                 justify-content: center;
             }
 
-            .nav {
-                gap: 1rem;
-            }
         }
 
-        .lang-switcher {
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            font-family: 'Cascadia Code', monospace;
-            font-size: 0.75rem;
-        }
-
-        .lang-link {
-            color: #999;
-            text-decoration: none;
-            border-bottom: none;
-            font-weight: 600;
-            letter-spacing: 0.05em;
-            transition: color 0.15s ease;
-        }
-
-        .lang-link:hover {
-            color: #333;
-            border-bottom: none;
-        }
-
-        .lang-link.active {
-            color: #F05138;
-        }
-
-        .lang-sep {
-            color: #ddd;
-            user-select: none;
-        }
-
-        .footer-lang {
-            margin-top: 1rem;
-            justify-content: center;
+        /* Lightbox override: wider images for media page */
+        #lightbox-img {
+            max-width: min(90vw, 1000px);
         }
     </style>
+    <link rel="stylesheet" href="/assets/css/components/media-slider.css">
+    <link rel="stylesheet" href="/assets/css/components/lightbox.css">
 </head>
 
 <body>
-    <div class="container">
 
-        <header class="header">
-            <div class="header-left">
-                <a href="/en/" class="header-logo" style="border-bottom:none;">
-                    <picture>
-                        <source srcset="/resources/logo.webp 1x, /resources/logo@2x.webp 2x" type="image/webp" />
-                        <img src="/resources/logo.webp" alt="Timofey Kharitonov logo" class="logo" width="50"
-                            height="50" loading="lazy" />
-                    </picture>
+    <div class="page">
+
+        <!-- NAV -->
+        <nav class="glass-subtle nav" aria-label="Main navigation">
+            <div class="nav-id">
+                <a href="/en/" class="nav-ava-wrap">
+                    <div class="nav-ava">TK</div>
+                    <div class="nav-ava-dot" aria-hidden="true"></div>
                 </a>
-                <div class="header-info">
-                    <span class="header-info-title">Timofey Kharitonov</span>
-                    <span class="header-info-description">
+                <div class="nav-info">
+                    <a href="/en/" class="nav-name">Timofey Kharitonov</a>
+                    <span class="nav-sub">
                         iOS Dev
-                        <span class="prompt">•</span> tg:
-                        <a href="https://t.me/bytim" class="contact-value" target="_blank"> @bytim</a>
-                        <span class="prompt">•</span>
-                        <a href="mailto:dev.kharitonov@yandex.ru" class="contact-value"
-                            target="_blank">dev.kharitonov@ya.ru</a>
+                        &bull;
+                        tg: <a href="https://t.me/bytim" class="link" target="_blank" rel="noopener"> @bytim</a>
+                        &bull;
+                        <a href="mailto:dev.kharitonov@yandex.ru" class="link" target="_blank">dev.kharitonov@ya.ru</a>
                     </span>
                 </div>
             </div>
-            <div class="header-right">
-                <div class="lang-switcher">
-                    <a href="/pages/mobius/" class="lang-link" hreflang="ru">RU</a>
-                    <span class="lang-sep">/</span>
-                    <a href="/en/pages/mobius/" class="lang-link active" hreflang="en">EN</a>
-                </div>
-                <nav class="nav">
-                    <a href="/en/" class="nav-link">← Back to main</a>
-                </nav>
+            <div class="nav-r">
+                <a href="/en/" class="nav-btn">← home page</a>
+                <a href="/en/" class="nav-home" aria-label="Home page">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                </a>
+                <button type="button" class="nav-theme" id="nav-theme-btn" onclick="toggleTheme()"
+                    aria-label="Light theme">☀️</button>
+                <a href="/pages/mobius/" class="nav-lang" aria-label="Switch to Russian">RU</a>
             </div>
-        </header>
+        </nav>
 
         <main>
 
-            <!-- Hero -->
-            <section class="event-hero">
-                <div class="event-hero-eyebrow"><span class="prompt">/</span> EVENTS</div>
-                <h1 class="event-hero-title">
-                    <span class="prompt">></span> Mobius Conf 2025
-                </h1>
-                <div class="event-meta">
-                    <div class="event-meta-item">
-                        📅 <span><strong>9–10 April 2025</strong></span>
+            <!-- HERO CARD -->
+            <h2 class="section-label">event</h2>
+
+            <header class="glass-strong event-hero-card" itemscope itemtype="https://schema.org/Event">
+                <div class="chromatic-reflection"></div>
+                <div class="terminal-bar" aria-hidden="true">
+                    <div class="terminal-dots">
+                        <div class="terminal-dot terminal-dot-red"></div>
+                        <div class="terminal-dot terminal-dot-yellow"></div>
+                        <div class="terminal-dot terminal-dot-green"></div>
                     </div>
-                    <div class="event-meta-item">
-                        📍 <span><strong>Moscow</strong>, Krasnopresenskaya Embankment 12</span>
+                    <div class="terminal-bar-title">zsh — haritonov.me/events/mobius-2025 ~ 80&#215;24</div>
+                </div>
+                <div class="event-hero-body">
+                    <div class="prompt-line" aria-hidden="true">
+                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a
+                            class="prompt-dir" href="/en/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
+                            class="prompt-cmd">cat events/mobius-2025.md</span>
                     </div>
-                    <div class="event-meta-item">
-                        🎤 <span>Talk: <strong>A11Y: scalable fonts in "My MTS"</strong></span>
+                    <p class="event-eyebrow">/ EVENTS / CONFERENCES</p>
+                    <h1 class="event-title" itemprop="name">
+                        <span class="event-title-accent">Mobius</span> Conf 2025
+                    </h1>
+                    <div class="event-meta-row">
+                        <div class="event-meta-item">
+                            <span aria-hidden="true">&#128197;</span>
+                            <span itemprop="startDate" content="2025-04-09"><strong>9–10 April 2025</strong></span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span aria-hidden="true">&#128205;</span>
+                            <span itemprop="location" itemscope itemtype="https://schema.org/Place">
+                                <strong itemprop="name">Moscow</strong>, Krasnopresenskaya Embankment 12
+                            </span>
+                        </div>
                     </div>
-                    <div class="event-meta-item">
-                        👥 <span>Format: <strong>in-person conference</strong></span>
+                    <div class="event-meta-row">
+                        <div class="event-meta-item">
+                            <span aria-hidden="true">&#127908;</span>
+                            <span>Talk: <strong>A11Y: scalable fonts in &ldquo;My MTS&rdquo;</strong></span>
+                        </div>
+                        <div class="event-meta-item">
+                            <span aria-hidden="true">&#128101;</span>
+                            <span>Format: <strong>in-person conference</strong></span>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="event-tag">&#9654; iOS Developer</span>
+                    </div>
+                </div>
+            </header>
+
+            <!-- MEDIA -->
+            <h2 class="section-label">media</h2>
+
+            <section class="glass-medium media-card" aria-label="Photos and videos from Mobius Conf 2025">
+                <div class="chromatic-reflection"></div>
+                <div class="media-card-inner">
+                    <!-- Main slider -->
+                    <div class="slider-main">
+                        <div class="slider-main-track" id="slider-track">
+                            <div class="slider-slide" data-type="video">
+                                <iframe
+                                    src="https://vkvideo.ru/video_ext.php?oid=-64643261&id=456240259&hash=9e8628f24ccf8bf3&hd=2&autoplay=1"
+                                    width="853" height="480"
+                                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-1.jpg" data-lightbox-alt="Timofey Kharitonov at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-1.jpg" alt="Timofey Kharitonov at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-2.jpg" data-lightbox-alt="Talk at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-2.jpg" alt="Talk at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-3.jpg" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-3.jpg" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-4.jpg" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-4.jpg" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-5.webp" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-5.webp" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-6.webp" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-6.webp" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-7.webp" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-7.webp" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-8.webp" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-8.webp" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-9.webp" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-9.webp" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-10.jpg" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-10.jpg" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-11.webp" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-11.webp" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                            <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-12.jpg" data-lightbox-alt="Audience at Mobius Conf 2025">
+                                <img src="/resources/Mobius/photo-12.jpg" alt="Audience at Mobius Conf 2025" loading="lazy" />
+                            </div>
+                        </div>
+                        <div class="slider-arrow slider-arrow-prev" id="slider-prev" aria-label="Previous slide">&#8249;</div>
+                        <div class="slider-arrow slider-arrow-next" id="slider-next" aria-label="Next slide">&#8250;</div>
+                    </div>
+                    <!-- Thumbnails -->
+                    <div class="slider-thumbs-wrap">
+                        <div class="slider-thumbs" id="slider-thumbs">
+                            <div class="slider-thumb slider-thumb-video active" data-index="0"><img src="/resources/Mobius/mobius-preview.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="1"><img src="/resources/Mobius/photo-1.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="2"><img src="/resources/Mobius/photo-2.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="3"><img src="/resources/Mobius/photo-3.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="4"><img src="/resources/Mobius/photo-4.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="5"><img src="/resources/Mobius/photo-5.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="6"><img src="/resources/Mobius/photo-6.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="7"><img src="/resources/Mobius/photo-7.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="8"><img src="/resources/Mobius/photo-8.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="9"><img src="/resources/Mobius/photo-9.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="10"><img src="/resources/Mobius/photo-10.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="11"><img src="/resources/Mobius/photo-11.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="12"><img src="/resources/Mobius/photo-12.jpg" alt="" loading="lazy" /></div>
+                        </div>
+                        <div class="thumb-arrow thumb-arrow-prev" id="thumb-prev" aria-label="Scroll thumbnails left">&#8249;</div>
+                        <div class="thumb-arrow thumb-arrow-next" id="thumb-next" aria-label="Scroll thumbnails right">&#8250;</div>
                     </div>
                 </div>
             </section>
 
-            <!-- Gallery -->
-            <section class="section">
-                <h2 class="section-title">
-                    <span class="prompt">$</span> ls media/
-                </h2>
+            <!-- ABOUT TALK -->
+            <h2 class="section-label">talk</h2>
 
-                <div class="page-slider" data-slider>
-                    <div class="slider-loader" aria-hidden="true"></div>
-                    <div class="slider-track">
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-1.jpg" alt="Timofey Kharitonov at Mobius Conf 2025"
-                                loading="lazy" onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-2.jpg" alt="Talk at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-3.jpg" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-4.jpg" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-5.webp" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-6.webp" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-7.webp" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-8.webp" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-9.webp" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-10.jpg" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-11.webp" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <img src="/resources/Mobius/photo-12.jpg" alt="Audience at Mobius Conf 2025"
-                                onerror="this.style.display='none'">
-                        </div>
-                        <div class="slider-slide">
-                            <iframe
-                                src="https://rutube.ru/play/embed/3303dddfb042596ba6649315544eba06/?skinColor=0066cc"
-                                style="border: none;" allow="clipboard-write; autoplay" webkitAllowFullScreen
-                                mozallowfullscreen allowFullScreen></iframe>
-                        </div>
-                        <div class="slider-slide">
-                            <iframe src="https://rutube.ru/play/embed/1b79d36f39bcbe305c15fb5e18c407ca/?r=wd"
-                                frameBorder="0" allow="clipboard-write; autoplay" webkitAllowFullScreen
-                                mozallowfullscreen allowFullScreen>
-                            </iframe>
-                        </div>
+            <article class="glass-medium talk-card" itemscope itemtype="https://schema.org/PresentationDigitalDocument">
+                <div class="chromatic-reflection"></div>
+                <div class="talk-card-inner">
+                    <div class="prompt-line" aria-hidden="true">
+                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a
+                            class="prompt-dir" href="/en/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
+                            class="prompt-cmd">cat talk.md</span>
                     </div>
-                    <button class="slider-btn slider-prev" aria-label="Previous">&#8249;</button>
-                    <button class="slider-btn slider-next" aria-label="Next">&#8250;</button>
-                    <div class="slider-dots"></div>
+
+                    <div class="talk-block">
+                        <h3 class="talk-section-title">About the talk</h3>
+                        <p class="talk-text" itemprop="description">
+                            <span class="keyword-inline">Mobius Conf</span> is one of the largest independent
+                            conferences for mobile developers in Russia. In 2025 I gave a talk on implementing a
+                            scalable font system (<span class="keyword-inline">Dynamic Type / Accessibility</span>)
+                            in the &ldquo;My MTS&rdquo; app and across the entire MTS app ecosystem.
+                        </p>
+                    </div>
+
+                    <div class="talk-block">
+                        <h3 class="talk-section-title">What we covered</h3>
+                        <p class="talk-text">
+                            MTS has more than 9 mobile products that share a single design system. The challenge was
+                            to build a unified approach to typography that works correctly at any custom font size,
+                            including at minimum/maximum accessibility settings. We walked through how we designed the
+                            <span class="keyword-inline">type scale</span>, how we integrated it into the design
+                            system, and how it works in code.
+                        </p>
+                    </div>
+
+                    <div class="talk-block">
+                        <h3 class="talk-section-title">Why it matters</h3>
+                        <p class="talk-text">
+                            The &ldquo;My MTS&rdquo; app has <span class="keyword-inline">30 million</span> monthly
+                            active users, a significant share of whom have visual impairments. Proper
+                            <span class="keyword-inline">Dynamic Type</span> support directly affects the
+                            accessibility of the product.
+                        </p>
+                    </div>
                 </div>
-            </section>
+            </article>
 
-            <!-- About talk -->
-            <section class="section">
-                <h2 class="section-title">
-                    <span class="prompt">$</span> cat talk.md
-                </h2>
+            <!-- ATTACHMENTS -->
+            <h2 class="section-label">attachments</h2>
 
-                <article class="event-article">
-                    <h3>About the talk</h3>
-                    <p>
-                        Mobius Conf is one of the largest independent conferences for mobile developers in Russia.
-                        In 2025 I gave a talk on implementing a scalable font system
-                        (Dynamic Type / Accessibility) in the "My MTS" app and across the entire MTS app ecosystem.
-                    </p>
+            <section class="glass-medium files-card" aria-label="Presentation slides and links">
+                <div class="chromatic-reflection"></div>
+                <div class="files-card-inner">
+                    <div class="prompt-line" aria-hidden="true">
+                        <span class="prompt-user">timofey</span><span class="prompt-at">@</span><a
+                            class="prompt-dir" href="/en/">haritonov.me</a><span class="prompt-symbol">&#10095;</span><span
+                            class="prompt-cmd">ls attachments/</span>
+                    </div>
 
-                    <h3>What we covered</h3>
-                    <p>
-                        MTS has more than 9 mobile products that share a single design system. The challenge was to
-                        build
-                        a unified approach to typography that works correctly at any custom font size, including at
-                        minimum/maximum accessibility settings. We walked through how we designed the type scale,
-                        how we integrated it into the design system, and how it works in code.
-                    </p>
-
-                    <h3>Why it matters</h3>
-                    <p>
-                        The "My MTS" app has 30 million monthly active users,
-                        a significant share of whom have visual impairments.
-                        Proper Dynamic Type support directly affects the accessibility of the product.
-                    </p>
-                </article>
-            </section>
-
-            <!-- Files -->
-            <section class="section">
-                <h2 class="section-title">
-                    <span class="prompt">$</span> ls attachments/
-                </h2>
-
-                <div class="file-list">
-                    <div class="file-card">
-                        <div class="file-icon">📄</div>
+                    <a class="file-row" href="/resources/Mobius/Kharitonov-A11Y-in-MTS.pdf"
+                        target="_blank" rel="noopener" aria-label="Open presentation PDF">
+                        <div class="file-icon" aria-hidden="true">&#128196;</div>
                         <div class="file-info">
                             <div class="file-name">mobius_2025_accessibility_fonts.pdf</div>
-                            <div class="file-meta">Presentation slides · PDF</div>
+                            <div class="file-desc">Presentation slides &middot; PDF</div>
                         </div>
-                        <a href="/resources/Mobius/Kharitonov-A11Y-in-MTS.pdf" class="button-style" target="_blank">
-                            <span class="prompt">↓</span> Open
-                        </a>
-                    </div>
-                    <div class="file-card">
-                        <div class="file-icon">🎙️</div>
+                        <span class="file-btn">&#8595; Open</span>
+                    </a>
+
+                    <a class="file-row"
+                        href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
+                        target="_blank" rel="noopener" aria-label="Open speaker profile on Mobiusconf.com">
+                        <div class="file-icon" aria-hidden="true">&#127908;</div>
                         <div class="file-info">
-                            <div class="file-name">Mobiusconf.com · Speaker profile</div>
-                            <div class="file-meta">Speaker page on the conference website</div>
+                            <div class="file-name">Mobiusconf.com &middot; Speaker profile</div>
+                            <div class="file-desc">Speaker page on the conference website</div>
                         </div>
-                        <a href="https://mobiusconf.com/archive/2025%20Spring/persons/6012e40f19ea4956af6efd4992eeb454/"
-                            class="button-style" target="_blank">
-                            <span class="prompt">↗</span> Open
-                        </a>
-                    </div>
-                    <div class="file-card">
-                        <div class="file-icon">📢</div>
+                        <span class="file-btn">&#8599; Open</span>
+                    </a>
+
+                    <a class="file-row"
+                        href="https://mobiusconf.com/archive/2025%20Spring/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
+                        target="_blank" rel="noopener" aria-label="Open talk page on Mobiusconf.com">
+                        <div class="file-icon" aria-hidden="true">&#128226;</div>
                         <div class="file-info">
-                            <div class="file-name">Mobiusconf.com · A11Y: scalable fonts in "My MTS"</div>
-                            <div class="file-meta">Talk page with description and materials on the conference website
+                            <div class="file-name">Mobiusconf.com &middot; A11Y: scalable fonts in &ldquo;My MTS&rdquo;</div>
+                            <div class="file-desc">Talk page with description and materials on the conference website</div>
+                        </div>
+                        <span class="file-btn">&#8599; Open</span>
+                    </a>
+
+                    <a class="file-row" href="https://github.com/kharitonov-dev/a11y"
+                        target="_blank" rel="noopener" aria-label="Open A11Y repository on GitHub">
+                        <div class="file-icon" aria-hidden="true">&#128025;</div>
+                        <div class="file-info">
+                            <div class="file-name">GitHub &middot; A11Y app — Accessibility: Dynamic Type</div>
+                            <div class="file-desc">
+                                Example of scalable fonts with global and local flags &middot; UIKit / SwiftUI.<br>
+                                Live code — helps understand how to correctly work with custom fonts in an iOS app.
                             </div>
                         </div>
-                        <a href="https://mobiusconf.com/archive/2025%20Spring/talks/b4bbf5d3eb8649f5b23a70fb2bb210b8/"
-                            class="button-style" target="_blank">
-                            <span class="prompt">↗</span> Open
-                        </a>
-                    </div>
-                    <div class="file-card">
-                        <div class="file-icon">🐙</div>
-                        <div class="file-info">
-                            <div class="file-name">GitHub.com · A11Y app - Accessibility: Dynamic Type</div>
-                            <div class="file-meta">
-                                Example of scalable fonts with global and local flags · UIKit / SwiftUI.
-                                <br>Live code — helps understand how to correctly work with custom fonts in an iOS app.
-                            </div>
-                        </div>
-                        <a href="https://github.com/kharitonov-dev/a11y" class="button-style" target="_blank">
-                            <span class="prompt">↗</span> GitHub
-                        </a>
-                    </div>
+                        <span class="file-btn">&#8599; GitHub</span>
+                    </a>
                 </div>
             </section>
 
         </main>
 
-        <!-- Footer -->
-        <footer class="footer">
-            <strong>© 2026 Timofey Kharitonov · iOS Developer</strong>
-            <ul class="work-stack">
-                <li>Swift / Objective-C</li>
-                <li>UIKit / SwiftUI</li>
-                <li>RxSwift / Combine</li>
-                <li>MVVM / VIPER / Clean Swift</li>
-                <li>GCD / OperationQueue / Swift Concurrency</li>
-                <li>REST API / GraphQL / WebSocket</li>
-                <li>Backend-Driven UI</li>
-                <li>UserDefaults / Keychain / Core Data</li>
-                <li>Unit Tests</li>
-                <li>Git / GitFlow</li>
-                <li>CI/CD (Fastlane)</li>
-                <li>Flutter</li>
-                <li>Agile / Scrum</li>
-                <li>English Intermediate+</li>
-            </ul>
-            <div class="lang-switcher footer-lang">
-                <a href="/pages/mobius/" class="lang-link" hreflang="ru">RU</a>
-                <span class="lang-sep">/</span>
-                <a href="/en/pages/mobius/" class="lang-link active" hreflang="en">EN</a>
+        <!-- FOOTER -->
+        <footer class="footer-zone">
+            <div class="footer-section-label">footer</div>
+            <div class="footer-wrap">
+                <div class="glass-medium footer-card">
+                    <div class="footer-chromatic"></div>
+                    <div class="footer-logo">
+                        <span class="footer-logo-ann">@main struct Portfolio</span>
+                        <span class="footer-logo-main">haritonov<span class="footer-logo-dot">.</span>me</span>
+                        <span class="footer-logo-cmt">// iOS Developer &middot; 7+ years &middot; Swift &middot;
+                            SwiftUI</span>
+                    </div>
+                    <div class="footer-copy">
+                        <span>&copy;
+                            <script>document.write(new Date().getFullYear())</script>
+                        </span>
+                    </div>
+                </div>
+                <div class="footer-bottom-space"></div>
             </div>
         </footer>
 
+    </div><!-- /page -->
+
+    <!-- Background orbs -->
+    <div class="orb-1 orb" aria-hidden="true"></div>
+    <div class="orb-2 orb" aria-hidden="true"></div>
+    <div class="orb-3 orb" aria-hidden="true"></div>
+    <div class="orb-4 orb" aria-hidden="true"></div>
+    <div class="orb-5 orb" aria-hidden="true"></div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+        <div id="lightbox-close" role="button" tabindex="0" aria-label="Close">&#10005;</div>
+        <div id="lightbox-prev" class="lightbox-arrow" role="button" aria-label="Previous">&#8249;</div>
+        <img id="lightbox-img" src="" alt="" />
+        <div id="lightbox-next" class="lightbox-arrow" role="button" aria-label="Next">&#8250;</div>
+        <div id="lightbox-counter"></div>
     </div>
+
+    <!-- JS -->
+    <script src="/assets/js/media-slider.js"></script>
+    <script src="/assets/js/lightbox.js"></script>
+    <script src="/assets/js/theme.js"></script>
+
+    <!-- Yandex.Metrika counter -->
+    <script type="text/javascript">
+        (function (m, e, t, r, i, k, a) {
+            m[i] = m[i] || function () { (m[i].a = m[i].a || []).push(arguments) };
+            m[i].l = 1 * new Date();
+            for (var j = 0; j < document.scripts.length; j++) { if (document.scripts[j].src === r) { return; } }
+            k = e.createElement(t), a = e.getElementsByTagName(t)[0], k.async = 1, k.src = r, a.parentNode.insertBefore(k, a)
+        })(window, document, 'script', 'https://mc.yandex.ru/metrika/tag.js?id=107468755', 'ym');
+        ym(107468755, 'init', { ssr: true, webvisor: true, trackHash: true, clickmap: true, ecommerce: "dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce: true, trackLinks: true });
+    </script>
+    <noscript>
+        <div><img src="https://mc.yandex.ru/watch/107468755" style="position:absolute; left:-9999px;" alt="" /></div>
+    </noscript>
+    <!-- /Yandex.Metrika counter -->
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2DV6WQFHT1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-2DV6WQFHT1');
+    </script>
+    <!-- /Google tag (gtag.js) -->
+
 
 </body>
 
