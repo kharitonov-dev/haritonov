@@ -1422,6 +1422,13 @@
                     <!-- Main slider -->
                     <div class="slider-main">
                         <div class="slider-main-track" id="slider-track">
+                            <div class="slider-slide" data-type="video">
+                                <iframe
+                                    src="https://vkvideo.ru/video_ext.php?oid=-64643261&id=456240259&hash=9e8628f24ccf8bf3&hd=2&autoplay=1"
+                                    width="853" height="480"
+                                    allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;"
+                                    frameborder="0" allowfullscreen></iframe>
+                            </div>
                             <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-1.jpg" data-lightbox-alt="Timofey Kharitonov at Mobius Conf 2025">
                                 <img src="/resources/Mobius/photo-1.jpg" alt="Timofey Kharitonov at Mobius Conf 2025" loading="lazy" />
                             </div>
@@ -1458,12 +1465,6 @@
                             <div class="slider-slide" data-type="photo" data-lightbox="/resources/Mobius/photo-12.jpg" data-lightbox-alt="Audience at Mobius Conf 2025">
                                 <img src="/resources/Mobius/photo-12.jpg" alt="Audience at Mobius Conf 2025" loading="lazy" />
                             </div>
-                            <div class="slider-slide" data-type="video">
-                                <iframe src="https://rutube.ru/play/embed/3303dddfb042596ba6649315544eba06/?skinColor=0066cc" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen loading="lazy" title="Mobius Conf 2025 — A11Y talk video"></iframe>
-                            </div>
-                            <div class="slider-slide" data-type="video">
-                                <iframe src="https://rutube.ru/play/embed/1b79d36f39bcbe305c15fb5e18c407ca/?r=wd" allow="clipboard-write; autoplay" webkitAllowFullScreen mozallowfullscreen allowFullScreen loading="lazy" title="Mobius Conf 2025 — additional video"></iframe>
-                            </div>
                         </div>
                         <div class="slider-arrow slider-arrow-prev" id="slider-prev" aria-label="Previous slide">&#8249;</div>
                         <div class="slider-arrow slider-arrow-next" id="slider-next" aria-label="Next slide">&#8250;</div>
@@ -1471,20 +1472,19 @@
                     <!-- Thumbnails -->
                     <div class="slider-thumbs-wrap">
                         <div class="slider-thumbs" id="slider-thumbs">
-                            <div class="slider-thumb active" data-index="0"><img src="/resources/Mobius/photo-1.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="1"><img src="/resources/Mobius/photo-2.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="2"><img src="/resources/Mobius/photo-3.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="3"><img src="/resources/Mobius/photo-4.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="4"><img src="/resources/Mobius/photo-5.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="5"><img src="/resources/Mobius/photo-6.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="6"><img src="/resources/Mobius/photo-7.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="7"><img src="/resources/Mobius/photo-8.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="8"><img src="/resources/Mobius/photo-9.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="9"><img src="/resources/Mobius/photo-10.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="10"><img src="/resources/Mobius/photo-11.webp" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb" data-index="11"><img src="/resources/Mobius/photo-12.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb slider-thumb-video" data-index="12"><img src="/resources/Mobius/photo-1.jpg" alt="" loading="lazy" /></div>
-                            <div class="slider-thumb slider-thumb-video" data-index="13"><img src="/resources/Mobius/photo-2.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb slider-thumb-video active" data-index="0"><img src="/resources/Mobius/mobius-preview.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="1"><img src="/resources/Mobius/photo-1.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="2"><img src="/resources/Mobius/photo-2.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="3"><img src="/resources/Mobius/photo-3.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="4"><img src="/resources/Mobius/photo-4.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="5"><img src="/resources/Mobius/photo-5.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="6"><img src="/resources/Mobius/photo-6.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="7"><img src="/resources/Mobius/photo-7.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="8"><img src="/resources/Mobius/photo-8.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="9"><img src="/resources/Mobius/photo-9.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="10"><img src="/resources/Mobius/photo-10.jpg" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="11"><img src="/resources/Mobius/photo-11.webp" alt="" loading="lazy" /></div>
+                            <div class="slider-thumb" data-index="12"><img src="/resources/Mobius/photo-12.jpg" alt="" loading="lazy" /></div>
                         </div>
                         <div class="thumb-arrow thumb-arrow-prev" id="thumb-prev" aria-label="Scroll thumbnails left">&#8249;</div>
                         <div class="thumb-arrow thumb-arrow-next" id="thumb-next" aria-label="Scroll thumbnails right">&#8250;</div>
