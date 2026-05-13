@@ -24,8 +24,8 @@ var DATA = {
     title: "Marathon participant",
     desc: "Kazan National Half-Marathon as part of the MWS team. Balancing work and an active lifestyle.",
     slides: [
-      { cls: "gradient-radial-1", img: "/resources/marathon-2.jpg", l: "Kazan National Half-Marathon (TIMERMAN)" },
-      { cls: "gradient-radial-2", img: "/resources/marathon-1.jpg", l: "Kazan National Half-Marathon (TIMERMAN)" },
+      { cls: "gradient-radial-1", img: "/resources/marathon-1.webp", l: "Kazan National Half-Marathon (TIMERMAN)" },
+      { cls: "gradient-radial-2", img: "/resources/marathon-2.webp", l: "Kazan National Half-Marathon (TIMERMAN)" },
       { cls: "gradient-radial-3", img: "/resources/marathon-participant.jpg", l: "MWS team · finish line" },
     ],
   },

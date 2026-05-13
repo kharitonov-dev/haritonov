@@ -50,12 +50,12 @@ var DATA = {
     slides: [
       {
         cls: "gradient-radial-1",
-        img: "/resources/marathon-2.jpg",
+        img: "/resources/marathon-1.webp",
         l: "Казанский национальный полумарафон (TIMERMAN)",
       },
       {
         cls: "gradient-radial-2",
-        img: "/resources/marathon-1.jpg",
+        img: "/resources/marathon-2.webp",
         l: "Казанский национальный полумарафон (TIMERMAN)",
       },
       {
